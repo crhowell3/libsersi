@@ -4,7 +4,7 @@
     height="30"
     width="0px"
   />
-  💎 Open DIS v6 (IEEE 1287.1-1997)
+  💎 Open DIS v6 (IEEE 1287.1a-1998)
   <img
     src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png"
     height="30"
@@ -49,15 +49,35 @@
 &nbsp;
 
 ## 💭 About
-C++ implementation of the IEEE 1278.1-1997 Distributed Interactive Simulation (DIS) application protocol. This library was implemented according to the IEEE Std 1278.1-1997 publication.
+C++ implementation of the IEEE 1278.1a-1998 Distributed Interactive Simulation (DIS) application protocol. This library was implemented according to the IEEE Std 1278.1a-1998 publication.
 
 ## 📕 Documentation
 
 ## 🔰 Getting Started
-### Installation
+This library can be manually built and installed with CMake and make tools, or it can be imported
+from the Conan Center.
+### Building from Source
+To build from source, CMake 3.22+ is required. On Linux, run the following commands to build and install:
+```bash
+mkdir build
+cd build
+cmake ..
+make
+```
+To build Linux package files, run
+```bash
+make package
+```
+To install the library into your `CMAKE_INSTALL_PREFIX`, run
+```
+make install
+```
+
+### Importing with Conan
+Conan 2.x is required to import this library.
 
 <p align="center">
-  Copyright &copy; 2023-present
+  Copyright &copy; 2024-present
   <a href="https://github.com/crhowell3" target="_blank">Cameron Howell</a>
 </p>
 <p align="center">
