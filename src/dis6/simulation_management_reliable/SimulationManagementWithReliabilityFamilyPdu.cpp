@@ -6,9 +6,6 @@ SimulationManagementWithReliabilityFamilyPdu::
   SetProtocolFamily(10);
 }
 
-SimulationManagementWithReliabilityFamilyPdu::
-    ~SimulationManagementWithReliabilityFamilyPdu() = default;
-
 EntityID&
 SimulationManagementWithReliabilityFamilyPdu::GetOriginatingEntityId() {
   return originating_entity_id_;

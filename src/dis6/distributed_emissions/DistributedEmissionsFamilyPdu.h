@@ -11,7 +11,7 @@ class DistributedEmissionsFamilyPdu : public Pdu {
  private:
  public:
   DistributedEmissionsFamilyPdu();
-  ~DistributedEmissionsFamilyPdu() override;
+  ~DistributedEmissionsFamilyPdu() override = default;
 
   void Marshal(DataStream& data_stream) const override;
   void Unmarshal(DataStream& data_stream) override;

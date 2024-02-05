@@ -12,7 +12,7 @@ namespace dis {
 class EntityManagementFamilyPdu : public Pdu {
  public:
   EntityManagementFamilyPdu();
-  ~EntityManagementFamilyPdu() override;
+  ~EntityManagementFamilyPdu() override = default;
 
   void Marshal(DataStream& data_stream) const override;
   void Unmarshal(DataStream& data_stream) override;

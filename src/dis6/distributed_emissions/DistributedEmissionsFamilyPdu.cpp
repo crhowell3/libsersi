@@ -5,8 +5,6 @@ DistributedEmissionsFamilyPdu::DistributedEmissionsFamilyPdu() {
   SetProtocolFamily(6);
 }
 
-DistributedEmissionsFamilyPdu::~DistributedEmissionsFamilyPdu() = default;
-
 void DistributedEmissionsFamilyPdu::Marshal(DataStream& data_stream) const {
   Pdu::Marshal(data_stream);
 }

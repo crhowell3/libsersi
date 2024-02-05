@@ -11,7 +11,7 @@ namespace dis {
 class LogisticsFamilyPdu : public Pdu {
  public:
   LogisticsFamilyPdu();
-  ~LogisticsFamilyPdu() override;
+  ~LogisticsFamilyPdu() override = default;
 
   void Marshal(DataStream& data_stream) const override;
   void Unmarshal(DataStream& data_stream) override;

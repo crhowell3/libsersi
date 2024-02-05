@@ -5,8 +5,6 @@ SyntheticEnvironmentFamilyPdu::SyntheticEnvironmentFamilyPdu() {
   SetProtocolFamily(9);
 }
 
-SyntheticEnvironmentFamilyPdu::~SyntheticEnvironmentFamilyPdu() = default;
-
 void SyntheticEnvironmentFamilyPdu::Marshal(DataStream& data_stream) const {
   Pdu::Marshal(data_stream);  // Marshal information in superclass first
 }

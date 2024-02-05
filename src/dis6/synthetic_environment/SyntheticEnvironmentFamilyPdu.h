@@ -9,10 +9,9 @@ namespace dis {
 // Section 5.3.11: Abstract superclass for synthetic environment PDUs
 
 class SyntheticEnvironmentFamilyPdu : public Pdu {
- private:
  public:
   SyntheticEnvironmentFamilyPdu();
-  ~SyntheticEnvironmentFamilyPdu() override;
+  ~SyntheticEnvironmentFamilyPdu() override = default;
 
   void Marshal(DataStream& data_stream) const override;
   void Unmarshal(DataStream& data_stream) override;

@@ -3,8 +3,6 @@
 namespace dis {
 EntityManagementFamilyPdu::EntityManagementFamilyPdu() { SetProtocolFamily(7); }
 
-EntityManagementFamilyPdu::~EntityManagementFamilyPdu() = default;
-
 void EntityManagementFamilyPdu::Marshal(DataStream& data_stream) const {
   Pdu::Marshal(data_stream);  // Marshal information in superclass first
 }

@@ -11,7 +11,7 @@ namespace dis {
 class MinefieldFamilyPdu : public Pdu {
  public:
   MinefieldFamilyPdu();
-  ~MinefieldFamilyPdu() override;
+  ~MinefieldFamilyPdu() override = default;
 
   void Marshal(DataStream& data_stream) const override;
   void Unmarshal(DataStream& data_stream) override;

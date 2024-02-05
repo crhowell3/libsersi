@@ -19,7 +19,7 @@ class SimulationManagementWithReliabilityFamilyPdu : public Pdu {
 
  public:
   SimulationManagementWithReliabilityFamilyPdu();
-  ~SimulationManagementWithReliabilityFamilyPdu() override;
+  ~SimulationManagementWithReliabilityFamilyPdu() override = default;
 
   void Marshal(DataStream& data_stream) const override;
   void Unmarshal(DataStream& data_stream) override;

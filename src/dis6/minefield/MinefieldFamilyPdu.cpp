@@ -5,8 +5,6 @@
 namespace dis {
 MinefieldFamilyPdu::MinefieldFamilyPdu() { SetProtocolFamily(8); }
 
-MinefieldFamilyPdu::~MinefieldFamilyPdu() = default;
-
 void MinefieldFamilyPdu::Marshal(DataStream& data_stream) const {
   Pdu::Marshal(data_stream);
 }

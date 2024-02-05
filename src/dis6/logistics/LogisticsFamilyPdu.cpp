@@ -3,8 +3,6 @@
 namespace dis {
 LogisticsFamilyPdu::LogisticsFamilyPdu() { SetProtocolFamily(3); }
 
-LogisticsFamilyPdu::~LogisticsFamilyPdu() = default;
-
 void LogisticsFamilyPdu::Marshal(DataStream& data_stream) const {
   Pdu::Marshal(data_stream);
 }
