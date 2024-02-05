@@ -2,7 +2,7 @@
 
 namespace dis {
 EntityType::EntityType()
-    : _entityKind(0),
+    : entity_kind_(0),
       domain_(0),
       country_(0),
       category_(0),
@@ -10,11 +10,9 @@ EntityType::EntityType()
       specific_(0),
       extra_(0) {}
 
-EntityType::~EntityType() = default;
+uint8_t EntityType::GetEntityKind() const { return entity_kind_; }
 
-uint8_t EntityType::GetEntityKind() { return GetEntityKind; }
-
-void EntityType::SetEntityKind(uint8_t value) { _entityKind = value; }
+void EntityType::SetEntityKind(uint8_t value) { entity_kind_ = value; }
 
 uint8_t EntityType::GetDomain() const { return domain_; }
 
@@ -63,43 +61,38 @@ void EntityType::Unmarshal(DataStream& data_stream) {
 bool EntityType::operator==(const EntityType& rhs) const {
   bool ivars_equal = true;
 
-  if (!(GetEntityKind == rhs.entity_kind_)) {
+  if (!(entity_kind_ == rhs.entity_kind_)) {
     ivars_equal = false;
   }
-  if (!(_domain == rhs.domain_)) {
+  if (!(domain_ == rhs.domain_)) {
     ivars_equal = false;
   }
-  if (!(_country == rhs.country_)) {
+  if (!(country_ == rhs.country_)) {
     ivars_equal = false;
   }
-  if (!(_category == rhs.category_)) {
+  if (!(category_ == rhs.category_)) {
     ivars_equal = false;
   }
-  if (!(_subcategory == rhs.subcategory_)) {
+  if (!(subcategory_ == rhs.subcategory_)) {
     ivars_equal = false;
   }
-  if (!(_specific == rhs.specific_)) {
+  if (!(specific_ == rhs.specific_)) {
     ivars_equal = false;
   }
-  if (!(_extra == rhs.extra_)) {
+  if (!(extra_ == rhs.extra_)) {
     ivars_equal = false;
   }
 
   return ivars_equal;
 }
 
-int EntityType::GetMarshalledSize() const {
-  int marshal_size = 0;
+std::size_t EntityType::GetMarshalledSize() const {
+  std::size_t marshal_size = sizeof(entity_kind_) + sizeof(domain_) +
+                             sizeof(country_) + sizeof(category_) +
+                             sizeof(subcategory_) + sizeof(specific_) +
+                             sizeof(extra_);
 
-  marshal_size = marshal_size + 1;  // _entityKind
-  marshal_size = marshal_size + 1;  // _domain
-  marshal_size = marshal_size + 2;  // _country
-  marshal_size = marshal_size + 1;  // _category
-  marshal_size = marshal_size + 1;  // _subcategory
-  marshal_size = marshal_size + 1;  // _specific
-  marshal_size = marshal_size + 1;  // _extra
   return marshal_size;
 }
 
 }  // namespace dis
-

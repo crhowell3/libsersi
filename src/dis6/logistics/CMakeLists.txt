@@ -20,12 +20,6 @@ set(logistics_src
   SupplyQuantity.cpp
 )
 
-list(TRANSFORM logistics_src PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
-
-include(GenerateExportHeader)
-generate_export_header(OpenDIS6)
-list(APPEND logistics_hdr "${CMAKE_CURRENT_BINARY_DIR}/opendis6_export.h")
-
 target_sources(OpenDIS6 PRIVATE ${logistics_src})
 
 install(FILES ${logistics_hdr}

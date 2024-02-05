@@ -34,12 +34,6 @@ set(simulation_management_with_reliability_src
   StopFreezeReliablePdu.cpp
 )
 
-list(TRANSFORM simulation_management_with_reliability_src PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
-
-include(GenerateExportHeader)
-generate_export_header(OpenDIS6)
-list(APPEND simulation_management_with_reliability_hdr "${CMAKE_CURRENT_BINARY_DIR}/opendis6_export.h")
-
 target_sources(OpenDIS6 PRIVATE ${simulation_management_with_reliability_src})
 
 install(FILES ${simulation_management_with_reliability_hdr}

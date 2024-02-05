@@ -1,3 +1,4 @@
+add_subdirectory(common)
 add_subdirectory(utils)
 add_subdirectory(distributed_emissions)
 add_subdirectory(entity_information)

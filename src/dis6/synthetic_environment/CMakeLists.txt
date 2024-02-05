@@ -15,13 +15,6 @@ set(synthetic_environment_src
   PointObjectStatePdu.cpp
   SyntheticEnvironmentFamilyPdu.cpp
 )
-
-list(TRANSFORM synthetic_environment_src PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
-
-include(GenerateExportHeader)
-generate_export_header(OpenDIS6)
-list(APPEND synthetic_environment_hdr "${CMAKE_CURRENT_BINARY_DIR}/opendis6_export.h")
-
 target_sources(OpenDIS6 PRIVATE ${synthetic_environment_src})
 
 install(FILES ${synthetic_environment_hdr}

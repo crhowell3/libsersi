@@ -24,12 +24,6 @@ set(radio_communications_hdr
   TransmitterPdu.h
 )
 
-list(TRANSFORM radio_communications_src PREPEND "${CMAKE_CURRENT_LIST_DIR}/")
-
-include(GenerateExportHeader)
-generate_export_header(OpenDIS6)
-list(APPEND radio_communications_hdr "${CMAKE_CURRENT_BINARY_DIR}/opendis6_export.h")
-
 target_sources(OpenDIS6 PRIVATE ${radio_communications_src})
 
 install(FILES ${radio_communications_hdr}

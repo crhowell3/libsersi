@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstddef>
+
 #include "dis6/utils/DataStream.h"
 
 namespace dis {
@@ -9,33 +11,33 @@ namespace dis {
 class EntityType {
  private:
   /** Kind of entity */
-  uint8_t entity_kind_;  // NOLINT
+  uint8_t entity_kind_;
 
   /** Domain of entity (air, surface, subsurface, space, etc) */
-  uint8_t domain_;  // NOLINT
+  uint8_t domain_;
 
   /** country to which the design of the entity is attributed */
-  uint16_t country_;  // NOLINT
+  uint16_t country_;
 
   /** category of entity */
-  uint8_t category_;  // NOLINT
+  uint8_t category_;
 
   /** subcategory of entity */
-  uint8_t subcategory_;  // NOLINT
+  uint8_t subcategory_;
 
   /** specific info based on subcategory field */
-  uint8_t specific_;  // NOLINT
+  uint8_t specific_;
 
-  uint8_t extra_;  // NOLINT
+  uint8_t extra_;
 
  public:
   EntityType();
-  virtual ~EntityType();
+  ~EntityType() = default;
 
-  virtual void Marshal(DataStream& data_stream) const;
-  virtual void Unmarshal(DataStream& data_stream);
+  void Marshal(DataStream& data_stream) const;
+  void Unmarshal(DataStream& data_stream);
 
-  [[nodiscard]] static uint8_t GetEntityKind();
+  [[nodiscard]] uint8_t GetEntityKind() const;
   void SetEntityKind(uint8_t value);
 
   [[nodiscard]] uint8_t GetDomain() const;
@@ -56,9 +58,8 @@ class EntityType {
   [[nodiscard]] uint8_t GetExtra() const;
   void SetExtra(uint8_t value);
 
-  [[nodiscard]] virtual int GetMarshalledSize() const;
+  [[nodiscard]] std::size_t GetMarshalledSize() const;
 
   bool operator==(const EntityType& rhs) const;
 };
 }  // namespace dis
-
