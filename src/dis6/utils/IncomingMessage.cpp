@@ -6,7 +6,7 @@
 #include "dis6/entity_information/EntityStatePdu.h"
 #include "dis6/utils/DataStream.h"
 #include "dis6/utils/IPacketProcessor.h"
-#include "dis6/utils/PDUBank.h"
+#include "dis6/utils/PduBank.h"
 
 namespace dis {
 // the DIS specification says the type is known for all PDUs at the 3rd byte of
@@ -26,11 +26,11 @@ void IncomingMessage::Process(const char* buf, uint32_t size, Endian e) {
 
   while (ds.GetReadPos() < ds.Size()) {
     uint8_t pdu_type = ds[kPduTypePosition];
-    SwitchOnType(static_cast<PDUType>(pdu_type), ds);
+    SwitchOnType(static_cast<PduType>(pdu_type), ds);
   }
 }
 
-void IncomingMessage::SwitchOnType(PDUType pdu_type, DataStream& ds) {
+void IncomingMessage::SwitchOnType(PduType pdu_type, DataStream& ds) {
   Pdu* pdu = nullptr;
 
   PduBankContainer::iterator container_iter;

@@ -6,7 +6,7 @@
 #include "dis6/utils/Endian.h"            // for internal type
 #include "dis6/utils/IBufferProcessor.h"  // for base class
 #include "dis6/utils/IPduBank.h"
-#include "dis6/utils/PDUType.h"
+#include "dis6/utils/PduType.h"
 
 namespace dis {
 class Pdu;
@@ -64,7 +64,7 @@ class IncomingMessage : public IBufferProcessor {
       std::pair<PduBankContainer::iterator, PduBankContainer::iterator>;
   PduBankContainer pdu_banks_;
 
-  void SwitchOnType(PDUType pdu_type, DataStream& ds);
+  void SwitchOnType(PduType pdu_type, DataStream& ds);
 
   /// Searches the proccesor container multimap for a matching container and
   /// returns the iterator

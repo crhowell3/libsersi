@@ -1,6 +1,8 @@
 #ifndef _dcl_dis_i_buffer_processor_h_
 #define _dcl_dis_i_buffer_processor_h_
 
+#include <cstdint>
+
 #include "dis6/utils/Endian.h"
 
 namespace dis {

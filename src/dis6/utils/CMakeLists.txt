@@ -9,8 +9,8 @@ set(utils_hdr
   IPduBank.h
   Masks.h
   PacketFactory.h
-  PDUBank.h
-  PDUType.h
+  PduBank.h
+  PduType.h
 )
 
 # Create list of all source files
@@ -19,8 +19,10 @@ set(utils_src
   DataStream.cpp
   IncomingMessage.cpp
   PacketFactory.cpp
-  PDUBank.cpp
+  PduBank.cpp
 )
+
+target_sources(OpenDIS6 PRIVATE ${utils_src})
 
 install(FILES ${utils_hdr}
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dis6/utils)
