@@ -13,7 +13,7 @@ class CreateEntityPdu final : public SimulationManagementFamilyPdu {
 
  public:
   CreateEntityPdu();
-  ~CreateEntityPdu() final;
+  ~CreateEntityPdu() final = default;
 
   void Marshal(DataStream& data_stream) const final;
   void Unmarshal(DataStream& data_stream) final;

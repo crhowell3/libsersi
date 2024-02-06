@@ -30,7 +30,7 @@ class StopFreezeReliablePdu final
 
  public:
   StopFreezeReliablePdu();
-  ~StopFreezeReliablePdu() final;
+  ~StopFreezeReliablePdu() final = default;
 
   void Marshal(DataStream& data_stream) const final;
   void Unmarshal(DataStream& data_stream) final;
