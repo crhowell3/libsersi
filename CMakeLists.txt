@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
 project(OpenDIS VERSION 0.1.0)
 
 # Build options
