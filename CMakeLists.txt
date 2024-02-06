@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.22)
 project(OpenDIS VERSION 0.1.0)
 
 # Build options
-option(BUILD_SHARED_LIBS "build shared libraries" ON)
+option(BUILD_SHARED_LIBS "Build and link as shared library" ON)
 option(BUILD_EXAMPLES "build example sender/receiver applications" OFF)
 option(BUILD_TESTS "build unit tests" OFF)
 
@@ -12,6 +12,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+if(BUILD_SHARED_LIBS)
+  set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+endif()
 
 # include GNUInstallDirs Module to get more generic directory handling
 include(GNUInstallDirs)

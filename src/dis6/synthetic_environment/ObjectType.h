@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 #include "dis6/utils/DataStream.h"
 
 namespace dis {
@@ -25,7 +27,7 @@ class ObjectType {
 
  public:
   ObjectType();
-  ~ObjectType();
+  ~ObjectType() = default;
 
   void Marshal(DataStream& data_stream) const;
   void Unmarshal(DataStream& data_stream);

@@ -41,3 +41,4 @@ class AcousticEmitter {
 };
 }  // namespace dis
 
+#endif  // DIS6_DISTRIBUTED_EMISSIONS_ACOUSTICEMITTER_H_

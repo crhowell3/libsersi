@@ -27,7 +27,7 @@ class StopFreezePdu final : public SimulationManagementFamilyPdu {
 
  public:
   StopFreezePdu();
-  ~StopFreezePdu() final;
+  ~StopFreezePdu() final = default;
 
   void Marshal(DataStream& data_stream) const final;
   void Unmarshal(DataStream& data_stream) final;

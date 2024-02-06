@@ -28,7 +28,7 @@ class RadioEntityType {
 
  public:
   RadioEntityType();
-  ~RadioEntityType();
+  ~RadioEntityType() = default;
 
   void Marshal(DataStream& data_stream) const;
   void Unmarshal(DataStream& data_stream);

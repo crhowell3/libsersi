@@ -25,7 +25,7 @@ class RemoveEntityReliablePdu final
 
  public:
   RemoveEntityReliablePdu();
-  ~RemoveEntityReliablePdu() final;
+  ~RemoveEntityReliablePdu() final = default;
 
   void Marshal(DataStream& data_stream) const final;
   void Unmarshal(DataStream& data_stream) final;
