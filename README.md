@@ -52,6 +52,7 @@
 C++ implementation of the IEEE 1278.1a-1998 Distributed Interactive Simulation (DIS) application protocol. This library was implemented according to the IEEE Std 1278.1a-1998 publication.
 
 ## 📕 Documentation
+Will add Doxygen documentation in a future patch.
 
 ## 🔰 Getting Started
 This library can be manually built and installed with CMake and make tools, or it can be imported
