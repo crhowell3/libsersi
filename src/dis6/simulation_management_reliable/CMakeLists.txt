@@ -1,4 +1,4 @@
-set(simulation_management_with_reliability_hdr
+set(simulation_management_reliable_hdr
   AcknowledgeReliablePdu.h
   ActionRequestReliablePdu.h
   ActionResponseReliablePdu.h
@@ -16,7 +16,7 @@ set(simulation_management_with_reliability_hdr
   StopFreezeReliablePdu.h
 )
 
-set(simulation_management_with_reliability_src
+set(simulation_management_reliable_src
   AcknowledgeReliablePdu.cpp
   ActionRequestReliablePdu.cpp
   ActionResponseReliablePdu.cpp
@@ -34,8 +34,8 @@ set(simulation_management_with_reliability_src
   StopFreezeReliablePdu.cpp
 )
 
-target_sources(OpenDIS6 PRIVATE ${simulation_management_with_reliability_src})
+target_sources(OpenDIS6 PRIVATE ${simulation_management_reliable_src})
 
-install(FILES ${simulation_management_with_reliability_hdr}
-  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dis6/simulation_management_with_reliability
+install(FILES ${simulation_management_reliable_hdr}
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dis6/simulation_management_reliable
 )
