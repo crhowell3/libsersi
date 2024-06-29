@@ -4,27 +4,14 @@
     height="30"
     width="0px"
   />
-  💎 libdis6
+   libdis6</br>
+   (IEEE 1278.1a-1998)
   <img
     src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png"
     height="30"
     width="0px"
   />
 </h1>
-<h2>
-  <img
-    src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png"
-    height="30"
-    width="0px"
-  />
-  IEEE 1278.1a-1998
-  <img
-    src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png"
-    height="30"
-    width="0px"
-  />
-</h2>
-
 
 <p align="center">
   <a href="https://github.com/crhowell3/libdis6/stargazers">
