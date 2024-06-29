@@ -1,18 +1,18 @@
-set(OPENDIS_PACKAGE_DIR "${CMAKE_INSTALL_LIBDIR}/cmake/OpenDIS")
+set(LIBDIS6_PACKAGE_DIR "${CMAKE_INSTALL_LIBDIR}/cmake/libdis6")
 
 include(CMakePackageConfigHelpers)
 
 configure_package_config_file(
-  OpenDISConfig.cmake.in
-  ${CMAKE_CURRENT_BINARY_DIR}/OpenDISConfig.cmake
-  INSTALL_DESTINATION ${OPENDIS_PACKAGE_DIR}
+  libdis6-config.cmake.in
+  ${CMAKE_CURRENT_BINARY_DIR}/libdis6-config.cmake
+  INSTALL_DESTINATION ${LIBDIS6_PACKAGE_DIR}
 )
 
 write_basic_package_version_file(
-  "${CMAKE_CURRENT_BINARY_DIR}/OpenDISConfigVersion.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/libdis6-config-version.cmake"
   VERSION "${PROJECT_VERSION_FULL}"
   COMPATIBILITY SameMajorVersion)
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/OpenDISConfig.cmake
-              ${CMAKE_CURRENT_BINARY_DIR}/OpenDISConfigVersion.cmake
-        DESTINATION ${OPENDIS_PACKAGE_DIR})
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libdis6-config.cmake
+              ${CMAKE_CURRENT_BINARY_DIR}/libdis6-config-version.cmake
+        DESTINATION ${LIBDIS6_PACKAGE_DIR})

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(OpenDIS VERSION 0.1.0)
+project(libdis6 VERSION 0.1.0)
 
 # Build options
 option(BUILD_SHARED_LIBS "Build and link as shared library" ON)
@@ -21,7 +21,7 @@ endif()
 include(GNUInstallDirs)
 
 # Define OpenDIS6 Library
-add_library(OpenDIS6 "")
+add_library(libdis6 "")
 
 # Add src/ to the include directories to OpenDIS6
 target_include_directories(OpenDIS6
@@ -50,20 +50,20 @@ if(BUILD_TESTS)
 endif()
 
 # Configure install target (i.e. what files to install)
-install(TARGETS OpenDIS6
+install(TARGETS libdis6
         EXPORT OpenDISTargets
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
         ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
 install(EXPORT OpenDISTargets
         NAMESPACE OpenDIS::
-        DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/OpenDIS")
+        DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/libdis6")
 
 # configure package target (i.e. Package Types, and meta data)
 set(CPACK_GENERATOR "DEB" "RPM" "TXZ" "TGZ")
 set(CPACK_PACKAGE_VERSION ${PROJECT_VERSION})
-set(CPACK_PACKAGE_NAME "OpenDis")
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "The open DIS cpp library")
+set(CPACK_PACKAGE_NAME "libdis6")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "The library")
 set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}.${CMAKE_SYSTEM_PROCESSOR}")
 set(CPACK_PACKAGE_RPM_DIR "${CMAKE_CURRENT_BINARY_DIR}/_CPack_Packages/Linux/RPM")
 set(CPACK_DEBIAN_PACKAGE_MAINTAINER "Cameron Howell <crhowell3@gmail.com>")

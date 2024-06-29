@@ -1,6 +1,6 @@
 @PACKAGE_INIT@
 
-include(${CMAKE_CURRENT_LIST_DIR}/OpenDISTargets.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/libdis6Targets.cmake)
 
 ## Add target aliases
 add_library(OpenDIS::DIS6 ALIAS OpenDIS::OpenDIS6)
