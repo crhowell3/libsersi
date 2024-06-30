@@ -30,7 +30,7 @@ set(common_hdr
   Vector3Float.h
 )
 
-target_sources(libdis6 PRIVATE ${common_src})
+target_sources(dis6 PRIVATE ${common_src})
 
 install(FILES ${common_hdr}
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libdis6/common

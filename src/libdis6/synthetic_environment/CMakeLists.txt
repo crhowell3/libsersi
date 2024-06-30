@@ -29,7 +29,7 @@ set(synthetic_environment_src
   PointObjectStatePdu.cpp
   SyntheticEnvironmentFamilyPdu.cpp
 )
-target_sources(libdis6 PRIVATE ${synthetic_environment_src})
+target_sources(dis6 PRIVATE ${synthetic_environment_src})
 
 install(FILES ${synthetic_environment_hdr}
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libdis6/synthetic_environment

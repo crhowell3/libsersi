@@ -20,7 +20,7 @@ set(logistics_src
   SupplyQuantity.cpp
 )
 
-target_sources(libdis6 PRIVATE ${logistics_src})
+target_sources(dis6 PRIVATE ${logistics_src})
 
 install(FILES ${logistics_hdr}
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libdis6/logistics

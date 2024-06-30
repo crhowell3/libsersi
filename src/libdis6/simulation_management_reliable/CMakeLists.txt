@@ -34,7 +34,7 @@ set(simulation_management_reliable_src
   StopFreezeReliablePdu.cpp
 )
 
-target_sources(libdis6 PRIVATE ${simulation_management_reliable_src})
+target_sources(dis6 PRIVATE ${simulation_management_reliable_src})
 
 install(FILES ${simulation_management_reliable_hdr}
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libdis6/simulation_management_reliable
