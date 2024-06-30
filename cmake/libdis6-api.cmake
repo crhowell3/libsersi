@@ -15,6 +15,10 @@ macro(libdis6_project_defaults)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 
   set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+  if(BUILD_SHARED_LIBS)
+    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+  endif()
   
   # Use GNU installation directories
   include(GNUInstallDirs)
