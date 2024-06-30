@@ -1,5 +1,13 @@
 cmake_minimum_required(VERSION 3.22)
-project(libdis6 VERSION 0.1.0)
+
+project(libdis6
+  VERSION 0.1.0
+  LANGUAGES CXX
+)
+
+include(${CMAKE_SOURCE_DIR}/cmake/libdis6-api.cmake)
+
+libdis6_project_defaults()
 
 # Build options
 option(BUILD_SHARED_LIBS "Build and link as shared library" ON)
