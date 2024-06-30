@@ -1,1 +1,1 @@
-add_subdirectory(dis6)
+add_subdirectory(libdis6)
