@@ -1,4 +1,4 @@
-#include "dis6/radio_communications/TransmitterPdu.h"
+#include "libdis6/radio_communications/TransmitterPdu.h"
 
 namespace dis {
 TransmitterPdu::TransmitterPdu()

@@ -3,7 +3,7 @@
 
 #include <cstdint>
 
-#include "dis6/utils/Endian.h"
+#include "libdis6/utils/Endian.h"
 
 namespace dis {
 /// the interface class for handling read operations.

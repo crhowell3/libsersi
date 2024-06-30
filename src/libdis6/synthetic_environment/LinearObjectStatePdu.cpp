@@ -1,4 +1,4 @@
-#include "dis6/synthetic_environment/LinearObjectStatePdu.h"
+#include "libdis6/synthetic_environment/LinearObjectStatePdu.h"
 
 namespace dis {
 LinearObjectStatePdu::LinearObjectStatePdu()

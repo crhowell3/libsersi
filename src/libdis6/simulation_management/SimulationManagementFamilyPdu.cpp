@@ -1,4 +1,4 @@
-#include "dis6/simulation_management/SimulationManagementFamilyPdu.h"
+#include "libdis6/simulation_management/SimulationManagementFamilyPdu.h"
 
 namespace dis {
 SimulationManagementFamilyPdu::SimulationManagementFamilyPdu() {

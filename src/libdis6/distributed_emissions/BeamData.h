@@ -1,6 +1,6 @@
 #pragma once
 
-#include "dis6/utils/DataStream.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.2.39. Specification of the data necessary to  describe the scan

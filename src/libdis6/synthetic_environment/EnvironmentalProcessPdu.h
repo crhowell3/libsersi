@@ -2,11 +2,11 @@
 
 #include <vector>
 
-#include "dis6/common/EntityID.h"
-#include "dis6/common/EntityType.h"
-#include "dis6/synthetic_environment/Environment.h"
-#include "dis6/synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/EntityID.h"
+#include "libdis6/common/EntityType.h"
+#include "libdis6/synthetic_environment/Environment.h"
+#include "libdis6/synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.11.1: Information about environmental effects and processes. This

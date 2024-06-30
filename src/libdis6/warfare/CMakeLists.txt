@@ -12,8 +12,8 @@ set(warfare_src
   WarfareFamilyPdu.cpp
 )
 
-target_sources(OpenDIS6 PRIVATE ${warfare_src})
+target_sources(libdis6 PRIVATE ${warfare_src})
 
 install(FILES ${warfare_hdr}
-  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dis6/warfare
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libdis6/warfare
 )

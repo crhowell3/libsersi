@@ -1,4 +1,4 @@
-#include "dis6/radio_communications/IntercomCommunicationsParameters.h"
+#include "libdis6/radio_communications/IntercomCommunicationsParameters.h"
 
 namespace dis {
 IntercomCommunicationsParameters::IntercomCommunicationsParameters()

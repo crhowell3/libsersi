@@ -1,4 +1,4 @@
-#include "dis6/common/RecordSet.h"
+#include "libdis6/common/RecordSet.h"
 
 namespace dis {
 RecordSet::RecordSet()

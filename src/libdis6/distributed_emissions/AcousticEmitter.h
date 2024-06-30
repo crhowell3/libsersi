@@ -1,9 +1,9 @@
-#ifndef DIS6_DISTRIBUTED_EMISSIONS_ACOUSTICEMITTER_H_
-#define DIS6_DISTRIBUTED_EMISSIONS_ACOUSTICEMITTER_H_
+#ifndef LIBDIS6_DISTRIBUTED_EMISSIONS_ACOUSTICEMITTER_H_
+#define LIBDIS6_DISTRIBUTED_EMISSIONS_ACOUSTICEMITTER_H_
 
 #include <cstdint>
 
-#include "dis6/utils/DataStream.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.2.35. information about a specific UA emmtter
@@ -41,4 +41,4 @@ class AcousticEmitter {
 };
 }  // namespace dis
 
-#endif  // DIS6_DISTRIBUTED_EMISSIONS_ACOUSTICEMITTER_H_
+#endif  // LIBDIS6_DISTRIBUTED_EMISSIONS_ACOUSTICEMITTER_H_

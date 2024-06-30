@@ -1,4 +1,4 @@
-#include "dis6/entity_management/AggregateStatePdu.h"
+#include "libdis6/entity_management/AggregateStatePdu.h"
 
 namespace dis {
 AggregateStatePdu::AggregateStatePdu()

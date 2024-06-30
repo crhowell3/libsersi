@@ -1,4 +1,4 @@
-#include "dis6/minefield/MinefieldResponseNackPdu.h"
+#include "libdis6/minefield/MinefieldResponseNackPdu.h"
 
 namespace dis {
 MinefieldResponseNackPdu::MinefieldResponseNackPdu()

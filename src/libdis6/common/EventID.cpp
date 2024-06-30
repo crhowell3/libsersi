@@ -1,4 +1,4 @@
-#include "dis6/common/EventID.h"
+#include "libdis6/common/EventID.h"
 
 namespace dis {
 EventID::EventID() : site_(0), application_(0), event_number_(0) {}

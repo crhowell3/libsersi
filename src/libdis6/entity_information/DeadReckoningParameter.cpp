@@ -1,4 +1,4 @@
-#include "dis6/entity_information/DeadReckoningParameter.h"
+#include "libdis6/entity_information/DeadReckoningParameter.h"
 
 namespace dis {
 DeadReckoningParameter::DeadReckoningParameter()

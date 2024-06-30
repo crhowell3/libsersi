@@ -1,8 +1,8 @@
 #pragma once
 
-#include "dis6/common/Orientation.h"
-#include "dis6/common/Vector3Double.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/Orientation.h"
+#include "libdis6/common/Vector3Double.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // 5.2.48: Linear segment parameters

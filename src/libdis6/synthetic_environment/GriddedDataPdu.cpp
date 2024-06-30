@@ -1,4 +1,4 @@
-#include "dis6/synthetic_environment/GriddedDataPdu.h"
+#include "libdis6/synthetic_environment/GriddedDataPdu.h"
 
 namespace dis {
 GriddedDataPdu::GriddedDataPdu()

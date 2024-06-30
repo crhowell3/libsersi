@@ -3,8 +3,8 @@
 #include <cstdint>
 #include <vector>
 
-#include "dis6/synthetic_environment/GridAxisRecord.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/synthetic_environment/GridAxisRecord.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // 5.2.44: Grid data record, representation 0

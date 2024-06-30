@@ -1,4 +1,4 @@
-#include "dis6/logistics/ServiceRequestPdu.h"
+#include "libdis6/logistics/ServiceRequestPdu.h"
 
 namespace dis {
 ServiceRequestPdu::ServiceRequestPdu()

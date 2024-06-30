@@ -1,4 +1,4 @@
-#include "dis6/simulation_management/DataPdu.h"
+#include "libdis6/simulation_management/DataPdu.h"
 
 namespace dis {
 DataPdu::DataPdu()

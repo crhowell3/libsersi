@@ -1,4 +1,4 @@
-#include "dis6/distributed_emissions/TrackJamTarget.h"
+#include "libdis6/distributed_emissions/TrackJamTarget.h"
 
 namespace dis {
 

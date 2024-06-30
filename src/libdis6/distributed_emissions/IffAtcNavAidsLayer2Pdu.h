@@ -2,11 +2,11 @@
 
 #include <vector>
 
-#include "dis6/distributed_emissions/BeamData.h"
-#include "dis6/distributed_emissions/FundamentalParameterDataIff.h"
-#include "dis6/distributed_emissions/IffAtcNavAidsLayer1Pdu.h"
-#include "dis6/distributed_emissions/LayerHeader.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/distributed_emissions/BeamData.h"
+#include "libdis6/distributed_emissions/FundamentalParameterDataIff.h"
+#include "libdis6/distributed_emissions/IffAtcNavAidsLayer1Pdu.h"
+#include "libdis6/distributed_emissions/LayerHeader.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.7.4.2 When present, layer 2 should follow layer 1 and have the

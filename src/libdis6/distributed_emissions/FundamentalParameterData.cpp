@@ -1,4 +1,4 @@
-#include "dis6/distributed_emissions/FundamentalParameterData.h"
+#include "libdis6/distributed_emissions/FundamentalParameterData.h"
 
 namespace dis {
 FundamentalParameterData::FundamentalParameterData()

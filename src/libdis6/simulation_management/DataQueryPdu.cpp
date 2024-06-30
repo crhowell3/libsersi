@@ -1,4 +1,4 @@
-#include "dis6/simulation_management/DataQueryPdu.h"
+#include "libdis6/simulation_management/DataQueryPdu.h"
 
 namespace dis {
 DataQueryPdu::DataQueryPdu()

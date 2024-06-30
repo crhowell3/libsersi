@@ -1,4 +1,4 @@
-#include "dis6/simulation_management_reliable/AcknowledgeReliablePdu.h"
+#include "libdis6/simulation_management_reliable/AcknowledgeReliablePdu.h"
 
 namespace dis {
 AcknowledgeReliablePdu::AcknowledgeReliablePdu()

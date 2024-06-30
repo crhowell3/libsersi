@@ -1,6 +1,6 @@
 #pragma once
 
-#include "dis6/utils/DataStream.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // 5.2.42. Basic operational data ofr IFF ATC NAVAIDS

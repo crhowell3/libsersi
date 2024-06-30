@@ -1,4 +1,4 @@
-#include "dis6/logistics/ResupplyReceivedPdu.h"
+#include "libdis6/logistics/ResupplyReceivedPdu.h"
 
 #include <cstddef>
 

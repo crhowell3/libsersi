@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-#include "dis6/utils/DataStream.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // 5.3.35: Information about a particular UA emitter shall be represented using

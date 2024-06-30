@@ -1,4 +1,4 @@
-#include "dis6/distributed_emissions/DistributedEmissionsFamilyPdu.h"
+#include "libdis6/distributed_emissions/DistributedEmissionsFamilyPdu.h"
 
 namespace dis {
 DistributedEmissionsFamilyPdu::DistributedEmissionsFamilyPdu() {

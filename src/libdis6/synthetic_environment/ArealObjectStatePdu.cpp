@@ -1,4 +1,4 @@
-#include "dis6/synthetic_environment/ArealObjectStatePdu.h"
+#include "libdis6/synthetic_environment/ArealObjectStatePdu.h"
 
 #include <cstdint>
 

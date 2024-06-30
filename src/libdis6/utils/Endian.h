@@ -1,5 +1,5 @@
-#ifndef DIS6_UTILS_ENDIAN_H_
-#define DIS6_UTILS_ENDIAN_H_
+#ifndef LIBDIS6_UTILS_ENDIAN_H_
+#define LIBDIS6_UTILS_ENDIAN_H_
 
 namespace dis {
 /// the order of bytes that are on the left
@@ -10,4 +10,4 @@ enum Endian {
 
 }  // namespace dis
 
-#endif  // DIS6_UTILS_ENDIAN_H_
+#endif  // LIBDIS6_UTILS_ENDIAN_H_

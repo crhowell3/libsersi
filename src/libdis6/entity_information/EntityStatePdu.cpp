@@ -1,4 +1,4 @@
-#include "dis6/entity_information/EntityStatePdu.h"
+#include "libdis6/entity_information/EntityStatePdu.h"
 
 namespace dis {
 EntityStatePdu::EntityStatePdu()

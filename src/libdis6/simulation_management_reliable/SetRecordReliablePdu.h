@@ -2,9 +2,9 @@
 
 #include <vector>
 
-#include "dis6/common/RecordSet.h"
-#include "dis6/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/RecordSet.h"
+#include "libdis6/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.12.14: Initializing or changing internal parameter info.

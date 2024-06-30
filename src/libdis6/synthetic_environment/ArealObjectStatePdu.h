@@ -2,12 +2,12 @@
 
 #include <vector>
 
-#include "dis6/common/EntityID.h"
-#include "dis6/common/EntityType.h"
-#include "dis6/common/SimulationAddress.h"
-#include "dis6/common/Vector3Double.h"
-#include "dis6/synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/EntityID.h"
+#include "libdis6/common/EntityType.h"
+#include "libdis6/common/SimulationAddress.h"
+#include "libdis6/common/Vector3Double.h"
+#include "libdis6/synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.11.5: Information about the addition/modification of an oobject

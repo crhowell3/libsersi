@@ -1,10 +1,10 @@
-#ifndef DIS6_DISTRIBUTED_EMISSIONS_ACOUSTICBEAMDATA_H_
-#define DIS6_DISTRIBUTED_EMISSIONS_ACOUSTICBEAMDATA_H_
+#ifndef LIBDIS6_DISTRIBUTED_EMISSIONS_ACOUSTICBEAMDATA_H_
+#define LIBDIS6_DISTRIBUTED_EMISSIONS_ACOUSTICBEAMDATA_H_
 
 #include <cstdint>
 
-#include "dis6/distributed_emissions/AcousticBeamFundamentalParameter.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/distributed_emissions/AcousticBeamFundamentalParameter.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Used in UA PDU
@@ -51,4 +51,4 @@ class AcousticBeamData {
 };
 }  // namespace dis
 
-#endif  // DIS6_DISTRIBUTED_EMISSIONS_ACOUSTICBEAMDATA_H_
+#endif  // LIBDIS6_DISTRIBUTED_EMISSIONS_ACOUSTICBEAMDATA_H_

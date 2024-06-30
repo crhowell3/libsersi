@@ -1,4 +1,4 @@
-#include "dis6/minefield/MinefieldDataPdu.h"
+#include "libdis6/minefield/MinefieldDataPdu.h"
 
 namespace dis {
 MinefieldDataPdu::MinefieldDataPdu()

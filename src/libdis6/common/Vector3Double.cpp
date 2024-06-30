@@ -1,4 +1,4 @@
-#include "dis6/common/Vector3Double.h"
+#include "libdis6/common/Vector3Double.h"
 
 namespace dis {
 Vector3Double::Vector3Double() : x_(0.0), y_(0.0), z_(0.0) {}

@@ -1,4 +1,4 @@
-#include "dis6/synthetic_environment/EnvironmentalProcessPdu.h"
+#include "libdis6/synthetic_environment/EnvironmentalProcessPdu.h"
 
 namespace dis {
 EnvironmentalProcessPdu::EnvironmentalProcessPdu()

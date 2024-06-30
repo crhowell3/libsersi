@@ -1,8 +1,8 @@
 #pragma once
 
-#include "dis6/common/EntityID.h"
-#include "dis6/logistics/LogisticsFamilyPdu.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/EntityID.h"
+#include "libdis6/logistics/LogisticsFamilyPdu.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.2.5.6. Sent after repair complete PDU. COMPLETE

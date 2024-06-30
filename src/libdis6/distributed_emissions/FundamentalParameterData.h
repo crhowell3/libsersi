@@ -1,6 +1,6 @@
 #pragma once
 
-#include "dis6/utils/DataStream.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.2.22. Contains electromagnetic emmision regineratin parameters that

@@ -1,4 +1,4 @@
-#include "dis6/entity_management/AggregateID.h"
+#include "libdis6/entity_management/AggregateID.h"
 
 namespace dis {
 AggregateID::AggregateID() : site_(0), application_(0), aggregate_id_(0) {}

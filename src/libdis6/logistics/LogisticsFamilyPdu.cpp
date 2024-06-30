@@ -1,4 +1,4 @@
-#include "dis6/logistics/LogisticsFamilyPdu.h"
+#include "libdis6/logistics/LogisticsFamilyPdu.h"
 
 namespace dis {
 LogisticsFamilyPdu::LogisticsFamilyPdu() { SetProtocolFamily(3); }

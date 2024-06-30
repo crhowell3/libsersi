@@ -1,4 +1,4 @@
-#include "dis6/common/Vector3Float.h"
+#include "libdis6/common/Vector3Float.h"
 
 namespace dis {
 Vector3Float::Vector3Float() : x_(0.0), y_(0.0), z_(0.0) {}

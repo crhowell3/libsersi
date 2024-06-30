@@ -24,8 +24,8 @@ set(radio_communications_hdr
   TransmitterPdu.h
 )
 
-target_sources(OpenDIS6 PRIVATE ${radio_communications_src})
+target_sources(libdis6 PRIVATE ${radio_communications_src})
 
 install(FILES ${radio_communications_hdr}
-  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dis6/radio_communications
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libdis6/radio_communications
 )

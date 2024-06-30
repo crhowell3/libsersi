@@ -1,4 +1,4 @@
-#include "dis6/warfare/WarfareFamilyPdu.h"
+#include "libdis6/warfare/WarfareFamilyPdu.h"
 
 namespace dis {
 WarfareFamilyPdu::WarfareFamilyPdu() { SetProtocolFamily(2); }

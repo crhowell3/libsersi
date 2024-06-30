@@ -1,4 +1,4 @@
-#include "dis6/entity_information/CollisionPdu.h"
+#include "libdis6/entity_information/CollisionPdu.h"
 
 namespace dis {
 CollisionPdu::CollisionPdu() : collision_type_(0), pad_(0), mass_(0.0) {

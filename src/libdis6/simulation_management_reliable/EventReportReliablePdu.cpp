@@ -1,4 +1,4 @@
-#include "dis6/simulation_management_reliable/EventReportReliablePdu.h"
+#include "libdis6/simulation_management_reliable/EventReportReliablePdu.h"
 
 namespace dis {
 EventReportReliablePdu::EventReportReliablePdu()

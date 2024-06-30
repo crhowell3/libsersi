@@ -1,4 +1,4 @@
-#include "dis6/simulation_management/StopFreezePdu.h"
+#include "libdis6/simulation_management/StopFreezePdu.h"
 
 namespace dis {
 StopFreezePdu::StopFreezePdu()

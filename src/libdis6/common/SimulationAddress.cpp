@@ -1,4 +1,4 @@
-#include "dis6/common/SimulationAddress.h"
+#include "libdis6/common/SimulationAddress.h"
 
 namespace dis {
 SimulationAddress::SimulationAddress() : site_(0), application_(0) {}

@@ -1,4 +1,4 @@
-#include "dis6/common/Orientation.h"
+#include "libdis6/common/Orientation.h"
 
 namespace dis {
 Orientation::Orientation() : psi_(0.0), theta_(0.0), phi_(0.0) {}

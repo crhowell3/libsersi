@@ -2,7 +2,7 @@
 
 #include <array>
 
-#include "dis6/utils/DataStream.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.2.15. Specifies the character set used inthe first byte, followed

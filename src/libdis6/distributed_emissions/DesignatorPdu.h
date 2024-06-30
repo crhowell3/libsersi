@@ -2,11 +2,11 @@
 
 #include <cstdint>
 
-#include "dis6/common/EntityID.h"
-#include "dis6/common/Vector3Double.h"
-#include "dis6/common/Vector3Float.h"
-#include "dis6/distributed_emissions/DistributedEmissionsFamilyPdu.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/EntityID.h"
+#include "libdis6/common/Vector3Double.h"
+#include "libdis6/common/Vector3Float.h"
+#include "libdis6/distributed_emissions/DistributedEmissionsFamilyPdu.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.7.2. Handles designating operations. COMPLETE

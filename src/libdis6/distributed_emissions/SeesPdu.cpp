@@ -1,4 +1,4 @@
-#include "dis6/distributed_emissions/SeesPdu.h"
+#include "libdis6/distributed_emissions/SeesPdu.h"
 
 namespace dis {
 SeesPdu::SeesPdu()

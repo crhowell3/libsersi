@@ -1,4 +1,4 @@
-#include "dis6/entity_information/EntityStateUpdatePdu.h"
+#include "libdis6/entity_information/EntityStateUpdatePdu.h"
 
 namespace dis {
 EntityStateUpdatePdu::EntityStateUpdatePdu()

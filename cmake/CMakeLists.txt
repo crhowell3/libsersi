@@ -20,7 +20,7 @@ write_basic_package_version_file(
 )
 
 export(EXPORT libdis6-targets
-  FILES "${CMAKE_CURRENT_BINARY_DIR}/libdis6-targets.cmake"
+  FILE "${CMAKE_CURRENT_BINARY_DIR}/libdis6-targets.cmake"
   NAMESPACE libdis6::
 )
 

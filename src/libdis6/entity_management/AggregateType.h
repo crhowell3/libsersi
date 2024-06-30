@@ -1,6 +1,6 @@
 #pragma once
 
-#include "dis6/utils/DataStream.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.2.38. Identifies the type of aggregate including kind of entity,

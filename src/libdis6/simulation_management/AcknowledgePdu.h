@@ -3,8 +3,8 @@
 #include <cstddef>
 #include <cstdint>
 
-#include "dis6/simulation_management/SimulationManagementFamilyPdu.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/simulation_management/SimulationManagementFamilyPdu.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.6.5. Acknowledge the receiptof a start/resume, stop/freeze, or

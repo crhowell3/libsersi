@@ -1,4 +1,4 @@
-#include "dis6/synthetic_environment/GridAxisRecordRepresentation0.h"
+#include "libdis6/synthetic_environment/GridAxisRecordRepresentation0.h"
 
 namespace dis {
 GridAxisRecordRepresentation0::GridAxisRecordRepresentation0()

@@ -1,4 +1,4 @@
-#include "dis6/simulation_management_reliable/SetDataReliablePdu.h"
+#include "libdis6/simulation_management_reliable/SetDataReliablePdu.h"
 
 namespace dis {
 SetDataReliablePdu::SetDataReliablePdu()

@@ -3,10 +3,10 @@
 #include <cstddef>
 #include <vector>
 
-#include "dis6/common/EntityID.h"
-#include "dis6/common/VariableDatum.h"
-#include "dis6/entity_management/EntityManagementFamilyPdu.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/EntityID.h"
+#include "libdis6/common/VariableDatum.h"
+#include "libdis6/entity_management/EntityManagementFamilyPdu.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.9.2 Information about a particular group of entities grouped

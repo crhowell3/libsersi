@@ -1,4 +1,4 @@
-#include "dis6/logistics/ResupplyCancelPdu.h"
+#include "libdis6/logistics/ResupplyCancelPdu.h"
 
 namespace dis {
 ResupplyCancelPdu::ResupplyCancelPdu() { SetPduType(8); }

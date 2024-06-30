@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "dis6/utils/DataStream.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.2.18. Identifies a unique event in a simulation via the combination

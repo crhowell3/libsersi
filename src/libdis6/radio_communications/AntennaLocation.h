@@ -2,9 +2,9 @@
 
 #include <cstddef>
 
-#include "dis6/common/Vector3Double.h"
-#include "dis6/common/Vector3Float.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/Vector3Double.h"
+#include "libdis6/common/Vector3Float.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // 5.2.3: location of the radiating portion of the antenna, specified in world

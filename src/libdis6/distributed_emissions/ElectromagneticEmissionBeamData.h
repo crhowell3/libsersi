@@ -2,9 +2,9 @@
 
 #include <vector>
 
-#include "dis6/distributed_emissions/FundamentalParameterData.h"
-#include "dis6/distributed_emissions/TrackJamTarget.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/distributed_emissions/FundamentalParameterData.h"
+#include "libdis6/distributed_emissions/TrackJamTarget.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Description of one electronic emission beam

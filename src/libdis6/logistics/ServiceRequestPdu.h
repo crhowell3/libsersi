@@ -3,10 +3,10 @@
 #include <cstddef>
 #include <vector>
 
-#include "dis6/common/EntityID.h"
-#include "dis6/logistics/LogisticsFamilyPdu.h"
-#include "dis6/logistics/SupplyQuantity.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/EntityID.h"
+#include "libdis6/logistics/LogisticsFamilyPdu.h"
+#include "libdis6/logistics/SupplyQuantity.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.5.1. Information about a request for supplies. COMPLETE

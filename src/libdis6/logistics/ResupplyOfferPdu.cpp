@@ -1,4 +1,4 @@
-#include "dis6/logistics/ResupplyOfferPdu.h"
+#include "libdis6/logistics/ResupplyOfferPdu.h"
 
 namespace dis {
 ResupplyOfferPdu::ResupplyOfferPdu()

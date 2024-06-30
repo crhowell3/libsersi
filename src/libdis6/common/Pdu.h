@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-#include "dis6/utils/DataStream.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // The superclass for all PDUs. This incorporates the PduHeader record,

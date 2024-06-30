@@ -1,4 +1,4 @@
-#include "dis6/simulation_management/EventReportPdu.h"
+#include "libdis6/simulation_management/EventReportPdu.h"
 
 namespace dis {
 

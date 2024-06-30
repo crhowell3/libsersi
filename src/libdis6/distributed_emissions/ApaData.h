@@ -3,7 +3,7 @@
 #include <cstddef>
 #include <cstdint>
 
-#include "dis6/utils/DataStream.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Used in UA PDU

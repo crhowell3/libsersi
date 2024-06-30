@@ -1,4 +1,4 @@
-#include "dis6/synthetic_environment/GridAxisRecord.h"
+#include "libdis6/synthetic_environment/GridAxisRecord.h"
 
 namespace dis {
 GridAxisRecord::GridAxisRecord() : sample_type_(0), data_representation_(0) {}

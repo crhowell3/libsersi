@@ -1,4 +1,4 @@
-#include "dis6/common/VariableDatum.h"
+#include "libdis6/common/VariableDatum.h"
 
 #include <exception>
 #include <iostream>

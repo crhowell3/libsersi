@@ -1,4 +1,4 @@
-#include "dis6/simulation_management/CommentPdu.h"
+#include "libdis6/simulation_management/CommentPdu.h"
 
 namespace dis {
 CommentPdu::CommentPdu()

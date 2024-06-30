@@ -1,5 +1,5 @@
-#ifndef DIS6_UTILS_DATASTREAM_H_
-#define DIS6_UTILS_DATASTREAM_H_
+#ifndef LIBDIS6_UTILS_DATASTREAM_H_
+#define LIBDIS6_UTILS_DATASTREAM_H_
 
 #include <cstdint>
 #include <cstdlib>  // for std::size_t and NULL definition
@@ -7,7 +7,7 @@
 #include <string>   // for typedef, member
 #include <vector>   // for typedef, member
 
-#include "dis6/utils/Endian.h"  // for enum
+#include "libdis6/utils/Endian.h"  // for enum
 
 namespace dis {
 /// a class to support managing a network buffer.
@@ -128,4 +128,4 @@ class DataStream {
 };
 }  // namespace dis
 
-#endif  // DIS6_UTILS_DATASTREAM_H_
+#endif  // LIBDIS6_UTILS_DATASTREAM_H_

@@ -1,4 +1,4 @@
-#include "dis6/synthetic_environment/Environment.h"
+#include "libdis6/synthetic_environment/Environment.h"
 
 namespace dis {
 Environment::Environment()

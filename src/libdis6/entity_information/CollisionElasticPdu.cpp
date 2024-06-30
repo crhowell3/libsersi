@@ -1,4 +1,4 @@
-#include "dis6/entity_information/CollisionElasticPdu.h"
+#include "libdis6/entity_information/CollisionElasticPdu.h"
 
 namespace dis {
 CollisionElasticPdu::CollisionElasticPdu()

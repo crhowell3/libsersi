@@ -1,4 +1,4 @@
-#include "dis6/entity_management/TransferControlRequestPdu.h"
+#include "libdis6/entity_management/TransferControlRequestPdu.h"
 
 namespace dis {
 TransferControlRequestPdu::TransferControlRequestPdu()

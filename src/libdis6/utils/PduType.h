@@ -1,5 +1,5 @@
-#ifndef DIS6_UTILS_PDUTYPE_H_
-#define DIS6_UTILS_PDUTYPE_H_
+#ifndef LIBDIS6_UTILS_PDUTYPE_H_
+#define LIBDIS6_UTILS_PDUTYPE_H_
 
 namespace dis {
 enum PduType {
@@ -55,4 +55,4 @@ enum PduType {
 };
 }
 
-#endif  // DIS6_UTILS_PDUTYPE_H_
+#endif  // LIBDIS6_UTILS_PDUTYPE_H_

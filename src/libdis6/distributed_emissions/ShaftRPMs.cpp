@@ -1,4 +1,4 @@
-#include "dis6/distributed_emissions/ShaftRPMs.h"
+#include "libdis6/distributed_emissions/ShaftRPMs.h"
 
 namespace dis {
 ShaftRPMs::ShaftRPMs()

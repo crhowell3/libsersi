@@ -2,10 +2,10 @@
 
 #include <vector>
 
-#include "dis6/common/EntityID.h"
-#include "dis6/radio_communications/IntercomCommunicationsParameters.h"
-#include "dis6/radio_communications/RadioCommunicationsFamilyPdu.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/EntityID.h"
+#include "libdis6/radio_communications/IntercomCommunicationsParameters.h"
+#include "libdis6/radio_communications/RadioCommunicationsFamilyPdu.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.8.5. Detailed inofrmation about the state of an intercom device

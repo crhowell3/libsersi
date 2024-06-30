@@ -1,15 +1,15 @@
-#ifndef DIS6_WARFARE_FIREPDU_H_
-#define DIS6_WARFARE_FIREPDU_H_
+#ifndef LIBDIS6_WARFARE_FIREPDU_H_
+#define LIBDIS6_WARFARE_FIREPDU_H_
 
 #include <cstddef>
 
-#include "dis6/common/EntityID.h"
-#include "dis6/common/EventID.h"
-#include "dis6/common/Vector3Double.h"
-#include "dis6/common/Vector3Float.h"
-#include "dis6/utils/DataStream.h"
-#include "dis6/warfare/BurstDescriptor.h"
-#include "dis6/warfare/WarfareFamilyPdu.h"
+#include "libdis6/common/EntityID.h"
+#include "libdis6/common/EventID.h"
+#include "libdis6/common/Vector3Double.h"
+#include "libdis6/common/Vector3Float.h"
+#include "libdis6/utils/DataStream.h"
+#include "libdis6/warfare/BurstDescriptor.h"
+#include "libdis6/warfare/WarfareFamilyPdu.h"
 
 namespace dis {
 // Sectioin 5.3.4.1. Information about someone firing something. COMPLETE
@@ -76,4 +76,4 @@ class FirePdu : public WarfareFamilyPdu {
 
 }  // namespace dis
 
-#endif  // DIS6_WARFARE_FIREPDU_H_
+#endif  // LIBDIS6_WARFARE_FIREPDU_H_

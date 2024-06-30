@@ -1,10 +1,10 @@
 #pragma once
 
-#include "dis6/common/EntityID.h"
-#include "dis6/common/EventID.h"
-#include "dis6/common/Vector3Float.h"
-#include "dis6/entity_information/EntityInformationFamilyPdu.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/EntityID.h"
+#include "libdis6/common/EventID.h"
+#include "libdis6/common/Vector3Float.h"
+#include "libdis6/entity_information/EntityInformationFamilyPdu.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // 5.3.3.3. Information about elastic collisions in a DIS exercise shall be

@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "dis6/utils/DataStream.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.2.16. Identifies the type of entity, including kind of entity,

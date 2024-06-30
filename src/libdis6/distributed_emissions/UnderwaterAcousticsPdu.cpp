@@ -1,4 +1,4 @@
-#include "dis6/distributed_emissions/UnderwaterAcousticsPdu.h"
+#include "libdis6/distributed_emissions/UnderwaterAcousticsPdu.h"
 
 namespace dis {
 UnderwaterAcousticsPdu::UnderwaterAcousticsPdu()

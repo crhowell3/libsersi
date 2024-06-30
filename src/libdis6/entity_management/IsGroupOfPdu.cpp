@@ -1,4 +1,4 @@
-#include "dis6/entity_management/IsGroupOfPdu.h"
+#include "libdis6/entity_management/IsGroupOfPdu.h"
 
 namespace dis {
 IsGroupOfPdu::IsGroupOfPdu()

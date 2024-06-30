@@ -1,4 +1,4 @@
-#include "dis6/distributed_emissions/IffAtcNavAidsLayer2Pdu.h"
+#include "libdis6/distributed_emissions/IffAtcNavAidsLayer2Pdu.h"
 
 namespace dis {
 IffAtcNavAidsLayer2Pdu::~IffAtcNavAidsLayer2Pdu() {

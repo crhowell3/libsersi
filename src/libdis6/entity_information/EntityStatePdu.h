@@ -3,16 +3,16 @@
 #include <cstddef>
 #include <vector>
 
-#include "dis6/common/ArticulationParameter.h"
-#include "dis6/common/EntityID.h"
-#include "dis6/common/EntityType.h"
-#include "dis6/common/Orientation.h"
-#include "dis6/common/Vector3Double.h"
-#include "dis6/common/Vector3Float.h"
-#include "dis6/entity_information/DeadReckoningParameter.h"
-#include "dis6/entity_information/EntityInformationFamilyPdu.h"
-#include "dis6/entity_information/Marking.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/ArticulationParameter.h"
+#include "libdis6/common/EntityID.h"
+#include "libdis6/common/EntityType.h"
+#include "libdis6/common/Orientation.h"
+#include "libdis6/common/Vector3Double.h"
+#include "libdis6/common/Vector3Float.h"
+#include "libdis6/entity_information/DeadReckoningParameter.h"
+#include "libdis6/entity_information/EntityInformationFamilyPdu.h"
+#include "libdis6/entity_information/Marking.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.3.1. Represents the postion and state of one entity in the world.

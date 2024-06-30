@@ -1,4 +1,4 @@
-#include "dis6/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
+#include "libdis6/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
 
 namespace dis {
 SimulationManagementWithReliabilityFamilyPdu::

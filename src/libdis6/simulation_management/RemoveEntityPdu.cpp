@@ -1,4 +1,4 @@
-#include "dis6/simulation_management/RemoveEntityPdu.h"
+#include "libdis6/simulation_management/RemoveEntityPdu.h"
 
 namespace dis {
 RemoveEntityPdu::RemoveEntityPdu() : request_id_(0) { SetPduType(12); }

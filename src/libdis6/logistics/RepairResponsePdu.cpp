@@ -1,4 +1,4 @@
-#include "dis6/logistics/RepairResponsePdu.h"
+#include "libdis6/logistics/RepairResponsePdu.h"
 
 namespace dis {
 RepairResponsePdu::RepairResponsePdu()

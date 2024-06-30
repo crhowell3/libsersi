@@ -2,9 +2,9 @@
 
 #include <cstddef>
 
-#include "dis6/common/EntityID.h"
-#include "dis6/logistics/LogisticsFamilyPdu.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/EntityID.h"
+#include "libdis6/logistics/LogisticsFamilyPdu.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.2.5.4. Cancel of resupply by either the receiving or supplying

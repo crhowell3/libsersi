@@ -1,7 +1,7 @@
 #pragma once
 
-#include "dis6/simulation_management/SimulationManagementFamilyPdu.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/simulation_management/SimulationManagementFamilyPdu.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.6.1. Create a new entity. COMPLETE

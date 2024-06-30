@@ -3,13 +3,13 @@
 #include <cstddef>
 #include <vector>
 
-#include "dis6/common/EntityID.h"
-#include "dis6/common/EntityType.h"
-#include "dis6/common/Orientation.h"
-#include "dis6/common/Vector3Double.h"
-#include "dis6/minefield/MinefieldFamilyPdu.h"
-#include "dis6/minefield/Point.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/EntityID.h"
+#include "libdis6/common/EntityType.h"
+#include "libdis6/common/Orientation.h"
+#include "libdis6/common/Vector3Double.h"
+#include "libdis6/minefield/MinefieldFamilyPdu.h"
+#include "libdis6/minefield/Point.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.10.1 Abstract superclass for PDUs relating to minefields.

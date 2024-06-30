@@ -1,7 +1,7 @@
 #pragma once
 
-#include "dis6/common/Pdu.h"
-#include "dis6/utils/PduType.h"
+#include "libdis6/common/Pdu.h"
+#include "libdis6/utils/PduType.h"
 
 namespace dis {
 /// houses instances for the set of known PDU classes to be returned

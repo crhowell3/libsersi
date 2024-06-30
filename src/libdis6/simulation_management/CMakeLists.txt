@@ -30,8 +30,8 @@ set(simulation_management_src
   StopFreezePdu.cpp
 )
 
-target_sources(OpenDIS6 PRIVATE ${simulation_management_src})
+target_sources(libdis6 PRIVATE ${simulation_management_src})
 
 install(FILES ${simulation_management_hdr}
-  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dis6/simulation_management
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libdis6/simulation_management
 )

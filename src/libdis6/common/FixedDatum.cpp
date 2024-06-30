@@ -1,4 +1,4 @@
-#include "dis6/common/FixedDatum.h"
+#include "libdis6/common/FixedDatum.h"
 
 namespace dis {
 FixedDatum::FixedDatum() : fixed_datum_id_(0), fixed_datum_value_(0) {}

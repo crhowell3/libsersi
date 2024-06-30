@@ -1,4 +1,4 @@
-#include "dis6/entity_management/EntityManagementFamilyPdu.h"
+#include "libdis6/entity_management/EntityManagementFamilyPdu.h"
 
 namespace dis {
 EntityManagementFamilyPdu::EntityManagementFamilyPdu() { SetProtocolFamily(7); }

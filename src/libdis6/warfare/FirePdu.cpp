@@ -1,4 +1,4 @@
-#include "dis6/warfare/FirePdu.h"
+#include "libdis6/warfare/FirePdu.h"
 
 namespace dis {
 FirePdu::FirePdu() : fire_mission_index_(0), range_(0.0) { SetPduType(2); }

@@ -2,10 +2,10 @@
 
 #include <vector>
 
-#include "dis6/common/FixedDatum.h"
-#include "dis6/common/VariableDatum.h"
-#include "dis6/simulation_management/SimulationManagementFamilyPdu.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/FixedDatum.h"
+#include "libdis6/common/VariableDatum.h"
+#include "libdis6/simulation_management/SimulationManagementFamilyPdu.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.6.9. Change state information with the data contained in this.

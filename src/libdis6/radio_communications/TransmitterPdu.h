@@ -3,12 +3,12 @@
 #include <cstddef>
 #include <vector>
 
-#include "dis6/common/Vector3Double.h"
-#include "dis6/common/Vector3Float.h"
-#include "dis6/radio_communications/ModulationType.h"
-#include "dis6/radio_communications/RadioCommunicationsFamilyPdu.h"
-#include "dis6/radio_communications/RadioEntityType.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/Vector3Double.h"
+#include "libdis6/common/Vector3Float.h"
+#include "libdis6/radio_communications/ModulationType.h"
+#include "libdis6/radio_communications/RadioCommunicationsFamilyPdu.h"
+#include "libdis6/radio_communications/RadioEntityType.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.8.1. Detailed information about a radio transmitter.

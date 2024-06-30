@@ -1,4 +1,4 @@
-#include "dis6/radio_communications/RadioCommunicationsFamilyPdu.h"
+#include "libdis6/radio_communications/RadioCommunicationsFamilyPdu.h"
 
 namespace dis {
 RadioCommunicationsFamilyPdu::RadioCommunicationsFamilyPdu() : radio_id_(0) {

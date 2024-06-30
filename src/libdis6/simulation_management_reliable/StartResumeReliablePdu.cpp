@@ -1,4 +1,4 @@
-#include "dis6/simulation_management_reliable/StartResumeReliablePdu.h"
+#include "libdis6/simulation_management_reliable/StartResumeReliablePdu.h"
 
 namespace dis {
 StartResumeReliablePdu::StartResumeReliablePdu()

@@ -1,4 +1,4 @@
-#include "dis6/distributed_emissions/AcousticEmitter.h"
+#include "libdis6/distributed_emissions/AcousticEmitter.h"
 
 namespace dis {
 AcousticEmitter::AcousticEmitter()

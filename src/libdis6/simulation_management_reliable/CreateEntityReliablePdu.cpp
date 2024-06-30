@@ -1,4 +1,4 @@
-#include "dis6/simulation_management_reliable/CreateEntityReliablePdu.h"
+#include "libdis6/simulation_management_reliable/CreateEntityReliablePdu.h"
 
 namespace dis {
 CreateEntityReliablePdu::CreateEntityReliablePdu()

@@ -2,13 +2,13 @@
 
 #include <cstddef>
 
-#include "dis6/common/EntityID.h"
-#include "dis6/common/EntityType.h"
-#include "dis6/common/Vector3Float.h"
-#include "dis6/entity_management/EntityManagementFamilyPdu.h"
-#include "dis6/entity_management/NamedLocation.h"
-#include "dis6/entity_management/Relationship.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/EntityID.h"
+#include "libdis6/common/EntityType.h"
+#include "libdis6/common/Vector3Float.h"
+#include "libdis6/entity_management/EntityManagementFamilyPdu.h"
+#include "libdis6/entity_management/NamedLocation.h"
+#include "libdis6/entity_management/Relationship.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.9.4 The joining of two or more simulation entities is

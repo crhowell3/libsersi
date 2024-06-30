@@ -3,10 +3,10 @@
 
 #include <map>  // for member
 
-#include "dis6/utils/Endian.h"            // for internal type
-#include "dis6/utils/IBufferProcessor.h"  // for base class
-#include "dis6/utils/IPduBank.h"
-#include "dis6/utils/PduType.h"
+#include "libdis6/utils/Endian.h"            // for internal type
+#include "libdis6/utils/IBufferProcessor.h"  // for base class
+#include "libdis6/utils/IPduBank.h"
+#include "libdis6/utils/PduType.h"
 
 namespace dis {
 class Pdu;

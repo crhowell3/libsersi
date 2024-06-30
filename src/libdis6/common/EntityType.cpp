@@ -1,4 +1,4 @@
-#include "dis6/common/EntityType.h"
+#include "libdis6/common/EntityType.h"
 
 namespace dis {
 EntityType::EntityType()

@@ -1,4 +1,4 @@
-#include "dis6/common/ClockTime.h"
+#include "libdis6/common/ClockTime.h"
 
 namespace dis {
 ClockTime::ClockTime() : hour_(0), time_past_hour_(0) {}

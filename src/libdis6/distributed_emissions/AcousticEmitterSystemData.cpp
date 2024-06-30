@@ -1,6 +1,6 @@
-#include "dis6/distributed_emissions/AcousticEmitterSystemData.h"
+#include "libdis6/distributed_emissions/AcousticEmitterSystemData.h"
 
-#include "dis6/distributed_emissions/AcousticEmitterSystem.h"
+#include "libdis6/distributed_emissions/AcousticEmitterSystem.h"
 
 namespace dis {
 AcousticEmitterSystemData::AcousticEmitterSystemData()

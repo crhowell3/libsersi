@@ -1,4 +1,4 @@
-#include "dis6/distributed_emissions/DesignatorPdu.h"
+#include "libdis6/distributed_emissions/DesignatorPdu.h"
 
 namespace dis {
 DesignatorPdu::DesignatorPdu()

@@ -1,9 +1,9 @@
-#ifndef DIS6_COMMON_ARTICULATIONPARAMETER_H_
-#define DIS6_COMMON_ARTICULATIONPARAMETER_H_
+#ifndef LIBDIS6_COMMON_ARTICULATIONPARAMETER_H_
+#define LIBDIS6_COMMON_ARTICULATIONPARAMETER_H_
 
 #include <cstdint>
 
-#include "dis6/utils/DataStream.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.2.5. Articulation parameters for  movable parts and attached parts
@@ -52,5 +52,5 @@ class ArticulationParameter {
 
 }  // namespace dis
 
-#endif  // DIS6_COMMON_ARTICULATIONPARAMETER_H_
+#endif  // LIBDIS6_COMMON_ARTICULATIONPARAMETER_H_
 

@@ -1,6 +1,6 @@
-#include "dis6/utils/Conversion.h"
+#include "libdis6/utils/Conversion.h"
 
-#include "dis6/utils/Masks.h"
+#include "libdis6/utils/Masks.h"
 
 namespace dis {
 

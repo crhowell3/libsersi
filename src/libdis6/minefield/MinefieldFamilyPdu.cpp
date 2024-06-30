@@ -1,4 +1,4 @@
-#include "dis6/minefield/MinefieldFamilyPdu.h"
+#include "libdis6/minefield/MinefieldFamilyPdu.h"
 
 #include <cstddef>
 

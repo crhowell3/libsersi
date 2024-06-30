@@ -1,4 +1,4 @@
-#include "dis6/minefield/Point.h"
+#include "libdis6/minefield/Point.h"
 
 #include <cstddef>
 

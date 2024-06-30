@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-#include "dis6/utils/DataStream.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Identifies type of object. This is a int16_ter version of EntityType that

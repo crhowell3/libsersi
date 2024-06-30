@@ -1,4 +1,4 @@
-#include "dis6/distributed_emissions/ElectromagneticEmissionBeamData.h"
+#include "libdis6/distributed_emissions/ElectromagneticEmissionBeamData.h"
 
 namespace dis {
 ElectromagneticEmissionBeamData::ElectromagneticEmissionBeamData()

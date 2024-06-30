@@ -1,4 +1,4 @@
-#include "dis6/synthetic_environment/LinearSegmentParameter.h"
+#include "libdis6/synthetic_environment/LinearSegmentParameter.h"
 
 #include <cstdint>
 

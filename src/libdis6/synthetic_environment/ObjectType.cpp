@@ -1,4 +1,4 @@
-#include "dis6/synthetic_environment/ObjectType.h"
+#include "libdis6/synthetic_environment/ObjectType.h"
 
 namespace dis {
 ObjectType::ObjectType()

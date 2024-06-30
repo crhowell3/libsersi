@@ -1,4 +1,4 @@
-#include "dis6/entity_management/Relationship.h"
+#include "libdis6/entity_management/Relationship.h"
 
 #include <cstddef>
 

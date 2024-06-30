@@ -1,4 +1,4 @@
-#include "dis6/distributed_emissions/IffAtcNavAidsLayer1Pdu.h"
+#include "libdis6/distributed_emissions/IffAtcNavAidsLayer1Pdu.h"
 
 namespace dis {
 IffAtcNavAidsLayer1Pdu::IffAtcNavAidsLayer1Pdu() : pad2_(0) { SetPduType(28); }

@@ -1,4 +1,4 @@
-#include "dis6/entity_management/NamedLocation.h"
+#include "libdis6/entity_management/NamedLocation.h"
 
 namespace dis {
 NamedLocation::NamedLocation() : station_name_(0), station_number_(0) {}

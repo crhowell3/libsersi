@@ -1,4 +1,4 @@
-#include "dis6/radio_communications/ModulationType.h"
+#include "libdis6/radio_communications/ModulationType.h"
 
 namespace dis {
 ModulationType::ModulationType()

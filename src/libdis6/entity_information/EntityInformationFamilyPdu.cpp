@@ -1,4 +1,4 @@
-#include "dis6/entity_information/EntityInformationFamilyPdu.h"
+#include "libdis6/entity_information/EntityInformationFamilyPdu.h"
 
 namespace dis {
 EntityInformationFamilyPdu::EntityInformationFamilyPdu() {

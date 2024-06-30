@@ -1,8 +1,8 @@
-#include "dis6/utils/PacketFactory.h"
+#include "libdis6/utils/PacketFactory.h"
 
 #include <cstdlib>
 
-#include "dis6/common/Pdu.h"
+#include "libdis6/common/Pdu.h"
 
 namespace dis {
 Pdu* PacketFactory::CreatePacket(uint8_t id) {

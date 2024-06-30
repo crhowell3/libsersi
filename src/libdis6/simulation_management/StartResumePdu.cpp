@@ -1,4 +1,4 @@
-#include "dis6/simulation_management/StartResumePdu.h"
+#include "libdis6/simulation_management/StartResumePdu.h"
 
 namespace dis {
 StartResumePdu::StartResumePdu() : request_id_(0) { SetPduType(13); }

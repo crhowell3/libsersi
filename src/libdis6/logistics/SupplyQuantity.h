@@ -1,7 +1,7 @@
 #pragma once
 
-#include "dis6/common/EntityType.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/EntityType.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.2.30. A supply, and the amount of that supply. Similar to an entity

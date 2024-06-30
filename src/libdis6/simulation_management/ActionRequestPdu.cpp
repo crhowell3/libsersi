@@ -1,4 +1,4 @@
-#include "dis6/simulation_management/ActionRequestPdu.h"
+#include "libdis6/simulation_management/ActionRequestPdu.h"
 
 namespace dis {
 ActionRequestPdu::ActionRequestPdu()

@@ -1,4 +1,4 @@
-#include "dis6/simulation_management_reliable/ActionResponseReliablePdu.h"
+#include "libdis6/simulation_management_reliable/ActionResponseReliablePdu.h"
 
 namespace dis {
 ActionResponseReliablePdu::ActionResponseReliablePdu()

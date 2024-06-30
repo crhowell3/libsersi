@@ -1,4 +1,4 @@
-#include "dis6/distributed_emissions/IffFundamentalData.h"
+#include "libdis6/distributed_emissions/IffFundamentalData.h"
 
 namespace dis {
 IffFundamentalData::IffFundamentalData()

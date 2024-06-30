@@ -1,4 +1,4 @@
-#include "dis6/radio_communications/ReceiverPdu.h"
+#include "libdis6/radio_communications/ReceiverPdu.h"
 
 namespace dis {
 ReceiverPdu::ReceiverPdu()

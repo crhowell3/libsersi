@@ -1,8 +1,8 @@
-#ifndef DIS6_WARFARE_BURSTDESCRIPTOR_H_
-#define DIS6_WARFARE_BURSTDESCRIPTOR_H_
+#ifndef LIBDIS6_WARFARE_BURSTDESCRIPTOR_H_
+#define LIBDIS6_WARFARE_BURSTDESCRIPTOR_H_
 
-#include "dis6/common/EntityType.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/EntityType.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.2.7. Specifies the type of muntion fired, the type of warhead, the
@@ -55,4 +55,4 @@ class BurstDescriptor {
 };
 }  // namespace dis
 
-#endif  // DIS6_WARFARE_BURSTDESCRIPTOR_H_
+#endif  // LIBDIS6_WARFARE_BURSTDESCRIPTOR_H_

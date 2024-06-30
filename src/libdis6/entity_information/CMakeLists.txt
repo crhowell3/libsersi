@@ -18,8 +18,8 @@ set(entity_information_src
   Marking.cpp
 )
 
-target_sources(OpenDIS6 PRIVATE ${entity_information_src})
+target_sources(libdis6 PRIVATE ${entity_information_src})
 
 install(FILES ${entity_information_hdr}
-  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dis6/entity_information
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libdis6/entity_information
 )

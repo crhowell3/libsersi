@@ -1,12 +1,12 @@
-#include "dis6/utils/IncomingMessage.h"
+#include "libdis6/utils/IncomingMessage.h"
 
 #include <iostream>
 
-#include "dis6/common/Pdu.h"
-#include "dis6/entity_information/EntityStatePdu.h"
-#include "dis6/utils/DataStream.h"
-#include "dis6/utils/IPacketProcessor.h"
-#include "dis6/utils/PduBank.h"
+#include "libdis6/common/Pdu.h"
+#include "libdis6/entity_information/EntityStatePdu.h"
+#include "libdis6/utils/DataStream.h"
+#include "libdis6/utils/IPacketProcessor.h"
+#include "libdis6/utils/PduBank.h"
 
 namespace dis {
 // the DIS specification says the type is known for all PDUs at the 3rd byte of

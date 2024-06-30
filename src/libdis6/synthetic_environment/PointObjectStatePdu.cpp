@@ -1,4 +1,4 @@
-#include "dis6/synthetic_environment/PointObjectStatePdu.h"
+#include "libdis6/synthetic_environment/PointObjectStatePdu.h"
 
 namespace dis {
 PointObjectStatePdu::PointObjectStatePdu()

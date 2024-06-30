@@ -3,8 +3,8 @@
 #include <array>
 #include <cstddef>
 
-#include "dis6/common/Vector3Float.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/Vector3Float.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 constexpr auto kArraySize = 15;

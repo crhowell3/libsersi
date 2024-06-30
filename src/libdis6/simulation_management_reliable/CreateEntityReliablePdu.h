@@ -1,7 +1,7 @@
 #pragma once
 
-#include "dis6/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.12.1: creation of an entity , reliable. COMPLETE

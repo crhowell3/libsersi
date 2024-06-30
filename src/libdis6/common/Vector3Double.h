@@ -1,7 +1,7 @@
-#ifndef DIS6_COMMON_VECTOR3DOUBLE_H_
-#define DIS6_COMMON_VECTOR3DOUBLE_H_
+#ifndef LIBDIS6_COMMON_VECTOR3DOUBLE_H_
+#define LIBDIS6_COMMON_VECTOR3DOUBLE_H_
 
-#include "dis6/utils/DataStream.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.34. Three double precision floating point values, x, y, and z
@@ -39,5 +39,5 @@ class Vector3Double {
 };
 }  // namespace dis
 
-#endif  // DIS6_COMMON_VECTOR3DOUBLE_H_
+#endif  // LIBDIS6_COMMON_VECTOR3DOUBLE_H_
 

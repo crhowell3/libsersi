@@ -1,4 +1,4 @@
-#include "dis6/warfare/DetonationPdu.h"
+#include "libdis6/warfare/DetonationPdu.h"
 
 namespace dis {
 DetonationPdu::DetonationPdu()

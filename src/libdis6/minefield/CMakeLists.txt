@@ -16,8 +16,8 @@ set(minefield_hdr
   Point.h
 )
 
-target_sources(OpenDIS6 PRIVATE ${minefield_src})
+target_sources(libdis6 PRIVATE ${minefield_src})
 
 install(FILES ${minefield_hdr}
-  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dis6/minefield
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libdis6/minefield
 )

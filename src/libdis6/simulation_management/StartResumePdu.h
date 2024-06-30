@@ -1,8 +1,8 @@
 #pragma once
 
-#include "dis6/common/ClockTime.h"
-#include "dis6/simulation_management/SimulationManagementFamilyPdu.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/ClockTime.h"
+#include "libdis6/simulation_management/SimulationManagementFamilyPdu.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Section 5.2.6.3. Start or resume an exercise. COMPLETE

@@ -1,4 +1,4 @@
-#include "dis6/entity_management/AggregateType.h"
+#include "libdis6/entity_management/AggregateType.h"
 
 namespace dis {
 AggregateType::AggregateType()

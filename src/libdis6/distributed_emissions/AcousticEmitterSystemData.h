@@ -3,10 +3,10 @@
 #include <cstddef>
 #include <vector>
 
-#include "dis6/common/Vector3Float.h"
-#include "dis6/distributed_emissions/AcousticBeamData.h"
-#include "dis6/distributed_emissions/AcousticEmitterSystem.h"
-#include "dis6/utils/DataStream.h"
+#include "libdis6/common/Vector3Float.h"
+#include "libdis6/distributed_emissions/AcousticBeamData.h"
+#include "libdis6/distributed_emissions/AcousticEmitterSystem.h"
+#include "libdis6/utils/DataStream.h"
 
 namespace dis {
 // Used in the UA pdu; ties together an emmitter and a location. This requires

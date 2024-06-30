@@ -3,14 +3,14 @@
 #include <cstddef>
 #include <vector>
 
-#include "dis6/common/ArticulationParameter.h"
-#include "dis6/common/EntityID.h"
-#include "dis6/common/EventID.h"
-#include "dis6/common/Vector3Double.h"
-#include "dis6/common/Vector3Float.h"
-#include "dis6/utils/DataStream.h"
-#include "dis6/warfare/BurstDescriptor.h"
-#include "dis6/warfare/WarfareFamilyPdu.h"
+#include "libdis6/common/ArticulationParameter.h"
+#include "libdis6/common/EntityID.h"
+#include "libdis6/common/EventID.h"
+#include "libdis6/common/Vector3Double.h"
+#include "libdis6/common/Vector3Float.h"
+#include "libdis6/utils/DataStream.h"
+#include "libdis6/warfare/BurstDescriptor.h"
+#include "libdis6/warfare/WarfareFamilyPdu.h"
 
 namespace dis {
 // Section 5.3.4.2. Information about stuff exploding. COMPLETE
