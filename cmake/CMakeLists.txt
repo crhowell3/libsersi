@@ -1,5 +1,5 @@
 set(LIBDIS6_PACKAGE_DIR
-  "{CMAKE_INSTALL_DIR}/cmake/libdis6-${PROJECT_VERSION}"
+  "${CMAKE_INSTALL_LIBDIR}/cmake/libdis6"
 )
 
 include(CMakePackageConfigHelpers)

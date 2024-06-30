@@ -22,7 +22,7 @@ set(utils_src
   PduBank.cpp
 )
 
-target_sources(libdis6 PRIVATE ${utils_src})
+target_sources(dis6 PRIVATE ${utils_src})
 
 install(FILES ${utils_hdr}
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libdis6/utils)

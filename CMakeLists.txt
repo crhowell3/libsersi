@@ -10,14 +10,14 @@ include(${CMAKE_SOURCE_DIR}/cmake/libdis6-api.cmake)
 libdis6_project_defaults()
 
 # Define OpenDIS6 Library
-add_library(libdis6 "")
+add_library(dis6 "")
 
 # Add src/ to the include directories to libdis6
-target_include_directories(libdis6
+target_include_directories(dis6
   PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src>
     $<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>
 )
-target_include_directories(libdis6 SYSTEM
+target_include_directories(dis6 SYSTEM
   PUBLIC $<BUILD_INTERFACE:${PROJECT_BINARY_DIR/src}>
     $<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>
   PRIVATE $<BUILD_INTERFACE:${CMRC_INCLUDE_DIR}>
@@ -27,7 +27,7 @@ target_include_directories(libdis6 SYSTEM
 add_subdirectory(src)
 
 # Configure install target (i.e. what files to install)
-install(TARGETS libdis6
+install(TARGETS dis6
         EXPORT libdis6-targets
         RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}

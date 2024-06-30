@@ -56,7 +56,7 @@ set(distributed_emissions_src
   VectoringNozzleSystemData.cpp
 )
 
-target_sources(libdis6 PRIVATE ${distributed_emissions_src})
+target_sources(dis6 PRIVATE ${distributed_emissions_src})
 
 install(FILES ${distributed_emissions_hdr}
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libdis6/distributed_emissions

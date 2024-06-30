@@ -24,7 +24,7 @@ set(entity_management_hdr
   TransferControlRequestPdu.h
 )
 
-target_sources(libdis6 PRIVATE ${entity_management_src})
+target_sources(dis6 PRIVATE ${entity_management_src})
 
 install(FILES ${entity_management_hdr}
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libdis6/entity_management
