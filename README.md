@@ -4,7 +4,7 @@
     height="30"
     width="0px"
   />
-   libdis6</br>
+   libsersi</br>
    (IEEE 1278.1a-1998)
   <img
     src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png"
@@ -14,28 +14,28 @@
 </h1>
 
 <p align="center">
-  <a href="https://github.com/crhowell3/libdis6/stargazers">
+  <a href="https://github.com/crhowell3/libsersi/stargazers">
     <img
       alt="Stargazers"
-      src="https://img.shields.io/github/stars/crhowell3/libdis6?style=for-the-badge&logo=starship&color=b16286&logoColor=d9e0ee&labelColor=282a36"
+      src="https://img.shields.io/github/stars/crhowell3/libsersi?style=for-the-badge&logo=starship&color=b16286&logoColor=d9e0ee&labelColor=282a36"
     />
   </a>
-  <a href="https://conan.io/center/recipes/libdis6">
+  <a href="https://conan.io/center/recipes/libsersi">
     <img
       alt="Conan Version"
-      src="https://img.shields.io/conan/v/libdis6?style=for-the-badge&logo=rust&color=458588&logoColor=d9e0ee&labelColor=282a36"
+      src="https://img.shields.io/conan/v/libsersi?style=for-the-badge&logo=rust&color=458588&logoColor=d9e0ee&labelColor=282a36"
     />
   </a>
-  <a href="https://github.com/crhowell3/libdis6/issues">
+  <a href="https://github.com/crhowell3/libsersi/issues">
     <img
       alt="Issues"
-      src="https://img.shields.io/github/issues/crhowell3/libdis6?style=for-the-badge&logo=gitbook&color=d79921&logoColor=d9e0ee&labelColor=282a36"
+      src="https://img.shields.io/github/issues/crhowell3/libsersi?style=for-the-badge&logo=gitbook&color=d79921&logoColor=d9e0ee&labelColor=282a36"
     />
   </a>
-  <a href="https://github.com/crhowell3/libdis6/contributors">
+  <a href="https://github.com/crhowell3/libsersi/contributors">
     <img
       alt="Contributors"
-      src="https://img.shields.io/github/contributors/crhowell3/libdis6?style=for-the-badge&logo=opensourceinitiative&color=689d6a&logoColor=d9e0ee&labelColor=282a36"
+      src="https://img.shields.io/github/contributors/crhowell3/libsersi?style=for-the-badge&logo=opensourceinitiative&color=689d6a&logoColor=d9e0ee&labelColor=282a36"
     />
   </a>
   <br/>
@@ -50,7 +50,7 @@
 &nbsp;
 
 ## 💭 About
-C++ implementation of the IEEE 1278.1a-1998 Distributed Interactive Simulation (DIS) application protocol. This library was implemented according to the IEEE Std 1278.1a-1998 publication.
+C++ implementation of the IEEE 1278.1a-1998 Distributed Interactive Simulation (DIS) application protocol. This library was implemented according to the IEEE Std 1278.1a-1998 publication. The name `libsersi` is derived from the words "*ser*ialize" and "*si*mulation".
 
 ## 📕 Documentation
 Will add Doxygen documentation in a future patch.
@@ -83,7 +83,7 @@ Conan 2.x is required to import this library.
   <a href="https://github.com/crhowell3" target="_blank">Cameron Howell</a>
 </p>
 <p align="center">
-  <a href="https://github.com/crhowell3/libdis6/blob/main/LICENSE"
+  <a href="https://github.com/crhowell3/libsersi/blob/main/LICENSE"
     ><img
       src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=BSD-2-Clause&logoColor=d9e0ee&colorA=282a36&colorB=b16286"
   /></a>
