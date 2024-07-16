@@ -1,1 +1,1 @@
-add_subdirectory(libdis6)
+add_subdirectory(libsersi)
