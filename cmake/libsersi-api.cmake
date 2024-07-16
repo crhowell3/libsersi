@@ -1,4 +1,4 @@
-macro(libdis6_project_defaults)
+macro(libsersi_project_defaults)
   string(TOUPPER ${PROJECT_NAME} PROJECT_NAME_UPPER)
   set(${PROJECT_NAME_UPPER}_VERSION_MAJOR ${PROJECT_VERSION_MAJOR})
   set(${PROJECT_NAME_UPPER}_VERSION_MINOR ${PROJECT_VERSION_MINOR})
@@ -89,4 +89,4 @@ macro(libdis6_project_defaults)
     endif()
   endif()
 
-endmacro(libdis6_project_defaults)
+endmacro(libsersi_project_defaults)
