@@ -1,5 +1,4 @@
-#ifndef _dcl_dis_masks_h_
-#define _dcl_dis_masks_h_
+#pragma once
 
 #include <cstdint>
 
@@ -9,5 +8,3 @@ namespace dis {
 /// this mask is based on the IEEE Std 1278.1-1995
 const uint32_t kArticulationParameterTypeMetricMask = 0x001F;
 }  // namespace dis
-
-#endif  // _dcl_dis_masks_h_

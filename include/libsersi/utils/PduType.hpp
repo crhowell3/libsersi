@@ -1,8 +1,9 @@
-#ifndef LIBSERSI_UTILS_PDUTYPE_H_
-#define LIBSERSI_UTILS_PDUTYPE_H_
+#pragma once
+
+#include <cstdint>
 
 namespace dis {
-enum PduType {
+enum PduType : uint8_t {
   kOther = 0,
   kEntityState = 1,
   kFire = 2,
@@ -53,6 +54,5 @@ enum PduType {
   kAppearance = 47,
   kArticulatedParts = 48
 };
-}
 
-#endif  // LIBSERSI_UTILS_PDUTYPE_H_
+}  // namespace dis

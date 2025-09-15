@@ -1,7 +1,8 @@
-#ifndef _dcl_dis_conversion_h_
-#define _dcl_dis_conversion_h_
+#pragma once
 
 #include <cstdint>
+
+#include "libsersi/utils/Masks.hpp"
 
 namespace dis {
 /// a name-scope for conversion functions.
@@ -20,7 +21,15 @@ struct Convert {
   /// ARTICULATION_PARAMETER_TYPE_METRIC_NUMBER_OF_BITS.
   /// @return the value to be used as the Parameter Type, with 32 bits
   /// precision.
-  static int MakeArticulationParameterType(int typeclass, int typemetric);
+  static int MakeArticulationParameterType(int typeclass, int typemetric) {
+    // enforce a ceiling on typemetric
+    typemetric &= kArticulationParameterTypeMetricMask;
+
+    // shift the typeclass bits to the left by the precision amount of
+    // typemetric and then add the typemetric bits
+    return ((typeclass << kArticulationParameterTypeMetricNumberOfBits) +
+            typemetric);
+  }
 
   /// extract the data for the type metric value stored within the parameter
   /// type value. this an inverse to the function,
@@ -29,7 +38,10 @@ struct Convert {
   /// values.
   /// @return the type metric value, with
   /// ARTICULATION_PARAMETER_TYPE_METRIC_NUMBER_OF_BITS bits precision.
-  static int GetArticulationTypeMetric(int parametertype);
+  static int GetArticulationTypeMetric(int parametertype) {
+    // wipe off the typeclass bits and return the typemetric bits
+    return (parametertype & kArticulationParameterTypeMetricMask);
+  }
 
   /// extract the data for the type class value stored within the parameter type
   /// value. this an inverse to the function, MakeArticulationParameterType.
@@ -37,8 +49,9 @@ struct Convert {
   /// values.
   /// @return the type class value, with
   /// ARTICULATION_PARAMETER_TYPE_METRIC_NUMBER_OF_BITS bits precision
-  static int GetArticulationTypeClass(int parametertype);
+  static int GetArticulationTypeClass(int parametertype) {
+    // wipe off the typemetric bits and return the typeclass bits
+    return (parametertype >> kArticulationParameterTypeMetricNumberOfBits);
+  }
 };
 }  // namespace dis
-
-#endif  // _dcl_dis_conversion_h_

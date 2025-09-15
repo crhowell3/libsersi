@@ -5,6 +5,7 @@ BasedOnStyle: Google
 # Google Style Guide only asks for consistency within a project, we chose
 # "int& foo" for this project:
 DerivePointerAlignment: false
+ReferenceAlignment: Left
 PointerAlignment: Left
 
 # Rules for includes

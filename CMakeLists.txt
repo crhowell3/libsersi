@@ -10,21 +10,16 @@ include(${CMAKE_SOURCE_DIR}/cmake/libsersi-api.cmake)
 libsersi_project_defaults()
 
 # Define library
-add_library(sersi "")
+add_library(sersi INTERFACE)
 
 # Add src/ to the include directories to libsersi
-target_include_directories(sersi
-  PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src>
+target_include_directories(sersi INTERFACE
+  PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>
-)
-target_include_directories(sersi SYSTEM
-  PUBLIC $<BUILD_INTERFACE:${PROJECT_BINARY_DIR/src}>
-    $<INSTALL_INTERFACE:${INSTALL_INCLUDE_DIR}>
-  PRIVATE $<BUILD_INTERFACE:${CMRC_INCLUDE_DIR}>
 )
 
 # Add source directories
-add_subdirectory(src)
+add_subdirectory(include)
 
 # Configure install target (i.e. what files to install)
 install(TARGETS sersi
