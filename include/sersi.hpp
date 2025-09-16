@@ -1,6 +1,16 @@
 #pragma once
 
-#include "libsersi/utils/DataStream.hpp"
+#include "libsersi/common/ArticulationParameter.hpp"
 #include "libsersi/common/ClockTime.hpp"
 #include "libsersi/common/EntityID.hpp"
+#include "libsersi/common/EntityType.hpp"
+#include "libsersi/common/Enumerations.hpp"
+#include "libsersi/common/EventID.hpp"
+#include "libsersi/common/FixedDatum.hpp"
 #include "libsersi/common/Orientation.hpp"
+#include "libsersi/common/Pdu.hpp"
+#include "libsersi/common/RecordSet.hpp"
+#include "libsersi/common/SimulationAddress.hpp"
+#include "libsersi/common/VariableDatum.hpp"
+#include "libsersi/common/Vector3Double.hpp"
+#include "libsersi/common/Vector3Float.hpp"

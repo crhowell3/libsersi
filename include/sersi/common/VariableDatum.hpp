@@ -64,17 +64,20 @@ class VariableDatum {
   [[nodiscard]] auto GetVariableDatumId() const -> uint32_t {
     return variable_datum_id_;
   }
-  void SetVariableDatumId(uint32_t value);
+  void SetVariableDatumId(uint32_t value) { variable_datum_id_ = value; }
 
   [[nodiscard]] auto GetVariableDatumLength() const -> uint32_t {
     return variable_datum_length_;
   }
-  void SetVariableDatumLength(uint32_t value) {}
+  void SetVariableDatumLength(uint32_t value) {
+    variable_datum_length_ = value;
+  }
 
-  char* GetVariableDatums() { return variable_datums_.data(); }
-  [[nodiscard]] const char* GetVariableDatums() const {
+  auto GetVariableDatums() -> char* { return variable_datums_.data(); }
+  [[nodiscard]] auto GetVariableDatums() const -> const char* {
     return variable_datums_.data();
   }
+
   void SetVariableDatums(const char* value, uint32_t length) {
     variable_datum_length_ = length * kBits;
 
@@ -102,12 +105,12 @@ class VariableDatum {
     }
   }
 
-  [[nodiscard]] std::size_t GetMarshalledSize() const {
+  [[nodiscard]] auto GetMarshalledSize() const -> std::size_t {
     return sizeof(variable_datum_id_) + sizeof(variable_datum_length_) +
            variable_datums_.size() * sizeof(char);
   }
 
-  bool operator==(const VariableDatum& rhs) const {
+  auto operator==(const VariableDatum& rhs) const -> bool {
     return variable_datum_id_ == rhs.variable_datum_id_ &&
            variable_datum_length_ == rhs.variable_datum_length_ &&
            variable_datums_ == rhs.variable_datums_;
