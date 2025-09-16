@@ -15,19 +15,19 @@ double Vector3Double::GetZ() const { return z_; }
 
 void Vector3Double::SetZ(double value) { z_ = value; }
 
-void Vector3Double::Marshal(DataStream& data_stream) const {
+void Vector3Double::Marshal(DataStream &data_stream) const {
   data_stream << x_;
   data_stream << y_;
   data_stream << z_;
 }
 
-void Vector3Double::Unmarshal(DataStream& data_stream) {
+void Vector3Double::Unmarshal(DataStream &data_stream) {
   data_stream >> x_;
   data_stream >> y_;
   data_stream >> z_;
 }
 
-bool Vector3Double::operator==(const Vector3Double& rhs) const {
+bool Vector3Double::operator==(const Vector3Double &rhs) const {
   bool ivars_equal = true;
 
   if (!(x_ == rhs.x_)) {
@@ -48,5 +48,4 @@ std::size_t Vector3Double::GetMarshalledSize() const {
   return marshal_size;
 }
 
-}  // namespace dis
-
+} // namespace dis

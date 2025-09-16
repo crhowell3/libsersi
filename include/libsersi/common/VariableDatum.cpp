@@ -10,7 +10,7 @@ VariableDatum::VariableDatum()
     : variable_datum_id_(0),
       variable_datum_length_(0),
       variable_datums_(static_cast<std::size_t>(STATIC_ARRAY_LENGTH),
-                       static_cast<char>(0)),  // can (theoretically) throw
+                       static_cast<char>(0)),
       array_length_(0) {}
 
 VariableDatum::~VariableDatum() { variable_datums_.clear(); }

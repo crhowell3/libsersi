@@ -20,12 +20,12 @@ class Orientation {
   Orientation() = default;
   ~Orientation() = default;
 
-  void Marshal(dis::DataStream &data_stream) const {
+  void Marshal(dis::DataStream& data_stream) const {
     data_stream << psi_;
     data_stream << theta_;
     data_stream << phi_;
   }
-  void Unmarshal(dis::DataStream &data_stream) {
+  void Unmarshal(dis::DataStream& data_stream) {
     data_stream >> psi_;
     data_stream >> theta_;
     data_stream >> phi_;
@@ -44,8 +44,8 @@ class Orientation {
     return sizeof(psi_) + sizeof(theta_) + sizeof(phi_);
   }
 
-  auto operator==(const Orientation &rhs) const -> bool {
+  auto operator==(const Orientation& rhs) const -> bool {
     return psi_ == rhs.psi_ && theta_ == rhs.theta_ && phi_ == rhs.phi_;
   }
 };
-} // namespace dis
+}  // namespace dis
