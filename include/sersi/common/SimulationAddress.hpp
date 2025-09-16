@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "libsersi/utils/DataStream.hpp"
+#include "sersi/utils/DataStream.hpp"
 
 namespace dis {
 // Section 5.2.14.1. A Simulation Address  record shall consist of the Site

@@ -3,10 +3,10 @@
 #include <cstddef>
 #include <vector>
 
-#include "libsersi/common/Vector3Float.h"
-#include "libsersi/distributed_emissions/AcousticBeamData.h"
-#include "libsersi/distributed_emissions/AcousticEmitterSystem.h"
-#include "libsersi/utils/DataStream.h"
+#include "sersi/common/Vector3Float.h"
+#include "sersi/distributed_emissions/AcousticBeamData.h"
+#include "sersi/distributed_emissions/AcousticEmitterSystem.h"
+#include "sersi/utils/DataStream.h"
 
 namespace dis {
 // Used in the UA pdu; ties together an emmitter and a location. This requires

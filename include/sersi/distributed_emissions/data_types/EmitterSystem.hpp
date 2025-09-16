@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-#include "libsersi/utils/DataStream.h"
+#include "sersi/utils/DataStream.h"
 
 namespace dis {
 // Section 5.2.11. This field shall specify information about a particular

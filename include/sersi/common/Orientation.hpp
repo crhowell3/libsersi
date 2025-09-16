@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "libsersi/utils/DataStream.hpp"
+#include "sersi/utils/DataStream.hpp"
 
 namespace dis {
 // Section 5.2.17. Three floating point values representing an orientation, psi,

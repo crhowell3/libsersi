@@ -3,7 +3,7 @@
 
 #include <cstdint>
 
-#include "libsersi/utils/DataStream.h"
+#include "sersi/utils/DataStream.h"
 
 namespace dis {
 // Used in UaPdu

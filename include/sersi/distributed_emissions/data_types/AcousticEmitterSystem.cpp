@@ -1,4 +1,4 @@
-#include "libsersi/distributed_emissions/AcousticEmitterSystem.h"
+#include "sersi/distributed_emissions/AcousticEmitterSystem.h"
 
 namespace dis {
 AcousticEmitterSystem::AcousticEmitterSystem()

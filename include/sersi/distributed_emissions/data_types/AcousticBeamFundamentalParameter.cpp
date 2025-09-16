@@ -1,4 +1,4 @@
-#include "libsersi/distributed_emissions/AcousticBeamFundamentalParameter.h"
+#include "sersi/distributed_emissions/AcousticBeamFundamentalParameter.h"
 
 namespace dis {
 

@@ -1,4 +1,4 @@
-#include "libsersi/distributed_emissions/AcousticBeamData.h"
+#include "sersi/distributed_emissions/AcousticBeamData.h"
 
 namespace dis {
 

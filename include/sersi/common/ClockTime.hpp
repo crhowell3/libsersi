@@ -1,6 +1,6 @@
 #pragma once
 
-#include "libsersi/utils/DataStream.hpp"
+#include "sersi/utils/DataStream.hpp"
 
 namespace dis {
 // Section 5.2.8. Time measurements that exceed one hour. Hours is the number of

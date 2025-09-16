@@ -2,8 +2,8 @@
 
 #include <cstddef>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/utils/DataStream.h"
+#include "sersi/common/EntityID.h"
+#include "sersi/utils/DataStream.h"
 
 namespace dis {
 // One track/jam target

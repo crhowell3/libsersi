@@ -3,8 +3,8 @@
 
 #include <cstdint>
 
-#include "libsersi/distributed_emissions/AcousticBeamFundamentalParameter.h"
-#include "libsersi/utils/DataStream.h"
+#include "sersi/distributed_emissions/AcousticBeamFundamentalParameter.h"
+#include "sersi/utils/DataStream.h"
 
 namespace dis {
 // Used in UA PDU

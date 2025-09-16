@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-#include "libsersi/utils/DataStream.hpp"
+#include "sersi/utils/DataStream.hpp"
 
 namespace dis {
 

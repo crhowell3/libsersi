@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "libsersi/utils/DataStream.hpp"
+#include "sersi/utils/DataStream.hpp"
 
 namespace dis {
 // Section 5.2.18. Identifies a unique event in a simulation via the combination

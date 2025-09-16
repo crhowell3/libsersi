@@ -1,4 +1,4 @@
-#include "libsersi/distributed_emissions/BeamData.h"
+#include "sersi/distributed_emissions/BeamData.h"
 
 namespace dis {
 BeamData::BeamData()

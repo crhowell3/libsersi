@@ -1,4 +1,4 @@
-#include "libsersi/distributed_emissions/EmitterSystem.h"
+#include "sersi/distributed_emissions/EmitterSystem.h"
 
 namespace dis {
 

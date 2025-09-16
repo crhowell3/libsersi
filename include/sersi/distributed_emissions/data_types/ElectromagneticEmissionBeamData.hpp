@@ -2,9 +2,9 @@
 
 #include <vector>
 
-#include "libsersi/distributed_emissions/FundamentalParameterData.h"
-#include "libsersi/distributed_emissions/TrackJamTarget.h"
-#include "libsersi/utils/DataStream.h"
+#include "sersi/distributed_emissions/FundamentalParameterData.h"
+#include "sersi/distributed_emissions/TrackJamTarget.h"
+#include "sersi/utils/DataStream.h"
 
 namespace dis {
 // Description of one electronic emission beam

@@ -1,7 +1,6 @@
-#ifndef LIBSERSI_COMMON_VECTOR3DOUBLE_H_
-#define LIBSERSI_COMMON_VECTOR3DOUBLE_H_
+#pragma once
 
-#include "libsersi/utils/DataStream.h"
+#include "sersi/utils/DataStream.h"
 
 namespace dis {
 // Section 5.3.34. Three double precision floating point values, x, y, and z
@@ -18,26 +17,35 @@ class Vector3Double {
   double z_;  // NOLINT
 
  public:
-  Vector3Double();
+  Vector3Double() = default;
   ~Vector3Double() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(DataStream& data_stream) const {
+    data_stream << x_;
+    data_stream << y_;
+    data_stream << z_;
+  }
+  void Unmarshal(DataStream& data_stream) {
+    data_stream >> x_;
+    data_stream >> y_;
+    data_stream >> z_;
+  }
 
-  [[nodiscard]] double GetX() const;
-  void SetX(double value);
+  [[nodiscard]] auto GetX() const -> double { return x_; }
+  void SetX(double value) { x_ = value; }
 
-  [[nodiscard]] double GetY() const;
-  void SetY(double value);
+  [[nodiscard]] auto GetY() const -> double { return y_; }
+  void SetY(double value) { y_ = value; }
 
-  [[nodiscard]] double GetZ() const;
-  void SetZ(double value);
+  [[nodiscard]] auto GetZ() const -> double { return z_; }
+  void SetZ(double value) { z_ = value; }
 
-  [[nodiscard]] std::size_t GetMarshalledSize() const;
+  [[nodiscard]] auto GetMarshalledSize() const -> std::size_t {
+    return sizeof(x_) + sizeof(y_) + sizeof(z_);
+  }
 
-  bool operator==(const Vector3Double& rhs) const;
+  auto operator==(const Vector3Double& rhs) const -> bool {
+    return x_ == rhs.x_ && y_ == rhs.y_ && z_ == rhs.z_;
+  }
 };
 }  // namespace dis
-
-#endif  // LIBSERSI_COMMON_VECTOR3DOUBLE_H_
-

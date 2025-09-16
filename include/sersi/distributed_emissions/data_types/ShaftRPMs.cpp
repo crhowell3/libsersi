@@ -1,4 +1,4 @@
-#include "libsersi/distributed_emissions/ShaftRPMs.h"
+#include "sersi/distributed_emissions/ShaftRPMs.h"
 
 namespace dis {
 ShaftRPMs::ShaftRPMs()

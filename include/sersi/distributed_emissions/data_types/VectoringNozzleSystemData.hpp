@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "libsersi/utils/DataStream.h"
+#include "sersi/utils/DataStream.h"
 
 namespace dis {
 // Data about a vectoring nozzle system

@@ -2,10 +2,10 @@
 
 #include <vector>
 
-#include "libsersi/common/Vector3Float.h"
-#include "libsersi/distributed_emissions/ElectromagneticEmissionBeamData.h"
-#include "libsersi/distributed_emissions/EmitterSystem.h"
-#include "libsersi/utils/DataStream.h"
+#include "sersi/common/Vector3Float.h"
+#include "sersi/distributed_emissions/ElectromagneticEmissionBeamData.h"
+#include "sersi/distributed_emissions/EmitterSystem.h"
+#include "sersi/utils/DataStream.h"
 
 namespace dis {
 // Data about one electronic system

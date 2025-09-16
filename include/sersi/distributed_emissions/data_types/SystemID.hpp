@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "libsersi/utils/DataStream.h"
+#include "sersi/utils/DataStream.h"
 
 namespace dis {
 // 5.2.58. Used in IFF ATC PDU

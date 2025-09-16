@@ -1,6 +1,6 @@
 #pragma once
 
-#include "libsersi/utils/DataStream.h"
+#include "sersi/utils/DataStream.h"
 
 namespace dis {
 // Section 5.2.22. Contains electromagnetic emmision regineratin parameters that

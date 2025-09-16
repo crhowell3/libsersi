@@ -1,4 +1,4 @@
-#include "libsersi/distributed_emissions/ElectromagneticEmissionSystemData.h"
+#include "sersi/distributed_emissions/ElectromagneticEmissionSystemData.h"
 
 namespace dis {
 ElectromagneticEmissionSystemData::ElectromagneticEmissionSystemData()

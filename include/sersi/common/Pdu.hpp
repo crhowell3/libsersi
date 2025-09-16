@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-#include "libsersi/utils/DataStream.hpp"
+#include "sersi/utils/DataStream.hpp"
 
 namespace dis {
 // The superclass for all PDUs. This incorporates the PduHeader record,

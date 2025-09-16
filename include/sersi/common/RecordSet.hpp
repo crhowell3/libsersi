@@ -4,7 +4,7 @@
 #include <cstdint>
 
 #include "Enumerations.hpp"
-#include "libsersi/utils/DataStream.hpp"
+#include "sersi/utils/DataStream.hpp"
 
 namespace dis {
 // Record sets, used in transfer control request PDU
