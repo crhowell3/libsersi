@@ -15,16 +15,20 @@ uint16_t EventID::GetEventNumber() const { return event_number_; }
 
 void EventID::SetEventNumber(uint16_t value) { event_number_ = value; }
 
-void EventID::Marshal(ByteBuffer& byte_buffer) const {
+Result<void, std::string> EventID::Marshal(ByteBuffer& byte_buffer) const {
   byte_buffer << site_;
   byte_buffer << application_;
   byte_buffer << event_number_;
+
+  return Result<void, std::string>::Ok();
 }
 
-void EventID::Unmarshal(ByteBuffer& byte_buffer) {
+Result<void, std::string> EventID::Unmarshal(ByteBuffer& byte_buffer) {
   byte_buffer >> site_;
   byte_buffer >> application_;
   byte_buffer >> event_number_;
+
+  return Result<void, std::string>::Ok();
 }
 
 bool EventID::operator==(const EventID& rhs) const {
@@ -44,8 +48,7 @@ bool EventID::operator==(const EventID& rhs) const {
 }
 
 std::size_t EventID::GetMarshalledSize() const {
-  std::size_t marshal_size =
-      sizeof(site_) + sizeof(application_) + sizeof(event_number_);
+  std::size_t marshal_size = sizeof(site_) + sizeof(application_) + sizeof(event_number_);
   return marshal_size;
 }
 

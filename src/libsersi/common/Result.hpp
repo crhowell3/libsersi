@@ -1,22 +1,30 @@
 #pragma once
 
 #include <stdexcept>
+#include <type_traits>
 #include <utility>
 #include <variant>
+
+#define TRY(expr)                                                                          \
+  do {                                                                                     \
+    auto _res = (expr);                                                                    \
+    if (!_res) return Result<void, typename decltype(_res)::error_type>::Err(*_res.err()); \
+  } while (false)
 
 template <typename T, typename E>
 class Result {
  public:
+  using value_type = T;
+  using error_type = E;
+
+  explicit operator bool() const noexcept { return is_ok(); }
+
   static Result Ok(T value) { return Result(std::move(value)); }
   static Result Err(E error) { return Result(std::move(error), err_tag{}); }
 
-  [[nodiscard]] bool is_ok() const noexcept {
-    return std::holds_alternative<T>(data_);
-  }
+  [[nodiscard]] bool is_ok() const noexcept { return std::holds_alternative<T>(data_); }
 
-  [[nodiscard]] bool is_err() const noexcept {
-    return std::holds_alternative<E>(data_);
-  }
+  [[nodiscard]] bool is_err() const noexcept { return std::holds_alternative<E>(data_); }
 
   const T& unwrap() const {
     if (is_err()) {
@@ -49,6 +57,10 @@ class Result {
 template <typename E>
 class [[nodiscard]] Result<void, E> {
  public:
+  using error_type = E;
+
+  explicit operator bool() const noexcept { return is_ok(); }
+
   // Factory helpers
   static Result Ok() { return Result(ok_tag{}); }
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "libsersi/utils/ByteBuffer.hpp"
+#include "libsersi/common/Result.hpp"
 
 namespace dis {
 // Section 5.2.18. Fixed Datum Record
@@ -17,8 +18,8 @@ class FixedDatum {
   FixedDatum();
   ~FixedDatum() = default;
 
-  void Marshal(dis::ByteBuffer& byte_buffer) const;
-  void Unmarshal(dis::ByteBuffer& byte_buffer);
+  Result<void, std::string> Marshal(dis::ByteBuffer& byte_buffer) const;
+  Result<void, std::string> Unmarshal(dis::ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint32_t GetFixedDatumId() const;
   void SetFixedDatumId(uint32_t value);

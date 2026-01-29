@@ -3,6 +3,7 @@
 #include <cstdint>
 
 #include "libsersi/utils/ByteBuffer.hpp"
+#include "libsersi/common/Result.hpp"
 
 namespace dis {
 // Section 5.2.5. Articulation parameters for  movable parts and attached parts
@@ -26,8 +27,8 @@ class ArticulationParameter {
   ArticulationParameter();
   ~ArticulationParameter() = default;
 
-  void Marshal(ByteBuffer& byte_buffer) const;
-  void Unmarshal(ByteBuffer& byte_buffer);
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint8_t GetParameterTypeDesignator() const;
   void SetParameterTypeDesignator(uint8_t value);

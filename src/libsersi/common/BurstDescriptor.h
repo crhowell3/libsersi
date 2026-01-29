@@ -2,6 +2,7 @@
 
 #include "libsersi/common/EntityType.h"
 #include "libsersi/utils/ByteBuffer.hpp"
+#include "libsersi/common/Result.hpp"
 
 namespace dis {
 // Section 5.2.7. Specifies the type of muntion fired, the type of warhead, the
@@ -29,8 +30,8 @@ class BurstDescriptor {
   BurstDescriptor();
   ~BurstDescriptor() = default;
 
-  void Marshal(ByteBuffer& byte_buffer) const;
-  void Unmarshal(ByteBuffer& byte_buffer);
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer);
 
   EntityType& GetMunition();
   [[nodiscard]] const EntityType& GetMunition() const;

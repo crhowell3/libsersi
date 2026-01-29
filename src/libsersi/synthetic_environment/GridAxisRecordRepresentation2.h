@@ -21,8 +21,8 @@ class GridAxisRecordRepresentation2 : public GridAxisRecord {
   GridAxisRecordRepresentation2();
   ~GridAxisRecordRepresentation2() override;
 
-  void Marshal(dis::ByteBuffer& byte_buffer) const override;
-  void Unmarshal(dis::ByteBuffer& byte_buffer) override;
+  Result<void, std::string> Marshal(dis::ByteBuffer& byte_buffer) const override;
+  Result<void, std::string> Unmarshal(dis::ByteBuffer& byte_buffer) override;
 
   [[nodiscard]] uint16_t GetNumberOfValues() const;
 

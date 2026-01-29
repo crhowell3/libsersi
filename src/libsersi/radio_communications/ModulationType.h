@@ -23,8 +23,8 @@ class ModulationType {
   ModulationType();
   ~ModulationType() = default;
 
-  void Marshal(ByteBuffer& byte_buffer) const;
-  void Unmarshal(ByteBuffer& byte_buffer);
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint16_t GetSpreadSpectrum() const;
   void SetSpreadSpectrum(uint16_t value);

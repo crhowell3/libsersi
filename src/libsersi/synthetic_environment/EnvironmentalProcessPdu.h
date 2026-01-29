@@ -41,8 +41,8 @@ class EnvironmentalProcessPdu final : public SyntheticEnvironmentFamilyPdu {
   EnvironmentalProcessPdu();
   ~EnvironmentalProcessPdu() final;
 
-  void Marshal(dis::ByteBuffer& byte_buffer) const final;
-  void Unmarshal(dis::ByteBuffer& byte_buffer) final;
+  Result<void, std::string> Marshal(dis::ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(dis::ByteBuffer& byte_buffer) final;
 
   dis::EntityID& GetEnvironmentalProcessId();
   [[nodiscard]] const dis::EntityID& GetEnvironmentalProcessId() const;

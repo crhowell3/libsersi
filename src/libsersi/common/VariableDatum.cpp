@@ -15,30 +15,19 @@ VariableDatum::VariableDatum()
 
 VariableDatum::~VariableDatum() { variable_datums_.clear(); }
 
-uint32_t VariableDatum::GetVariableDatumId() const {
-  return variable_datum_id_;
-}
+uint32_t VariableDatum::GetVariableDatumId() const { return variable_datum_id_; }
 
-void VariableDatum::SetVariableDatumId(uint32_t value) {
-  variable_datum_id_ = value;
-}
+void VariableDatum::SetVariableDatumId(uint32_t value) { variable_datum_id_ = value; }
 
-uint32_t VariableDatum::GetVariableDatumLength() const {
-  return variable_datum_length_;
-}
+uint32_t VariableDatum::GetVariableDatumLength() const { return variable_datum_length_; }
 
-void VariableDatum::SetVariableDatumLength(uint32_t value) {
-  variable_datum_length_ = value;
-}
+void VariableDatum::SetVariableDatumLength(uint32_t value) { variable_datum_length_ = value; }
 
 char* VariableDatum::GetVariableDatums() { return variable_datums_.data(); }
 
-const char* VariableDatum::GetVariableDatums() const {
-  return variable_datums_.data();
-}
+const char* VariableDatum::GetVariableDatums() const { return variable_datums_.data(); }
 
-void VariableDatum::SetVariableDatums(const char* value,
-                                      const uint32_t length) {
+void VariableDatum::SetVariableDatums(const char* value, const uint32_t length) {
   variable_datum_length_ = length * kBits;
 
   uint32_t chunks = length / kBits;
@@ -65,16 +54,18 @@ void VariableDatum::SetVariableDatums(const char* value,
   }
 }
 
-void VariableDatum::Marshal(ByteBuffer& byte_buffer) const {
+Result<void, std::string> VariableDatum::Marshal(ByteBuffer& byte_buffer) const {
   byte_buffer << variable_datum_id_;
   byte_buffer << variable_datum_length_;
 
   for (uint32_t i = 0; i < array_length_; ++i) {
     byte_buffer << variable_datums_[i];
   }
+
+  return Result<void, std::string>::Ok();
 }
 
-void VariableDatum::Unmarshal(ByteBuffer& byte_buffer) {
+Result<void, std::string> VariableDatum::Unmarshal(ByteBuffer& byte_buffer) {
   byte_buffer >> variable_datum_id_;
   byte_buffer >> variable_datum_length_;
 
@@ -89,8 +80,7 @@ void VariableDatum::Unmarshal(ByteBuffer& byte_buffer) {
     try {
       variable_datums_.resize(array_length_);
     } catch (const std::exception& e) {
-      std::cerr << e.what() << '\n';
-      return;
+      return Result<void, std::string>::Err(e.what());
     }
   }
 
@@ -100,6 +90,8 @@ void VariableDatum::Unmarshal(ByteBuffer& byte_buffer) {
   for (uint64_t idx = array_length_; idx < variable_datums_.size(); idx++) {
     variable_datums_[idx] = 0;
   }
+
+  return Result<void, std::string>::Ok();
 }
 
 bool VariableDatum::operator==(const VariableDatum& rhs) const {
@@ -126,8 +118,7 @@ bool VariableDatum::operator==(const VariableDatum& rhs) const {
 }
 
 std::size_t VariableDatum::GetMarshalledSize() const {
-  std::size_t marshal_size = sizeof(variable_datum_id_) +
-                             sizeof(variable_datum_length_) + array_length_;
+  std::size_t marshal_size = sizeof(variable_datum_id_) + sizeof(variable_datum_length_) + array_length_;
   return marshal_size;
 }
 

@@ -41,8 +41,8 @@ class ElectromagneticEmissionsPdu : public DistributedEmissionsFamilyPdu {
   ElectromagneticEmissionsPdu();
   ~ElectromagneticEmissionsPdu() override;
 
-  void Marshal(ByteBuffer& byte_buffer) const override;
-  void Unmarshal(ByteBuffer& byte_buffer) override;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const override;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) override;
 
   EntityID& GetEmittingEntityId();
   [[nodiscard]] const EntityID& GetEmittingEntityId() const;

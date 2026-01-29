@@ -30,8 +30,8 @@ class RadioEntityType {
   RadioEntityType();
   ~RadioEntityType() = default;
 
-  void Marshal(ByteBuffer& byte_buffer) const;
-  void Unmarshal(ByteBuffer& byte_buffer);
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint8_t GetEntityKind() const;
   void SetEntityKind(uint8_t value);

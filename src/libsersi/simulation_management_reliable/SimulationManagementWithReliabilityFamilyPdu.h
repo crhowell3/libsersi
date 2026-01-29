@@ -21,8 +21,8 @@ class SimulationManagementWithReliabilityFamilyPdu : public Pdu {
   SimulationManagementWithReliabilityFamilyPdu() = default;
   ~SimulationManagementWithReliabilityFamilyPdu() override = default;
 
-  void Marshal(ByteBuffer& byte_buffer) const override;
-  void Unmarshal(ByteBuffer& byte_buffer) override;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const override;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) override;
 
   EntityID& GetOriginatingEntityId();
   [[nodiscard]] const EntityID& GetOriginatingEntityId() const;

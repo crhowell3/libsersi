@@ -1,6 +1,7 @@
 #pragma once
 
 #include "libsersi/utils/ByteBuffer.hpp"
+#include "libsersi/common/Result.hpp"
 
 namespace dis {
 // Section 5.2.33. Three floating point values, x, y, and z
@@ -20,8 +21,8 @@ class Vector3Float {
   Vector3Float();
   ~Vector3Float() = default;
 
-  void Marshal(dis::ByteBuffer& byte_buffer) const;
-  void Unmarshal(dis::ByteBuffer& byte_buffer);
+  Result<void, std::string> Marshal(dis::ByteBuffer& byte_buffer) const;
+  Result<void, std::string> Unmarshal(dis::ByteBuffer& byte_buffer);
 
   [[nodiscard]] float GetX() const;
   void SetX(float value);

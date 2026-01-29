@@ -17,16 +17,20 @@ uint16_t EntityID::GetEntity() const { return entity_; }
 
 void EntityID::SetEntity(uint16_t value) { entity_ = value; }
 
-void EntityID::Marshal(ByteBuffer& byte_buffer) const {
+Result<void, std::string> EntityID::Marshal(ByteBuffer& byte_buffer) const {
   byte_buffer << site_;
   byte_buffer << application_;
   byte_buffer << entity_;
+
+  return Result<void, std::string>::Ok();
 }
 
-void EntityID::Unmarshal(ByteBuffer& byte_buffer) {
+Result<void, std::string> EntityID::Unmarshal(ByteBuffer& byte_buffer) {
   byte_buffer >> site_;
   byte_buffer >> application_;
   byte_buffer >> entity_;
+
+  return Result<void, std::string>::Ok();
 }
 
 bool EntityID::operator==(const EntityID& rhs) const {

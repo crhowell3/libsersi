@@ -55,8 +55,8 @@ class PointObjectStatePdu final : public SyntheticEnvironmentFamilyPdu {
   PointObjectStatePdu();
   ~PointObjectStatePdu() final;
 
-  void Marshal(ByteBuffer& byte_buffer) const final;
-  void Unmarshal(ByteBuffer& byte_buffer) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetObjectId();
   [[nodiscard]] const EntityID& GetObjectId() const;

@@ -4,6 +4,7 @@
 
 #include "libsersi/common/enums.hpp"
 #include "libsersi/utils/ByteBuffer.hpp"
+#include "libsersi/common/Result.hpp"
 
 namespace dis {
 
@@ -44,8 +45,8 @@ class PduHeader {
   [[nodiscard]] PduStatusRecord status_record() const;
   void status_record(PduStatusRecord value);
 
-  void Marshal(ByteBuffer& byte_buffer) const;
-  void Unmarshal(ByteBuffer& byte_buffer);
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer);
 
  private:
   /// The version of the protocol

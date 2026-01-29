@@ -1,14 +1,11 @@
 #include "libsersi/common/BurstDescriptor.h"
 
 namespace dis {
-BurstDescriptor::BurstDescriptor()
-    : warhead_(0), fuse_(0), quantity_(0), rate_(0) {}
+BurstDescriptor::BurstDescriptor() : warhead_(0), fuse_(0), quantity_(0), rate_(0) {}
 
 dis::EntityType& BurstDescriptor::GetMunition() { return munition_; }
 
-const dis::EntityType& BurstDescriptor::GetMunition() const {
-  return munition_;
-}
+const dis::EntityType& BurstDescriptor::GetMunition() const { return munition_; }
 
 void BurstDescriptor::SetMunition(const dis::EntityType& value) { munition_ = value; }
 
@@ -28,20 +25,30 @@ uint16_t BurstDescriptor::GetRate() const { return rate_; }
 
 void BurstDescriptor::SetRate(uint16_t value) { rate_ = value; }
 
-void BurstDescriptor::Marshal(ByteBuffer& byte_buffer) const {
-  munition_.Marshal(byte_buffer);
+Result<void, std::string> BurstDescriptor::Marshal(ByteBuffer& byte_buffer) const {
+  auto rv = munition_.Marshal(byte_buffer);
+  if (rv.is_err()) {
+      return rv;
+  }
   byte_buffer << warhead_;
   byte_buffer << fuse_;
   byte_buffer << quantity_;
   byte_buffer << rate_;
+
+  return Result<void, std::string>::Ok();
 }
 
-void BurstDescriptor::Unmarshal(ByteBuffer& byte_buffer) {
-  munition_.Unmarshal(byte_buffer);
+Result<void, std::string> BurstDescriptor::Unmarshal(ByteBuffer& byte_buffer) {
+  auto rv = munition_.Unmarshal(byte_buffer);
+  if (rv.is_err()) {
+      return rv;
+  }
   byte_buffer >> warhead_;
   byte_buffer >> fuse_;
   byte_buffer >> quantity_;
   byte_buffer >> rate_;
+
+  return Result<void, std::string>::Ok();
 }
 
 bool BurstDescriptor::operator==(const BurstDescriptor& rhs) const {
@@ -67,8 +74,8 @@ bool BurstDescriptor::operator==(const BurstDescriptor& rhs) const {
 }
 
 std::size_t BurstDescriptor::GetMarshalledSize() const {
-  std::size_t marshal_size = munition_.GetMarshalledSize() + sizeof(warhead_) +
-                        sizeof(fuse_) + sizeof(quantity_) + sizeof(rate_);
+  std::size_t marshal_size =
+      munition_.GetMarshalledSize() + sizeof(warhead_) + sizeof(fuse_) + sizeof(quantity_) + sizeof(rate_);
   return marshal_size;
 }
 

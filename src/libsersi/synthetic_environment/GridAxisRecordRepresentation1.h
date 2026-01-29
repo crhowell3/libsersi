@@ -27,8 +27,8 @@ class GridAxisRecordRepresentation1 : public GridAxisRecord {
   GridAxisRecordRepresentation1();
   ~GridAxisRecordRepresentation1() override;
 
-  void Marshal(dis::ByteBuffer& byte_buffer) const override;
-  void Unmarshal(dis::ByteBuffer& byte_buffer) override;
+  Result<void, std::string> Marshal(dis::ByteBuffer& byte_buffer) const override;
+  Result<void, std::string> Unmarshal(dis::ByteBuffer& byte_buffer) override;
 
   [[nodiscard]] float GetFieldScale() const;
   void SetFieldScale(float value);

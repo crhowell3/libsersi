@@ -23,8 +23,8 @@ class AggregateMarking {
   AggregateMarking();
   ~AggregateMarking() = default;
 
-  void Marshal(ByteBuffer& byte_buffer) const;
-  void Unmarshal(ByteBuffer& byte_buffer);
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint8_t GetCharacterSet() const;
   void SetCharacterSet(uint8_t value);

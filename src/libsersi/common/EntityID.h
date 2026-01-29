@@ -1,6 +1,7 @@
 #pragma once
 
 #include "libsersi/utils/ByteBuffer.hpp"
+#include "libsersi/common/Result.hpp"
 
 namespace dis {
 // Each entity in a given DIS simulation application shall be given an entity
@@ -33,8 +34,8 @@ class EntityID {
   EntityID();
   virtual ~EntityID();
 
-  virtual void Marshal(ByteBuffer& byte_buffer) const;
-  virtual void Unmarshal(ByteBuffer& byte_buffer);
+  virtual Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const;
+  virtual Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint16_t GetSite() const;
   void SetSite(uint16_t value);

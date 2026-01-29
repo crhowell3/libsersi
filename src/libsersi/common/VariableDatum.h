@@ -3,8 +3,10 @@
 #include <cstddef>
 #include <vector>
 #include <cstdint>
+#include <string>
 
 #include "libsersi/utils/ByteBuffer.hpp"
+#include "libsersi/common/Result.hpp"
 
 // length in bytes for the variable data. This should be a dynamically allocated
 // array.
@@ -29,8 +31,8 @@ class VariableDatum {
   VariableDatum();
   ~VariableDatum();
 
-  void Marshal(dis::ByteBuffer& byte_buffer) const;
-  void Unmarshal(dis::ByteBuffer& byte_buffer);
+  Result<void, std::string> Marshal(dis::ByteBuffer& byte_buffer) const;
+  Result<void, std::string> Unmarshal(dis::ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint32_t GetVariableDatumId() const;
   void SetVariableDatumId(uint32_t value);

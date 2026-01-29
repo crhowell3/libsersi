@@ -3,6 +3,7 @@
 #include <cstddef>
 
 #include "libsersi/utils/ByteBuffer.hpp"
+#include "libsersi/common/Result.hpp"
 
 namespace dis {
 // Section 5.2.18. Identifies a unique event in a simulation via the combination
@@ -23,8 +24,8 @@ class EventID {
   EventID();
   ~EventID() = default;
 
-  void Marshal(dis::ByteBuffer& byte_buffer) const;
-  void Unmarshal(dis::ByteBuffer& byte_buffer);
+  Result<void, std::string> Marshal(dis::ByteBuffer& byte_buffer) const;
+  Result<void, std::string> Unmarshal(dis::ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint16_t GetSite() const;
   void SetSite(uint16_t value);

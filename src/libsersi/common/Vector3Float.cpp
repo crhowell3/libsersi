@@ -15,16 +15,20 @@ float Vector3Float::GetZ() const { return z_; }
 
 void Vector3Float::SetZ(float value) { z_ = value; }
 
-void Vector3Float::Marshal(ByteBuffer& byte_buffer) const {
+Result<void, std::string> Vector3Float::Marshal(ByteBuffer& byte_buffer) const {
   byte_buffer << x_;
   byte_buffer << y_;
   byte_buffer << z_;
+
+  return Result<void, std::string>::Ok();
 }
 
-void Vector3Float::Unmarshal(ByteBuffer& byte_buffer) {
+Result<void, std::string> Vector3Float::Unmarshal(ByteBuffer& byte_buffer) {
   byte_buffer >> x_;
   byte_buffer >> y_;
   byte_buffer >> z_;
+
+  return Result<void, std::string>::Ok();
 }
 
 bool Vector3Float::operator==(const Vector3Float& rhs) const {

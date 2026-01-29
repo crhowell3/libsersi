@@ -17,8 +17,8 @@ class GridAxisRecord {
   GridAxisRecord();
   virtual ~GridAxisRecord();
 
-  virtual void Marshal(dis::ByteBuffer& byte_buffer) const;
-  virtual void Unmarshal(dis::ByteBuffer& byte_buffer);
+  virtual Result<void, std::string> Marshal(dis::ByteBuffer& byte_buffer) const;
+  virtual Result<void, std::string> Unmarshal(dis::ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint16_t GetSampleType() const;
   void SetSampleType(uint16_t value);

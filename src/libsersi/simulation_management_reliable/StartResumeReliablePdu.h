@@ -32,8 +32,8 @@ class StartResumeReliablePdu final
   StartResumeReliablePdu();
   ~StartResumeReliablePdu() final;
 
-  void Marshal(ByteBuffer& byte_buffer) const final;
-  void Unmarshal(ByteBuffer& byte_buffer) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   ClockTime& GetRealWorldTime();
   [[nodiscard]] const ClockTime& GetRealWorldTime() const;

@@ -9,18 +9,20 @@ void FixedDatum::SetFixedDatumId(uint32_t value) { fixed_datum_id_ = value; }
 
 uint32_t FixedDatum::GetFixedDatumValue() const { return fixed_datum_value_; }
 
-void FixedDatum::SetFixedDatumValue(uint32_t value) {
-  fixed_datum_value_ = value;
-}
+void FixedDatum::SetFixedDatumValue(uint32_t value) { fixed_datum_value_ = value; }
 
-void FixedDatum::Marshal(ByteBuffer& byte_buffer) const {
+Result<void, std::string> FixedDatum::Marshal(ByteBuffer& byte_buffer) const {
   byte_buffer << fixed_datum_id_;
   byte_buffer << fixed_datum_value_;
+
+  return Result<void, std::string>::Ok();
 }
 
-void FixedDatum::Unmarshal(ByteBuffer& byte_buffer) {
+Result<void, std::string> FixedDatum::Unmarshal(ByteBuffer& byte_buffer) {
   byte_buffer >> fixed_datum_id_;
   byte_buffer >> fixed_datum_value_;
+
+  return Result<void, std::string>::Ok();
 }
 
 bool FixedDatum::operator==(const FixedDatum& rhs) const {
@@ -37,8 +39,7 @@ bool FixedDatum::operator==(const FixedDatum& rhs) const {
 }
 
 std::size_t FixedDatum::GetMarshalledSize() const {
-  std::size_t marshal_size =
-      sizeof(fixed_datum_id_) + sizeof(fixed_datum_value_);
+  std::size_t marshal_size = sizeof(fixed_datum_id_) + sizeof(fixed_datum_value_);
   return marshal_size;
 }
 

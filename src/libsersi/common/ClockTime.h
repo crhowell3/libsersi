@@ -1,5 +1,6 @@
 #pragma once
 
+#include "libsersi/common/Result.hpp"
 #include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
@@ -16,10 +17,10 @@ class ClockTime {
 
  public:
   ClockTime();
-  virtual ~ClockTime();
+  ~ClockTime();
 
-  virtual void Marshal(ByteBuffer& byte_buffer) const;
-  virtual void Unmarshal(ByteBuffer& byte_buffer);
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] int GetHour() const;
   void SetHour(int value);

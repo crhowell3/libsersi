@@ -43,8 +43,8 @@ class SeesPdu final : public DistributedEmissionsFamilyPdu {
   SeesPdu();
   ~SeesPdu() final;
 
-  void Marshal(ByteBuffer& byte_buffer) const final;
-  void Unmarshal(ByteBuffer& byte_buffer) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetOriginatingEntityId();
   [[nodiscard]] const EntityID& GetOriginatingEntityId() const;

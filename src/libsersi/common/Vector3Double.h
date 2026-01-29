@@ -2,7 +2,7 @@
 #define LIBSERSI_COMMON_VECTOR3DOUBLE_H_
 
 #include "libsersi/utils/ByteBuffer.hpp"
-
+#include "libsersi/common/Result.hpp"
 namespace dis {
 // Section 5.3.34. Three double precision floating point values, x, y, and z
 
@@ -21,8 +21,8 @@ class Vector3Double {
   Vector3Double();
   ~Vector3Double() = default;
 
-  void Marshal(ByteBuffer& byte_buffer) const;
-  void Unmarshal(ByteBuffer& byte_buffer);
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] double GetX() const;
   void SetX(double value);

@@ -49,8 +49,8 @@ class MinefieldQueryPdu final : public MinefieldFamilyPdu {
   MinefieldQueryPdu();
   ~MinefieldQueryPdu() final;
 
-  void Marshal(ByteBuffer& byte_buffer) const final;
-  void Unmarshal(ByteBuffer& byte_buffer) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetMinefieldId();
   [[nodiscard]] const EntityID& GetMinefieldId() const;
