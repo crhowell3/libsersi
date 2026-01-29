@@ -9,6 +9,9 @@ required_conan_version = ">=2.9.3"
 
 
 class SersiConan(ConanFile):
+    name = "sersi"
+    version = "0.2.0"
+
     settings = "os", "arch", "compiler", "build_type"
     generators = "CMakeToolchain", "CMakeDeps"
 
@@ -18,5 +21,7 @@ class SersiConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure()
+        cmake.configure(
+            variables={"PROJECT_NAME": self.name, "PROJECT_VERSION": self.version}
+        )
         cmake.build()

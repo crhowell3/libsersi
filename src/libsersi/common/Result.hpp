@@ -1,7 +1,6 @@
 #pragma once
 
 #include <stdexcept>
-#include <type_traits>
 #include <utility>
 #include <variant>
 
@@ -93,7 +92,7 @@ class [[nodiscard]] Result<void, E> {
  private:
   struct ok_tag {};
 
-  explicit Result(ok_tag) : data_(ok_tag{}) {}
+  explicit Result(ok_tag) : data_(ok_tag{}) {}  // NOLINT
 
   explicit Result(E error) : data_(std::move(error)) {}
 

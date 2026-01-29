@@ -1,7 +1,15 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(sersi
-  VERSION 0.2.0
+if(NOT PROJECT_NAME)
+    set(PROJECT_NAME sersi)
+endif()
+
+if(NOT PROJECT_VERSION)
+    set(PROJECT_VERSION 0.2.0)
+endif()
+
+project(${PROJECT_NAME}
+  VERSION ${PROJECT_VERSION}
   DESCRIPTION "IEEE 1278.1-2012 Distributed Interactive Simulation library"
   LANGUAGES CXX
 )
