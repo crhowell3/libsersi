@@ -20,14 +20,14 @@ void VectoringNozzleSystemData::SetVerticalDeflectionAngle(float value) {
   vertical_deflection_angle_ = value;
 }
 
-void VectoringNozzleSystemData::Marshal(DataStream& data_stream) const {
-  data_stream << horizontal_deflection_angle_;
-  data_stream << vertical_deflection_angle_;
+void VectoringNozzleSystemData::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << horizontal_deflection_angle_;
+  byte_buffer << vertical_deflection_angle_;
 }
 
-void VectoringNozzleSystemData::Unmarshal(DataStream& data_stream) {
-  data_stream >> horizontal_deflection_angle_;
-  data_stream >> vertical_deflection_angle_;
+void VectoringNozzleSystemData::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> horizontal_deflection_angle_;
+  byte_buffer >> vertical_deflection_angle_;
 }
 
 bool VectoringNozzleSystemData::operator==(

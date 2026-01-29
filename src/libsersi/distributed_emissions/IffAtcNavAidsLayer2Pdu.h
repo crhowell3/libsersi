@@ -6,7 +6,7 @@
 #include "libsersi/distributed_emissions/FundamentalParameterDataIff.h"
 #include "libsersi/distributed_emissions/IffAtcNavAidsLayer1Pdu.h"
 #include "libsersi/distributed_emissions/LayerHeader.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.7.4.2 When present, layer 2 should follow layer 1 and have the
@@ -30,8 +30,8 @@ class IffAtcNavAidsLayer2Pdu final : public IffAtcNavAidsLayer1Pdu {
  public:
   IffAtcNavAidsLayer2Pdu() = default;
   ~IffAtcNavAidsLayer2Pdu() final;
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   LayerHeader& GetLayerHeader();
   [[nodiscard]] const LayerHeader& GetLayerHeader() const;

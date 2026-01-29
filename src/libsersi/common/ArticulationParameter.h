@@ -1,9 +1,8 @@
-#ifndef LIBSERSI_COMMON_ARTICULATIONPARAMETER_H_
-#define LIBSERSI_COMMON_ARTICULATIONPARAMETER_H_
+#pragma once
 
 #include <cstdint>
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.5. Articulation parameters for  movable parts and attached parts
@@ -27,8 +26,8 @@ class ArticulationParameter {
   ArticulationParameter();
   ~ArticulationParameter() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint8_t GetParameterTypeDesignator() const;
   void SetParameterTypeDesignator(uint8_t value);
@@ -51,6 +50,3 @@ class ArticulationParameter {
 };
 
 }  // namespace dis
-
-#endif  // LIBSERSI_COMMON_ARTICULATIONPARAMETER_H_
-

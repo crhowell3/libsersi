@@ -60,33 +60,33 @@ void IsGroupOfPdu::SetGroupedEntityDescriptions(
   grouped_entity_descriptions_ = value;
 }
 
-void IsGroupOfPdu::Marshal(DataStream& data_stream) const {
-  EntityManagementFamilyPdu::Marshal(data_stream);
-  group_entity_id_.Marshal(data_stream);
-  data_stream << grouped_entity_category_;
-  data_stream << static_cast<uint8_t>(grouped_entity_descriptions_.size());
-  data_stream << pad2_;
-  data_stream << latitude_;
-  data_stream << longitude_;
+void IsGroupOfPdu::Marshal(ByteBuffer& byte_buffer) const {
+  EntityManagementFamilyPdu::Marshal(byte_buffer);
+  group_entity_id_.Marshal(byte_buffer);
+  byte_buffer << grouped_entity_category_;
+  byte_buffer << static_cast<uint8_t>(grouped_entity_descriptions_.size());
+  byte_buffer << pad2_;
+  byte_buffer << latitude_;
+  byte_buffer << longitude_;
 
   for (const auto& x : grouped_entity_descriptions_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void IsGroupOfPdu::Unmarshal(DataStream& data_stream) {
-  EntityManagementFamilyPdu::Unmarshal(data_stream);
-  group_entity_id_.Unmarshal(data_stream);
-  data_stream >> grouped_entity_category_;
-  data_stream >> number_of_grouped_entities_;
-  data_stream >> pad2_;
-  data_stream >> latitude_;
-  data_stream >> longitude_;
+void IsGroupOfPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  EntityManagementFamilyPdu::Unmarshal(byte_buffer);
+  group_entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> grouped_entity_category_;
+  byte_buffer >> number_of_grouped_entities_;
+  byte_buffer >> pad2_;
+  byte_buffer >> latitude_;
+  byte_buffer >> longitude_;
 
   grouped_entity_descriptions_.clear();
   for (std::size_t idx = 0; idx < number_of_grouped_entities_; idx++) {
     VariableDatum x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     grouped_entity_descriptions_.push_back(x);
   }
 }

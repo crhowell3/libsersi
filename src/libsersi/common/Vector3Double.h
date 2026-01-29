@@ -1,7 +1,7 @@
 #ifndef LIBSERSI_COMMON_VECTOR3DOUBLE_H_
 #define LIBSERSI_COMMON_VECTOR3DOUBLE_H_
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.34. Three double precision floating point values, x, y, and z
@@ -21,8 +21,8 @@ class Vector3Double {
   Vector3Double();
   ~Vector3Double() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] double GetX() const;
   void SetX(double value);
@@ -40,4 +40,3 @@ class Vector3Double {
 }  // namespace dis
 
 #endif  // LIBSERSI_COMMON_VECTOR3DOUBLE_H_
-

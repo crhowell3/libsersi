@@ -60,22 +60,22 @@ void AcousticBeamFundamentalParameter::SetDeBeamwidth(float value) {
   de_beamwidth_ = value;
 }
 
-void AcousticBeamFundamentalParameter::Marshal(DataStream& data_stream) const {
-  data_stream << active_emission_parameter_index_;
-  data_stream << scan_pattern_;
-  data_stream << beam_center_azimuth_;
-  data_stream << azimuthal_beamwidth_;
-  data_stream << beam_center_de_;
-  data_stream << de_beamwidth_;
+void AcousticBeamFundamentalParameter::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << active_emission_parameter_index_;
+  byte_buffer << scan_pattern_;
+  byte_buffer << beam_center_azimuth_;
+  byte_buffer << azimuthal_beamwidth_;
+  byte_buffer << beam_center_de_;
+  byte_buffer << de_beamwidth_;
 }
 
-void AcousticBeamFundamentalParameter::Unmarshal(DataStream& data_stream) {
-  data_stream >> active_emission_parameter_index_;
-  data_stream >> scan_pattern_;
-  data_stream >> beam_center_azimuth_;
-  data_stream >> azimuthal_beamwidth_;
-  data_stream >> beam_center_de_;
-  data_stream >> de_beamwidth_;
+void AcousticBeamFundamentalParameter::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> active_emission_parameter_index_;
+  byte_buffer >> scan_pattern_;
+  byte_buffer >> beam_center_azimuth_;
+  byte_buffer >> azimuthal_beamwidth_;
+  byte_buffer >> beam_center_de_;
+  byte_buffer >> de_beamwidth_;
 }
 
 bool AcousticBeamFundamentalParameter::operator==(

@@ -62,35 +62,35 @@ void RecordQueryReliablePdu::SetRecordIDs(const std::vector<uint32_t>& value) {
   record_ids_ = value;
 }
 
-void RecordQueryReliablePdu::Marshal(DataStream& data_stream) const {
-  SimulationManagementWithReliabilityFamilyPdu::Marshal(data_stream);
-  data_stream << request_id_;
-  data_stream << required_reliability_service_;
-  data_stream << pad1_;
-  data_stream << pad2_;
-  data_stream << event_type_;
-  data_stream << time_;
-  data_stream << static_cast<uint32_t>(record_ids_.size());
+void RecordQueryReliablePdu::Marshal(ByteBuffer& byte_buffer) const {
+  SimulationManagementWithReliabilityFamilyPdu::Marshal(byte_buffer);
+  byte_buffer << request_id_;
+  byte_buffer << required_reliability_service_;
+  byte_buffer << pad1_;
+  byte_buffer << pad2_;
+  byte_buffer << event_type_;
+  byte_buffer << time_;
+  byte_buffer << static_cast<uint32_t>(record_ids_.size());
 
   for (unsigned int x : record_ids_) {
-    data_stream << x;
+    byte_buffer << x;
   }
 }
 
-void RecordQueryReliablePdu::Unmarshal(DataStream& data_stream) {
-  SimulationManagementWithReliabilityFamilyPdu::Unmarshal(data_stream);
-  data_stream >> request_id_;
-  data_stream >> required_reliability_service_;
-  data_stream >> pad1_;
-  data_stream >> pad2_;
-  data_stream >> event_type_;
-  data_stream >> time_;
-  data_stream >> number_of_records_;
+void RecordQueryReliablePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  SimulationManagementWithReliabilityFamilyPdu::Unmarshal(byte_buffer);
+  byte_buffer >> request_id_;
+  byte_buffer >> required_reliability_service_;
+  byte_buffer >> pad1_;
+  byte_buffer >> pad2_;
+  byte_buffer >> event_type_;
+  byte_buffer >> time_;
+  byte_buffer >> number_of_records_;
 
   record_ids_.clear();
   for (std::size_t idx = 0; idx < number_of_records_; idx++) {
     uint32_t x;
-    data_stream >> x;
+    byte_buffer >> x;
     record_ids_.push_back(x);
   }
 }

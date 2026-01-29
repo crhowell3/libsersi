@@ -18,16 +18,16 @@ uint8_t TrackJamTarget::GetBeamId() const { return beam_id_; }
 
 void TrackJamTarget::SetBeamId(uint8_t value) { beam_id_ = value; }
 
-void TrackJamTarget::Marshal(DataStream& data_stream) const {
-  track_jam_.Marshal(data_stream);
-  data_stream << emitter_id_;
-  data_stream << beam_id_;
+void TrackJamTarget::Marshal(ByteBuffer& byte_buffer) const {
+  track_jam_.Marshal(byte_buffer);
+  byte_buffer << emitter_id_;
+  byte_buffer << beam_id_;
 }
 
-void TrackJamTarget::Unmarshal(DataStream& data_stream) {
-  track_jam_.Unmarshal(data_stream);
-  data_stream >> emitter_id_;
-  data_stream >> beam_id_;
+void TrackJamTarget::Unmarshal(ByteBuffer& byte_buffer) {
+  track_jam_.Unmarshal(byte_buffer);
+  byte_buffer >> emitter_id_;
+  byte_buffer >> beam_id_;
 }
 
 bool TrackJamTarget::operator==(const TrackJamTarget& rhs) const {

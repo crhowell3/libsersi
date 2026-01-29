@@ -91,30 +91,30 @@ uint32_t LinearSegmentParameter::GetPad1() const { return pad1_; }
 
 void LinearSegmentParameter::SetPad1(uint32_t value) { pad1_ = value; }
 
-void LinearSegmentParameter::Marshal(DataStream& data_stream) const {
-  data_stream << segment_number_;
-  data_stream << general_segment_appearance_;
-  data_stream << specific_segment_appearance_;
-  location_.Marshal(data_stream);
-  orientation_.Marshal(data_stream);
-  data_stream << segment_length_;
-  data_stream << segment_width_;
-  data_stream << segment_height_;
-  data_stream << segment_depth_;
-  data_stream << pad1_;
+void LinearSegmentParameter::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << segment_number_;
+  byte_buffer << general_segment_appearance_;
+  byte_buffer << specific_segment_appearance_;
+  location_.Marshal(byte_buffer);
+  orientation_.Marshal(byte_buffer);
+  byte_buffer << segment_length_;
+  byte_buffer << segment_width_;
+  byte_buffer << segment_height_;
+  byte_buffer << segment_depth_;
+  byte_buffer << pad1_;
 }
 
-void LinearSegmentParameter::Unmarshal(DataStream& data_stream) {
-  data_stream >> segment_number_;
-  data_stream >> general_segment_appearance_;
-  data_stream >> specific_segment_appearance_;
-  location_.Unmarshal(data_stream);
-  orientation_.Unmarshal(data_stream);
-  data_stream >> segment_length_;
-  data_stream >> segment_width_;
-  data_stream >> segment_height_;
-  data_stream >> segment_depth_;
-  data_stream >> pad1_;
+void LinearSegmentParameter::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> segment_number_;
+  byte_buffer >> general_segment_appearance_;
+  byte_buffer >> specific_segment_appearance_;
+  location_.Unmarshal(byte_buffer);
+  orientation_.Unmarshal(byte_buffer);
+  byte_buffer >> segment_length_;
+  byte_buffer >> segment_width_;
+  byte_buffer >> segment_height_;
+  byte_buffer >> segment_depth_;
+  byte_buffer >> pad1_;
 }
 
 bool LinearSegmentParameter::operator==(

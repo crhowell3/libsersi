@@ -41,22 +41,22 @@ void ReceiverPdu::SetTransmitterRadioId(uint16_t value) {
   transmitter_radio_id_ = value;
 }
 
-void ReceiverPdu::Marshal(DataStream& data_stream) const {
-  RadioCommunicationsFamilyPdu::Marshal(data_stream);
-  data_stream << receiver_state_;
-  data_stream << padding1_;
-  data_stream << received_power_;
-  transmitter_entity_id_.Marshal(data_stream);
-  data_stream << transmitter_radio_id_;
+void ReceiverPdu::Marshal(ByteBuffer& byte_buffer) const {
+  RadioCommunicationsFamilyPdu::Marshal(byte_buffer);
+  byte_buffer << receiver_state_;
+  byte_buffer << padding1_;
+  byte_buffer << received_power_;
+  transmitter_entity_id_.Marshal(byte_buffer);
+  byte_buffer << transmitter_radio_id_;
 }
 
-void ReceiverPdu::Unmarshal(DataStream& data_stream) {
-  RadioCommunicationsFamilyPdu::Unmarshal(data_stream);
-  data_stream >> receiver_state_;
-  data_stream >> padding1_;
-  data_stream >> received_power_;
-  transmitter_entity_id_.Unmarshal(data_stream);
-  data_stream >> transmitter_radio_id_;
+void ReceiverPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  RadioCommunicationsFamilyPdu::Unmarshal(byte_buffer);
+  byte_buffer >> receiver_state_;
+  byte_buffer >> padding1_;
+  byte_buffer >> received_power_;
+  transmitter_entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> transmitter_radio_id_;
 }
 
 bool ReceiverPdu::operator==(const ReceiverPdu& rhs) const {

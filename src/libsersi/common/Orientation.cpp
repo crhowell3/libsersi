@@ -15,16 +15,16 @@ float Orientation::GetPhi() const { return phi_; }
 
 void Orientation::SetPhi(float value) { phi_ = value; }
 
-void Orientation::Marshal(DataStream& data_stream) const {
-  data_stream << psi_;
-  data_stream << theta_;
-  data_stream << phi_;
+void Orientation::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << psi_;
+  byte_buffer << theta_;
+  byte_buffer << phi_;
 }
 
-void Orientation::Unmarshal(DataStream& data_stream) {
-  data_stream >> psi_;
-  data_stream >> theta_;
-  data_stream >> phi_;
+void Orientation::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> psi_;
+  byte_buffer >> theta_;
+  byte_buffer >> phi_;
 }
 
 bool Orientation::operator==(const Orientation& rhs) const {

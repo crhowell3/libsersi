@@ -6,7 +6,7 @@
 #include "libsersi/common/Vector3Float.h"
 #include "libsersi/distributed_emissions/AcousticBeamData.h"
 #include "libsersi/distributed_emissions/AcousticEmitterSystem.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Used in the UA pdu; ties together an emmitter and a location. This requires
@@ -38,8 +38,8 @@ class AcousticEmitterSystemData {
   AcousticEmitterSystemData();
   ~AcousticEmitterSystemData();
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint8_t GetEmitterSystemDataLength() const;
   void SetEmitterSystemDataLength(uint8_t value);

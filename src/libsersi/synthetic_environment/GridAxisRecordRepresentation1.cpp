@@ -42,27 +42,27 @@ void GridAxisRecordRepresentation1::SetDataValues(
   data_values_ = value;
 }
 
-void GridAxisRecordRepresentation1::Marshal(DataStream& data_stream) const {
-  GridAxisRecord::Marshal(data_stream);
-  data_stream << field_scale_;
-  data_stream << field_offset_;
-  data_stream << static_cast<uint16_t>(data_values_.size());
+void GridAxisRecordRepresentation1::Marshal(ByteBuffer& byte_buffer) const {
+  GridAxisRecord::Marshal(byte_buffer);
+  byte_buffer << field_scale_;
+  byte_buffer << field_offset_;
+  byte_buffer << static_cast<uint16_t>(data_values_.size());
 
   for (const auto& x : data_values_) {
-    data_stream << x;
+    byte_buffer << x;
   }
 }
 
-void GridAxisRecordRepresentation1::Unmarshal(DataStream& data_stream) {
-  GridAxisRecord::Unmarshal(data_stream);
-  data_stream >> field_scale_;
-  data_stream >> field_offset_;
-  data_stream >> number_of_values_;
+void GridAxisRecordRepresentation1::Unmarshal(ByteBuffer& byte_buffer) {
+  GridAxisRecord::Unmarshal(byte_buffer);
+  byte_buffer >> field_scale_;
+  byte_buffer >> field_offset_;
+  byte_buffer >> number_of_values_;
 
   data_values_.clear();
   for (std::size_t idx = 0; idx < number_of_values_; idx++) {
     uint16_t x;
-    data_stream >> x;
+    byte_buffer >> x;
     data_values_.push_back(x);
   }
 }

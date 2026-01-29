@@ -16,14 +16,14 @@ float PropulsionSystemData::GetEngineRpm() const { return engine_rpm_; }
 
 void PropulsionSystemData::SetEngineRpm(float value) { engine_rpm_ = value; }
 
-void PropulsionSystemData::Marshal(DataStream& data_stream) const {
-  data_stream << power_setting_;
-  data_stream << engine_rpm_;
+void PropulsionSystemData::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << power_setting_;
+  byte_buffer << engine_rpm_;
 }
 
-void PropulsionSystemData::Unmarshal(DataStream& data_stream) {
-  data_stream >> power_setting_;
-  data_stream >> engine_rpm_;
+void PropulsionSystemData::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> power_setting_;
+  byte_buffer >> engine_rpm_;
 }
 
 bool PropulsionSystemData::operator==(const PropulsionSystemData& rhs) const {

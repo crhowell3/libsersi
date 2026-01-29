@@ -53,27 +53,27 @@ void IffAtcNavAidsLayer2Pdu::SetFundamentalIffParameters(
   fundamental_iff_parameters_ = value;
 }
 
-void IffAtcNavAidsLayer2Pdu::Marshal(DataStream& data_stream) const {
-  IffAtcNavAidsLayer1Pdu::Marshal(data_stream);
-  layer_header_.Marshal(data_stream);
-  beam_data_.Marshal(data_stream);
-  secondary_operational_data_.Marshal(data_stream);
+void IffAtcNavAidsLayer2Pdu::Marshal(ByteBuffer& byte_buffer) const {
+  IffAtcNavAidsLayer1Pdu::Marshal(byte_buffer);
+  layer_header_.Marshal(byte_buffer);
+  beam_data_.Marshal(byte_buffer);
+  secondary_operational_data_.Marshal(byte_buffer);
 
   for (auto x : fundamental_iff_parameters_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void IffAtcNavAidsLayer2Pdu::Unmarshal(DataStream& data_stream) {
-  IffAtcNavAidsLayer1Pdu::Unmarshal(data_stream);
-  layer_header_.Unmarshal(data_stream);
-  beam_data_.Unmarshal(data_stream);
-  secondary_operational_data_.Unmarshal(data_stream);
+void IffAtcNavAidsLayer2Pdu::Unmarshal(ByteBuffer& byte_buffer) {
+  IffAtcNavAidsLayer1Pdu::Unmarshal(byte_buffer);
+  layer_header_.Unmarshal(byte_buffer);
+  beam_data_.Unmarshal(byte_buffer);
+  secondary_operational_data_.Unmarshal(byte_buffer);
 
   fundamental_iff_parameters_.clear();
   for (std::size_t idx = 0; idx < pad2_; idx++) {
     FundamentalParameterDataIff x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     fundamental_iff_parameters_.push_back(x);
   }
 }

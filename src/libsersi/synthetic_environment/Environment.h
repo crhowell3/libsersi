@@ -1,6 +1,6 @@
 #pragma once
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.40. Information about a geometry, a state associated with a
@@ -31,8 +31,8 @@ class Environment {
   Environment();
   ~Environment() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint32_t GetEnvironmentType() const;
   void SetEnvironmentType(uint32_t value);

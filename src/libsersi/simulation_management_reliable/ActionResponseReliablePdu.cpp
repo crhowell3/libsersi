@@ -65,40 +65,40 @@ void ActionResponseReliablePdu::SetVariableDatumRecords(
   variable_datum_records_ = value;
 }
 
-void ActionResponseReliablePdu::Marshal(DataStream& data_stream) const {
-  SimulationManagementWithReliabilityFamilyPdu::Marshal(data_stream);
-  data_stream << request_id_;
-  data_stream << response_status_;
-  data_stream << static_cast<uint32_t>(fixed_datum_records_.size());
-  data_stream << static_cast<uint32_t>(variable_datum_records_.size());
+void ActionResponseReliablePdu::Marshal(ByteBuffer& byte_buffer) const {
+  SimulationManagementWithReliabilityFamilyPdu::Marshal(byte_buffer);
+  byte_buffer << request_id_;
+  byte_buffer << response_status_;
+  byte_buffer << static_cast<uint32_t>(fixed_datum_records_.size());
+  byte_buffer << static_cast<uint32_t>(variable_datum_records_.size());
 
   for (auto x : fixed_datum_records_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 
   for (const auto& x : variable_datum_records_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void ActionResponseReliablePdu::Unmarshal(DataStream& data_stream) {
-  SimulationManagementWithReliabilityFamilyPdu::Unmarshal(data_stream);
-  data_stream >> request_id_;
-  data_stream >> response_status_;
-  data_stream >> number_of_fixed_datum_records_;
-  data_stream >> number_of_variable_datum_records_;
+void ActionResponseReliablePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  SimulationManagementWithReliabilityFamilyPdu::Unmarshal(byte_buffer);
+  byte_buffer >> request_id_;
+  byte_buffer >> response_status_;
+  byte_buffer >> number_of_fixed_datum_records_;
+  byte_buffer >> number_of_variable_datum_records_;
 
   fixed_datum_records_.clear();
   for (std::size_t idx = 0; idx < number_of_fixed_datum_records_; idx++) {
     FixedDatum x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     fixed_datum_records_.push_back(x);
   }
 
   variable_datum_records_.clear();
   for (std::size_t idx = 0; idx < number_of_variable_datum_records_; idx++) {
     VariableDatum x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     variable_datum_records_.push_back(x);
   }
 }

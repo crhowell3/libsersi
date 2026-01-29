@@ -26,16 +26,16 @@ void ShaftRPMs::SetShaftRPMRateOfChange(float value) {
   shaft_rpm_rate_of_change_ = value;
 }
 
-void ShaftRPMs::Marshal(DataStream& data_stream) const {
-  data_stream << current_shaft_rpms_;
-  data_stream << ordered_shaft_rpms_;
-  data_stream << shaft_rpm_rate_of_change_;
+void ShaftRPMs::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << current_shaft_rpms_;
+  byte_buffer << ordered_shaft_rpms_;
+  byte_buffer << shaft_rpm_rate_of_change_;
 }
 
-void ShaftRPMs::Unmarshal(DataStream& data_stream) {
-  data_stream >> current_shaft_rpms_;
-  data_stream >> ordered_shaft_rpms_;
-  data_stream >> shaft_rpm_rate_of_change_;
+void ShaftRPMs::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> current_shaft_rpms_;
+  byte_buffer >> ordered_shaft_rpms_;
+  byte_buffer >> shaft_rpm_rate_of_change_;
 }
 
 bool ShaftRPMs::operator==(const ShaftRPMs& rhs) const {

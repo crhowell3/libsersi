@@ -5,7 +5,7 @@
 #include "libsersi/common/Vector3Float.h"
 #include "libsersi/distributed_emissions/ElectromagneticEmissionBeamData.h"
 #include "libsersi/distributed_emissions/EmitterSystem.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Data about one electronic system
@@ -37,8 +37,8 @@ class ElectromagneticEmissionSystemData {
   ElectromagneticEmissionSystemData();
   ~ElectromagneticEmissionSystemData();
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint8_t GetSystemDataLength() const;
   void SetSystemDataLength(uint8_t value);

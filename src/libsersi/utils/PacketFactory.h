@@ -1,5 +1,4 @@
-#ifndef _dcl_dis_packet_factory_h_
-#define _dcl_dis_packet_factory_h_
+#pragma once
 
 #include <cstdint>
 #include <map>  // for member
@@ -62,5 +61,3 @@ class PacketFactory {
   FunctionMap f_map_;
 };
 }  // namespace dis
-
-#endif  // _dcl_dis_packet_factory_h_

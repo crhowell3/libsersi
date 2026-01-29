@@ -13,14 +13,14 @@ int16_t ApaData::GetParameterValue() const { return parameter_value_; }
 
 void ApaData::SetParameterValue(int16_t value) { parameter_value_ = value; }
 
-void ApaData::Marshal(DataStream& data_stream) const {
-  data_stream << parameter_index_;
-  data_stream << parameter_value_;
+void ApaData::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << parameter_index_;
+  byte_buffer << parameter_value_;
 }
 
-void ApaData::Unmarshal(DataStream& data_stream) {
-  data_stream >> parameter_index_;
-  data_stream >> parameter_value_;
+void ApaData::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> parameter_index_;
+  byte_buffer >> parameter_value_;
 }
 
 bool ApaData::operator==(const ApaData& rhs) const {

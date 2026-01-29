@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.18. Identifies a unique event in a simulation via the combination
@@ -23,8 +23,8 @@ class EventID {
   EventID();
   ~EventID() = default;
 
-  void Marshal(dis::DataStream& data_stream) const;
-  void Unmarshal(dis::DataStream& data_stream);
+  void Marshal(dis::ByteBuffer& byte_buffer) const;
+  void Unmarshal(dis::ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint16_t GetSite() const;
   void SetSite(uint16_t value);

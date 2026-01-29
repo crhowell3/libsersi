@@ -4,7 +4,7 @@
 #include "libsersi/common/EventID.h"
 #include "libsersi/common/Vector3Float.h"
 #include "libsersi/entity_information/EntityInformationFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.3.2. Information about a collision. COMPLETE
@@ -39,8 +39,8 @@ class CollisionPdu final : public EntityInformationFamilyPdu {
   CollisionPdu();
   ~CollisionPdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetIssuingEntityId();
   [[nodiscard]] const EntityID& GetIssuingEntityId() const;

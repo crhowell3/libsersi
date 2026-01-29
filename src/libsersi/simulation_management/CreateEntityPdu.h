@@ -1,7 +1,7 @@
 #pragma once
 
 #include "libsersi/simulation_management/SimulationManagementFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.6.1. Create a new entity. COMPLETE
@@ -15,8 +15,8 @@ class CreateEntityPdu final : public SimulationManagementFamilyPdu {
   CreateEntityPdu();
   ~CreateEntityPdu() final = default;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   [[nodiscard]] uint32_t GetRequestId() const;
   void SetRequestId(uint32_t value);

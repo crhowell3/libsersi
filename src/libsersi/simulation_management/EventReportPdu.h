@@ -5,7 +5,7 @@
 #include "libsersi/common/FixedDatum.h"
 #include "libsersi/common/VariableDatum.h"
 #include "libsersi/simulation_management/SimulationManagementFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.6.11. Reports occurance of a significant event to the simulation
@@ -35,8 +35,8 @@ class EventReportPdu final : public SimulationManagementFamilyPdu {
   EventReportPdu();
   ~EventReportPdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   [[nodiscard]] uint32_t GetEventType() const;
   void SetEventType(uint32_t value);

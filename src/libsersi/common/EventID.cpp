@@ -15,16 +15,16 @@ uint16_t EventID::GetEventNumber() const { return event_number_; }
 
 void EventID::SetEventNumber(uint16_t value) { event_number_ = value; }
 
-void EventID::Marshal(DataStream& data_stream) const {
-  data_stream << site_;
-  data_stream << application_;
-  data_stream << event_number_;
+void EventID::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << site_;
+  byte_buffer << application_;
+  byte_buffer << event_number_;
 }
 
-void EventID::Unmarshal(DataStream& data_stream) {
-  data_stream >> site_;
-  data_stream >> application_;
-  data_stream >> event_number_;
+void EventID::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> site_;
+  byte_buffer >> application_;
+  byte_buffer >> event_number_;
 }
 
 bool EventID::operator==(const EventID& rhs) const {

@@ -5,7 +5,7 @@
 #include "libsersi/common/FixedDatum.h"
 #include "libsersi/common/VariableDatum.h"
 #include "libsersi/simulation_management/SimulationManagementFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.6.9. Change state information with the data contained in this.
@@ -35,8 +35,8 @@ class SetDataPdu final : public SimulationManagementFamilyPdu {
   SetDataPdu();
   ~SetDataPdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   [[nodiscard]] uint32_t GetRequestId() const;
   void SetRequestId(uint32_t value);

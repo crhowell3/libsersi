@@ -13,14 +13,14 @@ void FixedDatum::SetFixedDatumValue(uint32_t value) {
   fixed_datum_value_ = value;
 }
 
-void FixedDatum::Marshal(DataStream& data_stream) const {
-  data_stream << fixed_datum_id_;
-  data_stream << fixed_datum_value_;
+void FixedDatum::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << fixed_datum_id_;
+  byte_buffer << fixed_datum_value_;
 }
 
-void FixedDatum::Unmarshal(DataStream& data_stream) {
-  data_stream >> fixed_datum_id_;
-  data_stream >> fixed_datum_value_;
+void FixedDatum::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> fixed_datum_id_;
+  byte_buffer >> fixed_datum_value_;
 }
 
 bool FixedDatum::operator==(const FixedDatum& rhs) const {

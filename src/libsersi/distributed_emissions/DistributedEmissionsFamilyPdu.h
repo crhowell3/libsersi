@@ -1,7 +1,7 @@
 #pragma once
 
-#include "libsersi/common/Pdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/common/Pdu.hpp"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.7. Electromagnetic Emissions. Abstract superclass for distirubted
@@ -10,11 +10,11 @@ namespace dis {
 class DistributedEmissionsFamilyPdu : public Pdu {
  private:
  public:
-  DistributedEmissionsFamilyPdu();
+  DistributedEmissionsFamilyPdu() = default;
   ~DistributedEmissionsFamilyPdu() override = default;
 
-  void Marshal(DataStream& data_stream) const override;
-  void Unmarshal(DataStream& data_stream) override;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const override;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) override;
 
   [[nodiscard]] std::size_t GetMarshalledSize() const override;
 

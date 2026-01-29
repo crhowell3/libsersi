@@ -5,7 +5,7 @@
 #include "libsersi/common/FixedDatum.h"
 #include "libsersi/common/VariableDatum.h"
 #include "libsersi/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.12.11: reports the occurance of a significatnt event to the
@@ -37,8 +37,8 @@ class EventReportReliablePdu final
   EventReportReliablePdu();
   ~EventReportReliablePdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   [[nodiscard]] uint16_t GetEventType() const;
   void SetEventType(uint16_t value);

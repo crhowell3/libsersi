@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Identifies type of object. This is a int16_ter version of EntityType that
@@ -29,8 +29,8 @@ class ObjectType {
   ObjectType();
   ~ObjectType() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint8_t GetEntityKind() const;
   void SetEntityKind(uint8_t value);

@@ -26,16 +26,16 @@ void AcousticEmitterSystem::SetAcousticId(uint8_t value) {
   acoustic_id_ = value;
 }
 
-void AcousticEmitterSystem::Marshal(DataStream& data_stream) const {
-  data_stream << acoustic_name_;
-  data_stream << acoustic_function_;
-  data_stream << acoustic_id_;
+void AcousticEmitterSystem::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << acoustic_name_;
+  byte_buffer << acoustic_function_;
+  byte_buffer << acoustic_id_;
 }
 
-void AcousticEmitterSystem::Unmarshal(DataStream& data_stream) {
-  data_stream >> acoustic_name_;
-  data_stream >> acoustic_function_;
-  data_stream >> acoustic_id_;
+void AcousticEmitterSystem::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> acoustic_name_;
+  byte_buffer >> acoustic_function_;
+  byte_buffer >> acoustic_id_;
 }
 
 bool AcousticEmitterSystem::operator==(const AcousticEmitterSystem& rhs) const {

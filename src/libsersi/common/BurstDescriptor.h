@@ -1,8 +1,7 @@
-#ifndef LIBSERSI_WARFARE_BURSTDESCRIPTOR_H_
-#define LIBSERSI_WARFARE_BURSTDESCRIPTOR_H_
+#pragma once
 
 #include "libsersi/common/EntityType.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.7. Specifies the type of muntion fired, the type of warhead, the
@@ -30,8 +29,8 @@ class BurstDescriptor {
   BurstDescriptor();
   ~BurstDescriptor() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   EntityType& GetMunition();
   [[nodiscard]] const EntityType& GetMunition() const;
@@ -54,5 +53,3 @@ class BurstDescriptor {
   bool operator==(const BurstDescriptor& rhs) const;
 };
 }  // namespace dis
-
-#endif  // LIBSERSI_WARFARE_BURSTDESCRIPTOR_H_

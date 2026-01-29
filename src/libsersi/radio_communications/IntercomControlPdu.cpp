@@ -111,43 +111,43 @@ void IntercomControlPdu::SetIntercomParameters(
   intercom_parameters_ = value;
 }
 
-void IntercomControlPdu::Marshal(DataStream& data_stream) const {
-  RadioCommunicationsFamilyPdu::Marshal(data_stream);
-  data_stream << control_type_;
-  data_stream << communications_channel_type_;
-  source_entity_id_.Marshal(data_stream);
-  data_stream << source_communications_device_id_;
-  data_stream << source_line_id_;
-  data_stream << transmit_priority_;
-  data_stream << transmit_line_state_;
-  data_stream << command_;
-  master_entity_id_.Marshal(data_stream);
-  data_stream << master_communications_device_id_;
-  data_stream << static_cast<uint32_t>(intercom_parameters_.size());
+void IntercomControlPdu::Marshal(ByteBuffer& byte_buffer) const {
+  RadioCommunicationsFamilyPdu::Marshal(byte_buffer);
+  byte_buffer << control_type_;
+  byte_buffer << communications_channel_type_;
+  source_entity_id_.Marshal(byte_buffer);
+  byte_buffer << source_communications_device_id_;
+  byte_buffer << source_line_id_;
+  byte_buffer << transmit_priority_;
+  byte_buffer << transmit_line_state_;
+  byte_buffer << command_;
+  master_entity_id_.Marshal(byte_buffer);
+  byte_buffer << master_communications_device_id_;
+  byte_buffer << static_cast<uint32_t>(intercom_parameters_.size());
 
   for (auto x : intercom_parameters_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void IntercomControlPdu::Unmarshal(DataStream& data_stream) {
-  RadioCommunicationsFamilyPdu::Unmarshal(data_stream);
-  data_stream >> control_type_;
-  data_stream >> communications_channel_type_;
-  source_entity_id_.Unmarshal(data_stream);
-  data_stream >> source_communications_device_id_;
-  data_stream >> source_line_id_;
-  data_stream >> transmit_priority_;
-  data_stream >> transmit_line_state_;
-  data_stream >> command_;
-  master_entity_id_.Unmarshal(data_stream);
-  data_stream >> master_communications_device_id_;
-  data_stream >> intercom_parameters_length_;
+void IntercomControlPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  RadioCommunicationsFamilyPdu::Unmarshal(byte_buffer);
+  byte_buffer >> control_type_;
+  byte_buffer >> communications_channel_type_;
+  source_entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> source_communications_device_id_;
+  byte_buffer >> source_line_id_;
+  byte_buffer >> transmit_priority_;
+  byte_buffer >> transmit_line_state_;
+  byte_buffer >> command_;
+  master_entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> master_communications_device_id_;
+  byte_buffer >> intercom_parameters_length_;
 
   intercom_parameters_.clear();
   for (std::size_t idx = 0; idx < intercom_parameters_length_; idx++) {
     IntercomCommunicationsParameters x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     intercom_parameters_.push_back(x);
   }
 }

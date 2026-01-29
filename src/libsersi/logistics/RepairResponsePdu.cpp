@@ -46,22 +46,22 @@ char RepairResponsePdu::GetPadding2() const { return padding2_; }
 
 void RepairResponsePdu::SetPadding2(char value) { padding2_ = value; }
 
-void RepairResponsePdu::Marshal(DataStream& data_stream) const {
-  LogisticsFamilyPdu::Marshal(data_stream);
-  receiving_entity_id_.Marshal(data_stream);
-  repairing_entity_id_.Marshal(data_stream);
-  data_stream << repair_result_;
-  data_stream << padding1_;
-  data_stream << padding2_;
+void RepairResponsePdu::Marshal(ByteBuffer& byte_buffer) const {
+  LogisticsFamilyPdu::Marshal(byte_buffer);
+  receiving_entity_id_.Marshal(byte_buffer);
+  repairing_entity_id_.Marshal(byte_buffer);
+  byte_buffer << repair_result_;
+  byte_buffer << padding1_;
+  byte_buffer << padding2_;
 }
 
-void RepairResponsePdu::Unmarshal(DataStream& data_stream) {
-  LogisticsFamilyPdu::Unmarshal(data_stream);
-  receiving_entity_id_.Unmarshal(data_stream);
-  repairing_entity_id_.Unmarshal(data_stream);
-  data_stream >> repair_result_;
-  data_stream >> padding1_;
-  data_stream >> padding2_;
+void RepairResponsePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  LogisticsFamilyPdu::Unmarshal(byte_buffer);
+  receiving_entity_id_.Unmarshal(byte_buffer);
+  repairing_entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> repair_result_;
+  byte_buffer >> padding1_;
+  byte_buffer >> padding2_;
 }
 
 bool RepairResponsePdu::operator==(const RepairResponsePdu& rhs) const {

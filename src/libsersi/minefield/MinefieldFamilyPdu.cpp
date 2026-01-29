@@ -3,14 +3,12 @@
 #include <cstddef>
 
 namespace dis {
-MinefieldFamilyPdu::MinefieldFamilyPdu() { SetProtocolFamily(8); }
-
-void MinefieldFamilyPdu::Marshal(DataStream& data_stream) const {
-  Pdu::Marshal(data_stream);
+void MinefieldFamilyPdu::Marshal(ByteBuffer& byte_buffer) const {
+  Pdu::Marshal(byte_buffer);
 }
 
-void MinefieldFamilyPdu::Unmarshal(DataStream& data_stream) {
-  Pdu::Unmarshal(data_stream);
+void MinefieldFamilyPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  Pdu::Unmarshal(byte_buffer);
 }
 
 bool MinefieldFamilyPdu::operator==(const MinefieldFamilyPdu& rhs) const {

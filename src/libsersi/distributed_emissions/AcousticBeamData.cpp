@@ -36,18 +36,18 @@ void AcousticBeamData::SetFundamentalDataParameters(
   fundamental_data_parameters_ = value;
 }
 
-void AcousticBeamData::Marshal(DataStream& data_stream) const {
-  data_stream << beam_data_length_;
-  data_stream << beam_id_number_;
-  data_stream << pad2_;
-  fundamental_data_parameters_.Marshal(data_stream);
+void AcousticBeamData::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << beam_data_length_;
+  byte_buffer << beam_id_number_;
+  byte_buffer << pad2_;
+  fundamental_data_parameters_.Marshal(byte_buffer);
 }
 
-void AcousticBeamData::Unmarshal(DataStream& data_stream) {
-  data_stream >> beam_data_length_;
-  data_stream >> beam_id_number_;
-  data_stream >> pad2_;
-  fundamental_data_parameters_.Unmarshal(data_stream);
+void AcousticBeamData::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> beam_data_length_;
+  byte_buffer >> beam_id_number_;
+  byte_buffer >> pad2_;
+  fundamental_data_parameters_.Unmarshal(byte_buffer);
 }
 
 bool AcousticBeamData::operator==(const AcousticBeamData& rhs) const {

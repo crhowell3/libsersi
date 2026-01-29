@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "libsersi/radio_communications/RadioCommunicationsFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.8.2. Detailed information about a radio transmitter. This PDU
@@ -36,8 +36,8 @@ class SignalPdu final : public RadioCommunicationsFamilyPdu {
   SignalPdu();
   ~SignalPdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   [[nodiscard]] uint16_t GetEncodingScheme() const;
   void SetEncodingScheme(uint16_t value);

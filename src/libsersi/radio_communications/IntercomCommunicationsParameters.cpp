@@ -28,16 +28,16 @@ void IntercomCommunicationsParameters::SetRecordSpecificField(uint32_t value) {
   record_specific_field_ = value;
 }
 
-void IntercomCommunicationsParameters::Marshal(DataStream& data_stream) const {
-  data_stream << record_type_;
-  data_stream << record_length_;
-  data_stream << record_specific_field_;
+void IntercomCommunicationsParameters::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << record_type_;
+  byte_buffer << record_length_;
+  byte_buffer << record_specific_field_;
 }
 
-void IntercomCommunicationsParameters::Unmarshal(DataStream& data_stream) {
-  data_stream >> record_type_;
-  data_stream >> record_length_;
-  data_stream >> record_specific_field_;
+void IntercomCommunicationsParameters::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> record_type_;
+  byte_buffer >> record_length_;
+  byte_buffer >> record_specific_field_;
 }
 
 bool IntercomCommunicationsParameters::operator==(

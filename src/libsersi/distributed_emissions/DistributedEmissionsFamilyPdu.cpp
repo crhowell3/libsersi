@@ -1,16 +1,13 @@
 #include "libsersi/distributed_emissions/DistributedEmissionsFamilyPdu.h"
 
 namespace dis {
-DistributedEmissionsFamilyPdu::DistributedEmissionsFamilyPdu() {
-  SetProtocolFamily(6);
+
+void DistributedEmissionsFamilyPdu::Marshal(ByteBuffer& byte_buffer) const {
+  Pdu::Marshal(byte_buffer);
 }
 
-void DistributedEmissionsFamilyPdu::Marshal(DataStream& data_stream) const {
-  Pdu::Marshal(data_stream);
-}
-
-void DistributedEmissionsFamilyPdu::Unmarshal(DataStream& data_stream) {
-  Pdu::Unmarshal(data_stream);
+void DistributedEmissionsFamilyPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  Pdu::Unmarshal(byte_buffer);
 }
 
 bool DistributedEmissionsFamilyPdu::operator==(

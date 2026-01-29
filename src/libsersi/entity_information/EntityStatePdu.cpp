@@ -6,7 +6,6 @@ EntityStatePdu::EntityStatePdu()
       number_of_articulation_parameters_(0),
       entity_appearance_(0),
       capabilities_(0) {
-  SetPduType(1);
 }
 
 EntityStatePdu::~EntityStatePdu() { articulation_parameters_.clear(); }
@@ -124,47 +123,47 @@ void EntityStatePdu::SetArticulationParameters(
   articulation_parameters_ = value;
 }
 
-void EntityStatePdu::Marshal(DataStream& data_stream) const {
+void EntityStatePdu::Marshal(ByteBuffer& byte_buffer) const {
   EntityInformationFamilyPdu::Marshal(
-      data_stream);  // Marshal information in superclass first
-  entity_id_.Marshal(data_stream);
-  data_stream << force_id_;
-  data_stream << static_cast<uint8_t>(articulation_parameters_.size());
-  entity_type_.Marshal(data_stream);
-  alternative_entity_type_.Marshal(data_stream);
-  entity_linear_velocity_.Marshal(data_stream);
-  entity_location_.Marshal(data_stream);
-  entity_orientation_.Marshal(data_stream);
-  data_stream << entity_appearance_;
-  dead_reckoning_parameters_.Marshal(data_stream);
-  marking_.Marshal(data_stream);
-  data_stream << capabilities_;
+      byte_buffer);  // Marshal information in superclass first
+  entity_id_.Marshal(byte_buffer);
+  byte_buffer << force_id_;
+  byte_buffer << static_cast<uint8_t>(articulation_parameters_.size());
+  entity_type_.Marshal(byte_buffer);
+  alternative_entity_type_.Marshal(byte_buffer);
+  entity_linear_velocity_.Marshal(byte_buffer);
+  entity_location_.Marshal(byte_buffer);
+  entity_orientation_.Marshal(byte_buffer);
+  byte_buffer << entity_appearance_;
+  dead_reckoning_parameters_.Marshal(byte_buffer);
+  marking_.Marshal(byte_buffer);
+  byte_buffer << capabilities_;
 
   for (auto x : articulation_parameters_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void EntityStatePdu::Unmarshal(DataStream& data_stream) {
+void EntityStatePdu::Unmarshal(ByteBuffer& byte_buffer) {
   EntityInformationFamilyPdu::Unmarshal(
-      data_stream);  // Unmarshal information in superclass first
-  entity_id_.Unmarshal(data_stream);
-  data_stream >> force_id_;
-  data_stream >> number_of_articulation_parameters_;
-  entity_type_.Unmarshal(data_stream);
-  alternative_entity_type_.Unmarshal(data_stream);
-  entity_linear_velocity_.Unmarshal(data_stream);
-  entity_location_.Unmarshal(data_stream);
-  entity_orientation_.Unmarshal(data_stream);
-  data_stream >> entity_appearance_;
-  dead_reckoning_parameters_.Unmarshal(data_stream);
-  marking_.Unmarshal(data_stream);
-  data_stream >> capabilities_;
+      byte_buffer);  // Unmarshal information in superclass first
+  entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> force_id_;
+  byte_buffer >> number_of_articulation_parameters_;
+  entity_type_.Unmarshal(byte_buffer);
+  alternative_entity_type_.Unmarshal(byte_buffer);
+  entity_linear_velocity_.Unmarshal(byte_buffer);
+  entity_location_.Unmarshal(byte_buffer);
+  entity_orientation_.Unmarshal(byte_buffer);
+  byte_buffer >> entity_appearance_;
+  dead_reckoning_parameters_.Unmarshal(byte_buffer);
+  marking_.Unmarshal(byte_buffer);
+  byte_buffer >> capabilities_;
 
   articulation_parameters_.clear();
   for (char idx = 0; idx < number_of_articulation_parameters_; idx++) {
     ArticulationParameter x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     articulation_parameters_.push_back(x);
   }
 }

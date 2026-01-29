@@ -9,7 +9,7 @@
 #include "libsersi/common/Vector3Double.h"
 #include "libsersi/minefield/MinefieldFamilyPdu.h"
 #include "libsersi/minefield/Point.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.10.1 Abstract superclass for PDUs relating to minefields.
@@ -57,8 +57,8 @@ class MinefieldStatePdu final : public MinefieldFamilyPdu {
   MinefieldStatePdu();
   ~MinefieldStatePdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetMinefieldId();
   [[nodiscard]] const EntityID& GetMinefieldId() const;

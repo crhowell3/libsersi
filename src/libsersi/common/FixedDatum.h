@@ -1,6 +1,6 @@
 #pragma once
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.18. Fixed Datum Record
@@ -17,8 +17,8 @@ class FixedDatum {
   FixedDatum();
   ~FixedDatum() = default;
 
-  void Marshal(dis::DataStream& data_stream) const;
-  void Unmarshal(dis::DataStream& data_stream);
+  void Marshal(dis::ByteBuffer& byte_buffer) const;
+  void Unmarshal(dis::ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint32_t GetFixedDatumId() const;
   void SetFixedDatumId(uint32_t value);

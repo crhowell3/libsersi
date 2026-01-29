@@ -1,6 +1,6 @@
 #pragma once
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Each entity in a given DIS simulation application shall be given an entity
@@ -33,8 +33,8 @@ class EntityID {
   EntityID();
   virtual ~EntityID();
 
-  virtual void Marshal(DataStream& data_stream) const;
-  virtual void Unmarshal(DataStream& data_stream);
+  virtual void Marshal(ByteBuffer& byte_buffer) const;
+  virtual void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint16_t GetSite() const;
   void SetSite(uint16_t value);
@@ -50,4 +50,3 @@ class EntityID {
   bool operator==(const EntityID& rhs) const;
 };
 }  // namespace dis
-

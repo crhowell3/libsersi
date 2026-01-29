@@ -17,16 +17,16 @@ uint16_t EntityID::GetEntity() const { return entity_; }
 
 void EntityID::SetEntity(uint16_t value) { entity_ = value; }
 
-void EntityID::Marshal(DataStream& data_stream) const {
-  data_stream << site_;
-  data_stream << application_;
-  data_stream << entity_;
+void EntityID::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << site_;
+  byte_buffer << application_;
+  byte_buffer << entity_;
 }
 
-void EntityID::Unmarshal(DataStream& data_stream) {
-  data_stream >> site_;
-  data_stream >> application_;
-  data_stream >> entity_;
+void EntityID::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> site_;
+  byte_buffer >> application_;
+  byte_buffer >> entity_;
 }
 
 bool EntityID::operator==(const EntityID& rhs) const {
@@ -55,4 +55,3 @@ int EntityID::GetMarshalledSize() const {
 }
 
 }  // namespace dis
-

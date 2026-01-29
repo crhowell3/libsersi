@@ -15,16 +15,16 @@ float Vector3Float::GetZ() const { return z_; }
 
 void Vector3Float::SetZ(float value) { z_ = value; }
 
-void Vector3Float::Marshal(DataStream& data_stream) const {
-  data_stream << x_;
-  data_stream << y_;
-  data_stream << z_;
+void Vector3Float::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << x_;
+  byte_buffer << y_;
+  byte_buffer << z_;
 }
 
-void Vector3Float::Unmarshal(DataStream& data_stream) {
-  data_stream >> x_;
-  data_stream >> y_;
-  data_stream >> z_;
+void Vector3Float::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> x_;
+  byte_buffer >> y_;
+  byte_buffer >> z_;
 }
 
 bool Vector3Float::operator==(const Vector3Float& rhs) const {
@@ -49,4 +49,3 @@ std::size_t Vector3Float::GetMarshalledSize() const {
 }
 
 }  // namespace dis
-

@@ -63,30 +63,30 @@ uint16_t IffFundamentalData::GetParameter6() const { return parameter6_; }
 
 void IffFundamentalData::SetParameter6(uint16_t value) { parameter6_ = value; }
 
-void IffFundamentalData::Marshal(DataStream& data_stream) const {
-  data_stream << system_status_;
-  data_stream << alternate_parameter4_;
-  data_stream << information_layers_;
-  data_stream << modifier_;
-  data_stream << parameter1_;
-  data_stream << parameter2_;
-  data_stream << parameter3_;
-  data_stream << parameter4_;
-  data_stream << parameter5_;
-  data_stream << parameter6_;
+void IffFundamentalData::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << system_status_;
+  byte_buffer << alternate_parameter4_;
+  byte_buffer << information_layers_;
+  byte_buffer << modifier_;
+  byte_buffer << parameter1_;
+  byte_buffer << parameter2_;
+  byte_buffer << parameter3_;
+  byte_buffer << parameter4_;
+  byte_buffer << parameter5_;
+  byte_buffer << parameter6_;
 }
 
-void IffFundamentalData::Unmarshal(DataStream& data_stream) {
-  data_stream >> system_status_;
-  data_stream >> alternate_parameter4_;
-  data_stream >> information_layers_;
-  data_stream >> modifier_;
-  data_stream >> parameter1_;
-  data_stream >> parameter2_;
-  data_stream >> parameter3_;
-  data_stream >> parameter4_;
-  data_stream >> parameter5_;
-  data_stream >> parameter6_;
+void IffFundamentalData::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> system_status_;
+  byte_buffer >> alternate_parameter4_;
+  byte_buffer >> information_layers_;
+  byte_buffer >> modifier_;
+  byte_buffer >> parameter1_;
+  byte_buffer >> parameter2_;
+  byte_buffer >> parameter3_;
+  byte_buffer >> parameter4_;
+  byte_buffer >> parameter5_;
+  byte_buffer >> parameter6_;
 }
 
 bool IffFundamentalData::operator==(const IffFundamentalData& rhs) const {

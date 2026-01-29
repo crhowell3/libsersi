@@ -56,7 +56,7 @@ set(distributed_emissions_src
   VectoringNozzleSystemData.cpp
 )
 
-target_sources(sersi PRIVATE ${distributed_emissions_src})
+target_sources(${PROJECT_NAME} PRIVATE ${distributed_emissions_src})
 
 install(FILES ${distributed_emissions_hdr}
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libsersi/distributed_emissions

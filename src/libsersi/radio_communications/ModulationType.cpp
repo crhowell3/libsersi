@@ -22,18 +22,18 @@ uint16_t ModulationType::GetSystem() const { return system_; }
 
 void ModulationType::SetSystem(uint16_t value) { system_ = value; }
 
-void ModulationType::Marshal(DataStream& data_stream) const {
-  data_stream << spread_spectrum_;
-  data_stream << major_;
-  data_stream << detail_;
-  data_stream << system_;
+void ModulationType::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << spread_spectrum_;
+  byte_buffer << major_;
+  byte_buffer << detail_;
+  byte_buffer << system_;
 }
 
-void ModulationType::Unmarshal(DataStream& data_stream) {
-  data_stream >> spread_spectrum_;
-  data_stream >> major_;
-  data_stream >> detail_;
-  data_stream >> system_;
+void ModulationType::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> spread_spectrum_;
+  byte_buffer >> major_;
+  byte_buffer >> detail_;
+  byte_buffer >> system_;
 }
 
 bool ModulationType::operator==(const ModulationType& rhs) const {

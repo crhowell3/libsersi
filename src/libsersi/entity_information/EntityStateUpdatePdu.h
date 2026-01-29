@@ -8,7 +8,7 @@
 #include "libsersi/common/Vector3Double.h"
 #include "libsersi/common/Vector3Float.h"
 #include "libsersi/entity_information/EntityInformationFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // 5.3.3.4. Nonstatic information about a particular entity may be communicated
@@ -44,8 +44,8 @@ class EntityStateUpdatePdu final : public EntityInformationFamilyPdu {
   EntityStateUpdatePdu();
   ~EntityStateUpdatePdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetEntityId();
   [[nodiscard]] const EntityID& GetEntityId() const;

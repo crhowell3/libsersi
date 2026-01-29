@@ -90,36 +90,36 @@ void DesignatorPdu::SetEntityLinearAcceleration(const Vector3Float& value) {
   entity_linear_acceleration_ = value;
 }
 
-void DesignatorPdu::Marshal(DataStream& data_stream) const {
-  DistributedEmissionsFamilyPdu::Marshal(data_stream);
-  designating_entity_id_.Marshal(data_stream);
-  data_stream << code_name_;
-  designated_entity_id_.Marshal(data_stream);
-  data_stream << designator_code_;
-  data_stream << designator_power_;
-  data_stream << designator_wavelength_;
-  designator_spot_wrt_designated_.Marshal(data_stream);
-  designator_spot_location_.Marshal(data_stream);
-  data_stream << dead_reckoning_algorithm_;
-  data_stream << padding1_;
-  data_stream << padding2_;
-  entity_linear_acceleration_.Marshal(data_stream);
+void DesignatorPdu::Marshal(ByteBuffer& byte_buffer) const {
+  DistributedEmissionsFamilyPdu::Marshal(byte_buffer);
+  designating_entity_id_.Marshal(byte_buffer);
+  byte_buffer << code_name_;
+  designated_entity_id_.Marshal(byte_buffer);
+  byte_buffer << designator_code_;
+  byte_buffer << designator_power_;
+  byte_buffer << designator_wavelength_;
+  designator_spot_wrt_designated_.Marshal(byte_buffer);
+  designator_spot_location_.Marshal(byte_buffer);
+  byte_buffer << dead_reckoning_algorithm_;
+  byte_buffer << padding1_;
+  byte_buffer << padding2_;
+  entity_linear_acceleration_.Marshal(byte_buffer);
 }
 
-void DesignatorPdu::Unmarshal(DataStream& data_stream) {
-  DistributedEmissionsFamilyPdu::Unmarshal(data_stream);
-  designating_entity_id_.Unmarshal(data_stream);
-  data_stream >> code_name_;
-  designated_entity_id_.Unmarshal(data_stream);
-  data_stream >> designator_code_;
-  data_stream >> designator_power_;
-  data_stream >> designator_wavelength_;
-  designator_spot_wrt_designated_.Unmarshal(data_stream);
-  designator_spot_location_.Unmarshal(data_stream);
-  data_stream >> dead_reckoning_algorithm_;
-  data_stream >> padding1_;
-  data_stream >> padding2_;
-  entity_linear_acceleration_.Unmarshal(data_stream);
+void DesignatorPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  DistributedEmissionsFamilyPdu::Unmarshal(byte_buffer);
+  designating_entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> code_name_;
+  designated_entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> designator_code_;
+  byte_buffer >> designator_power_;
+  byte_buffer >> designator_wavelength_;
+  designator_spot_wrt_designated_.Unmarshal(byte_buffer);
+  designator_spot_location_.Unmarshal(byte_buffer);
+  byte_buffer >> dead_reckoning_algorithm_;
+  byte_buffer >> padding1_;
+  byte_buffer >> padding2_;
+  entity_linear_acceleration_.Unmarshal(byte_buffer);
 }
 
 bool DesignatorPdu::operator==(const DesignatorPdu& rhs) const {

@@ -85,30 +85,30 @@ void FundamentalParameterData::SetBeamSweepSync(float value) {
   beam_sweep_sync_ = value;
 }
 
-void FundamentalParameterData::Marshal(DataStream& data_stream) const {
-  data_stream << frequency_;
-  data_stream << frequency_range_;
-  data_stream << effective_radiated_power_;
-  data_stream << pulse_repetition_frequency_;
-  data_stream << pulse_width_;
-  data_stream << beam_azimuth_center_;
-  data_stream << beam_azimuth_sweep_;
-  data_stream << beam_elevation_center_;
-  data_stream << beam_elevation_sweep_;
-  data_stream << beam_sweep_sync_;
+void FundamentalParameterData::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << frequency_;
+  byte_buffer << frequency_range_;
+  byte_buffer << effective_radiated_power_;
+  byte_buffer << pulse_repetition_frequency_;
+  byte_buffer << pulse_width_;
+  byte_buffer << beam_azimuth_center_;
+  byte_buffer << beam_azimuth_sweep_;
+  byte_buffer << beam_elevation_center_;
+  byte_buffer << beam_elevation_sweep_;
+  byte_buffer << beam_sweep_sync_;
 }
 
-void FundamentalParameterData::Unmarshal(DataStream& data_stream) {
-  data_stream >> frequency_;
-  data_stream >> frequency_range_;
-  data_stream >> effective_radiated_power_;
-  data_stream >> pulse_repetition_frequency_;
-  data_stream >> pulse_width_;
-  data_stream >> beam_azimuth_center_;
-  data_stream >> beam_azimuth_sweep_;
-  data_stream >> beam_elevation_center_;
-  data_stream >> beam_elevation_sweep_;
-  data_stream >> beam_sweep_sync_;
+void FundamentalParameterData::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> frequency_;
+  byte_buffer >> frequency_range_;
+  byte_buffer >> effective_radiated_power_;
+  byte_buffer >> pulse_repetition_frequency_;
+  byte_buffer >> pulse_width_;
+  byte_buffer >> beam_azimuth_center_;
+  byte_buffer >> beam_azimuth_sweep_;
+  byte_buffer >> beam_elevation_center_;
+  byte_buffer >> beam_elevation_sweep_;
+  byte_buffer >> beam_sweep_sync_;
 }
 
 bool FundamentalParameterData::operator==(

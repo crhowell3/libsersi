@@ -61,26 +61,26 @@ void IffAtcNavAidsLayer1Pdu::SetFundamentalParameters(
   fundamental_parameters_ = value;
 }
 
-void IffAtcNavAidsLayer1Pdu::Marshal(DataStream& data_stream) const {
+void IffAtcNavAidsLayer1Pdu::Marshal(ByteBuffer& byte_buffer) const {
   DistributedEmissionsFamilyPdu::Marshal(
-      data_stream);  // Marshal information in superclass first
-  emitting_entity_id_.Marshal(data_stream);
-  event_id_.Marshal(data_stream);
-  location_.Marshal(data_stream);
-  system_id_.Marshal(data_stream);
-  data_stream << pad2_;
-  fundamental_parameters_.Marshal(data_stream);
+      byte_buffer);  // Marshal information in superclass first
+  emitting_entity_id_.Marshal(byte_buffer);
+  event_id_.Marshal(byte_buffer);
+  location_.Marshal(byte_buffer);
+  system_id_.Marshal(byte_buffer);
+  byte_buffer << pad2_;
+  fundamental_parameters_.Marshal(byte_buffer);
 }
 
-void IffAtcNavAidsLayer1Pdu::Unmarshal(DataStream& data_stream) {
+void IffAtcNavAidsLayer1Pdu::Unmarshal(ByteBuffer& byte_buffer) {
   DistributedEmissionsFamilyPdu::Unmarshal(
-      data_stream);  // unmarshal information in superclass first
-  emitting_entity_id_.Unmarshal(data_stream);
-  event_id_.Unmarshal(data_stream);
-  location_.Unmarshal(data_stream);
-  system_id_.Unmarshal(data_stream);
-  data_stream >> pad2_;
-  fundamental_parameters_.Unmarshal(data_stream);
+      byte_buffer);  // unmarshal information in superclass first
+  emitting_entity_id_.Unmarshal(byte_buffer);
+  event_id_.Unmarshal(byte_buffer);
+  location_.Unmarshal(byte_buffer);
+  system_id_.Unmarshal(byte_buffer);
+  byte_buffer >> pad2_;
+  fundamental_parameters_.Unmarshal(byte_buffer);
 }
 
 bool IffAtcNavAidsLayer1Pdu::operator==(

@@ -13,14 +13,14 @@ void NamedLocation::SetStationNumber(uint16_t value) {
   station_number_ = value;
 }
 
-void NamedLocation::Marshal(DataStream& data_stream) const {
-  data_stream << station_name_;
-  data_stream << station_number_;
+void NamedLocation::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << station_name_;
+  byte_buffer << station_number_;
 }
 
-void NamedLocation::Unmarshal(DataStream& data_stream) {
-  data_stream >> station_name_;
-  data_stream >> station_number_;
+void NamedLocation::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> station_name_;
+  byte_buffer >> station_number_;
 }
 
 bool NamedLocation::operator==(const NamedLocation& rhs) const {

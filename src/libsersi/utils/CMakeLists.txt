@@ -1,7 +1,7 @@
 # Create list of all headers
 set(utils_hdr
   Conversion.h
-  DataStream.h
+  ByteBuffer.hpp
   Endian.h
   IBufferProcessor.h
   IncomingMessage.h
@@ -16,13 +16,13 @@ set(utils_hdr
 # Create list of all source files
 set(utils_src
   Conversion.cpp
-  DataStream.cpp
+  ByteBuffer.cpp
   IncomingMessage.cpp
   PacketFactory.cpp
   PduBank.cpp
 )
 
-target_sources(sersi PRIVATE ${utils_src})
+target_sources(${PROJECT_NAME} PRIVATE ${utils_src})
 
 install(FILES ${utils_hdr}
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libsersi/utils)

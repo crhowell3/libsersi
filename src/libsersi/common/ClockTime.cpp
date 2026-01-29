@@ -13,14 +13,14 @@ uint32_t ClockTime::GetTimePastHour() const { return time_past_hour_; }
 
 void ClockTime::SetTimePastHour(uint32_t value) { time_past_hour_ = value; }
 
-void ClockTime::Marshal(DataStream& data_stream) const {
-  data_stream << hour_;
-  data_stream << time_past_hour_;
+void ClockTime::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << hour_;
+  byte_buffer << time_past_hour_;
 }
 
-void ClockTime::Unmarshal(DataStream& data_stream) {
-  data_stream >> hour_;
-  data_stream >> time_past_hour_;
+void ClockTime::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> hour_;
+  byte_buffer >> time_past_hour_;
 }
 
 bool ClockTime::operator==(const ClockTime& rhs) const {

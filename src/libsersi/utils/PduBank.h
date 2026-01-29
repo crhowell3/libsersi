@@ -1,7 +1,7 @@
 #pragma once
 
-#include "libsersi/common/Pdu.h"
-#include "libsersi/utils/PduType.h"
+#include "libsersi/common/Pdu.hpp"
+#include "libsersi/common/enums.hpp"
 
 namespace dis {
 /// houses instances for the set of known PDU classes to be returned
@@ -11,6 +11,6 @@ class PduBank {
   /// finds the PDU instance corresponding to the identifier
   /// @param pdu_type the 8-bit PDU type identifier
   /// @return NULL when the pdu_type is unknown.
-  static Pdu* GetStaticPDU(dis::PduType pdu_type);
+  static Pdu* GetStaticPDU(PduType pdu_type);
 };
 }  // namespace dis

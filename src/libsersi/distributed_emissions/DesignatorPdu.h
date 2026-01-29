@@ -6,7 +6,7 @@
 #include "libsersi/common/Vector3Double.h"
 #include "libsersi/common/Vector3Float.h"
 #include "libsersi/distributed_emissions/DistributedEmissionsFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.7.2. Handles designating operations. COMPLETE
@@ -56,8 +56,8 @@ class DesignatorPdu final : public DistributedEmissionsFamilyPdu {
   DesignatorPdu();
   ~DesignatorPdu() final;
 
-  void Marshal(DataStream& data_stream) const override;
-  void Unmarshal(DataStream& data_stream) override;
+  void Marshal(ByteBuffer& byte_buffer) const override;
+  void Unmarshal(ByteBuffer& byte_buffer) override;
 
   [[nodiscard]] const EntityID& GetDesignatingEntityId() const;
   void SetDesignatingEntityId(const EntityID& value);

@@ -88,35 +88,35 @@ void EntityStateUpdatePdu::SetArticulationParameters(
   articulation_parameters_ = value;
 }
 
-void EntityStateUpdatePdu::Marshal(DataStream& data_stream) const {
-  EntityInformationFamilyPdu::Marshal(data_stream);
-  entity_id_.Marshal(data_stream);
-  data_stream << padding1_;
-  data_stream << static_cast<uint8_t>(articulation_parameters_.size());
-  entity_linear_velocity_.Marshal(data_stream);
-  entity_location_.Marshal(data_stream);
-  entity_orientation_.Marshal(data_stream);
-  data_stream << entity_appearance_;
+void EntityStateUpdatePdu::Marshal(ByteBuffer& byte_buffer) const {
+  EntityInformationFamilyPdu::Marshal(byte_buffer);
+  entity_id_.Marshal(byte_buffer);
+  byte_buffer << padding1_;
+  byte_buffer << static_cast<uint8_t>(articulation_parameters_.size());
+  entity_linear_velocity_.Marshal(byte_buffer);
+  entity_location_.Marshal(byte_buffer);
+  entity_orientation_.Marshal(byte_buffer);
+  byte_buffer << entity_appearance_;
 
   for (auto x : articulation_parameters_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void EntityStateUpdatePdu::Unmarshal(DataStream& data_stream) {
-  EntityInformationFamilyPdu::Unmarshal(data_stream);
-  entity_id_.Unmarshal(data_stream);
-  data_stream >> padding1_;
-  data_stream >> number_of_articulation_parameters_;
-  entity_linear_velocity_.Unmarshal(data_stream);
-  entity_location_.Unmarshal(data_stream);
-  entity_orientation_.Unmarshal(data_stream);
-  data_stream >> entity_appearance_;
+void EntityStateUpdatePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  EntityInformationFamilyPdu::Unmarshal(byte_buffer);
+  entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> padding1_;
+  byte_buffer >> number_of_articulation_parameters_;
+  entity_linear_velocity_.Unmarshal(byte_buffer);
+  entity_location_.Unmarshal(byte_buffer);
+  entity_orientation_.Unmarshal(byte_buffer);
+  byte_buffer >> entity_appearance_;
 
   articulation_parameters_.clear();
   for (std::size_t idx = 0; idx < number_of_articulation_parameters_; idx++) {
     ArticulationParameter x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     articulation_parameters_.push_back(x);
   }
 }

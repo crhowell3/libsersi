@@ -1,6 +1,6 @@
 #pragma once
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.39. Specification of the data necessary to  describe the scan
@@ -30,8 +30,8 @@ class BeamData {
   BeamData();
   ~BeamData() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] float GetBeamAzimuthCenter() const;
   void SetBeamAzimuthCenter(float value);

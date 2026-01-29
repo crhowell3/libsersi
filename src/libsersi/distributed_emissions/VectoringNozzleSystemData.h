@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Data about a vectoring nozzle system
@@ -19,8 +19,8 @@ class VectoringNozzleSystemData {
   VectoringNozzleSystemData();
   ~VectoringNozzleSystemData() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] float GetHorizontalDeflectionAngle() const;
   void SetHorizontalDeflectionAngle(float value);

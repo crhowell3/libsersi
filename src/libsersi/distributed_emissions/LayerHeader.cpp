@@ -20,16 +20,16 @@ uint16_t LayerHeader::GetLength() const { return length_; }
 
 void LayerHeader::SetLength(uint16_t value) { length_ = value; }
 
-void LayerHeader::Marshal(DataStream& data_stream) const {
-  data_stream << layer_number_;
-  data_stream << layer_specific_information_;
-  data_stream << length_;
+void LayerHeader::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << layer_number_;
+  byte_buffer << layer_specific_information_;
+  byte_buffer << length_;
 }
 
-void LayerHeader::Unmarshal(DataStream& data_stream) {
-  data_stream >> layer_number_;
-  data_stream >> layer_specific_information_;
-  data_stream >> length_;
+void LayerHeader::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> layer_number_;
+  byte_buffer >> layer_specific_information_;
+  byte_buffer >> length_;
 }
 
 bool LayerHeader::operator==(const LayerHeader& rhs) const {

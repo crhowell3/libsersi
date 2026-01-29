@@ -19,16 +19,16 @@ void EmitterSystem::SetEmitterIdNumber(uint8_t value) {
   emitter_id_number_ = value;
 }
 
-void EmitterSystem::Marshal(DataStream& data_stream) const {
-  data_stream << emitter_name_;
-  data_stream << function_;
-  data_stream << emitter_id_number_;
+void EmitterSystem::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << emitter_name_;
+  byte_buffer << function_;
+  byte_buffer << emitter_id_number_;
 }
 
-void EmitterSystem::Unmarshal(DataStream& data_stream) {
-  data_stream >> emitter_name_;
-  data_stream >> function_;
-  data_stream >> emitter_id_number_;
+void EmitterSystem::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> emitter_name_;
+  byte_buffer >> function_;
+  byte_buffer >> emitter_id_number_;
 }
 
 bool EmitterSystem::operator==(const EmitterSystem& rhs) const {

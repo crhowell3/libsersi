@@ -37,22 +37,22 @@ uint16_t RadioEntityType::GetNomenclature() const { return nomenclature_; }
 
 void RadioEntityType::SetNomenclature(uint16_t value) { nomenclature_ = value; }
 
-void RadioEntityType::Marshal(DataStream& data_stream) const {
-  data_stream << entity_kind_;
-  data_stream << domain_;
-  data_stream << country_;
-  data_stream << category_;
-  data_stream << nomenclature_version_;
-  data_stream << nomenclature_;
+void RadioEntityType::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << entity_kind_;
+  byte_buffer << domain_;
+  byte_buffer << country_;
+  byte_buffer << category_;
+  byte_buffer << nomenclature_version_;
+  byte_buffer << nomenclature_;
 }
 
-void RadioEntityType::Unmarshal(DataStream& data_stream) {
-  data_stream >> entity_kind_;
-  data_stream >> domain_;
-  data_stream >> country_;
-  data_stream >> category_;
-  data_stream >> nomenclature_version_;
-  data_stream >> nomenclature_;
+void RadioEntityType::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> entity_kind_;
+  byte_buffer >> domain_;
+  byte_buffer >> country_;
+  byte_buffer >> category_;
+  byte_buffer >> nomenclature_version_;
+  byte_buffer >> nomenclature_;
 }
 
 bool RadioEntityType::operator==(const RadioEntityType& rhs) const {

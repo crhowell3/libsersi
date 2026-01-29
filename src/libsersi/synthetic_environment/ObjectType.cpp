@@ -24,20 +24,20 @@ uint8_t ObjectType::GetSubcategory() const { return subcategory_; }
 
 void ObjectType::SetSubcategory(uint8_t value) { subcategory_ = value; }
 
-void ObjectType::Marshal(DataStream& data_stream) const {
-  data_stream << entity_kind_;
-  data_stream << domain_;
-  data_stream << country_;
-  data_stream << category_;
-  data_stream << subcategory_;
+void ObjectType::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << entity_kind_;
+  byte_buffer << domain_;
+  byte_buffer << country_;
+  byte_buffer << category_;
+  byte_buffer << subcategory_;
 }
 
-void ObjectType::Unmarshal(DataStream& data_stream) {
-  data_stream >> entity_kind_;
-  data_stream >> domain_;
-  data_stream >> country_;
-  data_stream >> category_;
-  data_stream >> subcategory_;
+void ObjectType::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> entity_kind_;
+  byte_buffer >> domain_;
+  byte_buffer >> country_;
+  byte_buffer >> category_;
+  byte_buffer >> subcategory_;
 }
 
 bool ObjectType::operator==(const ObjectType& rhs) const {

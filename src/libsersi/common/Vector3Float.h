@@ -1,6 +1,6 @@
 #pragma once
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.33. Three floating point values, x, y, and z
@@ -20,8 +20,8 @@ class Vector3Float {
   Vector3Float();
   ~Vector3Float() = default;
 
-  void Marshal(dis::DataStream& data_stream) const;
-  void Unmarshal(dis::DataStream& data_stream);
+  void Marshal(dis::ByteBuffer& byte_buffer) const;
+  void Unmarshal(dis::ByteBuffer& byte_buffer);
 
   [[nodiscard]] float GetX() const;
   void SetX(float value);
@@ -37,4 +37,3 @@ class Vector3Float {
   bool operator==(const Vector3Float& rhs) const;
 };
 }  // namespace dis
-

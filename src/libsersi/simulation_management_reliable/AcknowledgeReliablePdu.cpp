@@ -28,18 +28,18 @@ void AcknowledgeReliablePdu::SetRequestId(uint32_t value) {
   request_id_ = value;
 }
 
-void AcknowledgeReliablePdu::Marshal(DataStream& data_stream) const {
-  SimulationManagementWithReliabilityFamilyPdu::Marshal(data_stream);
-  data_stream << acknowledge_flag_;
-  data_stream << response_flag_;
-  data_stream << request_id_;
+void AcknowledgeReliablePdu::Marshal(ByteBuffer& byte_buffer) const {
+  SimulationManagementWithReliabilityFamilyPdu::Marshal(byte_buffer);
+  byte_buffer << acknowledge_flag_;
+  byte_buffer << response_flag_;
+  byte_buffer << request_id_;
 }
 
-void AcknowledgeReliablePdu::Unmarshal(DataStream& data_stream) {
-  SimulationManagementWithReliabilityFamilyPdu::Unmarshal(data_stream);
-  data_stream >> acknowledge_flag_;
-  data_stream >> response_flag_;
-  data_stream >> request_id_;
+void AcknowledgeReliablePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  SimulationManagementWithReliabilityFamilyPdu::Unmarshal(byte_buffer);
+  byte_buffer >> acknowledge_flag_;
+  byte_buffer >> response_flag_;
+  byte_buffer >> request_id_;
 }
 
 bool AcknowledgeReliablePdu::operator==(

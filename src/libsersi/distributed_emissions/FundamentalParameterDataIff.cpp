@@ -57,26 +57,26 @@ uint8_t FundamentalParameterDataIff::GetPad3() const { return pad3_; }
 
 void FundamentalParameterDataIff::SetPad3(uint8_t value) { pad3_ = value; }
 
-void FundamentalParameterDataIff::Marshal(DataStream& data_stream) const {
-  data_stream << erp_;
-  data_stream << frequency_;
-  data_stream << pgrf_;
-  data_stream << pulse_width_;
-  data_stream << burst_length_;
-  data_stream << applicable_modes_;
-  data_stream << pad2_;
-  data_stream << pad3_;
+void FundamentalParameterDataIff::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << erp_;
+  byte_buffer << frequency_;
+  byte_buffer << pgrf_;
+  byte_buffer << pulse_width_;
+  byte_buffer << burst_length_;
+  byte_buffer << applicable_modes_;
+  byte_buffer << pad2_;
+  byte_buffer << pad3_;
 }
 
-void FundamentalParameterDataIff::Unmarshal(DataStream& data_stream) {
-  data_stream >> erp_;
-  data_stream >> frequency_;
-  data_stream >> pgrf_;
-  data_stream >> pulse_width_;
-  data_stream >> burst_length_;
-  data_stream >> applicable_modes_;
-  data_stream >> pad2_;
-  data_stream >> pad3_;
+void FundamentalParameterDataIff::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> erp_;
+  byte_buffer >> frequency_;
+  byte_buffer >> pgrf_;
+  byte_buffer >> pulse_width_;
+  byte_buffer >> burst_length_;
+  byte_buffer >> applicable_modes_;
+  byte_buffer >> pad2_;
+  byte_buffer >> pad3_;
 }
 
 bool FundamentalParameterDataIff::operator==(

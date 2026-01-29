@@ -7,7 +7,7 @@
 #include "libsersi/common/Orientation.h"
 #include "libsersi/synthetic_environment/GridAxisRecord.h"
 #include "libsersi/synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.11.2: Information about globat, spatially varying enviornmental
@@ -66,8 +66,8 @@ class GriddedDataPdu final : public SyntheticEnvironmentFamilyPdu {
   GriddedDataPdu();
   ~GriddedDataPdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetEnvironmentalSimulationApplicationId();
   [[nodiscard]] const EntityID& GetEnvironmentalSimulationApplicationId() const;

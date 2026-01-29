@@ -66,31 +66,31 @@ void ServiceRequestPdu::SetSupplies(const std::vector<SupplyQuantity>& value) {
   supplies_ = value;
 }
 
-void ServiceRequestPdu::Marshal(DataStream& data_stream) const {
-  LogisticsFamilyPdu::Marshal(data_stream);
-  requesting_entity_id_.Marshal(data_stream);
-  servicing_entity_id_.Marshal(data_stream);
-  data_stream << service_type_requested_;
-  data_stream << static_cast<uint8_t>(supplies_.size());
-  data_stream << service_request_padding_;
+void ServiceRequestPdu::Marshal(ByteBuffer& byte_buffer) const {
+  LogisticsFamilyPdu::Marshal(byte_buffer);
+  requesting_entity_id_.Marshal(byte_buffer);
+  servicing_entity_id_.Marshal(byte_buffer);
+  byte_buffer << service_type_requested_;
+  byte_buffer << static_cast<uint8_t>(supplies_.size());
+  byte_buffer << service_request_padding_;
 
   for (const auto& x : supplies_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void ServiceRequestPdu::Unmarshal(DataStream& data_stream) {
-  LogisticsFamilyPdu::Unmarshal(data_stream);
-  requesting_entity_id_.Unmarshal(data_stream);
-  servicing_entity_id_.Unmarshal(data_stream);
-  data_stream >> service_type_requested_;
-  data_stream >> number_of_supply_types_;
-  data_stream >> service_request_padding_;
+void ServiceRequestPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  LogisticsFamilyPdu::Unmarshal(byte_buffer);
+  requesting_entity_id_.Unmarshal(byte_buffer);
+  servicing_entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> service_type_requested_;
+  byte_buffer >> number_of_supply_types_;
+  byte_buffer >> service_request_padding_;
 
   supplies_.clear();
   for (std::size_t idx = 0; idx < number_of_supply_types_; idx++) {
     SupplyQuantity x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     supplies_.push_back(x);
   }
 }

@@ -45,20 +45,20 @@ void ArticulationParameter::SetParameterValue(double value) {
   parameter_value_ = value;
 }
 
-void ArticulationParameter::Marshal(DataStream& data_stream) const {
-  data_stream << parameter_type_designator_;
-  data_stream << change_indicator_;
-  data_stream << part_attached_to_;
-  data_stream << parameter_type_;
-  data_stream << parameter_value_;
+void ArticulationParameter::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << parameter_type_designator_;
+  byte_buffer << change_indicator_;
+  byte_buffer << part_attached_to_;
+  byte_buffer << parameter_type_;
+  byte_buffer << parameter_value_;
 }
 
-void ArticulationParameter::Unmarshal(DataStream& data_stream) {
-  data_stream >> parameter_type_designator_;
-  data_stream >> change_indicator_;
-  data_stream >> part_attached_to_;
-  data_stream >> parameter_type_;
-  data_stream >> parameter_value_;
+void ArticulationParameter::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> parameter_type_designator_;
+  byte_buffer >> change_indicator_;
+  byte_buffer >> part_attached_to_;
+  byte_buffer >> parameter_type_;
+  byte_buffer >> parameter_value_;
 }
 
 bool ArticulationParameter::operator==(const ArticulationParameter& rhs) const {

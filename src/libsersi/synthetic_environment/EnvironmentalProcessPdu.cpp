@@ -79,33 +79,33 @@ void EnvironmentalProcessPdu::SetEnvironmentRecords(
   environment_records_ = value;
 }
 
-void EnvironmentalProcessPdu::Marshal(DataStream& data_stream) const {
-  SyntheticEnvironmentFamilyPdu::Marshal(data_stream);
-  environmental_process_id_.Marshal(data_stream);
-  environment_type_.Marshal(data_stream);
-  data_stream << model_type_;
-  data_stream << environment_status_;
-  data_stream << static_cast<uint8_t>(environment_records_.size());
-  data_stream << sequence_number_;
+void EnvironmentalProcessPdu::Marshal(ByteBuffer& byte_buffer) const {
+  SyntheticEnvironmentFamilyPdu::Marshal(byte_buffer);
+  environmental_process_id_.Marshal(byte_buffer);
+  environment_type_.Marshal(byte_buffer);
+  byte_buffer << model_type_;
+  byte_buffer << environment_status_;
+  byte_buffer << static_cast<uint8_t>(environment_records_.size());
+  byte_buffer << sequence_number_;
 
   for (const auto& x : environment_records_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void EnvironmentalProcessPdu::Unmarshal(DataStream& data_stream) {
-  SyntheticEnvironmentFamilyPdu::Unmarshal(data_stream);
-  environmental_process_id_.Unmarshal(data_stream);
-  environment_type_.Unmarshal(data_stream);
-  data_stream >> model_type_;
-  data_stream >> environment_status_;
-  data_stream >> number_of_environment_records_;
-  data_stream >> sequence_number_;
+void EnvironmentalProcessPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  SyntheticEnvironmentFamilyPdu::Unmarshal(byte_buffer);
+  environmental_process_id_.Unmarshal(byte_buffer);
+  environment_type_.Unmarshal(byte_buffer);
+  byte_buffer >> model_type_;
+  byte_buffer >> environment_status_;
+  byte_buffer >> number_of_environment_records_;
+  byte_buffer >> sequence_number_;
 
   environment_records_.clear();
   for (std::size_t idx = 0; idx < number_of_environment_records_; idx++) {
     Environment x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     environment_records_.push_back(x);
   }
 }

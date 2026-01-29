@@ -18,7 +18,7 @@ set(entity_information_src
   Marking.cpp
 )
 
-target_sources(sersi PRIVATE ${entity_information_src})
+target_sources(${PROJECT_NAME} PRIVATE ${entity_information_src})
 
 install(FILES ${entity_information_hdr}
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libsersi/entity_information

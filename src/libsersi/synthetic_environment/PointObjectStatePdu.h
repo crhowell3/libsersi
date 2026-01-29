@@ -6,7 +6,7 @@
 #include "libsersi/common/Vector3Double.h"
 #include "libsersi/synthetic_environment/ObjectType.h"
 #include "libsersi/synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.11.3: Inormation abut the addition or modification of a synthecic
@@ -55,8 +55,8 @@ class PointObjectStatePdu final : public SyntheticEnvironmentFamilyPdu {
   PointObjectStatePdu();
   ~PointObjectStatePdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetObjectId();
   [[nodiscard]] const EntityID& GetObjectId() const;

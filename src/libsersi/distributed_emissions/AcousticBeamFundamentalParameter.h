@@ -3,7 +3,7 @@
 
 #include <cstdint>
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Used in UaPdu
@@ -32,8 +32,8 @@ class AcousticBeamFundamentalParameter {
   AcousticBeamFundamentalParameter();
   ~AcousticBeamFundamentalParameter() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint16_t GetActiveEmissionParameterIndex() const;
   void SetActiveEmissionParameterIndex(uint16_t value);

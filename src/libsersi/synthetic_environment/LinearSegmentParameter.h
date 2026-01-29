@@ -2,7 +2,7 @@
 
 #include "libsersi/common/Orientation.h"
 #include "libsersi/common/Vector3Double.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // 5.2.48: Linear segment parameters
@@ -43,8 +43,8 @@ class LinearSegmentParameter {
   LinearSegmentParameter();
   ~LinearSegmentParameter() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint8_t GetSegmentNumber() const;
   void SetSegmentNumber(uint8_t value);

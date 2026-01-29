@@ -112,52 +112,52 @@ void MinefieldStatePdu::SetMineType(const std::vector<EntityType>& value) {
   mine_type_ = value;
 }
 
-void MinefieldStatePdu::Marshal(DataStream& data_stream) const {
-  MinefieldFamilyPdu::Marshal(data_stream);
-  minefield_id_.Marshal(data_stream);
-  data_stream << minefield_sequence_;
-  data_stream << force_id_;
-  data_stream << static_cast<uint8_t>(perimeter_points_.size());
-  minefield_type_.Marshal(data_stream);
-  data_stream << static_cast<uint16_t>(mine_type_.size());
-  minefield_location_.Marshal(data_stream);
-  minefield_orientation_.Marshal(data_stream);
-  data_stream << appearance_;
-  data_stream << protocol_mode_;
+void MinefieldStatePdu::Marshal(ByteBuffer& byte_buffer) const {
+  MinefieldFamilyPdu::Marshal(byte_buffer);
+  minefield_id_.Marshal(byte_buffer);
+  byte_buffer << minefield_sequence_;
+  byte_buffer << force_id_;
+  byte_buffer << static_cast<uint8_t>(perimeter_points_.size());
+  minefield_type_.Marshal(byte_buffer);
+  byte_buffer << static_cast<uint16_t>(mine_type_.size());
+  minefield_location_.Marshal(byte_buffer);
+  minefield_orientation_.Marshal(byte_buffer);
+  byte_buffer << appearance_;
+  byte_buffer << protocol_mode_;
 
   for (auto x : perimeter_points_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 
   for (const auto& x : mine_type_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void MinefieldStatePdu::Unmarshal(DataStream& data_stream) {
-  MinefieldFamilyPdu::Unmarshal(data_stream);
-  minefield_id_.Unmarshal(data_stream);
-  data_stream >> minefield_sequence_;
-  data_stream >> force_id_;
-  data_stream >> number_of_perimeter_points_;
-  minefield_type_.Unmarshal(data_stream);
-  data_stream >> number_of_mine_types_;
-  minefield_location_.Unmarshal(data_stream);
-  minefield_orientation_.Unmarshal(data_stream);
-  data_stream >> appearance_;
-  data_stream >> protocol_mode_;
+void MinefieldStatePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  MinefieldFamilyPdu::Unmarshal(byte_buffer);
+  minefield_id_.Unmarshal(byte_buffer);
+  byte_buffer >> minefield_sequence_;
+  byte_buffer >> force_id_;
+  byte_buffer >> number_of_perimeter_points_;
+  minefield_type_.Unmarshal(byte_buffer);
+  byte_buffer >> number_of_mine_types_;
+  minefield_location_.Unmarshal(byte_buffer);
+  minefield_orientation_.Unmarshal(byte_buffer);
+  byte_buffer >> appearance_;
+  byte_buffer >> protocol_mode_;
 
   perimeter_points_.clear();
   for (std::size_t idx = 0; idx < number_of_perimeter_points_; idx++) {
     Point x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     perimeter_points_.push_back(x);
   }
 
   mine_type_.clear();
   for (std::size_t idx = 0; idx < number_of_mine_types_; idx++) {
     EntityType x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     mine_type_.push_back(x);
   }
 }

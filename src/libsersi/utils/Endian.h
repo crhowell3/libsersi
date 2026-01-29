@@ -1,13 +1,12 @@
-#ifndef LIBSERSI_UTILS_ENDIAN_H_
-#define LIBSERSI_UTILS_ENDIAN_H_
+#pragma once
+
+#include <cstdint>
 
 namespace dis {
 /// the order of bytes that are on the left
-enum Endian {
+enum class Endian : uint8_t {
   kLittle = 1,
   kBig = 0,
 };
 
 }  // namespace dis
-
-#endif  // LIBSERSI_UTILS_ENDIAN_H_

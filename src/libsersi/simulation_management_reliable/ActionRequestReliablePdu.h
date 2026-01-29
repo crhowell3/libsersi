@@ -5,7 +5,7 @@
 #include "libsersi/common/FixedDatum.h"
 #include "libsersi/common/VariableDatum.h"
 #include "libsersi/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.12.6: request from a simulation manager to a managed entity to
@@ -45,8 +45,8 @@ class ActionRequestReliablePdu final
   ActionRequestReliablePdu();
   ~ActionRequestReliablePdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   [[nodiscard]] uint8_t GetRequiredReliabilityService() const;
   void SetRequiredReliabilityService(uint8_t value);

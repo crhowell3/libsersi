@@ -1,12 +1,12 @@
 set(common_src
   ArticulationParameter.cpp
+  BurstDescriptor.cpp
   ClockTime.cpp
   EntityID.cpp
   EntityType.cpp
   EventID.cpp
   FixedDatum.cpp
   Orientation.cpp
-  Pdu.cpp
   RecordSet.cpp
   SimulationAddress.cpp
   VariableDatum.cpp
@@ -16,13 +16,14 @@ set(common_src
 
 set(common_hdr
   ArticulationParameter.h
+  BurstDescriptor.h
   ClockTime.h
   EntityID.h
   EntityType.h
   EventID.h
   FixedDatum.h
   Orientation.h
-  Pdu.h
+  Pdu.hpp
   RecordSet.h
   SimulationAddress.h
   VariableDatum.h
@@ -30,7 +31,7 @@ set(common_hdr
   Vector3Float.h
 )
 
-target_sources(sersi PRIVATE ${common_src})
+target_sources(${PROJECT_NAME} PRIVATE ${common_src})
 
 install(FILES ${common_hdr}
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libsersi/common

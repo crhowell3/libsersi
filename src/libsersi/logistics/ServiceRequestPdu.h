@@ -6,7 +6,7 @@
 #include "libsersi/common/EntityID.h"
 #include "libsersi/logistics/LogisticsFamilyPdu.h"
 #include "libsersi/logistics/SupplyQuantity.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.5.1. Information about a request for supplies. COMPLETE
@@ -34,8 +34,8 @@ class ServiceRequestPdu final : public LogisticsFamilyPdu {
   ServiceRequestPdu();
   ~ServiceRequestPdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetRequestingEntityId();
   [[nodiscard]] const EntityID& GetRequestingEntityId() const;

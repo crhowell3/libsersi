@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // 5.2.58. Used in IFF ATC PDU
@@ -25,8 +25,8 @@ class SystemID {
   SystemID();
   ~SystemID() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint16_t GetSystemType() const;
   void SetSystemType(uint16_t value);

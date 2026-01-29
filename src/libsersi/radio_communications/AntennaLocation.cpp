@@ -27,14 +27,14 @@ void AntennaLocation::SetRelativeAntennaLocation(const Vector3Float& value) {
   relative_antenna_location_ = value;
 }
 
-void AntennaLocation::Marshal(DataStream& data_stream) const {
-  antenna_location_.Marshal(data_stream);
-  relative_antenna_location_.Marshal(data_stream);
+void AntennaLocation::Marshal(ByteBuffer& byte_buffer) const {
+  antenna_location_.Marshal(byte_buffer);
+  relative_antenna_location_.Marshal(byte_buffer);
 }
 
-void AntennaLocation::Unmarshal(DataStream& data_stream) {
-  antenna_location_.Unmarshal(data_stream);
-  relative_antenna_location_.Unmarshal(data_stream);
+void AntennaLocation::Unmarshal(ByteBuffer& byte_buffer) {
+  antenna_location_.Unmarshal(byte_buffer);
+  relative_antenna_location_.Unmarshal(byte_buffer);
 }
 
 bool AntennaLocation::operator==(const AntennaLocation& rhs) const {

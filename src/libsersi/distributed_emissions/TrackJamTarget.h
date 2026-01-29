@@ -3,7 +3,7 @@
 #include <cstddef>
 
 #include "libsersi/common/EntityID.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // One track/jam target
@@ -23,8 +23,8 @@ class TrackJamTarget {
   TrackJamTarget();
   ~TrackJamTarget() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   EntityID& GetTrackJam();
   [[nodiscard]] const EntityID& GetTrackJam() const;

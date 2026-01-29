@@ -119,57 +119,57 @@ void MinefieldDataPdu::SetMineLocation(const std::vector<Vector3Float>& value) {
   mine_location_ = value;
 }
 
-void MinefieldDataPdu::Marshal(DataStream& data_stream) const {
-  MinefieldFamilyPdu::Marshal(data_stream);
-  minefield_id_.Marshal(data_stream);
-  requesting_entity_id_.Marshal(data_stream);
-  data_stream << minefield_sequence_number_;
-  data_stream << request_id_;
-  data_stream << pdu_sequence_number_;
-  data_stream << number_of_pdus_;
-  data_stream << static_cast<uint8_t>(mine_location_.size());
-  data_stream << static_cast<uint8_t>(sensor_types_.size());
-  data_stream << pad2_;
-  data_stream << data_filter_;
-  mine_type_.Marshal(data_stream);
+void MinefieldDataPdu::Marshal(ByteBuffer& byte_buffer) const {
+  MinefieldFamilyPdu::Marshal(byte_buffer);
+  minefield_id_.Marshal(byte_buffer);
+  requesting_entity_id_.Marshal(byte_buffer);
+  byte_buffer << minefield_sequence_number_;
+  byte_buffer << request_id_;
+  byte_buffer << pdu_sequence_number_;
+  byte_buffer << number_of_pdus_;
+  byte_buffer << static_cast<uint8_t>(mine_location_.size());
+  byte_buffer << static_cast<uint8_t>(sensor_types_.size());
+  byte_buffer << pad2_;
+  byte_buffer << data_filter_;
+  mine_type_.Marshal(byte_buffer);
 
   for (unsigned short x : sensor_types_) {
-    data_stream << x;
+    byte_buffer << x;
   }
 
-  data_stream << pad3_;
+  byte_buffer << pad3_;
 
   for (auto x : mine_location_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void MinefieldDataPdu::Unmarshal(DataStream& data_stream) {
-  MinefieldFamilyPdu::Unmarshal(data_stream);
-  minefield_id_.Unmarshal(data_stream);
-  requesting_entity_id_.Unmarshal(data_stream);
-  data_stream >> minefield_sequence_number_;
-  data_stream >> request_id_;
-  data_stream >> pdu_sequence_number_;
-  data_stream >> number_of_pdus_;
-  data_stream >> number_of_mines_in_this_pdu_;
-  data_stream >> number_of_sensor_types_;
-  data_stream >> pad2_;
-  data_stream >> data_filter_;
-  mine_type_.Unmarshal(data_stream);
+void MinefieldDataPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  MinefieldFamilyPdu::Unmarshal(byte_buffer);
+  minefield_id_.Unmarshal(byte_buffer);
+  requesting_entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> minefield_sequence_number_;
+  byte_buffer >> request_id_;
+  byte_buffer >> pdu_sequence_number_;
+  byte_buffer >> number_of_pdus_;
+  byte_buffer >> number_of_mines_in_this_pdu_;
+  byte_buffer >> number_of_sensor_types_;
+  byte_buffer >> pad2_;
+  byte_buffer >> data_filter_;
+  mine_type_.Unmarshal(byte_buffer);
 
   sensor_types_.clear();
   for (std::size_t idx = 0; idx < number_of_sensor_types_; idx++) {
     uint16_t x;
-    data_stream >> x;
+    byte_buffer >> x;
     sensor_types_.push_back(x);
   }
-  data_stream >> pad3_;
+  byte_buffer >> pad3_;
 
   mine_location_.clear();
   for (std::size_t idx = 0; idx < number_of_mines_in_this_pdu_; idx++) {
     Vector3Float x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     mine_location_.push_back(x);
   }
 }

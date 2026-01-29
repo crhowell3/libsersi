@@ -101,37 +101,37 @@ void ElectromagneticEmissionBeamData::SetTrackJamTargets(
   track_jam_targets_ = value;
 }
 
-void ElectromagneticEmissionBeamData::Marshal(DataStream& data_stream) const {
-  data_stream << beam_data_length_;
-  data_stream << beam_id_number_;
-  data_stream << beam_parameter_index_;
-  fundamental_parameter_data_.Marshal(data_stream);
-  data_stream << beam_function_;
-  data_stream << static_cast<uint8_t>(track_jam_targets_.size());
-  data_stream << high_density_track_jam_;
-  data_stream << pad4_;
-  data_stream << jamming_mode_sequence_;
+void ElectromagneticEmissionBeamData::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << beam_data_length_;
+  byte_buffer << beam_id_number_;
+  byte_buffer << beam_parameter_index_;
+  fundamental_parameter_data_.Marshal(byte_buffer);
+  byte_buffer << beam_function_;
+  byte_buffer << static_cast<uint8_t>(track_jam_targets_.size());
+  byte_buffer << high_density_track_jam_;
+  byte_buffer << pad4_;
+  byte_buffer << jamming_mode_sequence_;
 
   for (const auto& x : track_jam_targets_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void ElectromagneticEmissionBeamData::Unmarshal(DataStream& data_stream) {
-  data_stream >> beam_data_length_;
-  data_stream >> beam_id_number_;
-  data_stream >> beam_parameter_index_;
-  fundamental_parameter_data_.Unmarshal(data_stream);
-  data_stream >> beam_function_;
-  data_stream >> number_of_track_jam_targets_;
-  data_stream >> high_density_track_jam_;
-  data_stream >> pad4_;
-  data_stream >> jamming_mode_sequence_;
+void ElectromagneticEmissionBeamData::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> beam_data_length_;
+  byte_buffer >> beam_id_number_;
+  byte_buffer >> beam_parameter_index_;
+  fundamental_parameter_data_.Unmarshal(byte_buffer);
+  byte_buffer >> beam_function_;
+  byte_buffer >> number_of_track_jam_targets_;
+  byte_buffer >> high_density_track_jam_;
+  byte_buffer >> pad4_;
+  byte_buffer >> jamming_mode_sequence_;
 
   track_jam_targets_.clear();
   for (std::size_t idx = 0; idx < number_of_track_jam_targets_; idx++) {
     TrackJamTarget x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     track_jam_targets_.push_back(x);
   }
 }

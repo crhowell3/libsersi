@@ -35,22 +35,22 @@ uint8_t Environment::GetPadding2() const { return padding2_; }
 
 void Environment::SetPadding2(uint8_t value) { padding2_ = value; }
 
-void Environment::Marshal(DataStream& data_stream) const {
-  data_stream << environment_type_;
-  data_stream << length_;
-  data_stream << index_;
-  data_stream << padding1_;
-  data_stream << geometry_;
-  data_stream << padding2_;
+void Environment::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << environment_type_;
+  byte_buffer << length_;
+  byte_buffer << index_;
+  byte_buffer << padding1_;
+  byte_buffer << geometry_;
+  byte_buffer << padding2_;
 }
 
-void Environment::Unmarshal(DataStream& data_stream) {
-  data_stream >> environment_type_;
-  data_stream >> length_;
-  data_stream >> index_;
-  data_stream >> padding1_;
-  data_stream >> geometry_;
-  data_stream >> padding2_;
+void Environment::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> environment_type_;
+  byte_buffer >> length_;
+  byte_buffer >> index_;
+  byte_buffer >> padding1_;
+  byte_buffer >> geometry_;
+  byte_buffer >> padding2_;
 }
 
 bool Environment::operator==(const Environment& rhs) const {

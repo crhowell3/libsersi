@@ -27,18 +27,18 @@ uint32_t StartResumePdu::GetRequestId() const { return request_id_; }
 
 void StartResumePdu::SetRequestId(uint32_t value) { request_id_ = value; }
 
-void StartResumePdu::Marshal(DataStream& data_stream) const {
-  SimulationManagementFamilyPdu::Marshal(data_stream);
-  real_world_time_.Marshal(data_stream);
-  simulation_time_.Marshal(data_stream);
-  data_stream << request_id_;
+void StartResumePdu::Marshal(ByteBuffer& byte_buffer) const {
+  SimulationManagementFamilyPdu::Marshal(byte_buffer);
+  real_world_time_.Marshal(byte_buffer);
+  simulation_time_.Marshal(byte_buffer);
+  byte_buffer << request_id_;
 }
 
-void StartResumePdu::Unmarshal(DataStream& data_stream) {
-  SimulationManagementFamilyPdu::Unmarshal(data_stream);
-  real_world_time_.Unmarshal(data_stream);
-  simulation_time_.Unmarshal(data_stream);
-  data_stream >> request_id_;
+void StartResumePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  SimulationManagementFamilyPdu::Unmarshal(byte_buffer);
+  real_world_time_.Unmarshal(byte_buffer);
+  simulation_time_.Unmarshal(byte_buffer);
+  byte_buffer >> request_id_;
 }
 
 bool StartResumePdu::operator==(const StartResumePdu& rhs) const {

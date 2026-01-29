@@ -3,15 +3,15 @@
 
 #include <map>  // for member
 
+#include "libsersi/utils/ByteBuffer.hpp"
 #include "libsersi/utils/Endian.h"            // for internal type
 #include "libsersi/utils/IBufferProcessor.h"  // for base class
 #include "libsersi/utils/IPduBank.h"
-#include "libsersi/utils/PduType.h"
 
 namespace dis {
 class Pdu;
 class IPacketProcessor;
-class DataStream;
+class ByteBuffer;
 
 /// A framework for routing the packet to the correct processor.
 class IncomingMessage : public IBufferProcessor {
@@ -25,7 +25,7 @@ class IncomingMessage : public IBufferProcessor {
   IncomingMessage();
   ~IncomingMessage() override;
 
-  void Process(const char* buf, uint32_t size, Endian e);
+  void Process(const char* buf, uint32_t size, Endian e) override;
 
   /// registers the ipp instance to process packets with the id
   /// @return 'true' if the pair of parameters were not found in the container
@@ -64,7 +64,7 @@ class IncomingMessage : public IBufferProcessor {
       std::pair<PduBankContainer::iterator, PduBankContainer::iterator>;
   PduBankContainer pdu_banks_;
 
-  void SwitchOnType(PduType pdu_type, DataStream& ds);
+  void SwitchOnType(PduType pdu_type, ByteBuffer& ds);
 
   /// Searches the proccesor container multimap for a matching container and
   /// returns the iterator

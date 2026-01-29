@@ -37,22 +37,22 @@ uint8_t RecordSet::GetPad4() const { return pad4_; }
 
 void RecordSet::SetPad4(uint8_t value) { pad4_ = value; }
 
-void RecordSet::Marshal(DataStream& data_stream) const {
-  data_stream << record_id_;
-  data_stream << record_set_serial_number_;
-  data_stream << record_length_;
-  data_stream << record_count_;
-  data_stream << record_values_;
-  data_stream << pad4_;
+void RecordSet::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << record_id_;
+  byte_buffer << record_set_serial_number_;
+  byte_buffer << record_length_;
+  byte_buffer << record_count_;
+  byte_buffer << record_values_;
+  byte_buffer << pad4_;
 }
 
-void RecordSet::Unmarshal(DataStream& data_stream) {
-  data_stream >> record_id_;
-  data_stream >> record_set_serial_number_;
-  data_stream >> record_length_;
-  data_stream >> record_count_;
-  data_stream >> record_values_;
-  data_stream >> pad4_;
+void RecordSet::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> record_id_;
+  byte_buffer >> record_set_serial_number_;
+  byte_buffer >> record_length_;
+  byte_buffer >> record_count_;
+  byte_buffer >> record_values_;
+  byte_buffer >> pad4_;
 }
 
 bool RecordSet::operator==(const RecordSet& rhs) const {

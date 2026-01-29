@@ -36,20 +36,20 @@ float BeamData::GetBeamSweepSync() const { return beam_sweep_sync_; }
 
 void BeamData::SetBeamSweepSync(float value) { beam_sweep_sync_ = value; }
 
-void BeamData::Marshal(DataStream& data_stream) const {
-  data_stream << beam_azimuth_center_;
-  data_stream << beam_azimuth_sweep_;
-  data_stream << beam_elevation_center_;
-  data_stream << beam_elevation_sweep_;
-  data_stream << beam_sweep_sync_;
+void BeamData::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << beam_azimuth_center_;
+  byte_buffer << beam_azimuth_sweep_;
+  byte_buffer << beam_elevation_center_;
+  byte_buffer << beam_elevation_sweep_;
+  byte_buffer << beam_sweep_sync_;
 }
 
-void BeamData::Unmarshal(DataStream& data_stream) {
-  data_stream >> beam_azimuth_center_;
-  data_stream >> beam_azimuth_sweep_;
-  data_stream >> beam_elevation_center_;
-  data_stream >> beam_elevation_sweep_;
-  data_stream >> beam_sweep_sync_;
+void BeamData::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> beam_azimuth_center_;
+  byte_buffer >> beam_azimuth_sweep_;
+  byte_buffer >> beam_elevation_center_;
+  byte_buffer >> beam_elevation_sweep_;
+  byte_buffer >> beam_sweep_sync_;
 }
 
 bool BeamData::operator==(const BeamData& rhs) const {

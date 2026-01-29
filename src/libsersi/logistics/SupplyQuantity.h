@@ -1,7 +1,7 @@
 #pragma once
 
 #include "libsersi/common/EntityType.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.30. A supply, and the amount of that supply. Similar to an entity
@@ -19,8 +19,8 @@ class SupplyQuantity {
   SupplyQuantity();
   ~SupplyQuantity();
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   EntityType& GetSupplyType();
   [[nodiscard]] const EntityType& GetSupplyType() const;

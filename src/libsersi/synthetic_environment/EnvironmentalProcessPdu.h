@@ -6,7 +6,7 @@
 #include "libsersi/common/EntityType.h"
 #include "libsersi/synthetic_environment/Environment.h"
 #include "libsersi/synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.11.1: Information about environmental effects and processes. This
@@ -41,8 +41,8 @@ class EnvironmentalProcessPdu final : public SyntheticEnvironmentFamilyPdu {
   EnvironmentalProcessPdu();
   ~EnvironmentalProcessPdu() final;
 
-  void Marshal(dis::DataStream& data_stream) const final;
-  void Unmarshal(dis::DataStream& data_stream) final;
+  void Marshal(dis::ByteBuffer& byte_buffer) const final;
+  void Unmarshal(dis::ByteBuffer& byte_buffer) final;
 
   dis::EntityID& GetEnvironmentalProcessId();
   [[nodiscard]] const dis::EntityID& GetEnvironmentalProcessId() const;

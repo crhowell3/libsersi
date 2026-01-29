@@ -1,6 +1,6 @@
 #pragma once
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.8. Time measurements that exceed one hour. Hours is the number of
@@ -18,8 +18,8 @@ class ClockTime {
   ClockTime();
   virtual ~ClockTime();
 
-  virtual void Marshal(DataStream& data_stream) const;
-  virtual void Unmarshal(DataStream& data_stream);
+  virtual void Marshal(ByteBuffer& byte_buffer) const;
+  virtual void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] int GetHour() const;
   void SetHour(int value);
@@ -32,4 +32,3 @@ class ClockTime {
   bool operator==(const ClockTime& rhs) const;
 };
 }  // namespace dis
-

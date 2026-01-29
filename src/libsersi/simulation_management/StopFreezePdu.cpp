@@ -34,22 +34,22 @@ uint32_t StopFreezePdu::GetRequestId() const { return request_id_; }
 
 void StopFreezePdu::SetRequestId(uint32_t value) { request_id_ = value; }
 
-void StopFreezePdu::Marshal(DataStream& data_stream) const {
-  SimulationManagementFamilyPdu::Marshal(data_stream);
-  real_world_time_.Marshal(data_stream);
-  data_stream << reason_;
-  data_stream << frozen_behavior_;
-  data_stream << padding1_;
-  data_stream << request_id_;
+void StopFreezePdu::Marshal(ByteBuffer& byte_buffer) const {
+  SimulationManagementFamilyPdu::Marshal(byte_buffer);
+  real_world_time_.Marshal(byte_buffer);
+  byte_buffer << reason_;
+  byte_buffer << frozen_behavior_;
+  byte_buffer << padding1_;
+  byte_buffer << request_id_;
 }
 
-void StopFreezePdu::Unmarshal(DataStream& data_stream) {
-  SimulationManagementFamilyPdu::Unmarshal(data_stream);
-  real_world_time_.Unmarshal(data_stream);
-  data_stream >> reason_;
-  data_stream >> frozen_behavior_;
-  data_stream >> padding1_;
-  data_stream >> request_id_;
+void StopFreezePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  SimulationManagementFamilyPdu::Unmarshal(byte_buffer);
+  real_world_time_.Unmarshal(byte_buffer);
+  byte_buffer >> reason_;
+  byte_buffer >> frozen_behavior_;
+  byte_buffer >> padding1_;
+  byte_buffer >> request_id_;
 }
 
 bool StopFreezePdu::operator==(const StopFreezePdu& rhs) const {

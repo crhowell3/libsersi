@@ -20,18 +20,18 @@ uint8_t SystemID::GetChangeOptions() const { return change_options_; }
 
 void SystemID::SetChangeOptions(uint8_t value) { change_options_ = value; }
 
-void SystemID::Marshal(DataStream& data_stream) const {
-  data_stream << system_type_;
-  data_stream << system_name_;
-  data_stream << system_mode_;
-  data_stream << change_options_;
+void SystemID::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << system_type_;
+  byte_buffer << system_name_;
+  byte_buffer << system_mode_;
+  byte_buffer << change_options_;
 }
 
-void SystemID::Unmarshal(DataStream& data_stream) {
-  data_stream >> system_type_;
-  data_stream >> system_name_;
-  data_stream >> system_mode_;
-  data_stream >> change_options_;
+void SystemID::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> system_type_;
+  byte_buffer >> system_name_;
+  byte_buffer >> system_mode_;
+  byte_buffer >> change_options_;
 }
 
 bool SystemID::operator==(const SystemID& rhs) const {

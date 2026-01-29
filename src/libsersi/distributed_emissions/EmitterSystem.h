@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.11. This field shall specify information about a particular
@@ -23,8 +23,8 @@ class EmitterSystem {
   EmitterSystem();
   ~EmitterSystem() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint16_t GetEmitterName() const;
   void SetEmitterName(uint16_t value);

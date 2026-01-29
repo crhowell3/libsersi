@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.17. Three floating point values representing an orientation, psi,
@@ -20,8 +20,8 @@ class Orientation {
   Orientation();
   ~Orientation() = default;
 
-  void Marshal(dis::DataStream& data_stream) const;
-  void Unmarshal(dis::DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] float GetPsi() const;
   void SetPsi(float value);

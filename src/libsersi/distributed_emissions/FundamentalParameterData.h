@@ -1,6 +1,6 @@
 #pragma once
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.22. Contains electromagnetic emmision regineratin parameters that
@@ -48,8 +48,8 @@ class FundamentalParameterData {
   FundamentalParameterData();
   ~FundamentalParameterData() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] float GetFrequency() const;
   void SetFrequency(float value);

@@ -3,7 +3,7 @@
 #include <array>
 #include <cstddef>
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.37. Specifies the character set used inthe first byte, followed
@@ -23,8 +23,8 @@ class AggregateMarking {
   AggregateMarking();
   ~AggregateMarking() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint8_t GetCharacterSet() const;
   void SetCharacterSet(uint8_t value);

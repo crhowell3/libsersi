@@ -8,7 +8,7 @@
 #include "libsersi/radio_communications/ModulationType.h"
 #include "libsersi/radio_communications/RadioCommunicationsFamilyPdu.h"
 #include "libsersi/radio_communications/RadioEntityType.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.8.1. Detailed information about a radio transmitter.
@@ -76,8 +76,8 @@ class TransmitterPdu final : public RadioCommunicationsFamilyPdu {
   TransmitterPdu();
   ~TransmitterPdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   RadioEntityType& GetRadioEntityType();
   [[nodiscard]] const RadioEntityType& GetRadioEntityType() const;

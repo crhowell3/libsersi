@@ -4,7 +4,7 @@
 #include <cstdint>
 
 #include "libsersi/distributed_emissions/AcousticBeamFundamentalParameter.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Used in UA PDU
@@ -27,8 +27,8 @@ class AcousticBeamData {
   AcousticBeamData();
   ~AcousticBeamData() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint16_t GetBeamDataLength() const;
   void SetBeamDataLength(uint16_t value);

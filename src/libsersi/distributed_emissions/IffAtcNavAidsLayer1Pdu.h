@@ -6,7 +6,7 @@
 #include "libsersi/distributed_emissions/DistributedEmissionsFamilyPdu.h"
 #include "libsersi/distributed_emissions/IffFundamentalData.h"
 #include "libsersi/distributed_emissions/SystemID.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // 5.3.7.4.1: Navigational and IFF PDU. COMPLETE
@@ -36,8 +36,8 @@ class IffAtcNavAidsLayer1Pdu : public DistributedEmissionsFamilyPdu {
   IffAtcNavAidsLayer1Pdu();
   ~IffAtcNavAidsLayer1Pdu() override = default;
 
-  void Marshal(DataStream& data_stream) const override;
-  void Unmarshal(DataStream& data_stream) override;
+  void Marshal(ByteBuffer& byte_buffer) const override;
+  void Unmarshal(ByteBuffer& byte_buffer) override;
 
   EntityID& GetEmittingEntityId();
   [[nodiscard]] const EntityID& GetEmittingEntityId() const;

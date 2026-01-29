@@ -11,7 +11,7 @@
 #include "libsersi/entity_management/AggregateID.h"
 #include "libsersi/entity_management/AggregateMarking.h"
 #include "libsersi/entity_management/EntityManagementFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.9.1 informationa bout aggregating entities anc communicating
@@ -91,8 +91,8 @@ class AggregateStatePdu final : public EntityManagementFamilyPdu {
   AggregateStatePdu();
   ~AggregateStatePdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetAggregateId();
   [[nodiscard]] const EntityID& GetAggregateId() const;

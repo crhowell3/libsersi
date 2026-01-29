@@ -73,32 +73,32 @@ void ElectromagneticEmissionsPdu::SetSystems(
   systems_ = value;
 }
 
-void ElectromagneticEmissionsPdu::Marshal(DataStream& data_stream) const {
-  DistributedEmissionsFamilyPdu::Marshal(data_stream);
-  emitting_entity_id_.Marshal(data_stream);
-  event_id_.Marshal(data_stream);
-  data_stream << state_update_indicator_;
-  data_stream << static_cast<uint8_t>(systems_.size());
-  data_stream << padding_for_emissions_pdu_;
+void ElectromagneticEmissionsPdu::Marshal(ByteBuffer& byte_buffer) const {
+  DistributedEmissionsFamilyPdu::Marshal(byte_buffer);
+  emitting_entity_id_.Marshal(byte_buffer);
+  event_id_.Marshal(byte_buffer);
+  byte_buffer << state_update_indicator_;
+  byte_buffer << static_cast<uint8_t>(systems_.size());
+  byte_buffer << padding_for_emissions_pdu_;
 
   for (const auto& x : systems_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void ElectromagneticEmissionsPdu::Unmarshal(DataStream& data_stream) {
+void ElectromagneticEmissionsPdu::Unmarshal(ByteBuffer& byte_buffer) {
   DistributedEmissionsFamilyPdu::Unmarshal(
-      data_stream);  // unmarshal information in superclass first
-  emitting_entity_id_.Unmarshal(data_stream);
-  event_id_.Unmarshal(data_stream);
-  data_stream >> state_update_indicator_;
-  data_stream >> number_of_systems_;
-  data_stream >> padding_for_emissions_pdu_;
+      byte_buffer);  // unmarshal information in superclass first
+  emitting_entity_id_.Unmarshal(byte_buffer);
+  event_id_.Unmarshal(byte_buffer);
+  byte_buffer >> state_update_indicator_;
+  byte_buffer >> number_of_systems_;
+  byte_buffer >> padding_for_emissions_pdu_;
 
   systems_.clear();
   for (std::size_t idx = 0; idx < number_of_systems_; idx++) {
     ElectromagneticEmissionSystemData x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     systems_.push_back(x);
   }
 }

@@ -29,16 +29,16 @@ void ResupplyCancelPdu::SetSupplyingEntityId(const EntityID& value) {
   supplying_entity_id_ = value;
 }
 
-void ResupplyCancelPdu::Marshal(DataStream& data_stream) const {
-  LogisticsFamilyPdu::Marshal(data_stream);
-  receiving_entity_id_.Marshal(data_stream);
-  supplying_entity_id_.Marshal(data_stream);
+void ResupplyCancelPdu::Marshal(ByteBuffer& byte_buffer) const {
+  LogisticsFamilyPdu::Marshal(byte_buffer);
+  receiving_entity_id_.Marshal(byte_buffer);
+  supplying_entity_id_.Marshal(byte_buffer);
 }
 
-void ResupplyCancelPdu::Unmarshal(DataStream& data_stream) {
-  LogisticsFamilyPdu::Unmarshal(data_stream);
-  receiving_entity_id_.Unmarshal(data_stream);
-  supplying_entity_id_.Unmarshal(data_stream);
+void ResupplyCancelPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  LogisticsFamilyPdu::Unmarshal(byte_buffer);
+  receiving_entity_id_.Unmarshal(byte_buffer);
+  supplying_entity_id_.Unmarshal(byte_buffer);
 }
 
 bool ResupplyCancelPdu::operator==(const ResupplyCancelPdu& rhs) const {

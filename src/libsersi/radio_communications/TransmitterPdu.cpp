@@ -158,66 +158,66 @@ void TransmitterPdu::SetAntennaPatternList(
   antenna_pattern_list_ = value;
 }
 
-void TransmitterPdu::Marshal(DataStream& data_stream) const {
-  RadioCommunicationsFamilyPdu::Marshal(data_stream);
-  radio_entity_type_.Marshal(data_stream);
-  data_stream << transmit_state_;
-  data_stream << input_source_;
-  data_stream << padding1_;
-  antenna_location_.Marshal(data_stream);
-  relative_antenna_location_.Marshal(data_stream);
-  data_stream << antenna_pattern_type_;
-  data_stream << static_cast<uint16_t>(antenna_pattern_list_.size());
-  data_stream << frequency_;
-  data_stream << transmit_frequency_bandwidth_;
-  data_stream << power_;
-  modulation_type_.Marshal(data_stream);
-  data_stream << crypto_system_;
-  data_stream << crypto_key_id_;
-  data_stream << static_cast<uint8_t>(modulation_parameters_list_.size());
-  data_stream << padding2_;
-  data_stream << padding3_;
+void TransmitterPdu::Marshal(ByteBuffer& byte_buffer) const {
+  RadioCommunicationsFamilyPdu::Marshal(byte_buffer);
+  radio_entity_type_.Marshal(byte_buffer);
+  byte_buffer << transmit_state_;
+  byte_buffer << input_source_;
+  byte_buffer << padding1_;
+  antenna_location_.Marshal(byte_buffer);
+  relative_antenna_location_.Marshal(byte_buffer);
+  byte_buffer << antenna_pattern_type_;
+  byte_buffer << static_cast<uint16_t>(antenna_pattern_list_.size());
+  byte_buffer << frequency_;
+  byte_buffer << transmit_frequency_bandwidth_;
+  byte_buffer << power_;
+  modulation_type_.Marshal(byte_buffer);
+  byte_buffer << crypto_system_;
+  byte_buffer << crypto_key_id_;
+  byte_buffer << static_cast<uint8_t>(modulation_parameters_list_.size());
+  byte_buffer << padding2_;
+  byte_buffer << padding3_;
 
   for (auto x : modulation_parameters_list_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 
   for (auto x : antenna_pattern_list_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void TransmitterPdu::Unmarshal(DataStream& data_stream) {
-  RadioCommunicationsFamilyPdu::Unmarshal(data_stream);
-  radio_entity_type_.Unmarshal(data_stream);
-  data_stream >> transmit_state_;
-  data_stream >> input_source_;
-  data_stream >> padding1_;
-  antenna_location_.Unmarshal(data_stream);
-  relative_antenna_location_.Unmarshal(data_stream);
-  data_stream >> antenna_pattern_type_;
-  data_stream >> antenna_pattern_count_;
-  data_stream >> frequency_;
-  data_stream >> transmit_frequency_bandwidth_;
-  data_stream >> power_;
-  modulation_type_.Unmarshal(data_stream);
-  data_stream >> crypto_system_;
-  data_stream >> crypto_key_id_;
-  data_stream >> modulation_parameter_count_;
-  data_stream >> padding2_;
-  data_stream >> padding3_;
+void TransmitterPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  RadioCommunicationsFamilyPdu::Unmarshal(byte_buffer);
+  radio_entity_type_.Unmarshal(byte_buffer);
+  byte_buffer >> transmit_state_;
+  byte_buffer >> input_source_;
+  byte_buffer >> padding1_;
+  antenna_location_.Unmarshal(byte_buffer);
+  relative_antenna_location_.Unmarshal(byte_buffer);
+  byte_buffer >> antenna_pattern_type_;
+  byte_buffer >> antenna_pattern_count_;
+  byte_buffer >> frequency_;
+  byte_buffer >> transmit_frequency_bandwidth_;
+  byte_buffer >> power_;
+  modulation_type_.Unmarshal(byte_buffer);
+  byte_buffer >> crypto_system_;
+  byte_buffer >> crypto_key_id_;
+  byte_buffer >> modulation_parameter_count_;
+  byte_buffer >> padding2_;
+  byte_buffer >> padding3_;
 
   modulation_parameters_list_.clear();
   for (std::size_t idx = 0; idx < modulation_parameter_count_; idx++) {
     Vector3Float x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     modulation_parameters_list_.push_back(x);
   }
 
   antenna_pattern_list_.clear();
   for (std::size_t idx = 0; idx < antenna_pattern_count_; idx++) {
     Vector3Float x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     antenna_pattern_list_.push_back(x);
   }
 }

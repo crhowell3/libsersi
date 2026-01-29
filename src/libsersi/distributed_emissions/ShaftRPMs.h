@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Shaft RPMs, used in underwater acoustic clacluations.
@@ -22,8 +22,8 @@ class ShaftRPMs {
   ShaftRPMs();
   ~ShaftRPMs() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] int16_t GetCurrentShaftRPMs() const;
   void SetCurrentShaftRPMs(int16_t value);

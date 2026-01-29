@@ -29,7 +29,7 @@ set(synthetic_environment_src
   PointObjectStatePdu.cpp
   SyntheticEnvironmentFamilyPdu.cpp
 )
-target_sources(sersi PRIVATE ${synthetic_environment_src})
+target_sources(${PROJECT_NAME} PRIVATE ${synthetic_environment_src})
 
 install(FILES ${synthetic_environment_hdr}
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libsersi/synthetic_environment

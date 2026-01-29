@@ -1,10 +1,9 @@
-#ifndef LIBSERSI_UTILS_DATASTREAM_H_
-#define LIBSERSI_UTILS_DATASTREAM_H_
+#pragma once
 
+#include <array>
 #include <cstdint>
 #include <cstdlib>  // for std::size_t and NULL definition
 #include <cstring>  // for memcpy
-#include <string>   // for typedef, member
 #include <vector>   // for typedef, member
 
 #include "libsersi/utils/Endian.h"  // for enum
@@ -13,19 +12,19 @@ namespace dis {
 /// a class to support managing a network buffer.
 /// the clients are responsible for managing the char buffer memory.
 /// this class explicitly defines operators for expected types.
-class DataStream {
+class ByteBuffer {
  public:
   /// Setup the internal buffer's Endian type.
   /// @param stream the Endian type to use for the internal buffer,
   /// which will be used for network socket writes.
-  explicit DataStream(Endian stream);
+  explicit ByteBuffer(Endian stream);
 
   /// Setup the internal buffer.
   /// @param buffer the data to copy and manage.
   /// @param length the number of bytes in the buffer.
   /// @param stream the Endian type to use for the internal buffer,
-  DataStream(const char* buffer, std::size_t length, Endian stream);
-  ~DataStream() = default;
+  ByteBuffer(const char* buffer, std::size_t length, Endian stream);
+  ~ByteBuffer() = default;
 
   /// a method for reading the stored buffer data.
   /// @param offset the index distance with respect to the current read point.
@@ -35,30 +34,30 @@ class DataStream {
   void SetStream(const char* buffer, std::size_t length, Endian order);
 
   // write operations
-  DataStream& operator<<(bool b);
-  DataStream& operator<<(char c);
-  DataStream& operator<<(uint8_t c);
-  DataStream& operator<<(float f);
-  DataStream& operator<<(double d);
-  DataStream& operator<<(int d);
-  DataStream& operator<<(uint32_t d);
-  DataStream& operator<<(int64_t d);
-  DataStream& operator<<(uint64_t d);
-  DataStream& operator<<(uint16_t d);
-  DataStream& operator<<(int16_t d);
+  ByteBuffer& operator<<(bool b);
+  ByteBuffer& operator<<(char c);
+  ByteBuffer& operator<<(uint8_t c);
+  ByteBuffer& operator<<(float f);
+  ByteBuffer& operator<<(double d);
+  ByteBuffer& operator<<(int d);
+  ByteBuffer& operator<<(uint32_t d);
+  ByteBuffer& operator<<(int64_t d);
+  ByteBuffer& operator<<(uint64_t d);
+  ByteBuffer& operator<<(uint16_t d);
+  ByteBuffer& operator<<(int16_t d);
 
   // read operations
-  DataStream& operator>>(bool& b);
-  DataStream& operator>>(char& c);
-  DataStream& operator>>(uint8_t& c);
-  DataStream& operator>>(float& f);
-  DataStream& operator>>(double& d);
-  DataStream& operator>>(int& d);
-  DataStream& operator>>(uint32_t& d);
-  DataStream& operator>>(int64_t& d);
-  DataStream& operator>>(uint64_t& d);
-  DataStream& operator>>(uint16_t& d);
-  DataStream& operator>>(int16_t& d);
+  ByteBuffer& operator>>(bool& b);
+  ByteBuffer& operator>>(char& c);
+  ByteBuffer& operator>>(uint8_t& c);
+  ByteBuffer& operator>>(float& f);
+  ByteBuffer& operator>>(double& d);
+  ByteBuffer& operator>>(int& d);
+  ByteBuffer& operator>>(uint32_t& d);
+  ByteBuffer& operator>>(int64_t& d);
+  ByteBuffer& operator>>(uint64_t& d);
+  ByteBuffer& operator>>(uint16_t& d);
+  ByteBuffer& operator>>(int16_t& d);
 
   [[nodiscard]] Endian GetStreamEndian() const;
   [[nodiscard]] Endian GetMachineEndian() const;
@@ -97,10 +96,10 @@ class DataStream {
   /// because the class size takes into account the virtual function table.
   template <typename T>
   void ReadAlgorithm(T& t) {
-    char ch[sizeof(T)];
-    DoRead(ch, sizeof(T));
-    DoFlip(ch, sizeof(T));
-    memcpy(&t, ch, sizeof(t));
+    std::array<char, sizeof(T)> ch;
+    DoRead(ch.data(), sizeof(T));
+    DoFlip(ch.data(), sizeof(T));
+    memcpy(&t, ch.data(), sizeof(t));
     IncrementPointer<T>(read_pos_);
   }
 
@@ -127,5 +126,3 @@ class DataStream {
   Endian machine_endian_;
 };
 }  // namespace dis
-
-#endif  // LIBSERSI_UTILS_DATASTREAM_H_

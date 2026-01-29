@@ -4,7 +4,7 @@
 
 #include "libsersi/distributed_emissions/FundamentalParameterData.h"
 #include "libsersi/distributed_emissions/TrackJamTarget.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Description of one electronic emission beam
@@ -51,8 +51,8 @@ class ElectromagneticEmissionBeamData {
   ElectromagneticEmissionBeamData();
   ~ElectromagneticEmissionBeamData();
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint8_t GetBeamDataLength() const;
   void SetBeamDataLength(uint8_t value);

@@ -4,7 +4,7 @@
 
 #include "libsersi/common/EntityID.h"
 #include "libsersi/minefield/MinefieldFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.10.4 proivde the means to request a retransmit of a minefield
@@ -31,8 +31,8 @@ class MinefieldResponseNackPdu final : public MinefieldFamilyPdu {
   MinefieldResponseNackPdu();
   ~MinefieldResponseNackPdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetMinefieldId();
   [[nodiscard]] const EntityID& GetMinefieldId() const;

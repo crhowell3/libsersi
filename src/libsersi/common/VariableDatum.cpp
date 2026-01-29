@@ -52,31 +52,31 @@ void VariableDatum::SetVariableDatums(const char* value,
     try {
       variable_datums_.resize(length);
     } catch (const std::exception& e) {
-      std::cerr << e.what() << std::endl;
+      std::cerr << e.what() << '\n';
       return;
     }
   }
 
-  for (auto i = 0; i < length; ++i) {
+  for (uint32_t i = 0; i < length; ++i) {
     variable_datums_[i] = value[i];
   }
-  for (auto i = length; i < variable_datums_.size(); ++i) {
+  for (uint32_t i = length; i < variable_datums_.size(); ++i) {
     variable_datums_[i] = 0;
   }
 }
 
-void VariableDatum::Marshal(DataStream& data_stream) const {
-  data_stream << variable_datum_id_;
-  data_stream << variable_datum_length_;
+void VariableDatum::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << variable_datum_id_;
+  byte_buffer << variable_datum_length_;
 
-  for (auto i = 0; i < array_length_; ++i) {
-    data_stream << variable_datums_[i];
+  for (uint32_t i = 0; i < array_length_; ++i) {
+    byte_buffer << variable_datums_[i];
   }
 }
 
-void VariableDatum::Unmarshal(DataStream& data_stream) {
-  data_stream >> variable_datum_id_;
-  data_stream >> variable_datum_length_;
+void VariableDatum::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> variable_datum_id_;
+  byte_buffer >> variable_datum_length_;
 
   const auto byte_length = variable_datum_length_ / kBits;
   auto chunks = byte_length / kBits;
@@ -89,13 +89,13 @@ void VariableDatum::Unmarshal(DataStream& data_stream) {
     try {
       variable_datums_.resize(array_length_);
     } catch (const std::exception& e) {
-      std::cerr << e.what() << std::endl;
+      std::cerr << e.what() << '\n';
       return;
     }
   }
 
   for (uint32_t idx = 0; idx < array_length_; idx++) {
-    data_stream >> variable_datums_[idx];
+    byte_buffer >> variable_datums_[idx];
   }
   for (uint64_t idx = array_length_; idx < variable_datums_.size(); idx++) {
     variable_datums_[idx] = 0;

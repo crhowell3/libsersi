@@ -4,7 +4,7 @@
 #include <cstddef>
 
 #include "libsersi/common/Vector3Float.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 constexpr auto kArraySize = 15;
@@ -28,8 +28,8 @@ class DeadReckoningParameter {
   DeadReckoningParameter();
   ~DeadReckoningParameter() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint8_t GetDeadReckoningAlgorithm() const;
   void SetDeadReckoningAlgorithm(uint8_t value);

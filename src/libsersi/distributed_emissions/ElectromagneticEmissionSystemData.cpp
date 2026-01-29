@@ -69,29 +69,29 @@ void ElectromagneticEmissionSystemData::SetBeamDataRecords(
   beam_data_records_ = value;
 }
 
-void ElectromagneticEmissionSystemData::Marshal(DataStream& data_stream) const {
-  data_stream << system_data_length_;
-  data_stream << static_cast<uint8_t>(beam_data_records_.size());
-  data_stream << emissions_padding2_;
-  emitter_system_.Marshal(data_stream);
-  location_.Marshal(data_stream);
+void ElectromagneticEmissionSystemData::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << system_data_length_;
+  byte_buffer << static_cast<uint8_t>(beam_data_records_.size());
+  byte_buffer << emissions_padding2_;
+  emitter_system_.Marshal(byte_buffer);
+  location_.Marshal(byte_buffer);
 
   for (const auto& x : beam_data_records_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void ElectromagneticEmissionSystemData::Unmarshal(DataStream& data_stream) {
-  data_stream >> system_data_length_;
-  data_stream >> number_of_beams_;
-  data_stream >> emissions_padding2_;
-  emitter_system_.Unmarshal(data_stream);
-  location_.Unmarshal(data_stream);
+void ElectromagneticEmissionSystemData::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> system_data_length_;
+  byte_buffer >> number_of_beams_;
+  byte_buffer >> emissions_padding2_;
+  emitter_system_.Unmarshal(byte_buffer);
+  location_.Unmarshal(byte_buffer);
 
   beam_data_records_.clear();
   for (std::size_t idx = 0; idx < number_of_beams_; idx++) {
     ElectromagneticEmissionBeamData x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     beam_data_records_.push_back(x);
   }
 }

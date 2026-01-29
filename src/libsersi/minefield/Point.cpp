@@ -12,14 +12,14 @@ float Point::GetY() const { return y_; }
 
 void Point::SetY(float value) { y_ = value; }
 
-void Point::Marshal(DataStream& data_stream) const {
-  data_stream << x_;
-  data_stream << y_;
+void Point::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << x_;
+  byte_buffer << y_;
 }
 
-void Point::Unmarshal(DataStream& data_stream) {
-  data_stream >> x_;
-  data_stream >> y_;
+void Point::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> x_;
+  byte_buffer >> y_;
 }
 
 bool Point::operator==(const Point& rhs) const {

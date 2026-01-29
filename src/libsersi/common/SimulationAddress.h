@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.14.1. A Simulation Address  record shall consist of the Site
@@ -20,8 +20,8 @@ class SimulationAddress {
   SimulationAddress();
   ~SimulationAddress() = default;
 
-  void Marshal(dis::DataStream& data_stream) const;
-  void Unmarshal(dis::DataStream& data_stream);
+  void Marshal(dis::ByteBuffer& byte_buffer) const;
+  void Unmarshal(dis::ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint16_t GetSite() const;
   void SetSite(uint16_t value);

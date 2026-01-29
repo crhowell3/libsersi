@@ -4,7 +4,7 @@
 
 #include "libsersi/common/Vector3Double.h"
 #include "libsersi/common/Vector3Float.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // 5.2.3: location of the radiating portion of the antenna, specified in world
@@ -22,8 +22,8 @@ class AntennaLocation {
   AntennaLocation();
   ~AntennaLocation() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  void Marshal(ByteBuffer& byte_buffer) const;
+  void Unmarshal(ByteBuffer& byte_buffer);
 
   Vector3Double& GetAntennaLocation();
   [[nodiscard]] const Vector3Double& GetAntennaLocation() const;

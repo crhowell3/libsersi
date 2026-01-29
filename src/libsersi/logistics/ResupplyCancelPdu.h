@@ -4,7 +4,7 @@
 
 #include "libsersi/common/EntityID.h"
 #include "libsersi/logistics/LogisticsFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.5.4. Cancel of resupply by either the receiving or supplying
@@ -22,8 +22,8 @@ class ResupplyCancelPdu final : public LogisticsFamilyPdu {
   ResupplyCancelPdu();
   ~ResupplyCancelPdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetReceivingEntityId();
   [[nodiscard]] const EntityID& GetReceivingEntityId() const;

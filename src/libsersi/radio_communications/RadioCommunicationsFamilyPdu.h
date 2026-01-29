@@ -3,8 +3,8 @@
 #include <cstddef>
 
 #include "libsersi/common/EntityID.h"
-#include "libsersi/common/Pdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/common/Pdu.hpp"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.8. Abstract superclass for radio communications PDUs.
@@ -18,11 +18,11 @@ class RadioCommunicationsFamilyPdu : public Pdu {
   uint16_t radio_id_;
 
  public:
-  RadioCommunicationsFamilyPdu();
+  RadioCommunicationsFamilyPdu() = default;
   ~RadioCommunicationsFamilyPdu() override = default;
 
-  void Marshal(DataStream& data_stream) const override;
-  void Unmarshal(DataStream& data_stream) override;
+  void Marshal(ByteBuffer& byte_buffer) const override;
+  void Unmarshal(ByteBuffer& byte_buffer) override;
 
   EntityID& GetEntityId();
   [[nodiscard]] const EntityID& GetEntityId() const;

@@ -2,7 +2,7 @@
 
 #include "libsersi/common/EntityID.h"
 #include "libsersi/logistics/LogisticsFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.5.6. Sent after repair complete PDU. COMPLETE
@@ -28,8 +28,8 @@ class RepairResponsePdu final : public LogisticsFamilyPdu {
   RepairResponsePdu();
   ~RepairResponsePdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetReceivingEntityId();
   [[nodiscard]] const EntityID& GetReceivingEntityId() const;

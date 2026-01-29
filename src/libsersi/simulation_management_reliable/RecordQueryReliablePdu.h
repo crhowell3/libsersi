@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "libsersi/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.12.13: A request for one or more records of data from an entity.
@@ -40,8 +40,8 @@ class RecordQueryReliablePdu final
   RecordQueryReliablePdu();
   ~RecordQueryReliablePdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   [[nodiscard]] uint32_t GetRequestId() const;
   void SetRequestId(uint32_t value);

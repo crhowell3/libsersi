@@ -2,7 +2,7 @@
 
 #include <cstdlib>
 
-#include "libsersi/common/Pdu.h"
+#include "libsersi/common/Pdu.hpp"
 
 namespace dis {
 Pdu* PacketFactory::CreatePacket(uint8_t id) {

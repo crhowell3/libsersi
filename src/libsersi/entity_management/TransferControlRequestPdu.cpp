@@ -88,35 +88,35 @@ void TransferControlRequestPdu::SetRecordSets(
   record_sets_ = value;
 }
 
-void TransferControlRequestPdu::Marshal(DataStream& data_stream) const {
-  EntityManagementFamilyPdu::Marshal(data_stream);
-  originating_entity_id_.Marshal(data_stream);
-  receiving_entity_id_.Marshal(data_stream);
-  data_stream << request_id_;
-  data_stream << required_reliability_service_;
-  data_stream << transfer_type_;
-  transfer_entity_id_.Marshal(data_stream);
-  data_stream << static_cast<uint8_t>(record_sets_.size());
+void TransferControlRequestPdu::Marshal(ByteBuffer& byte_buffer) const {
+  EntityManagementFamilyPdu::Marshal(byte_buffer);
+  originating_entity_id_.Marshal(byte_buffer);
+  receiving_entity_id_.Marshal(byte_buffer);
+  byte_buffer << request_id_;
+  byte_buffer << required_reliability_service_;
+  byte_buffer << transfer_type_;
+  transfer_entity_id_.Marshal(byte_buffer);
+  byte_buffer << static_cast<uint8_t>(record_sets_.size());
 
   for (auto x : record_sets_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void TransferControlRequestPdu::Unmarshal(DataStream& data_stream) {
-  EntityManagementFamilyPdu::Unmarshal(data_stream);
-  originating_entity_id_.Unmarshal(data_stream);
-  receiving_entity_id_.Unmarshal(data_stream);
-  data_stream >> request_id_;
-  data_stream >> required_reliability_service_;
-  data_stream >> transfer_type_;
-  transfer_entity_id_.Unmarshal(data_stream);
-  data_stream >> number_of_record_sets_;
+void TransferControlRequestPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  EntityManagementFamilyPdu::Unmarshal(byte_buffer);
+  originating_entity_id_.Unmarshal(byte_buffer);
+  receiving_entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> request_id_;
+  byte_buffer >> required_reliability_service_;
+  byte_buffer >> transfer_type_;
+  transfer_entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> number_of_record_sets_;
 
   record_sets_.clear();
   for (std::size_t idx = 0; idx < number_of_record_sets_; idx++) {
     RecordSet x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     record_sets_.push_back(x);
   }
 }

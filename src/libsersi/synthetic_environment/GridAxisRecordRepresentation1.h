@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "libsersi/synthetic_environment/GridAxisRecord.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // 5.2.44: Grid data record, representation 1
@@ -27,8 +27,8 @@ class GridAxisRecordRepresentation1 : public GridAxisRecord {
   GridAxisRecordRepresentation1();
   ~GridAxisRecordRepresentation1() override;
 
-  void Marshal(dis::DataStream& data_stream) const override;
-  void Unmarshal(dis::DataStream& data_stream) override;
+  void Marshal(dis::ByteBuffer& byte_buffer) const override;
+  void Unmarshal(dis::ByteBuffer& byte_buffer) override;
 
   [[nodiscard]] float GetFieldScale() const;
   void SetFieldScale(float value);

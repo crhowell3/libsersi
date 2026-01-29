@@ -1,14 +1,12 @@
 #include "libsersi/logistics/LogisticsFamilyPdu.h"
 
 namespace dis {
-LogisticsFamilyPdu::LogisticsFamilyPdu() { SetProtocolFamily(3); }
-
-void LogisticsFamilyPdu::Marshal(DataStream& data_stream) const {
-  Pdu::Marshal(data_stream);
+void LogisticsFamilyPdu::Marshal(ByteBuffer& byte_buffer) const {
+  Pdu::Marshal(byte_buffer);
 }
 
-void LogisticsFamilyPdu::Unmarshal(DataStream& data_stream) {
-  Pdu::Unmarshal(data_stream);
+void LogisticsFamilyPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  Pdu::Unmarshal(byte_buffer);
 }
 
 bool LogisticsFamilyPdu::operator==(const LogisticsFamilyPdu& rhs) const {

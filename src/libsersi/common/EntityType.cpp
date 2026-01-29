@@ -38,24 +38,24 @@ uint8_t EntityType::GetExtra() const { return extra_; }
 
 void EntityType::SetExtra(uint8_t value) { extra_ = value; }
 
-void EntityType::Marshal(DataStream& data_stream) const {
-  data_stream << entity_kind_;
-  data_stream << domain_;
-  data_stream << country_;
-  data_stream << category_;
-  data_stream << subcategory_;
-  data_stream << specific_;
-  data_stream << extra_;
+void EntityType::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << entity_kind_;
+  byte_buffer << domain_;
+  byte_buffer << country_;
+  byte_buffer << category_;
+  byte_buffer << subcategory_;
+  byte_buffer << specific_;
+  byte_buffer << extra_;
 }
 
-void EntityType::Unmarshal(DataStream& data_stream) {
-  data_stream >> entity_kind_;
-  data_stream >> domain_;
-  data_stream >> country_;
-  data_stream >> category_;
-  data_stream >> subcategory_;
-  data_stream >> specific_;
-  data_stream >> extra_;
+void EntityType::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> entity_kind_;
+  byte_buffer >> domain_;
+  byte_buffer >> country_;
+  byte_buffer >> category_;
+  byte_buffer >> subcategory_;
+  byte_buffer >> specific_;
+  byte_buffer >> extra_;
 }
 
 bool EntityType::operator==(const EntityType& rhs) const {

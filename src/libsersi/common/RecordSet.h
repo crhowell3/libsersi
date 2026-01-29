@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Record sets, used in transfer control request PDU
@@ -31,8 +31,8 @@ class RecordSet {
   RecordSet();
   ~RecordSet() = default;
 
-  void Marshal(dis::DataStream& data_stream) const;
-  void Unmarshal(dis::DataStream& data_stream);
+  void Marshal(dis::ByteBuffer& byte_buffer) const;
+  void Unmarshal(dis::ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint32_t GetRecordId() const;
   void SetRecordId(uint32_t value);

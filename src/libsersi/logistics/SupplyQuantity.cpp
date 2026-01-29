@@ -17,14 +17,14 @@ uint8_t SupplyQuantity::GetQuantity() const { return quantity_; }
 
 void SupplyQuantity::SetQuantity(uint8_t value) { quantity_ = value; }
 
-void SupplyQuantity::Marshal(DataStream& data_stream) const {
-  supply_type_.Marshal(data_stream);
-  data_stream << quantity_;
+void SupplyQuantity::Marshal(ByteBuffer& byte_buffer) const {
+  supply_type_.Marshal(byte_buffer);
+  byte_buffer << quantity_;
 }
 
-void SupplyQuantity::Unmarshal(DataStream& data_stream) {
-  supply_type_.Unmarshal(data_stream);
-  data_stream >> quantity_;
+void SupplyQuantity::Unmarshal(ByteBuffer& byte_buffer) {
+  supply_type_.Unmarshal(byte_buffer);
+  byte_buffer >> quantity_;
 }
 
 bool SupplyQuantity::operator==(const SupplyQuantity& rhs) const {

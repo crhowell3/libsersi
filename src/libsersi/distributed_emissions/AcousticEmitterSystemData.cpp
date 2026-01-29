@@ -66,29 +66,29 @@ void AcousticEmitterSystemData::SetBeamRecords(
   beam_records_ = value;
 }
 
-void AcousticEmitterSystemData::Marshal(DataStream& data_stream) const {
-  data_stream << emitter_system_data_length_;
-  data_stream << static_cast<uint8_t>(beam_records_.size());
-  data_stream << pad2_;
-  acoustic_emitter_system_.Marshal(data_stream);
-  emitter_location_.Marshal(data_stream);
+void AcousticEmitterSystemData::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << emitter_system_data_length_;
+  byte_buffer << static_cast<uint8_t>(beam_records_.size());
+  byte_buffer << pad2_;
+  acoustic_emitter_system_.Marshal(byte_buffer);
+  emitter_location_.Marshal(byte_buffer);
 
   for (const auto& x : beam_records_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void AcousticEmitterSystemData::Unmarshal(DataStream& data_stream) {
-  data_stream >> emitter_system_data_length_;
-  data_stream >> number_of_beams_;
-  data_stream >> pad2_;
-  acoustic_emitter_system_.Unmarshal(data_stream);
-  emitter_location_.Unmarshal(data_stream);
+void AcousticEmitterSystemData::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> emitter_system_data_length_;
+  byte_buffer >> number_of_beams_;
+  byte_buffer >> pad2_;
+  acoustic_emitter_system_.Unmarshal(byte_buffer);
+  emitter_location_.Unmarshal(byte_buffer);
 
   beam_records_.clear();
   for (std::size_t idx = 0; idx < number_of_beams_; idx++) {
     AcousticBeamData x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     beam_records_.push_back(x);
   }
 }

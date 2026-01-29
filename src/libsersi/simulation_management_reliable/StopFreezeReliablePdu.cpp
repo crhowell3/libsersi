@@ -52,24 +52,24 @@ void StopFreezeReliablePdu::SetRequestId(uint32_t value) {
   request_id_ = value;
 }
 
-void StopFreezeReliablePdu::Marshal(DataStream& data_stream) const {
-  SimulationManagementWithReliabilityFamilyPdu::Marshal(data_stream);
-  real_world_time_.Marshal(data_stream);
-  data_stream << reason_;
-  data_stream << frozen_behavior_;
-  data_stream << required_reliability_service_;
-  data_stream << pad1_;
-  data_stream << request_id_;
+void StopFreezeReliablePdu::Marshal(ByteBuffer& byte_buffer) const {
+  SimulationManagementWithReliabilityFamilyPdu::Marshal(byte_buffer);
+  real_world_time_.Marshal(byte_buffer);
+  byte_buffer << reason_;
+  byte_buffer << frozen_behavior_;
+  byte_buffer << required_reliability_service_;
+  byte_buffer << pad1_;
+  byte_buffer << request_id_;
 }
 
-void StopFreezeReliablePdu::Unmarshal(DataStream& data_stream) {
-  SimulationManagementWithReliabilityFamilyPdu::Unmarshal(data_stream);
-  real_world_time_.Unmarshal(data_stream);
-  data_stream >> reason_;
-  data_stream >> frozen_behavior_;
-  data_stream >> required_reliability_service_;
-  data_stream >> pad1_;
-  data_stream >> request_id_;
+void StopFreezeReliablePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  SimulationManagementWithReliabilityFamilyPdu::Unmarshal(byte_buffer);
+  real_world_time_.Unmarshal(byte_buffer);
+  byte_buffer >> reason_;
+  byte_buffer >> frozen_behavior_;
+  byte_buffer >> required_reliability_service_;
+  byte_buffer >> pad1_;
+  byte_buffer >> request_id_;
 }
 
 bool StopFreezeReliablePdu::operator==(const StopFreezeReliablePdu& rhs) const {

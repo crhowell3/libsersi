@@ -5,7 +5,7 @@
 #include "libsersi/common/EntityID.h"
 #include "libsersi/radio_communications/IntercomCommunicationsParameters.h"
 #include "libsersi/radio_communications/RadioCommunicationsFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.8.5. Detailed inofrmation about the state of an intercom device
@@ -57,8 +57,8 @@ class IntercomControlPdu final : public RadioCommunicationsFamilyPdu {
   IntercomControlPdu();
   ~IntercomControlPdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   [[nodiscard]] uint8_t GetControlType() const;
   void SetControlType(uint8_t value);

@@ -1,4 +1,4 @@
-#include "libsersi/warfare/BurstDescriptor.h"
+#include "libsersi/common/BurstDescriptor.h"
 
 namespace dis {
 BurstDescriptor::BurstDescriptor()
@@ -28,20 +28,20 @@ uint16_t BurstDescriptor::GetRate() const { return rate_; }
 
 void BurstDescriptor::SetRate(uint16_t value) { rate_ = value; }
 
-void BurstDescriptor::Marshal(DataStream& data_stream) const {
-  munition_.Marshal(data_stream);
-  data_stream << warhead_;
-  data_stream << fuse_;
-  data_stream << quantity_;
-  data_stream << rate_;
+void BurstDescriptor::Marshal(ByteBuffer& byte_buffer) const {
+  munition_.Marshal(byte_buffer);
+  byte_buffer << warhead_;
+  byte_buffer << fuse_;
+  byte_buffer << quantity_;
+  byte_buffer << rate_;
 }
 
-void BurstDescriptor::Unmarshal(DataStream& data_stream) {
-  munition_.Unmarshal(data_stream);
-  data_stream >> warhead_;
-  data_stream >> fuse_;
-  data_stream >> quantity_;
-  data_stream >> rate_;
+void BurstDescriptor::Unmarshal(ByteBuffer& byte_buffer) {
+  munition_.Unmarshal(byte_buffer);
+  byte_buffer >> warhead_;
+  byte_buffer >> fuse_;
+  byte_buffer >> quantity_;
+  byte_buffer >> rate_;
 }
 
 bool BurstDescriptor::operator==(const BurstDescriptor& rhs) const {

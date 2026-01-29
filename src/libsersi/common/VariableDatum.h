@@ -2,8 +2,9 @@
 
 #include <cstddef>
 #include <vector>
+#include <cstdint>
 
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 // length in bytes for the variable data. This should be a dynamically allocated
 // array.
@@ -28,8 +29,8 @@ class VariableDatum {
   VariableDatum();
   ~VariableDatum();
 
-  void Marshal(dis::DataStream& data_stream) const;
-  void Unmarshal(dis::DataStream& data_stream);
+  void Marshal(dis::ByteBuffer& byte_buffer) const;
+  void Unmarshal(dis::ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint32_t GetVariableDatumId() const;
   void SetVariableDatumId(uint32_t value);

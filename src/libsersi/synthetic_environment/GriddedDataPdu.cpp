@@ -116,49 +116,49 @@ void GriddedDataPdu::SetGridDataList(const std::vector<GridAxisRecord>& value) {
   grid_data_list_ = value;
 }
 
-void GriddedDataPdu::Marshal(DataStream& data_stream) const {
-  SyntheticEnvironmentFamilyPdu::Marshal(data_stream);
-  environmental_simulation_application_id_.Marshal(data_stream);
-  data_stream << field_number_;
-  data_stream << pdu_number_;
-  data_stream << pdu_total_;
-  data_stream << coordinate_system_;
-  data_stream << static_cast<uint8_t>(grid_data_list_.size());
-  data_stream << constant_grid_;
-  environment_type_.Marshal(data_stream);
-  orientation_.Marshal(data_stream);
-  data_stream << sample_time_;
-  data_stream << total_values_;
-  data_stream << vector_dimension_;
-  data_stream << padding1_;
-  data_stream << padding2_;
+void GriddedDataPdu::Marshal(ByteBuffer& byte_buffer) const {
+  SyntheticEnvironmentFamilyPdu::Marshal(byte_buffer);
+  environmental_simulation_application_id_.Marshal(byte_buffer);
+  byte_buffer << field_number_;
+  byte_buffer << pdu_number_;
+  byte_buffer << pdu_total_;
+  byte_buffer << coordinate_system_;
+  byte_buffer << static_cast<uint8_t>(grid_data_list_.size());
+  byte_buffer << constant_grid_;
+  environment_type_.Marshal(byte_buffer);
+  orientation_.Marshal(byte_buffer);
+  byte_buffer << sample_time_;
+  byte_buffer << total_values_;
+  byte_buffer << vector_dimension_;
+  byte_buffer << padding1_;
+  byte_buffer << padding2_;
 
   for (const auto& x : grid_data_list_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void GriddedDataPdu::Unmarshal(DataStream& data_stream) {
-  SyntheticEnvironmentFamilyPdu::Unmarshal(data_stream);
-  environmental_simulation_application_id_.Unmarshal(data_stream);
-  data_stream >> field_number_;
-  data_stream >> pdu_number_;
-  data_stream >> pdu_total_;
-  data_stream >> coordinate_system_;
-  data_stream >> number_of_grid_axes_;
-  data_stream >> constant_grid_;
-  environment_type_.Unmarshal(data_stream);
-  orientation_.Unmarshal(data_stream);
-  data_stream >> sample_time_;
-  data_stream >> total_values_;
-  data_stream >> vector_dimension_;
-  data_stream >> padding1_;
-  data_stream >> padding2_;
+void GriddedDataPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  SyntheticEnvironmentFamilyPdu::Unmarshal(byte_buffer);
+  environmental_simulation_application_id_.Unmarshal(byte_buffer);
+  byte_buffer >> field_number_;
+  byte_buffer >> pdu_number_;
+  byte_buffer >> pdu_total_;
+  byte_buffer >> coordinate_system_;
+  byte_buffer >> number_of_grid_axes_;
+  byte_buffer >> constant_grid_;
+  environment_type_.Unmarshal(byte_buffer);
+  orientation_.Unmarshal(byte_buffer);
+  byte_buffer >> sample_time_;
+  byte_buffer >> total_values_;
+  byte_buffer >> vector_dimension_;
+  byte_buffer >> padding1_;
+  byte_buffer >> padding2_;
 
   grid_data_list_.clear();
   for (std::size_t idx = 0; idx < number_of_grid_axes_; idx++) {
     GridAxisRecord x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     grid_data_list_.push_back(x);
   }
 }

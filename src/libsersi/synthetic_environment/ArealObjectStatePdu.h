@@ -7,7 +7,7 @@
 #include "libsersi/common/SimulationAddress.h"
 #include "libsersi/common/Vector3Double.h"
 #include "libsersi/synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include "libsersi/utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.11.5: Information about the addition/modification of an oobject
@@ -55,8 +55,8 @@ class ArealObjectStatePdu final : public SyntheticEnvironmentFamilyPdu {
   ArealObjectStatePdu();
   ~ArealObjectStatePdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  void Marshal(ByteBuffer& byte_buffer) const final;
+  void Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetObjectId();
   [[nodiscard]] const EntityID& GetObjectId() const;

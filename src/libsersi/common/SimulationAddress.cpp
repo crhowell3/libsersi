@@ -11,14 +11,14 @@ uint16_t SimulationAddress::GetApplication() const { return application_; }
 
 void SimulationAddress::SetApplication(uint16_t value) { application_ = value; }
 
-void SimulationAddress::Marshal(DataStream& data_stream) const {
-  data_stream << site_;
-  data_stream << application_;
+void SimulationAddress::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << site_;
+  byte_buffer << application_;
 }
 
-void SimulationAddress::Unmarshal(DataStream& data_stream) {
-  data_stream >> site_;
-  data_stream >> application_;
+void SimulationAddress::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> site_;
+  byte_buffer >> application_;
 }
 
 bool SimulationAddress::operator==(const SimulationAddress& rhs) const {
