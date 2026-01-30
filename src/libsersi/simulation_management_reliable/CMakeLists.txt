@@ -34,7 +34,7 @@ set(simulation_management_reliable_src
   StopFreezeReliablePdu.cpp
 )
 
-target_sources(sersi PRIVATE ${simulation_management_reliable_src})
+target_sources(${PROJECT_NAME} PRIVATE ${simulation_management_reliable_src})
 
 install(FILES ${simulation_management_reliable_hdr}
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libsersi/simulation_management_reliable

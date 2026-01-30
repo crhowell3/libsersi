@@ -2,9 +2,9 @@
 
 #include <vector>
 
-#include "libsersi/common/RecordSet.h"
-#include "libsersi/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include common/RecordSet.h"
+#include simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.12.14: Initializing or changing internal parameter info.
@@ -34,8 +34,8 @@ class SetRecordReliablePdu final
   SetRecordReliablePdu();
   ~SetRecordReliablePdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   [[nodiscard]] uint32_t GetRequestId() const;
   void SetRequestId(uint32_t value);

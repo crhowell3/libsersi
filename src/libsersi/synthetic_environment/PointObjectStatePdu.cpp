@@ -1,4 +1,4 @@
-#include "libsersi/synthetic_environment/PointObjectStatePdu.h"
+#include synthetic_environment/PointObjectStatePdu.h"
 
 namespace dis {
 PointObjectStatePdu::PointObjectStatePdu()
@@ -120,36 +120,36 @@ uint32_t PointObjectStatePdu::GetPad2() const { return pad2_; }
 
 void PointObjectStatePdu::SetPad2(uint32_t value) { pad2_ = value; }
 
-void PointObjectStatePdu::Marshal(DataStream& data_stream) const {
-  SyntheticEnvironmentFamilyPdu::Marshal(data_stream);
-  object_id_.Marshal(data_stream);
-  referenced_object_id_.Marshal(data_stream);
-  data_stream << update_number_;
-  data_stream << force_id_;
-  data_stream << modifications_;
-  object_type_.Marshal(data_stream);
-  object_location_.Marshal(data_stream);
-  object_orientation_.Marshal(data_stream);
-  data_stream << object_appearance_;
-  requester_id_.Marshal(data_stream);
-  receiving_id_.Marshal(data_stream);
-  data_stream << pad2_;
+void PointObjectStatePdu::Marshal(ByteBuffer& byte_buffer) const {
+  SyntheticEnvironmentFamilyPdu::Marshal(byte_buffer);
+  object_id_.Marshal(byte_buffer);
+  referenced_object_id_.Marshal(byte_buffer);
+  byte_buffer << update_number_;
+  byte_buffer << force_id_;
+  byte_buffer << modifications_;
+  object_type_.Marshal(byte_buffer);
+  object_location_.Marshal(byte_buffer);
+  object_orientation_.Marshal(byte_buffer);
+  byte_buffer << object_appearance_;
+  requester_id_.Marshal(byte_buffer);
+  receiving_id_.Marshal(byte_buffer);
+  byte_buffer << pad2_;
 }
 
-void PointObjectStatePdu::Unmarshal(DataStream& data_stream) {
-  SyntheticEnvironmentFamilyPdu::Unmarshal(data_stream);
-  object_id_.Unmarshal(data_stream);
-  referenced_object_id_.Unmarshal(data_stream);
-  data_stream >> update_number_;
-  data_stream >> force_id_;
-  data_stream >> modifications_;
-  object_type_.Unmarshal(data_stream);
-  object_location_.Unmarshal(data_stream);
-  object_orientation_.Unmarshal(data_stream);
-  data_stream >> object_appearance_;
-  requester_id_.Unmarshal(data_stream);
-  receiving_id_.Unmarshal(data_stream);
-  data_stream >> pad2_;
+void PointObjectStatePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  SyntheticEnvironmentFamilyPdu::Unmarshal(byte_buffer);
+  object_id_.Unmarshal(byte_buffer);
+  referenced_object_id_.Unmarshal(byte_buffer);
+  byte_buffer >> update_number_;
+  byte_buffer >> force_id_;
+  byte_buffer >> modifications_;
+  object_type_.Unmarshal(byte_buffer);
+  object_location_.Unmarshal(byte_buffer);
+  object_orientation_.Unmarshal(byte_buffer);
+  byte_buffer >> object_appearance_;
+  requester_id_.Unmarshal(byte_buffer);
+  receiving_id_.Unmarshal(byte_buffer);
+  byte_buffer >> pad2_;
 }
 
 bool PointObjectStatePdu::operator==(const PointObjectStatePdu& rhs) const {

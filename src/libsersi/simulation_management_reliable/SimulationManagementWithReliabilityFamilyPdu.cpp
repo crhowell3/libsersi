@@ -1,11 +1,6 @@
-#include "libsersi/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
+#include simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
 
 namespace dis {
-SimulationManagementWithReliabilityFamilyPdu::
-    SimulationManagementWithReliabilityFamilyPdu() {
-  SetProtocolFamily(10);
-}
-
 EntityID&
 SimulationManagementWithReliabilityFamilyPdu::GetOriginatingEntityId() {
   return originating_entity_id_;
@@ -36,17 +31,17 @@ void SimulationManagementWithReliabilityFamilyPdu::SetReceivingEntityId(
 }
 
 void SimulationManagementWithReliabilityFamilyPdu::Marshal(
-    DataStream& data_stream) const {
-  Pdu::Marshal(data_stream);  // Marshal information in superclass first
-  originating_entity_id_.Marshal(data_stream);
-  receiving_entity_id_.Marshal(data_stream);
+    ByteBuffer& byte_buffer) const {
+  Pdu::Marshal(byte_buffer);  // Marshal information in superclass first
+  originating_entity_id_.Marshal(byte_buffer);
+  receiving_entity_id_.Marshal(byte_buffer);
 }
 
 void SimulationManagementWithReliabilityFamilyPdu::Unmarshal(
-    DataStream& data_stream) {
-  Pdu::Unmarshal(data_stream);  // unmarshal information in superclass first
-  originating_entity_id_.Unmarshal(data_stream);
-  receiving_entity_id_.Unmarshal(data_stream);
+    ByteBuffer& byte_buffer) {
+  Pdu::Unmarshal(byte_buffer);  // unmarshal information in superclass first
+  originating_entity_id_.Unmarshal(byte_buffer);
+  receiving_entity_id_.Unmarshal(byte_buffer);
 }
 
 bool SimulationManagementWithReliabilityFamilyPdu::operator==(

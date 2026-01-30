@@ -1,4 +1,4 @@
-#include "libsersi/synthetic_environment/ArealObjectStatePdu.h"
+#include synthetic_environment/ArealObjectStatePdu.h"
 
 #include <cstdint>
 
@@ -116,43 +116,43 @@ void ArealObjectStatePdu::SetObjectLocation(
   object_location_ = value;
 }
 
-void ArealObjectStatePdu::Marshal(DataStream& data_stream) const {
-  SyntheticEnvironmentFamilyPdu::Marshal(data_stream);
-  object_id_.Marshal(data_stream);
-  referenced_object_id_.Marshal(data_stream);
-  data_stream << update_number_;
-  data_stream << force_id_;
-  data_stream << modifications_;
-  object_type_.Marshal(data_stream);
-  data_stream << specific_object_appearance_;
-  data_stream << general_object_appearance_;
-  data_stream << static_cast<uint16_t>(object_location_.size());
-  requester_id_.Marshal(data_stream);
-  receiving_id_.Marshal(data_stream);
+void ArealObjectStatePdu::Marshal(ByteBuffer& byte_buffer) const {
+  SyntheticEnvironmentFamilyPdu::Marshal(byte_buffer);
+  object_id_.Marshal(byte_buffer);
+  referenced_object_id_.Marshal(byte_buffer);
+  byte_buffer << update_number_;
+  byte_buffer << force_id_;
+  byte_buffer << modifications_;
+  object_type_.Marshal(byte_buffer);
+  byte_buffer << specific_object_appearance_;
+  byte_buffer << general_object_appearance_;
+  byte_buffer << static_cast<uint16_t>(object_location_.size());
+  requester_id_.Marshal(byte_buffer);
+  receiving_id_.Marshal(byte_buffer);
 
   for (auto x : object_location_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void ArealObjectStatePdu::Unmarshal(DataStream& data_stream) {
-  SyntheticEnvironmentFamilyPdu::Unmarshal(data_stream);
-  object_id_.Unmarshal(data_stream);
-  referenced_object_id_.Unmarshal(data_stream);
-  data_stream >> update_number_;
-  data_stream >> force_id_;
-  data_stream >> modifications_;
-  object_type_.Unmarshal(data_stream);
-  data_stream >> specific_object_appearance_;
-  data_stream >> general_object_appearance_;
-  data_stream >> number_of_points_;
-  requester_id_.Unmarshal(data_stream);
-  receiving_id_.Unmarshal(data_stream);
+void ArealObjectStatePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  SyntheticEnvironmentFamilyPdu::Unmarshal(byte_buffer);
+  object_id_.Unmarshal(byte_buffer);
+  referenced_object_id_.Unmarshal(byte_buffer);
+  byte_buffer >> update_number_;
+  byte_buffer >> force_id_;
+  byte_buffer >> modifications_;
+  object_type_.Unmarshal(byte_buffer);
+  byte_buffer >> specific_object_appearance_;
+  byte_buffer >> general_object_appearance_;
+  byte_buffer >> number_of_points_;
+  requester_id_.Unmarshal(byte_buffer);
+  receiving_id_.Unmarshal(byte_buffer);
 
   object_location_.clear();
   for (std::size_t idx = 0; idx < number_of_points_; idx++) {
     Vector3Double x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     object_location_.push_back(x);
   }
 }

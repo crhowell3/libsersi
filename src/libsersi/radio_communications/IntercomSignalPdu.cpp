@@ -1,4 +1,4 @@
-#include "libsersi/radio_communications/IntercomSignalPdu.h"
+#include radio_communications/IntercomSignalPdu.h"
 
 namespace dis {
 IntercomSignalPdu::IntercomSignalPdu()
@@ -59,35 +59,35 @@ void IntercomSignalPdu::SetData(const std::vector<uint8_t>& value) {
   data_ = value;
 }
 
-void IntercomSignalPdu::Marshal(DataStream& data_stream) const {
-  RadioCommunicationsFamilyPdu::Marshal(data_stream);
-  entity_id_.Marshal(data_stream);
-  data_stream << communications_device_id_;
-  data_stream << encoding_scheme_;
-  data_stream << tdl_type_;
-  data_stream << sample_rate_;
-  data_stream << static_cast<uint16_t>(data_.size());
-  data_stream << samples_;
+void IntercomSignalPdu::Marshal(ByteBuffer& byte_buffer) const {
+  RadioCommunicationsFamilyPdu::Marshal(byte_buffer);
+  entity_id_.Marshal(byte_buffer);
+  byte_buffer << communications_device_id_;
+  byte_buffer << encoding_scheme_;
+  byte_buffer << tdl_type_;
+  byte_buffer << sample_rate_;
+  byte_buffer << static_cast<uint16_t>(data_.size());
+  byte_buffer << samples_;
 
   for (const auto& byte : data_) {
-    data_stream << byte;
+    byte_buffer << byte;
   }
 }
 
-void IntercomSignalPdu::Unmarshal(DataStream& data_stream) {
-  RadioCommunicationsFamilyPdu::Unmarshal(data_stream);
-  entity_id_.Unmarshal(data_stream);
-  data_stream >> communications_device_id_;
-  data_stream >> encoding_scheme_;
-  data_stream >> tdl_type_;
-  data_stream >> sample_rate_;
-  data_stream >> data_length_;
-  data_stream >> samples_;
+void IntercomSignalPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  RadioCommunicationsFamilyPdu::Unmarshal(byte_buffer);
+  entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> communications_device_id_;
+  byte_buffer >> encoding_scheme_;
+  byte_buffer >> tdl_type_;
+  byte_buffer >> sample_rate_;
+  byte_buffer >> data_length_;
+  byte_buffer >> samples_;
 
   data_.clear();
   for (auto idx = 0; idx < data_length_; idx++) {
     uint8_t x;
-    data_stream >> x;
+    byte_buffer >> x;
     data_.push_back(x);
   }
 }

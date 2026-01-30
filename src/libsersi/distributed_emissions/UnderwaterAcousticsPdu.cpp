@@ -1,4 +1,4 @@
-#include "libsersi/distributed_emissions/UnderwaterAcousticsPdu.h"
+#include distributed_emissions/UnderwaterAcousticsPdu.h"
 
 namespace dis {
 UnderwaterAcousticsPdu::UnderwaterAcousticsPdu()
@@ -115,61 +115,61 @@ void UnderwaterAcousticsPdu::SetEmitterSystems(
   emitter_systems_ = value;
 }
 
-void UnderwaterAcousticsPdu::Marshal(DataStream& data_stream) const {
-  DistributedEmissionsFamilyPdu::Marshal(data_stream);
-  emitting_entity_id_.Marshal(data_stream);
-  event_id_.Marshal(data_stream);
-  data_stream << state_change_indicator_;
-  data_stream << pad_;
-  data_stream << passive_parameter_index_;
-  data_stream << propulsion_plant_configuration_;
-  data_stream << static_cast<uint8_t>(shaft_rpms_.size());
-  data_stream << static_cast<uint8_t>(apa_data_.size());
-  data_stream << static_cast<uint8_t>(emitter_systems_.size());
+void UnderwaterAcousticsPdu::Marshal(ByteBuffer& byte_buffer) const {
+  DistributedEmissionsFamilyPdu::Marshal(byte_buffer);
+  emitting_entity_id_.Marshal(byte_buffer);
+  event_id_.Marshal(byte_buffer);
+  byte_buffer << state_change_indicator_;
+  byte_buffer << pad_;
+  byte_buffer << passive_parameter_index_;
+  byte_buffer << propulsion_plant_configuration_;
+  byte_buffer << static_cast<uint8_t>(shaft_rpms_.size());
+  byte_buffer << static_cast<uint8_t>(apa_data_.size());
+  byte_buffer << static_cast<uint8_t>(emitter_systems_.size());
 
   for (const auto& x : shaft_rpms_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 
   for (const auto& x : apa_data_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 
   for (const auto& x : emitter_systems_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void UnderwaterAcousticsPdu::Unmarshal(DataStream& data_stream) {
-  DistributedEmissionsFamilyPdu::Unmarshal(data_stream);
-  emitting_entity_id_.Unmarshal(data_stream);
-  event_id_.Unmarshal(data_stream);
-  data_stream >> state_change_indicator_;
-  data_stream >> pad_;
-  data_stream >> passive_parameter_index_;
-  data_stream >> propulsion_plant_configuration_;
-  data_stream >> number_of_shafts_;
-  data_stream >> number_of_apas_;
-  data_stream >> number_of_ua_emitter_systems_;
+void UnderwaterAcousticsPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  DistributedEmissionsFamilyPdu::Unmarshal(byte_buffer);
+  emitting_entity_id_.Unmarshal(byte_buffer);
+  event_id_.Unmarshal(byte_buffer);
+  byte_buffer >> state_change_indicator_;
+  byte_buffer >> pad_;
+  byte_buffer >> passive_parameter_index_;
+  byte_buffer >> propulsion_plant_configuration_;
+  byte_buffer >> number_of_shafts_;
+  byte_buffer >> number_of_apas_;
+  byte_buffer >> number_of_ua_emitter_systems_;
 
   shaft_rpms_.clear();
   for (std::size_t idx = 0; idx < number_of_shafts_; idx++) {
     ShaftRPMs x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     shaft_rpms_.push_back(x);
   }
 
   apa_data_.clear();
   for (std::size_t idx = 0; idx < number_of_apas_; idx++) {
     ApaData x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     apa_data_.push_back(x);
   }
 
   emitter_systems_.clear();
   for (std::size_t idx = 0; idx < number_of_ua_emitter_systems_; idx++) {
     AcousticEmitterSystemData x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     emitter_systems_.push_back(x);
   }
 }

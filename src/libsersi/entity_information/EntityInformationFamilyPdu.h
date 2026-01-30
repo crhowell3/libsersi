@@ -2,8 +2,8 @@
 
 #include <cstddef>
 
-#include "libsersi/common/Pdu.h"
-#include "libsersi/utils/DataStream.h"
+#include common/Pdu.hpp"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.3. Common superclass for EntityState, Collision,
@@ -12,11 +12,11 @@ namespace dis {
 
 class EntityInformationFamilyPdu : public Pdu {
  public:
-  EntityInformationFamilyPdu();
+  EntityInformationFamilyPdu() = default;
   ~EntityInformationFamilyPdu() override = default;
 
-  void Marshal(DataStream& data_stream) const override;
-  void Unmarshal(DataStream& data_stream) override;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const override;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) override;
 
   [[nodiscard]] std::size_t GetMarshalledSize() const override;
 

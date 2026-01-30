@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "libsersi/utils/DataStream.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.25. Identifies the type of radio
@@ -30,8 +30,8 @@ class RadioEntityType {
   RadioEntityType();
   ~RadioEntityType() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint8_t GetEntityKind() const;
   void SetEntityKind(uint8_t value);

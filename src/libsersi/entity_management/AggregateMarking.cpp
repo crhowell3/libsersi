@@ -1,4 +1,4 @@
-#include "libsersi/entity_management/AggregateMarking.h"
+#include entity_management/AggregateMarking.h"
 
 namespace dis {
 AggregateMarking::AggregateMarking() : character_set_(0) {
@@ -24,24 +24,24 @@ const std::array<char, kAggregateCharacters>& AggregateMarking::GetCharacters()
 }
 
 void AggregateMarking::SetCharacters(const char* value) {
-  for (auto i = 0; i < characters_.size(); i++) {
+  for (uint32_t i = 0; i < characters_.size(); i++) {
     characters_[i] = value[i];
   }
 }
 
-void AggregateMarking::Marshal(DataStream& data_stream) const {
-  data_stream << character_set_;
+void AggregateMarking::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << character_set_;
 
   for (char character : characters_) {
-    data_stream << character;
+    byte_buffer << character;
   }
 }
 
-void AggregateMarking::Unmarshal(DataStream& data_stream) {
-  data_stream >> character_set_;
+void AggregateMarking::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> character_set_;
 
   for (char& character : characters_) {
-    data_stream >> character;
+    byte_buffer >> character;
   }
 }
 
@@ -52,7 +52,7 @@ bool AggregateMarking::operator==(const AggregateMarking& rhs) const {
     ivars_equal = false;
   }
 
-  for (auto i = 0; i < characters_.size(); ++i) {
+  for (uint32_t i = 0; i < characters_.size(); ++i) {
     if (!(characters_[i] == rhs.characters_[i])) {
       ivars_equal = false;
     }

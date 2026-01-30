@@ -2,13 +2,13 @@
 
 #include <cstddef>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/EntityType.h"
-#include "libsersi/common/Vector3Float.h"
-#include "libsersi/entity_management/EntityManagementFamilyPdu.h"
-#include "libsersi/entity_management/NamedLocation.h"
-#include "libsersi/entity_management/Relationship.h"
-#include "libsersi/utils/DataStream.h"
+#include common/EntityID.h"
+#include common/EntityType.h"
+#include common/Vector3Float.h"
+#include entity_management/EntityManagementFamilyPdu.h"
+#include entity_management/NamedLocation.h"
+#include entity_management/Relationship.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.9.4 The joining of two or more simulation entities is
@@ -39,8 +39,8 @@ class IsPartOfPdu final : public EntityManagementFamilyPdu {
   IsPartOfPdu();
   ~IsPartOfPdu() final = default;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetOriginatingEntityId();
   [[nodiscard]] const EntityID& GetOriginatingEntityId() const;

@@ -1,4 +1,4 @@
-#include "libsersi/entity_management/IsPartOfPdu.h"
+#include entity_management/IsPartOfPdu.h"
 
 #include <cstddef>
 
@@ -68,24 +68,24 @@ void IsPartOfPdu::SetPartEntityType(const EntityType& value) {
   part_entity_type_ = value;
 }
 
-void IsPartOfPdu::Marshal(DataStream& data_stream) const {
-  EntityManagementFamilyPdu::Marshal(data_stream);
-  originating_entity_id_.Marshal(data_stream);
-  receiving_entity_id_.Marshal(data_stream);
-  relationship_.Marshal(data_stream);
-  part_location_.Marshal(data_stream);
-  named_location_id_.Marshal(data_stream);
-  part_entity_type_.Marshal(data_stream);
+void IsPartOfPdu::Marshal(ByteBuffer& byte_buffer) const {
+  EntityManagementFamilyPdu::Marshal(byte_buffer);
+  originating_entity_id_.Marshal(byte_buffer);
+  receiving_entity_id_.Marshal(byte_buffer);
+  relationship_.Marshal(byte_buffer);
+  part_location_.Marshal(byte_buffer);
+  named_location_id_.Marshal(byte_buffer);
+  part_entity_type_.Marshal(byte_buffer);
 }
 
-void IsPartOfPdu::Unmarshal(DataStream& data_stream) {
-  EntityManagementFamilyPdu::Unmarshal(data_stream);
-  originating_entity_id_.Unmarshal(data_stream);
-  receiving_entity_id_.Unmarshal(data_stream);
-  relationship_.Unmarshal(data_stream);
-  part_location_.Unmarshal(data_stream);
-  named_location_id_.Unmarshal(data_stream);
-  part_entity_type_.Unmarshal(data_stream);
+void IsPartOfPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  EntityManagementFamilyPdu::Unmarshal(byte_buffer);
+  originating_entity_id_.Unmarshal(byte_buffer);
+  receiving_entity_id_.Unmarshal(byte_buffer);
+  relationship_.Unmarshal(byte_buffer);
+  part_location_.Unmarshal(byte_buffer);
+  named_location_id_.Unmarshal(byte_buffer);
+  part_entity_type_.Unmarshal(byte_buffer);
 }
 
 bool IsPartOfPdu::operator==(const IsPartOfPdu& rhs) const {

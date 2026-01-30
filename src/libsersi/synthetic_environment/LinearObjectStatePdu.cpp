@@ -1,4 +1,4 @@
-#include "libsersi/synthetic_environment/LinearObjectStatePdu.h"
+#include synthetic_environment/LinearObjectStatePdu.h"
 
 namespace dis {
 LinearObjectStatePdu::LinearObjectStatePdu()
@@ -97,37 +97,37 @@ void LinearObjectStatePdu::SetLinearSegmentParameters(
   linear_segment_parameters_ = value;
 }
 
-void LinearObjectStatePdu::Marshal(DataStream& data_stream) const {
-  SyntheticEnvironmentFamilyPdu::Marshal(data_stream);
-  object_id_.Marshal(data_stream);
-  referenced_object_id_.Marshal(data_stream);
-  data_stream << update_number_;
-  data_stream << force_id_;
-  data_stream << static_cast<uint8_t>(linear_segment_parameters_.size());
-  requester_id_.Marshal(data_stream);
-  receiving_id_.Marshal(data_stream);
-  object_type_.Marshal(data_stream);
+void LinearObjectStatePdu::Marshal(ByteBuffer& byte_buffer) const {
+  SyntheticEnvironmentFamilyPdu::Marshal(byte_buffer);
+  object_id_.Marshal(byte_buffer);
+  referenced_object_id_.Marshal(byte_buffer);
+  byte_buffer << update_number_;
+  byte_buffer << force_id_;
+  byte_buffer << static_cast<uint8_t>(linear_segment_parameters_.size());
+  requester_id_.Marshal(byte_buffer);
+  receiving_id_.Marshal(byte_buffer);
+  object_type_.Marshal(byte_buffer);
 
   for (auto x : linear_segment_parameters_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void LinearObjectStatePdu::Unmarshal(DataStream& data_stream) {
-  SyntheticEnvironmentFamilyPdu::Unmarshal(data_stream);
-  object_id_.Unmarshal(data_stream);
-  referenced_object_id_.Unmarshal(data_stream);
-  data_stream >> update_number_;
-  data_stream >> force_id_;
-  data_stream >> number_of_segments_;
-  requester_id_.Unmarshal(data_stream);
-  receiving_id_.Unmarshal(data_stream);
-  object_type_.Unmarshal(data_stream);
+void LinearObjectStatePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  SyntheticEnvironmentFamilyPdu::Unmarshal(byte_buffer);
+  object_id_.Unmarshal(byte_buffer);
+  referenced_object_id_.Unmarshal(byte_buffer);
+  byte_buffer >> update_number_;
+  byte_buffer >> force_id_;
+  byte_buffer >> number_of_segments_;
+  requester_id_.Unmarshal(byte_buffer);
+  receiving_id_.Unmarshal(byte_buffer);
+  object_type_.Unmarshal(byte_buffer);
 
   linear_segment_parameters_.clear();
   for (std::size_t idx = 0; idx < number_of_segments_; idx++) {
     LinearSegmentParameter x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     linear_segment_parameters_.push_back(x);
   }
 }

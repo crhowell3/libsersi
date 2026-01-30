@@ -1,4 +1,4 @@
-#include "libsersi/synthetic_environment/GridAxisRecordRepresentation0.h"
+#include synthetic_environment/GridAxisRecordRepresentation0.h"
 
 namespace dis {
 GridAxisRecordRepresentation0::GridAxisRecordRepresentation0()
@@ -26,23 +26,23 @@ void GridAxisRecordRepresentation0::SetDataValues(
   data_values_ = value;
 }
 
-void GridAxisRecordRepresentation0::Marshal(DataStream& data_stream) const {
-  GridAxisRecord::Marshal(data_stream);
-  data_stream << static_cast<uint16_t>(data_values_.size());
+void GridAxisRecordRepresentation0::Marshal(ByteBuffer& byte_buffer) const {
+  GridAxisRecord::Marshal(byte_buffer);
+  byte_buffer << static_cast<uint16_t>(data_values_.size());
 
   for (const auto& byte : data_values_) {
-    data_stream << byte;
+    byte_buffer << byte;
   }
 }
 
-void GridAxisRecordRepresentation0::Unmarshal(DataStream& data_stream) {
-  GridAxisRecord::Unmarshal(data_stream);
-  data_stream >> number_of_bytes_;
+void GridAxisRecordRepresentation0::Unmarshal(ByteBuffer& byte_buffer) {
+  GridAxisRecord::Unmarshal(byte_buffer);
+  byte_buffer >> number_of_bytes_;
 
   data_values_.clear();
   for (auto idx = 0; idx < number_of_bytes_; ++idx) {
     uint8_t x;
-    data_stream >> x;
+    byte_buffer >> x;
     data_values_.push_back(x);
   }
 }

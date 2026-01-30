@@ -2,16 +2,16 @@
 
 #include <vector>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/EntityType.h"
-#include "libsersi/common/Orientation.h"
-#include "libsersi/common/VariableDatum.h"
-#include "libsersi/common/Vector3Double.h"
-#include "libsersi/common/Vector3Float.h"
-#include "libsersi/entity_management/AggregateID.h"
-#include "libsersi/entity_management/AggregateMarking.h"
-#include "libsersi/entity_management/EntityManagementFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include common/EntityID.h"
+#include common/EntityType.h"
+#include common/Orientation.h"
+#include common/VariableDatum.h"
+#include common/Vector3Double.h"
+#include common/Vector3Float.h"
+#include entity_management/AggregateID.h"
+#include entity_management/AggregateMarking.h"
+#include entity_management/EntityManagementFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.9.1 informationa bout aggregating entities anc communicating
@@ -91,8 +91,8 @@ class AggregateStatePdu final : public EntityManagementFamilyPdu {
   AggregateStatePdu();
   ~AggregateStatePdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetAggregateId();
   [[nodiscard]] const EntityID& GetAggregateId() const;

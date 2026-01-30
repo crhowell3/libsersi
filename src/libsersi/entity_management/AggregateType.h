@@ -1,6 +1,6 @@
 #pragma once
 
-#include "libsersi/utils/DataStream.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.38. Identifies the type of aggregate including kind of entity,
@@ -32,8 +32,8 @@ class AggregateType {
   AggregateType();
   ~AggregateType() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint8_t GetAggregateKind() const;
   void SetAggregateKind(uint8_t value);

@@ -30,7 +30,7 @@ set(simulation_management_src
   StopFreezePdu.cpp
 )
 
-target_sources(sersi PRIVATE ${simulation_management_src})
+target_sources(${PROJECT_NAME} PRIVATE ${simulation_management_src})
 
 install(FILES ${simulation_management_hdr}
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libsersi/simulation_management

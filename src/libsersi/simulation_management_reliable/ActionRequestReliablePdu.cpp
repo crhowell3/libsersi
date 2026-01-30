@@ -1,4 +1,4 @@
-#include "libsersi/simulation_management_reliable/ActionRequestReliablePdu.h"
+#include simulation_management_reliable/ActionRequestReliablePdu.h"
 
 namespace dis {
 ActionRequestReliablePdu::ActionRequestReliablePdu()
@@ -82,46 +82,46 @@ void ActionRequestReliablePdu::SetVariableDatumRecords(
   variable_datum_records_ = value;
 }
 
-void ActionRequestReliablePdu::Marshal(DataStream& data_stream) const {
-  SimulationManagementWithReliabilityFamilyPdu::Marshal(data_stream);
-  data_stream << required_reliability_service_;
-  data_stream << pad1_;
-  data_stream << pad2_;
-  data_stream << request_id_;
-  data_stream << action_id_;
-  data_stream << static_cast<uint32_t>(fixed_datum_records_.size());
-  data_stream << static_cast<uint32_t>(variable_datum_records_.size());
+void ActionRequestReliablePdu::Marshal(ByteBuffer& byte_buffer) const {
+  SimulationManagementWithReliabilityFamilyPdu::Marshal(byte_buffer);
+  byte_buffer << required_reliability_service_;
+  byte_buffer << pad1_;
+  byte_buffer << pad2_;
+  byte_buffer << request_id_;
+  byte_buffer << action_id_;
+  byte_buffer << static_cast<uint32_t>(fixed_datum_records_.size());
+  byte_buffer << static_cast<uint32_t>(variable_datum_records_.size());
 
   for (auto x : fixed_datum_records_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 
   for (const auto& x : variable_datum_records_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void ActionRequestReliablePdu::Unmarshal(DataStream& data_stream) {
-  SimulationManagementWithReliabilityFamilyPdu::Unmarshal(data_stream);
-  data_stream >> required_reliability_service_;
-  data_stream >> pad1_;
-  data_stream >> pad2_;
-  data_stream >> request_id_;
-  data_stream >> action_id_;
-  data_stream >> number_of_fixed_datum_records_;
-  data_stream >> number_of_variable_datum_records_;
+void ActionRequestReliablePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  SimulationManagementWithReliabilityFamilyPdu::Unmarshal(byte_buffer);
+  byte_buffer >> required_reliability_service_;
+  byte_buffer >> pad1_;
+  byte_buffer >> pad2_;
+  byte_buffer >> request_id_;
+  byte_buffer >> action_id_;
+  byte_buffer >> number_of_fixed_datum_records_;
+  byte_buffer >> number_of_variable_datum_records_;
 
   fixed_datum_records_.clear();
   for (std::size_t idx = 0; idx < number_of_fixed_datum_records_; idx++) {
     FixedDatum x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     fixed_datum_records_.push_back(x);
   }
 
   variable_datum_records_.clear();
   for (std::size_t idx = 0; idx < number_of_variable_datum_records_; idx++) {
     VariableDatum x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     variable_datum_records_.push_back(x);
   }
 }

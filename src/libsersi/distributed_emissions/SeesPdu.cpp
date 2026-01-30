@@ -1,4 +1,4 @@
-#include "libsersi/distributed_emissions/SeesPdu.h"
+#include distributed_emissions/SeesPdu.h"
 
 namespace dis {
 SeesPdu::SeesPdu()
@@ -85,44 +85,44 @@ void SeesPdu::SetVectoringSystemData(
   vectoring_system_data_ = value;
 }
 
-void SeesPdu::Marshal(DataStream& data_stream) const {
-  DistributedEmissionsFamilyPdu::Marshal(data_stream);
-  originating_entity_id_.Marshal(data_stream);
-  data_stream << infrared_signature_representation_index_;
-  data_stream << acoustic_signature_representation_index_;
-  data_stream << radar_cross_section_signature_representation_index_;
-  data_stream << static_cast<uint16_t>(propulsion_system_data_.size());
-  data_stream << static_cast<uint16_t>(vectoring_system_data_.size());
+void SeesPdu::Marshal(ByteBuffer& byte_buffer) const {
+  DistributedEmissionsFamilyPdu::Marshal(byte_buffer);
+  originating_entity_id_.Marshal(byte_buffer);
+  byte_buffer << infrared_signature_representation_index_;
+  byte_buffer << acoustic_signature_representation_index_;
+  byte_buffer << radar_cross_section_signature_representation_index_;
+  byte_buffer << static_cast<uint16_t>(propulsion_system_data_.size());
+  byte_buffer << static_cast<uint16_t>(vectoring_system_data_.size());
 
   for (const auto& x : propulsion_system_data_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 
   for (const auto& x : vectoring_system_data_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void SeesPdu::Unmarshal(DataStream& data_stream) {
-  DistributedEmissionsFamilyPdu::Unmarshal(data_stream);
-  originating_entity_id_.Unmarshal(data_stream);
-  data_stream >> infrared_signature_representation_index_;
-  data_stream >> acoustic_signature_representation_index_;
-  data_stream >> radar_cross_section_signature_representation_index_;
-  data_stream >> number_of_propulsion_systems_;
-  data_stream >> number_of_vectoring_nozzle_systems_;
+void SeesPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  DistributedEmissionsFamilyPdu::Unmarshal(byte_buffer);
+  originating_entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> infrared_signature_representation_index_;
+  byte_buffer >> acoustic_signature_representation_index_;
+  byte_buffer >> radar_cross_section_signature_representation_index_;
+  byte_buffer >> number_of_propulsion_systems_;
+  byte_buffer >> number_of_vectoring_nozzle_systems_;
 
   propulsion_system_data_.clear();
   for (std::size_t idx = 0; idx < number_of_propulsion_systems_; idx++) {
     PropulsionSystemData x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     propulsion_system_data_.push_back(x);
   }
 
   vectoring_system_data_.clear();
   for (std::size_t idx = 0; idx < number_of_vectoring_nozzle_systems_; idx++) {
     VectoringNozzleSystemData x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     vectoring_system_data_.push_back(x);
   }
 }

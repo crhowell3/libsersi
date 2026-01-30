@@ -2,71 +2,35 @@
 
 #include <vector>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/EventID.h"
-#include "libsersi/distributed_emissions/DistributedEmissionsFamilyPdu.h"
-#include "libsersi/distributed_emissions/ElectromagneticEmissionSystemData.h"
-#include "libsersi/utils/DataStream.h"
+#include "common/Pdu.hpp"
+#include "common/data_types/EntityID.h"
+#include "common/data_types/EventID.h"
+#include "utils/ByteBuffer.hpp"
 
 namespace dis {
-// Section 5.3.7.1. Information about active electronic warfare (EW) emissions
-// and active EW countermeasures shall be communicated using an Electromagnetic
-// Emission PDU. COMPLETE (I think)
-
-class ElectromagneticEmissionsPdu : public DistributedEmissionsFamilyPdu {
- private:
-  /** ID of the entity emitting */
-  EntityID emitting_entity_id_;
-
-  /** ID of event */
-  EventID event_id_;
-
-  /** This field shall be used to indicate if the data in the PDU represents a
-   * state update or just data that has changed since issuance of the last
-   * Electromagnetic Emission PDU [relative to the identified entity and
-   * emission system(s)]. */
-  uint8_t state_update_indicator_;
-
-  /** This field shall specify the number of emission systems being described in
-   * the current PDU. */
-  uint8_t number_of_systems_;
-
-  /** padding */
-  uint16_t padding_for_emissions_pdu_;
-
-  /** Electromagnetic emmissions systems */
-  std::vector<ElectromagneticEmissionSystemData> systems_;
+/// Implemented according to IEEE 1278.1-2012 §7.6.2
+class ElectromagneticEmissionsPdu final : public Pdu {
+  FIELD(EntityID, emitting_entity_id)
+  FIELD(EventID, event_id)
+  FIELD(EEAttributeStateIndicator, state_update_indicator)
+  FIELD(uint8_t, number_of_systems)
+  FIELD(uint16_t, padding)
+  FIELD(std::vector<ElectromagneticEmissionSystemData>, systems)
 
  public:
   ElectromagneticEmissionsPdu();
-  ~ElectromagneticEmissionsPdu() override;
+  ~ElectromagneticEmissionsPdu() final;
 
-  void Marshal(DataStream& data_stream) const override;
-  void Unmarshal(DataStream& data_stream) override;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
-  EntityID& GetEmittingEntityId();
-  [[nodiscard]] const EntityID& GetEmittingEntityId() const;
-  void SetEmittingEntityId(const EntityID& value);
+  [[nodiscard]] std::size_t GetMarshalledSize() const final;
 
-  EventID& GetEventId();
-  [[nodiscard]] const EventID& GetEventId() const;
-  void SetEventId(const EventID& value);
-
-  [[nodiscard]] uint8_t GetStateUpdateIndicator() const;
-  void SetStateUpdateIndicator(uint8_t value);
-
-  [[nodiscard]] uint8_t GetNumberOfSystems() const;
-
-  [[nodiscard]] uint16_t GetPaddingForEmissionsPdu() const;
-  void SetPaddingForEmissionsPdu(uint16_t value);
-
-  std::vector<ElectromagneticEmissionSystemData>& GetSystems();
-  [[nodiscard]] const std::vector<ElectromagneticEmissionSystemData>&
-  GetSystems() const;
-  void SetSystems(const std::vector<ElectromagneticEmissionSystemData>& value);
-
-  [[nodiscard]] std::size_t GetMarshalledSize() const override;
-
-  bool operator==(const ElectromagneticEmissionsPdu& rhs) const;
+  friend bool operator==(const ElectromagneticEmissionsPdu& lhs, const ElectromagneticEmissionsPdu& rhs) {
+    return lhs.emitting_entity_id_ == rhs.emitting_entity_id_ && lhs.event_id_ == rhs.event_id_ &&
+           lhs.state_update_indicator_ == rhs.state_update_indicator_ &&
+           lhs.number_of_systems_ == rhs.number_of_systems_ && lhs.padding_ == rhs.padding_ &&
+           lhs.systems_ == rhs.systems_;
+  }
 };
 }  // namespace dis

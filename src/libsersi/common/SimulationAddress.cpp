@@ -1,4 +1,4 @@
-#include "libsersi/common/SimulationAddress.h"
+#include "common/SimulationAddress.hpp"
 
 namespace dis {
 SimulationAddress::SimulationAddress() : site_(0), application_(0) {}
@@ -11,14 +11,18 @@ uint16_t SimulationAddress::GetApplication() const { return application_; }
 
 void SimulationAddress::SetApplication(uint16_t value) { application_ = value; }
 
-void SimulationAddress::Marshal(DataStream& data_stream) const {
-  data_stream << site_;
-  data_stream << application_;
+Result<void, std::string> SimulationAddress::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << site_;
+  byte_buffer << application_;
+
+  return Result<void, std::string>::Ok();
 }
 
-void SimulationAddress::Unmarshal(DataStream& data_stream) {
-  data_stream >> site_;
-  data_stream >> application_;
+Result<void, std::string> SimulationAddress::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> site_;
+  byte_buffer >> application_;
+
+  return Result<void, std::string>::Ok();
 }
 
 bool SimulationAddress::operator==(const SimulationAddress& rhs) const {

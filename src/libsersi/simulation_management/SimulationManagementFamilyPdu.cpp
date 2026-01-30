@@ -1,10 +1,6 @@
-#include "libsersi/simulation_management/SimulationManagementFamilyPdu.h"
+#include simulation_management/SimulationManagementFamilyPdu.h"
 
 namespace dis {
-SimulationManagementFamilyPdu::SimulationManagementFamilyPdu() {
-  SetProtocolFamily(5);
-}
-
 EntityID& SimulationManagementFamilyPdu::GetOriginatingEntityId() {
   return originating_entity_id_;
 }
@@ -31,16 +27,16 @@ void SimulationManagementFamilyPdu::SetReceivingEntityId(
   receiving_entity_id_ = value;
 }
 
-void SimulationManagementFamilyPdu::Marshal(DataStream& data_stream) const {
-  Pdu::Marshal(data_stream);
-  originating_entity_id_.Marshal(data_stream);
-  receiving_entity_id_.Marshal(data_stream);
+void SimulationManagementFamilyPdu::Marshal(ByteBuffer& byte_buffer) const {
+  Pdu::Marshal(byte_buffer);
+  originating_entity_id_.Marshal(byte_buffer);
+  receiving_entity_id_.Marshal(byte_buffer);
 }
 
-void SimulationManagementFamilyPdu::Unmarshal(DataStream& data_stream) {
-  Pdu::Unmarshal(data_stream);
-  originating_entity_id_.Unmarshal(data_stream);
-  receiving_entity_id_.Unmarshal(data_stream);
+void SimulationManagementFamilyPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  Pdu::Unmarshal(byte_buffer);
+  originating_entity_id_.Unmarshal(byte_buffer);
+  receiving_entity_id_.Unmarshal(byte_buffer);
 }
 
 bool SimulationManagementFamilyPdu::operator==(

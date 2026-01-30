@@ -1,14 +1,8 @@
-#include "libsersi/common/EntityType.h"
+#include common/EntityType.h"
 
 namespace dis {
 EntityType::EntityType()
-    : entity_kind_(0),
-      domain_(0),
-      country_(0),
-      category_(0),
-      subcategory_(0),
-      specific_(0),
-      extra_(0) {}
+    : entity_kind_(0), domain_(0), country_(0), category_(0), subcategory_(0), specific_(0), extra_(0) {}
 
 uint8_t EntityType::GetEntityKind() const { return entity_kind_; }
 
@@ -38,24 +32,28 @@ uint8_t EntityType::GetExtra() const { return extra_; }
 
 void EntityType::SetExtra(uint8_t value) { extra_ = value; }
 
-void EntityType::Marshal(DataStream& data_stream) const {
-  data_stream << entity_kind_;
-  data_stream << domain_;
-  data_stream << country_;
-  data_stream << category_;
-  data_stream << subcategory_;
-  data_stream << specific_;
-  data_stream << extra_;
+Result<void, std::string> EntityType::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << entity_kind_;
+  byte_buffer << domain_;
+  byte_buffer << country_;
+  byte_buffer << category_;
+  byte_buffer << subcategory_;
+  byte_buffer << specific_;
+  byte_buffer << extra_;
+
+  return Result<void, std::string>::Ok();
 }
 
-void EntityType::Unmarshal(DataStream& data_stream) {
-  data_stream >> entity_kind_;
-  data_stream >> domain_;
-  data_stream >> country_;
-  data_stream >> category_;
-  data_stream >> subcategory_;
-  data_stream >> specific_;
-  data_stream >> extra_;
+Result<void, std::string> EntityType::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> entity_kind_;
+  byte_buffer >> domain_;
+  byte_buffer >> country_;
+  byte_buffer >> category_;
+  byte_buffer >> subcategory_;
+  byte_buffer >> specific_;
+  byte_buffer >> extra_;
+
+  return Result<void, std::string>::Ok();
 }
 
 bool EntityType::operator==(const EntityType& rhs) const {
@@ -87,10 +85,8 @@ bool EntityType::operator==(const EntityType& rhs) const {
 }
 
 std::size_t EntityType::GetMarshalledSize() const {
-  std::size_t marshal_size = sizeof(entity_kind_) + sizeof(domain_) +
-                             sizeof(country_) + sizeof(category_) +
-                             sizeof(subcategory_) + sizeof(specific_) +
-                             sizeof(extra_);
+  std::size_t marshal_size = sizeof(entity_kind_) + sizeof(domain_) + sizeof(country_) + sizeof(category_) +
+                             sizeof(subcategory_) + sizeof(specific_) + sizeof(extra_);
 
   return marshal_size;
 }

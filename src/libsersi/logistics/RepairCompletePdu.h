@@ -2,9 +2,9 @@
 
 #include <cstddef>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/logistics/LogisticsFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include common/EntityID.h"
+#include logistics/LogisticsFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.5.5. Repair is complete. COMPLETE
@@ -27,8 +27,8 @@ class RepairCompletePdu final : public LogisticsFamilyPdu {
   RepairCompletePdu();
   ~RepairCompletePdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetReceivingEntityId();
   [[nodiscard]] const EntityID& GetReceivingEntityId() const;

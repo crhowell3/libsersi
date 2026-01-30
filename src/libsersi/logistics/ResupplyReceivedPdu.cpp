@@ -1,4 +1,4 @@
-#include "libsersi/logistics/ResupplyReceivedPdu.h"
+#include logistics/ResupplyReceivedPdu.h"
 
 #include <cstddef>
 
@@ -59,31 +59,31 @@ void ResupplyReceivedPdu::SetSupplies(
   supplies_ = value;
 }
 
-void ResupplyReceivedPdu::Marshal(DataStream& data_stream) const {
-  LogisticsFamilyPdu::Marshal(data_stream);
-  receiving_entity_id_.Marshal(data_stream);
-  supplying_entity_id_.Marshal(data_stream);
-  data_stream << static_cast<uint8_t>(supplies_.size());
-  data_stream << padding1_;
-  data_stream << padding2_;
+void ResupplyReceivedPdu::Marshal(ByteBuffer& byte_buffer) const {
+  LogisticsFamilyPdu::Marshal(byte_buffer);
+  receiving_entity_id_.Marshal(byte_buffer);
+  supplying_entity_id_.Marshal(byte_buffer);
+  byte_buffer << static_cast<uint8_t>(supplies_.size());
+  byte_buffer << padding1_;
+  byte_buffer << padding2_;
 
   for (const auto& x : supplies_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void ResupplyReceivedPdu::Unmarshal(DataStream& data_stream) {
-  LogisticsFamilyPdu::Unmarshal(data_stream);
-  receiving_entity_id_.Unmarshal(data_stream);
-  supplying_entity_id_.Unmarshal(data_stream);
-  data_stream >> number_of_supply_types_;
-  data_stream >> padding1_;
-  data_stream >> padding2_;
+void ResupplyReceivedPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  LogisticsFamilyPdu::Unmarshal(byte_buffer);
+  receiving_entity_id_.Unmarshal(byte_buffer);
+  supplying_entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> number_of_supply_types_;
+  byte_buffer >> padding1_;
+  byte_buffer >> padding2_;
 
   supplies_.clear();
   for (std::size_t idx = 0; idx < number_of_supply_types_; idx++) {
     SupplyQuantity x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     supplies_.push_back(x);
   }
 }

@@ -24,7 +24,7 @@ set(radio_communications_hdr
   TransmitterPdu.h
 )
 
-target_sources(sersi PRIVATE ${radio_communications_src})
+target_sources(${PROJECT_NAME} PRIVATE ${radio_communications_src})
 
 install(FILES ${radio_communications_hdr}
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libsersi/radio_communications

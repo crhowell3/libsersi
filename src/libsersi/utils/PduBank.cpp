@@ -1,35 +1,34 @@
-#include "libsersi/utils/PduBank.h"
+#include utils/PduBank.h"
 
-#include "libsersi/distributed_emissions/DesignatorPdu.h"
-#include "libsersi/distributed_emissions/ElectromagneticEmissionsPdu.h"
-#include "libsersi/entity_information/CollisionPdu.h"
-#include "libsersi/entity_information/EntityStatePdu.h"
-#include "libsersi/entity_management/AggregateStatePdu.h"
-#include "libsersi/entity_management/IsGroupOfPdu.h"
-#include "libsersi/entity_management/TransferControlRequestPdu.h"
-#include "libsersi/logistics/RepairCompletePdu.h"
-#include "libsersi/logistics/RepairResponsePdu.h"
-#include "libsersi/logistics/ResupplyOfferPdu.h"
-#include "libsersi/logistics/ResupplyReceivedPdu.h"
-#include "libsersi/logistics/ServiceRequestPdu.h"
-#include "libsersi/radio_communications/IntercomControlPdu.h"
-#include "libsersi/radio_communications/IntercomSignalPdu.h"
-#include "libsersi/radio_communications/ReceiverPdu.h"
-#include "libsersi/radio_communications/SignalPdu.h"
-#include "libsersi/radio_communications/TransmitterPdu.h"
-#include "libsersi/simulation_management/AcknowledgePdu.h"
-#include "libsersi/simulation_management/ActionRequestPdu.h"
-#include "libsersi/simulation_management/ActionResponsePdu.h"
-#include "libsersi/simulation_management/CommentPdu.h"
-#include "libsersi/simulation_management/CreateEntityPdu.h"
-#include "libsersi/simulation_management/DataQueryPdu.h"
-#include "libsersi/simulation_management/EventReportPdu.h"
-#include "libsersi/simulation_management/RemoveEntityPdu.h"
-#include "libsersi/simulation_management/SetDataPdu.h"
-#include "libsersi/simulation_management/StartResumePdu.h"
-#include "libsersi/simulation_management/StopFreezePdu.h"
-#include "libsersi/warfare/DetonationPdu.h"
-#include "libsersi/warfare/FirePdu.h"
+#include distributed_emissions/DesignatorPdu.h"
+#include distributed_emissions/ElectromagneticEmissionsPdu.h"
+#include entity_information/CollisionPdu.h"
+#include entity_information/EntityStatePdu.h"
+#include entity_management/AggregateStatePdu.h"
+#include entity_management/IsGroupOfPdu.h"
+#include entity_management/TransferControlRequestPdu.h"
+#include logistics/RepairCompletePdu.h"
+#include logistics/RepairResponsePdu.h"
+#include logistics/ResupplyOfferPdu.h"
+#include logistics/ResupplyReceivedPdu.h"
+#include logistics/ServiceRequestPdu.h"
+#include radio_communications/IntercomControlPdu.h"
+#include radio_communications/IntercomSignalPdu.h"
+#include radio_communications/ReceiverPdu.h"
+#include radio_communications/SignalPdu.h"
+#include radio_communications/TransmitterPdu.h"
+#include simulation_management/AcknowledgePdu.h"
+#include simulation_management/ActionRequestPdu.h"
+#include simulation_management/ActionResponsePdu.h"
+#include simulation_management/CommentPdu.h"
+#include simulation_management/CreateEntityPdu.h"
+#include simulation_management/DataQueryPdu.h"
+#include simulation_management/EventReportPdu.h"
+#include simulation_management/RemoveEntityPdu.h"
+#include simulation_management/SetDataPdu.h"
+#include simulation_management/StartResumePdu.h"
+#include simulation_management/StopFreezePdu.h"
+#include "Warfare.hpp"
 
 namespace dis {
 Pdu* PduBank::GetStaticPDU(PduType pdu_type) {
@@ -66,97 +65,97 @@ Pdu* PduBank::GetStaticPDU(PduType pdu_type) {
   static TransferControlRequestPdu transfer_ownership_pdu;
 
   switch (pdu_type) {
-    case PduType::kEntityState:
+    case PduType::EntityState:
       return &entity_state_pdu;
       break;
-    case PduType::kFire:
+    case PduType::Fire:
       return &fire_pdu;
       break;
-    case PduType::kDetonation:
+    case PduType::Detonation:
       return &detonation_pdu;
       break;
-    case PduType::kCollision:
+    case PduType::Collision:
       return &collision_pdu;
       break;
-    case PduType::kServiceRequest:
+    case PduType::ServiceRequest:
       return &service_request_pdu;
       break;
-    case PduType::kResupplyOffer:
+    case PduType::ResupplyOffer:
       return &resupply_offer_pdu;
       break;
-    case PduType::kResupplyReceived:
+    case PduType::ResupplyReceived:
       return &resupply_received_pdu;
       break;
-    case PduType::kResupplyCancel:
+    case PduType::ResupplyCancel:
       return &resupply_cancel_pdu;
       break;
-    case PduType::kRepairComplete:
+    case PduType::RepairComplete:
       return &repair_complete_pdu;
       break;
-    case PduType::kRepairResponse:
+    case PduType::RepairResponse:
       return &repair_response_pdu;
       break;
-    case PduType::kCreateEntity:
+    case PduType::CreateEntity:
       return &create_entity_pdu;
       break;
-    case PduType::kRemoveEntity:
+    case PduType::RemoveEntity:
       return &remove_entity_pdu;
       break;
-    case PduType::kStartResume:
+    case PduType::StartResume:
       return &start_resume_pdu;
       break;
-    case PduType::kAcknowledge:
+    case PduType::Acknowledge:
       return &acknowledge_pdu;
       break;
-    case PduType::kActionRequest:
+    case PduType::ActionRequest:
       return &action_request_pdu;
       break;
-    case PduType::kActionResponse:
+    case PduType::ActionResponse:
       return &action_response_pdu;
       break;
-    case PduType::kDataQuery:
+    case PduType::DataQuery:
       return &data_query_pdu;
       break;
-    case PduType::kSetData:
+    case PduType::SetData:
       return &set_data_pdu;
       break;
-    case PduType::kEventReport:
+    case PduType::EventReport:
       return &event_report_pdu;
       break;
-    case PduType::kComment:
+    case PduType::Comment:
       return &comment_pdu;
       break;
-    case PduType::kStopFreeze:
+    case PduType::StopFreeze:
       return &stop_freeze_pdu;
       break;
-    case PduType::kElectronicEmmisions:
+    case PduType::ElectromagneticEmission:
       return &electromagnetic_emissions_pdu;
       break;
-    case PduType::kDesignator:
+    case PduType::Designator:
       return &designator_pdu;
       break;
-    case PduType::kTransmitter:
+    case PduType::Transmitter:
       return &transmitter_pdu;
       break;
-    case PduType::kSignal:
+    case PduType::Signal:
       return &signal_pdu;
       break;
-    case PduType::kReceiver:
+    case PduType::Receiver:
       return &receiver_pdu;
       break;
-    case PduType::kIntercomSignal:
+    case PduType::IntercomSignal:
       return &intercom_signal_pdu;
       break;
-    case PduType::kIntercomControl:
+    case PduType::IntercomControl:
       return &intercom_control_pdu;
       break;
-    case PduType::kAggregateState:
+    case PduType::AggregateState:
       return &aggregate_state_pdu;
       break;
-    case PduType::kIsGroupOf:
+    case PduType::IsGroupOf:
       return &is_group_of_pdu;
       break;
-    case PduType::kTransferOwnership:
+    case PduType::TransferOwnership:
       return &transfer_ownership_pdu;
       break;
     default:

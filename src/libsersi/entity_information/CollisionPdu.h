@@ -1,10 +1,10 @@
 #pragma once
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/EventID.h"
-#include "libsersi/common/Vector3Float.h"
-#include "libsersi/entity_information/EntityInformationFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include common/EntityID.h"
+#include common/EventID.h"
+#include common/Vector3Float.h"
+#include entity_information/EntityInformationFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.3.2. Information about a collision. COMPLETE
@@ -39,8 +39,8 @@ class CollisionPdu final : public EntityInformationFamilyPdu {
   CollisionPdu();
   ~CollisionPdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetIssuingEntityId();
   [[nodiscard]] const EntityID& GetIssuingEntityId() const;

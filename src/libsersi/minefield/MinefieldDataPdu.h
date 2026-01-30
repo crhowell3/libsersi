@@ -3,11 +3,11 @@
 #include <cstddef>
 #include <vector>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/EntityType.h"
-#include "libsersi/common/Vector3Float.h"
-#include "libsersi/minefield/MinefieldFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include common/EntityID.h"
+#include common/EntityType.h"
+#include common/Vector3Float.h"
+#include minefield/MinefieldFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.10.3 Information about individual mines within a minefield. This
@@ -62,8 +62,8 @@ class MinefieldDataPdu final : public MinefieldFamilyPdu {
   MinefieldDataPdu();
   ~MinefieldDataPdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetMinefieldId();
   [[nodiscard]] const EntityID& GetMinefieldId() const;

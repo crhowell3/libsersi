@@ -1,12 +1,9 @@
-#include "libsersi/utils/IncomingMessage.h"
+#include utils/IncomingMessage.h"
 
-#include <iostream>
-
-#include "libsersi/common/Pdu.h"
-#include "libsersi/entity_information/EntityStatePdu.h"
-#include "libsersi/utils/DataStream.h"
-#include "libsersi/utils/IPacketProcessor.h"
-#include "libsersi/utils/PduBank.h"
+#include common/Pdu.hpp"
+#include utils/ByteBuffer.hpp"
+#include utils/IPacketProcessor.h"
+#include utils/PduBank.h"
 
 namespace dis {
 // the DIS specification says the type is known for all PDUs at the 3rd byte of
@@ -22,7 +19,7 @@ void IncomingMessage::Process(const char* buf, uint32_t size, Endian e) {
     return;
   }
 
-  DataStream ds(buf, size, e);
+  ByteBuffer ds(buf, size, e);
 
   while (ds.GetReadPos() < ds.Size()) {
     uint8_t pdu_type = ds[kPduTypePosition];
@@ -30,28 +27,32 @@ void IncomingMessage::Process(const char* buf, uint32_t size, Endian e) {
   }
 }
 
-void IncomingMessage::SwitchOnType(PduType pdu_type, DataStream& ds) {
+void IncomingMessage::SwitchOnType(PduType pdu_type, ByteBuffer& ds) {
   Pdu* pdu = nullptr;
 
   PduBankContainer::iterator container_iter;
 
   // first, check if any custom PDU bank registered
-  auto pdu_bank_it = pdu_banks_.find(pdu_type);
+  auto pdu_bank_it = pdu_banks_.find(static_cast<uint8_t>(pdu_type));
   if (pdu_bank_it != pdu_banks_.end()) {
-    pdu = pdu_bank_it->second->GetStaticPDU(pdu_type, ds);
+    pdu = pdu_bank_it->second->GetStaticPDU(static_cast<uint8_t>(pdu_type), ds);
   } else {
     pdu = PduBank::GetStaticPDU(pdu_type);
   }
 
   // if valid pdu point, and at least 1 processor
-  if ((pdu != nullptr) && (processors_.count(pdu_type) > 0)) {
-    pdu->Unmarshal(ds);
+  if ((pdu != nullptr) &&
+      (processors_.count(static_cast<uint8_t>(pdu_type)) > 0)) {
+    auto ret = pdu->Unmarshal(ds);
 
-    // assumes the location in the buffer is the packet id.
-    typedef std::pair<PacketProcessorContainer::iterator,
-                      PacketProcessorContainer::iterator>
-        RangePair;
-    RangePair rangepair = processors_.equal_range(pdu_type);
+    if (ret.is_err()) {
+      // NOOP
+    }
+
+    using RangePair = std::pair<PacketProcessorContainer::iterator,
+                                PacketProcessorContainer::iterator>;
+    RangePair rangepair =
+        processors_.equal_range(static_cast<uint8_t>(pdu_type));
     auto processor_iter = rangepair.first;
     auto processor_end = rangepair.second;
     while (processor_iter != processor_end) {

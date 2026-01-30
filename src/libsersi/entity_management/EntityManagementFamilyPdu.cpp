@@ -1,14 +1,12 @@
-#include "libsersi/entity_management/EntityManagementFamilyPdu.h"
+#include entity_management/EntityManagementFamilyPdu.h"
 
 namespace dis {
-EntityManagementFamilyPdu::EntityManagementFamilyPdu() { SetProtocolFamily(7); }
-
-void EntityManagementFamilyPdu::Marshal(DataStream& data_stream) const {
-  Pdu::Marshal(data_stream);  // Marshal information in superclass first
+void EntityManagementFamilyPdu::Marshal(ByteBuffer& byte_buffer) const {
+  Pdu::Marshal(byte_buffer);  // Marshal information in superclass first
 }
 
-void EntityManagementFamilyPdu::Unmarshal(DataStream& data_stream) {
-  Pdu::Unmarshal(data_stream);  // unmarshal information in superclass first
+void EntityManagementFamilyPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  Pdu::Unmarshal(byte_buffer);  // unmarshal information in superclass first
 }
 
 bool EntityManagementFamilyPdu::operator==(

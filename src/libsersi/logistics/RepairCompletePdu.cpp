@@ -1,4 +1,4 @@
-#include "libsersi/logistics/RepairCompletePdu.h"
+#include logistics/RepairCompletePdu.h"
 
 namespace dis {
 RepairCompletePdu::RepairCompletePdu() : repair_(0), padding2_(0) {
@@ -39,21 +39,21 @@ int16_t RepairCompletePdu::GetPadding2() const { return padding2_; }
 
 void RepairCompletePdu::SetPadding2(int16_t value) { padding2_ = value; }
 
-void RepairCompletePdu::Marshal(DataStream& data_stream) const {
-  LogisticsFamilyPdu::Marshal(data_stream);
-  receiving_entity_id_.Marshal(data_stream);
-  repairing_entity_id_.Marshal(data_stream);
-  data_stream << repair_;
-  data_stream << padding2_;
+void RepairCompletePdu::Marshal(ByteBuffer& byte_buffer) const {
+  LogisticsFamilyPdu::Marshal(byte_buffer);
+  receiving_entity_id_.Marshal(byte_buffer);
+  repairing_entity_id_.Marshal(byte_buffer);
+  byte_buffer << repair_;
+  byte_buffer << padding2_;
 }
 
-void RepairCompletePdu::Unmarshal(DataStream& data_stream) {
+void RepairCompletePdu::Unmarshal(ByteBuffer& byte_buffer) {
   LogisticsFamilyPdu::Unmarshal(
-      data_stream);  // unmarshal information in superclass first
-  receiving_entity_id_.Unmarshal(data_stream);
-  repairing_entity_id_.Unmarshal(data_stream);
-  data_stream >> repair_;
-  data_stream >> padding2_;
+      byte_buffer);  // unmarshal information in superclass first
+  receiving_entity_id_.Unmarshal(byte_buffer);
+  repairing_entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> repair_;
+  byte_buffer >> padding2_;
 }
 
 bool RepairCompletePdu::operator==(const RepairCompletePdu& rhs) const {

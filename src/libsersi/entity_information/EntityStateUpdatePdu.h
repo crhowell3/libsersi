@@ -2,13 +2,13 @@
 
 #include <vector>
 
-#include "libsersi/common/ArticulationParameter.h"
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/Orientation.h"
-#include "libsersi/common/Vector3Double.h"
-#include "libsersi/common/Vector3Float.h"
-#include "libsersi/entity_information/EntityInformationFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include common/ArticulationParameter.h"
+#include common/EntityID.h"
+#include common/Orientation.h"
+#include common/Vector3Double.h"
+#include common/Vector3Float.h"
+#include entity_information/EntityInformationFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // 5.3.3.4. Nonstatic information about a particular entity may be communicated
@@ -44,8 +44,8 @@ class EntityStateUpdatePdu final : public EntityInformationFamilyPdu {
   EntityStateUpdatePdu();
   ~EntityStateUpdatePdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetEntityId();
   [[nodiscard]] const EntityID& GetEntityId() const;

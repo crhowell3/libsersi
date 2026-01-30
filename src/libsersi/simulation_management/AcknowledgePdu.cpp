@@ -1,4 +1,4 @@
-#include "libsersi/simulation_management/AcknowledgePdu.h"
+#include simulation_management/AcknowledgePdu.h"
 
 namespace dis {
 AcknowledgePdu::AcknowledgePdu()
@@ -22,18 +22,18 @@ uint32_t AcknowledgePdu::GetRequestId() const { return request_id_; }
 
 void AcknowledgePdu::SetRequestId(uint32_t value) { request_id_ = value; }
 
-void AcknowledgePdu::Marshal(DataStream& data_stream) const {
-  SimulationManagementFamilyPdu::Marshal(data_stream);
-  data_stream << acknowledge_flag_;
-  data_stream << response_flag_;
-  data_stream << request_id_;
+void AcknowledgePdu::Marshal(ByteBuffer& byte_buffer) const {
+  SimulationManagementFamilyPdu::Marshal(byte_buffer);
+  byte_buffer << acknowledge_flag_;
+  byte_buffer << response_flag_;
+  byte_buffer << request_id_;
 }
 
-void AcknowledgePdu::Unmarshal(DataStream& data_stream) {
-  SimulationManagementFamilyPdu::Unmarshal(data_stream);
-  data_stream >> acknowledge_flag_;
-  data_stream >> response_flag_;
-  data_stream >> request_id_;
+void AcknowledgePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  SimulationManagementFamilyPdu::Unmarshal(byte_buffer);
+  byte_buffer >> acknowledge_flag_;
+  byte_buffer >> response_flag_;
+  byte_buffer >> request_id_;
 }
 
 bool AcknowledgePdu::operator==(const AcknowledgePdu& rhs) const {

@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "libsersi/utils/DataStream.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // x,y point
@@ -19,8 +19,8 @@ class Point {
   Point() = default;
   ~Point() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] float GetX() const;
   void SetX(float value);

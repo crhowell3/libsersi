@@ -20,7 +20,7 @@ set(logistics_src
   SupplyQuantity.cpp
 )
 
-target_sources(sersi PRIVATE ${logistics_src})
+target_sources(${PROJECT_NAME} PRIVATE ${logistics_src})
 
 install(FILES ${logistics_hdr}
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libsersi/logistics

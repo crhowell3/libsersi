@@ -3,22 +3,21 @@
 #include <cstddef>
 #include <vector>
 
-#include "libsersi/common/ArticulationParameter.h"
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/EntityType.h"
-#include "libsersi/common/Orientation.h"
-#include "libsersi/common/Vector3Double.h"
-#include "libsersi/common/Vector3Float.h"
-#include "libsersi/entity_information/DeadReckoningParameter.h"
-#include "libsersi/entity_information/EntityInformationFamilyPdu.h"
-#include "libsersi/entity_information/Marking.h"
-#include "libsersi/utils/DataStream.h"
+#include common/ArticulationParameter.h"
+#include common/EntityID.h"
+#include common/EntityType.h"
+#include common/Orientation.h"
+#include common/Vector3Double.h"
+#include common/Vector3Float.h"
+#include entity_information/DeadReckoningParameter.h"
+#include common/Pdu.hpp"
+#include entity_information/Marking.h"
 
 namespace dis {
 // Section 5.3.3.1. Represents the postion and state of one entity in the world.
 // COMPLETE
 
-class EntityStatePdu final : public EntityInformationFamilyPdu {
+class EntityStatePdu final : public Pdu {
  private:
   /** Unique ID for an entity that is tied to this state information */
   EntityID entity_id_;
@@ -64,8 +63,8 @@ class EntityStatePdu final : public EntityInformationFamilyPdu {
   EntityStatePdu();
   ~EntityStatePdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetEntityId();
   [[nodiscard]] const EntityID& GetEntityId() const;

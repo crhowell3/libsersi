@@ -1,8 +1,8 @@
 #pragma once
 
-#include "libsersi/common/ClockTime.h"
-#include "libsersi/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include common/ClockTime.h"
+#include simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.12.3: Start resume simulation, reliable. COMPLETE
@@ -32,8 +32,8 @@ class StartResumeReliablePdu final
   StartResumeReliablePdu();
   ~StartResumeReliablePdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   ClockTime& GetRealWorldTime();
   [[nodiscard]] const ClockTime& GetRealWorldTime() const;

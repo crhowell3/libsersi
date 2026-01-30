@@ -2,10 +2,10 @@
 
 #include <vector>
 
-#include "libsersi/common/FixedDatum.h"
-#include "libsersi/common/VariableDatum.h"
-#include "libsersi/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include common/FixedDatum.h"
+#include common/VariableDatum.h"
+#include simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.12.12: Arbitrary messages. Only reliable this time. Neds manual
@@ -30,8 +30,8 @@ class CommentReliablePdu final
   CommentReliablePdu();
   ~CommentReliablePdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   [[nodiscard]] uint32_t GetNumberOfFixedDatumRecords() const;
 

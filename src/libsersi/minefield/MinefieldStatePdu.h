@@ -3,13 +3,13 @@
 #include <cstddef>
 #include <vector>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/EntityType.h"
-#include "libsersi/common/Orientation.h"
-#include "libsersi/common/Vector3Double.h"
-#include "libsersi/minefield/MinefieldFamilyPdu.h"
-#include "libsersi/minefield/Point.h"
-#include "libsersi/utils/DataStream.h"
+#include common/EntityID.h"
+#include common/EntityType.h"
+#include common/Orientation.h"
+#include common/Vector3Double.h"
+#include minefield/MinefieldFamilyPdu.h"
+#include minefield/Point.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.10.1 Abstract superclass for PDUs relating to minefields.
@@ -57,8 +57,8 @@ class MinefieldStatePdu final : public MinefieldFamilyPdu {
   MinefieldStatePdu();
   ~MinefieldStatePdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetMinefieldId();
   [[nodiscard]] const EntityID& GetMinefieldId() const;

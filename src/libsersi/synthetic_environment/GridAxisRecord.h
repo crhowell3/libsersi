@@ -1,6 +1,6 @@
 #pragma once
 
-#include "libsersi/utils/DataStream.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // 5.2.44: Grid data record, a common abstract superclass for several subtypes
@@ -17,8 +17,8 @@ class GridAxisRecord {
   GridAxisRecord();
   virtual ~GridAxisRecord();
 
-  virtual void Marshal(dis::DataStream& data_stream) const;
-  virtual void Unmarshal(dis::DataStream& data_stream);
+  virtual Result<void, std::string> Marshal(dis::ByteBuffer& byte_buffer) const;
+  virtual Result<void, std::string> Unmarshal(dis::ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint16_t GetSampleType() const;
   void SetSampleType(uint16_t value);

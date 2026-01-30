@@ -1,4 +1,4 @@
-#include "libsersi/entity_management/AggregateType.h"
+#include entity_management/AggregateType.h"
 
 namespace dis {
 AggregateType::AggregateType()
@@ -38,24 +38,24 @@ uint8_t AggregateType::GetExtra() const { return extra_; }
 
 void AggregateType::SetExtra(uint8_t value) { extra_ = value; }
 
-void AggregateType::Marshal(DataStream& data_stream) const {
-  data_stream << aggregate_kind_;
-  data_stream << domain_;
-  data_stream << country_;
-  data_stream << category_;
-  data_stream << subcategory_;
-  data_stream << specific_;
-  data_stream << extra_;
+void AggregateType::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << aggregate_kind_;
+  byte_buffer << domain_;
+  byte_buffer << country_;
+  byte_buffer << category_;
+  byte_buffer << subcategory_;
+  byte_buffer << specific_;
+  byte_buffer << extra_;
 }
 
-void AggregateType::Unmarshal(DataStream& data_stream) {
-  data_stream >> aggregate_kind_;
-  data_stream >> domain_;
-  data_stream >> country_;
-  data_stream >> category_;
-  data_stream >> subcategory_;
-  data_stream >> specific_;
-  data_stream >> extra_;
+void AggregateType::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> aggregate_kind_;
+  byte_buffer >> domain_;
+  byte_buffer >> country_;
+  byte_buffer >> category_;
+  byte_buffer >> subcategory_;
+  byte_buffer >> specific_;
+  byte_buffer >> extra_;
 }
 
 bool AggregateType::operator==(const AggregateType& rhs) const {

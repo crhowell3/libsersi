@@ -1,4 +1,4 @@
-#include "libsersi/entity_management/Relationship.h"
+#include entity_management/Relationship.h"
 
 #include <cstddef>
 
@@ -13,14 +13,14 @@ uint16_t Relationship::GetPosition() const { return position_; }
 
 void Relationship::SetPosition(uint16_t value) { position_ = value; }
 
-void Relationship::Marshal(DataStream& data_stream) const {
-  data_stream << nature_;
-  data_stream << position_;
+void Relationship::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << nature_;
+  byte_buffer << position_;
 }
 
-void Relationship::Unmarshal(DataStream& data_stream) {
-  data_stream >> nature_;
-  data_stream >> position_;
+void Relationship::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> nature_;
+  byte_buffer >> position_;
 }
 
 bool Relationship::operator==(const Relationship& rhs) const {

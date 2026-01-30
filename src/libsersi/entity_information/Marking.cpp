@@ -1,4 +1,4 @@
-#include "libsersi/entity_information/Marking.h"
+#include entity_information/Marking.h"
 
 #include <cstring>
 
@@ -21,7 +21,7 @@ const std::array<char, kCharacters>& Marking::GetCharacters() const {
 }
 
 void Marking::SetCharacters(const char* value) {
-  for (auto i = 0; i < characters_.size(); ++i) {
+  for (uint32_t i = 0; i < characters_.size(); ++i) {
     characters_[i] = value[i];
   }
 }
@@ -33,19 +33,19 @@ void Marking::SetByStringCharacters(const char* value) {
   characters_[kCharacters - 1] = '\0';
 }
 
-void Marking::Marshal(DataStream& data_stream) const {
-  data_stream << character_set_;
+void Marking::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << character_set_;
 
   for (std::size_t idx = 0; idx < kCharacters; idx++) {
-    data_stream << characters_[idx];
+    byte_buffer << characters_[idx];
   }
 }
 
-void Marking::Unmarshal(DataStream& data_stream) {
-  data_stream >> character_set_;
+void Marking::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> character_set_;
 
   for (std::size_t idx = 0; idx < kCharacters; idx++) {
-    data_stream >> characters_[idx];
+    byte_buffer >> characters_[idx];
   }
 }
 

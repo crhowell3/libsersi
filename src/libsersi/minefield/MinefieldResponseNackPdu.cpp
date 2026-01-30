@@ -1,4 +1,4 @@
-#include "libsersi/minefield/MinefieldResponseNackPdu.h"
+#include minefield/MinefieldResponseNackPdu.h"
 
 namespace dis {
 MinefieldResponseNackPdu::MinefieldResponseNackPdu()
@@ -57,29 +57,29 @@ void MinefieldResponseNackPdu::SetMissingPduSequenceNumbers(
   missing_pdu_sequence_numbers_ = value;
 }
 
-void MinefieldResponseNackPdu::Marshal(DataStream& data_stream) const {
-  MinefieldFamilyPdu::Marshal(data_stream);
-  minefield_id_.Marshal(data_stream);
-  requesting_entity_id_.Marshal(data_stream);
-  data_stream << request_id_;
-  data_stream << static_cast<uint8_t>(missing_pdu_sequence_numbers_.size());
+void MinefieldResponseNackPdu::Marshal(ByteBuffer& byte_buffer) const {
+  MinefieldFamilyPdu::Marshal(byte_buffer);
+  minefield_id_.Marshal(byte_buffer);
+  requesting_entity_id_.Marshal(byte_buffer);
+  byte_buffer << request_id_;
+  byte_buffer << static_cast<uint8_t>(missing_pdu_sequence_numbers_.size());
 
   for (uint64_t x : missing_pdu_sequence_numbers_) {
-    data_stream << x;
+    byte_buffer << x;
   }
 }
 
-void MinefieldResponseNackPdu::Unmarshal(DataStream& data_stream) {
-  MinefieldFamilyPdu::Unmarshal(data_stream);
-  minefield_id_.Unmarshal(data_stream);
-  requesting_entity_id_.Unmarshal(data_stream);
-  data_stream >> request_id_;
-  data_stream >> number_of_missing_pdus_;
+void MinefieldResponseNackPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  MinefieldFamilyPdu::Unmarshal(byte_buffer);
+  minefield_id_.Unmarshal(byte_buffer);
+  requesting_entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> request_id_;
+  byte_buffer >> number_of_missing_pdus_;
 
   missing_pdu_sequence_numbers_.clear();
   for (std::size_t idx = 0; idx < number_of_missing_pdus_; idx++) {
     uint64_t x;
-    data_stream >> x;
+    byte_buffer >> x;
     missing_pdu_sequence_numbers_.push_back(x);
   }
 }

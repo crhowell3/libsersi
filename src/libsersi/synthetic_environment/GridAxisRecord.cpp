@@ -1,4 +1,4 @@
-#include "libsersi/synthetic_environment/GridAxisRecord.h"
+#include synthetic_environment/GridAxisRecord.h"
 
 namespace dis {
 GridAxisRecord::GridAxisRecord() : sample_type_(0), data_representation_(0) {}
@@ -17,14 +17,14 @@ void GridAxisRecord::SetDataRepresentation(uint16_t value) {
   data_representation_ = value;
 }
 
-void GridAxisRecord::Marshal(DataStream& data_stream) const {
-  data_stream << sample_type_;
-  data_stream << data_representation_;
+void GridAxisRecord::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << sample_type_;
+  byte_buffer << data_representation_;
 }
 
-void GridAxisRecord::Unmarshal(DataStream& data_stream) {
-  data_stream >> sample_type_;
-  data_stream >> data_representation_;
+void GridAxisRecord::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> sample_type_;
+  byte_buffer >> data_representation_;
 }
 
 bool GridAxisRecord::operator==(const GridAxisRecord& rhs) const {

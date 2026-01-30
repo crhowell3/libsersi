@@ -1,4 +1,4 @@
-#include "libsersi/common/Orientation.h"
+#include common/Orientation.h"
 
 namespace dis {
 Orientation::Orientation() : psi_(0.0), theta_(0.0), phi_(0.0) {}
@@ -15,16 +15,20 @@ float Orientation::GetPhi() const { return phi_; }
 
 void Orientation::SetPhi(float value) { phi_ = value; }
 
-void Orientation::Marshal(DataStream& data_stream) const {
-  data_stream << psi_;
-  data_stream << theta_;
-  data_stream << phi_;
+Result<void, std::string> Orientation::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << psi_;
+  byte_buffer << theta_;
+  byte_buffer << phi_;
+
+  return Result<void, std::string>::Ok();
 }
 
-void Orientation::Unmarshal(DataStream& data_stream) {
-  data_stream >> psi_;
-  data_stream >> theta_;
-  data_stream >> phi_;
+Result<void, std::string> Orientation::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> psi_;
+  byte_buffer >> theta_;
+  byte_buffer >> phi_;
+
+  return Result<void, std::string>::Ok();
 }
 
 bool Orientation::operator==(const Orientation& rhs) const {

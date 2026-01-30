@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "libsersi/utils/DataStream.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // discrete ostional relationsihip
@@ -19,8 +19,8 @@ class NamedLocation {
   NamedLocation();
   ~NamedLocation() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint16_t GetStationName() const;
   void SetStationName(uint16_t value);

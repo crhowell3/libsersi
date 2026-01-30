@@ -1,4 +1,4 @@
-#include "libsersi/entity_information/CollisionPdu.h"
+#include entity_information/CollisionPdu.h"
 
 namespace dis {
 CollisionPdu::CollisionPdu() : collision_type_(0), pad_(0), mass_(0.0) {
@@ -58,28 +58,28 @@ const Vector3Float& CollisionPdu::GetLocation() const { return location_; }
 
 void CollisionPdu::SetLocation(const Vector3Float& value) { location_ = value; }
 
-void CollisionPdu::Marshal(DataStream& data_stream) const {
-  EntityInformationFamilyPdu::Marshal(data_stream);
-  issuing_entity_id_.Marshal(data_stream);
-  colliding_entity_id_.Marshal(data_stream);
-  event_id_.Marshal(data_stream);
-  data_stream << collision_type_;
-  data_stream << pad_;
-  velocity_.Marshal(data_stream);
-  data_stream << mass_;
-  location_.Marshal(data_stream);
+void CollisionPdu::Marshal(ByteBuffer& byte_buffer) const {
+  EntityInformationFamilyPdu::Marshal(byte_buffer);
+  issuing_entity_id_.Marshal(byte_buffer);
+  colliding_entity_id_.Marshal(byte_buffer);
+  event_id_.Marshal(byte_buffer);
+  byte_buffer << collision_type_;
+  byte_buffer << pad_;
+  velocity_.Marshal(byte_buffer);
+  byte_buffer << mass_;
+  location_.Marshal(byte_buffer);
 }
 
-void CollisionPdu::Unmarshal(DataStream& data_stream) {
-  EntityInformationFamilyPdu::Unmarshal(data_stream);
-  issuing_entity_id_.Unmarshal(data_stream);
-  colliding_entity_id_.Unmarshal(data_stream);
-  event_id_.Unmarshal(data_stream);
-  data_stream >> collision_type_;
-  data_stream >> pad_;
-  velocity_.Unmarshal(data_stream);
-  data_stream >> mass_;
-  location_.Unmarshal(data_stream);
+void CollisionPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  EntityInformationFamilyPdu::Unmarshal(byte_buffer);
+  issuing_entity_id_.Unmarshal(byte_buffer);
+  colliding_entity_id_.Unmarshal(byte_buffer);
+  event_id_.Unmarshal(byte_buffer);
+  byte_buffer >> collision_type_;
+  byte_buffer >> pad_;
+  velocity_.Unmarshal(byte_buffer);
+  byte_buffer >> mass_;
+  location_.Unmarshal(byte_buffer);
 }
 
 bool CollisionPdu::operator==(const CollisionPdu& rhs) const {

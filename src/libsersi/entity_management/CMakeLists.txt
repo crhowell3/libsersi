@@ -24,7 +24,7 @@ set(entity_management_hdr
   TransferControlRequestPdu.h
 )
 
-target_sources(sersi PRIVATE ${entity_management_src})
+target_sources(${PROJECT_NAME} PRIVATE ${entity_management_src})
 
 install(FILES ${entity_management_hdr}
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libsersi/entity_management

@@ -1,4 +1,4 @@
-#include "libsersi/simulation_management_reliable/SetRecordReliablePdu.h"
+#include simulation_management_reliable/SetRecordReliablePdu.h"
 
 namespace dis {
 SetRecordReliablePdu::SetRecordReliablePdu()
@@ -48,31 +48,31 @@ void SetRecordReliablePdu::SetRecordSets(const std::vector<RecordSet>& value) {
   record_sets_ = value;
 }
 
-void SetRecordReliablePdu::Marshal(DataStream& data_stream) const {
-  SimulationManagementWithReliabilityFamilyPdu::Marshal(data_stream);
-  data_stream << request_id_;
-  data_stream << required_reliability_service_;
-  data_stream << pad1_;
-  data_stream << pad2_;
-  data_stream << static_cast<uint32_t>(record_sets_.size());
+void SetRecordReliablePdu::Marshal(ByteBuffer& byte_buffer) const {
+  SimulationManagementWithReliabilityFamilyPdu::Marshal(byte_buffer);
+  byte_buffer << request_id_;
+  byte_buffer << required_reliability_service_;
+  byte_buffer << pad1_;
+  byte_buffer << pad2_;
+  byte_buffer << static_cast<uint32_t>(record_sets_.size());
 
   for (auto x : record_sets_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void SetRecordReliablePdu::Unmarshal(DataStream& data_stream) {
-  SimulationManagementWithReliabilityFamilyPdu::Unmarshal(data_stream);
-  data_stream >> request_id_;
-  data_stream >> required_reliability_service_;
-  data_stream >> pad1_;
-  data_stream >> pad2_;
-  data_stream >> number_of_record_sets_;
+void SetRecordReliablePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  SimulationManagementWithReliabilityFamilyPdu::Unmarshal(byte_buffer);
+  byte_buffer >> request_id_;
+  byte_buffer >> required_reliability_service_;
+  byte_buffer >> pad1_;
+  byte_buffer >> pad2_;
+  byte_buffer >> number_of_record_sets_;
 
   record_sets_.clear();
   for (std::size_t idx = 0; idx < number_of_record_sets_; idx++) {
     RecordSet x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     record_sets_.push_back(x);
   }
 }

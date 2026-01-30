@@ -1,4 +1,4 @@
-#include "libsersi/entity_information/CollisionElasticPdu.h"
+#include entity_information/CollisionElasticPdu.h"
 
 namespace dis {
 CollisionElasticPdu::CollisionElasticPdu()
@@ -151,42 +151,42 @@ void CollisionElasticPdu::SetCoefficientOfRestitution(float value) {
   coefficient_of_restitution_ = value;
 }
 
-void CollisionElasticPdu::Marshal(DataStream& data_stream) const {
-  EntityInformationFamilyPdu::Marshal(data_stream);
-  issuing_entity_id_.Marshal(data_stream);
-  colliding_entity_id_.Marshal(data_stream);
-  collision_event_id_.Marshal(data_stream);
-  data_stream << pad_;
-  contact_velocity_.Marshal(data_stream);
-  data_stream << mass_;
-  location_.Marshal(data_stream);
-  data_stream << collision_result_xx_;
-  data_stream << collision_result_xy_;
-  data_stream << collision_result_xz_;
-  data_stream << collision_result_yy_;
-  data_stream << collision_result_yz_;
-  data_stream << collision_result_zz_;
-  unit_surface_normal_.Marshal(data_stream);
-  data_stream << coefficient_of_restitution_;
+void CollisionElasticPdu::Marshal(ByteBuffer& byte_buffer) const {
+  EntityInformationFamilyPdu::Marshal(byte_buffer);
+  issuing_entity_id_.Marshal(byte_buffer);
+  colliding_entity_id_.Marshal(byte_buffer);
+  collision_event_id_.Marshal(byte_buffer);
+  byte_buffer << pad_;
+  contact_velocity_.Marshal(byte_buffer);
+  byte_buffer << mass_;
+  location_.Marshal(byte_buffer);
+  byte_buffer << collision_result_xx_;
+  byte_buffer << collision_result_xy_;
+  byte_buffer << collision_result_xz_;
+  byte_buffer << collision_result_yy_;
+  byte_buffer << collision_result_yz_;
+  byte_buffer << collision_result_zz_;
+  unit_surface_normal_.Marshal(byte_buffer);
+  byte_buffer << coefficient_of_restitution_;
 }
 
-void CollisionElasticPdu::Unmarshal(DataStream& data_stream) {
-  EntityInformationFamilyPdu::Unmarshal(data_stream);
-  issuing_entity_id_.Unmarshal(data_stream);
-  colliding_entity_id_.Unmarshal(data_stream);
-  collision_event_id_.Unmarshal(data_stream);
-  data_stream >> pad_;
-  contact_velocity_.Unmarshal(data_stream);
-  data_stream >> mass_;
-  location_.Unmarshal(data_stream);
-  data_stream >> collision_result_xx_;
-  data_stream >> collision_result_xy_;
-  data_stream >> collision_result_xz_;
-  data_stream >> collision_result_yy_;
-  data_stream >> collision_result_yz_;
-  data_stream >> collision_result_zz_;
-  unit_surface_normal_.Unmarshal(data_stream);
-  data_stream >> coefficient_of_restitution_;
+void CollisionElasticPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  EntityInformationFamilyPdu::Unmarshal(byte_buffer);
+  issuing_entity_id_.Unmarshal(byte_buffer);
+  colliding_entity_id_.Unmarshal(byte_buffer);
+  collision_event_id_.Unmarshal(byte_buffer);
+  byte_buffer >> pad_;
+  contact_velocity_.Unmarshal(byte_buffer);
+  byte_buffer >> mass_;
+  location_.Unmarshal(byte_buffer);
+  byte_buffer >> collision_result_xx_;
+  byte_buffer >> collision_result_xy_;
+  byte_buffer >> collision_result_xz_;
+  byte_buffer >> collision_result_yy_;
+  byte_buffer >> collision_result_yz_;
+  byte_buffer >> collision_result_zz_;
+  unit_surface_normal_.Unmarshal(byte_buffer);
+  byte_buffer >> coefficient_of_restitution_;
 }
 
 bool CollisionElasticPdu::operator==(const CollisionElasticPdu& rhs) const {

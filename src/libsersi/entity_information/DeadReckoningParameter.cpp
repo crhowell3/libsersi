@@ -1,4 +1,4 @@
-#include "libsersi/entity_information/DeadReckoningParameter.h"
+#include entity_information/DeadReckoningParameter.h"
 
 namespace dis {
 DeadReckoningParameter::DeadReckoningParameter()
@@ -59,26 +59,26 @@ void DeadReckoningParameter::SetEntityAngularVelocity(
   entity_angular_velocity_ = value;
 }
 
-void DeadReckoningParameter::Marshal(DataStream& data_stream) const {
-  data_stream << dead_reckoning_algorithm_;
+void DeadReckoningParameter::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << dead_reckoning_algorithm_;
 
   for (std::size_t idx = 0; idx < kArraySize; idx++) {
-    data_stream << other_parameters_[idx];
+    byte_buffer << other_parameters_[idx];
   }
 
-  entity_linear_acceleration_.Marshal(data_stream);
-  entity_angular_velocity_.Marshal(data_stream);
+  entity_linear_acceleration_.Marshal(byte_buffer);
+  entity_angular_velocity_.Marshal(byte_buffer);
 }
 
-void DeadReckoningParameter::Unmarshal(DataStream& data_stream) {
-  data_stream >> dead_reckoning_algorithm_;
+void DeadReckoningParameter::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> dead_reckoning_algorithm_;
 
   for (std::size_t idx = 0; idx < kArraySize; idx++) {
-    data_stream >> other_parameters_[idx];
+    byte_buffer >> other_parameters_[idx];
   }
 
-  entity_linear_acceleration_.Unmarshal(data_stream);
-  entity_angular_velocity_.Unmarshal(data_stream);
+  entity_linear_acceleration_.Unmarshal(byte_buffer);
+  entity_angular_velocity_.Unmarshal(byte_buffer);
 }
 
 bool DeadReckoningParameter::operator==(

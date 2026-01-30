@@ -2,9 +2,9 @@
 
 #include <cstddef>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/radio_communications/RadioCommunicationsFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include common/EntityID.h"
+#include radio_communications/RadioCommunicationsFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.8.3. Communication of a receiver state. COMPLETE
@@ -30,8 +30,8 @@ class ReceiverPdu final : public RadioCommunicationsFamilyPdu {
   ReceiverPdu();
   ~ReceiverPdu() final = default;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   [[nodiscard]] uint16_t GetReceiverState() const;
   void SetReceiverState(uint16_t value);

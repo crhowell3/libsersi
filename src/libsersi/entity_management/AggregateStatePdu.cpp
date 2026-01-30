@@ -1,4 +1,4 @@
-#include "libsersi/entity_management/AggregateStatePdu.h"
+#include entity_management/AggregateStatePdu.h"
 
 namespace dis {
 AggregateStatePdu::AggregateStatePdu()
@@ -199,99 +199,99 @@ void AggregateStatePdu::SetVariableDatumList(
   variable_datum_list_ = value;
 }
 
-void AggregateStatePdu::Marshal(DataStream& data_stream) const {
-  EntityManagementFamilyPdu::Marshal(data_stream);
-  aggregate_id_.Marshal(data_stream);
-  data_stream << force_id_;
-  data_stream << aggregate_state_;
-  aggregate_type_.Marshal(data_stream);
-  data_stream << formation_;
-  aggregate_marking_.Marshal(data_stream);
-  dimensions_.Marshal(data_stream);
-  orientation_.Marshal(data_stream);
-  center_of_mass_.Marshal(data_stream);
-  velocity_.Marshal(data_stream);
-  data_stream << static_cast<uint16_t>(aggregate_id_list_.size());
-  data_stream << static_cast<uint16_t>(entity_id_list_.size());
-  data_stream << static_cast<uint16_t>(silent_aggregate_system_list_.size());
-  data_stream << static_cast<uint16_t>(silent_entity_system_list_.size());
+void AggregateStatePdu::Marshal(ByteBuffer& byte_buffer) const {
+  EntityManagementFamilyPdu::Marshal(byte_buffer);
+  aggregate_id_.Marshal(byte_buffer);
+  byte_buffer << force_id_;
+  byte_buffer << aggregate_state_;
+  aggregate_type_.Marshal(byte_buffer);
+  byte_buffer << formation_;
+  aggregate_marking_.Marshal(byte_buffer);
+  dimensions_.Marshal(byte_buffer);
+  orientation_.Marshal(byte_buffer);
+  center_of_mass_.Marshal(byte_buffer);
+  velocity_.Marshal(byte_buffer);
+  byte_buffer << static_cast<uint16_t>(aggregate_id_list_.size());
+  byte_buffer << static_cast<uint16_t>(entity_id_list_.size());
+  byte_buffer << static_cast<uint16_t>(silent_aggregate_system_list_.size());
+  byte_buffer << static_cast<uint16_t>(silent_entity_system_list_.size());
 
   for (auto x : aggregate_id_list_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 
   for (const auto& x : entity_id_list_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 
-  data_stream << pad2_;
+  byte_buffer << pad2_;
 
   for (const auto& x : silent_aggregate_system_list_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 
   for (const auto& x : silent_entity_system_list_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 
-  data_stream << static_cast<uint32_t>(variable_datum_list_.size());
+  byte_buffer << static_cast<uint32_t>(variable_datum_list_.size());
 
   for (const auto& x : variable_datum_list_) {
-    x.Marshal(data_stream);
+    x.Marshal(byte_buffer);
   }
 }
 
-void AggregateStatePdu::Unmarshal(DataStream& data_stream) {
-  EntityManagementFamilyPdu::Unmarshal(data_stream);
-  aggregate_id_.Unmarshal(data_stream);
-  data_stream >> force_id_;
-  data_stream >> aggregate_state_;
-  aggregate_type_.Unmarshal(data_stream);
-  data_stream >> formation_;
-  aggregate_marking_.Unmarshal(data_stream);
-  dimensions_.Unmarshal(data_stream);
-  orientation_.Unmarshal(data_stream);
-  center_of_mass_.Unmarshal(data_stream);
-  velocity_.Unmarshal(data_stream);
-  data_stream >> number_of_dis_aggregates_;
-  data_stream >> number_of_dis_entities_;
-  data_stream >> number_of_silent_aggregate_types_;
-  data_stream >> number_of_silent_entity_types_;
+void AggregateStatePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  EntityManagementFamilyPdu::Unmarshal(byte_buffer);
+  aggregate_id_.Unmarshal(byte_buffer);
+  byte_buffer >> force_id_;
+  byte_buffer >> aggregate_state_;
+  aggregate_type_.Unmarshal(byte_buffer);
+  byte_buffer >> formation_;
+  aggregate_marking_.Unmarshal(byte_buffer);
+  dimensions_.Unmarshal(byte_buffer);
+  orientation_.Unmarshal(byte_buffer);
+  center_of_mass_.Unmarshal(byte_buffer);
+  velocity_.Unmarshal(byte_buffer);
+  byte_buffer >> number_of_dis_aggregates_;
+  byte_buffer >> number_of_dis_entities_;
+  byte_buffer >> number_of_silent_aggregate_types_;
+  byte_buffer >> number_of_silent_entity_types_;
 
   aggregate_id_list_.clear();
   for (std::size_t idx = 0; idx < number_of_dis_aggregates_; idx++) {
     AggregateID x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     aggregate_id_list_.push_back(x);
   }
 
   entity_id_list_.clear();
   for (std::size_t idx = 0; idx < number_of_dis_entities_; idx++) {
     EntityID x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     entity_id_list_.push_back(x);
   }
-  data_stream >> pad2_;
+  byte_buffer >> pad2_;
 
   silent_aggregate_system_list_.clear();
   for (std::size_t idx = 0; idx < number_of_silent_aggregate_types_; idx++) {
     EntityType x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     silent_aggregate_system_list_.push_back(x);
   }
 
   silent_entity_system_list_.clear();
   for (std::size_t idx = 0; idx < number_of_silent_entity_types_; idx++) {
     EntityType x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     silent_entity_system_list_.push_back(x);
   }
-  data_stream >> number_of_variable_datum_records_;
+  byte_buffer >> number_of_variable_datum_records_;
 
   variable_datum_list_.clear();
   for (std::size_t idx = 0; idx < number_of_variable_datum_records_; idx++) {
     VariableDatum x;
-    x.Unmarshal(data_stream);
+    x.Unmarshal(byte_buffer);
     variable_datum_list_.push_back(x);
   }
 }

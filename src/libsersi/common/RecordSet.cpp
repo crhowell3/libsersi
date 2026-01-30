@@ -1,25 +1,16 @@
-#include "libsersi/common/RecordSet.h"
+#include "common/RecordSet.hpp"
 
 namespace dis {
 RecordSet::RecordSet()
-    : record_id_(0),
-      record_set_serial_number_(0),
-      record_length_(0),
-      record_count_(0),
-      record_values_(0),
-      pad4_(0) {}
+    : record_id_(0), record_set_serial_number_(0), record_length_(0), record_count_(0), record_values_(0), pad4_(0) {}
 
 uint32_t RecordSet::GetRecordId() const { return record_id_; }
 
 void RecordSet::SetRecordId(uint32_t value) { record_id_ = value; }
 
-uint32_t RecordSet::GetRecordSetSerialNumber() const {
-  return record_set_serial_number_;
-}
+uint32_t RecordSet::GetRecordSetSerialNumber() const { return record_set_serial_number_; }
 
-void RecordSet::SetRecordSetSerialNumber(uint32_t value) {
-  record_set_serial_number_ = value;
-}
+void RecordSet::SetRecordSetSerialNumber(uint32_t value) { record_set_serial_number_ = value; }
 
 uint16_t RecordSet::GetRecordLength() const { return record_length_; }
 
@@ -37,22 +28,26 @@ uint8_t RecordSet::GetPad4() const { return pad4_; }
 
 void RecordSet::SetPad4(uint8_t value) { pad4_ = value; }
 
-void RecordSet::Marshal(DataStream& data_stream) const {
-  data_stream << record_id_;
-  data_stream << record_set_serial_number_;
-  data_stream << record_length_;
-  data_stream << record_count_;
-  data_stream << record_values_;
-  data_stream << pad4_;
+Result<void, std::string> RecordSet::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << record_id_;
+  byte_buffer << record_set_serial_number_;
+  byte_buffer << record_length_;
+  byte_buffer << record_count_;
+  byte_buffer << record_values_;
+  byte_buffer << pad4_;
+
+  return Result<void, std::string>::Ok();
 }
 
-void RecordSet::Unmarshal(DataStream& data_stream) {
-  data_stream >> record_id_;
-  data_stream >> record_set_serial_number_;
-  data_stream >> record_length_;
-  data_stream >> record_count_;
-  data_stream >> record_values_;
-  data_stream >> pad4_;
+Result<void, std::string> RecordSet::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> record_id_;
+  byte_buffer >> record_set_serial_number_;
+  byte_buffer >> record_length_;
+  byte_buffer >> record_count_;
+  byte_buffer >> record_values_;
+  byte_buffer >> pad4_;
+
+  return Result<void, std::string>::Ok();
 }
 
 bool RecordSet::operator==(const RecordSet& rhs) const {
@@ -81,10 +76,8 @@ bool RecordSet::operator==(const RecordSet& rhs) const {
 }
 
 std::size_t RecordSet::GetMarshalledSize() const {
-  std::size_t marshal_size = sizeof(record_id_) +
-                             sizeof(record_set_serial_number_) +
-                             sizeof(record_length_) + sizeof(record_count_) +
-                             sizeof(record_values_) + sizeof(pad4_);
+  std::size_t marshal_size = sizeof(record_id_) + sizeof(record_set_serial_number_) + sizeof(record_length_) +
+                             sizeof(record_count_) + sizeof(record_values_) + sizeof(pad4_);
 
   return marshal_size;
 }

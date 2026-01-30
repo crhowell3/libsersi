@@ -1,12 +1,25 @@
+add_library(${PROJECT_NAME} "")
+
+target_include_directories(${PROJECT_NAME}
+    PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+      $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
+      $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src>
+      $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/src>
+      $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+)
+
 add_subdirectory(common)
 add_subdirectory(utils)
-add_subdirectory(distributed_emissions)
-add_subdirectory(entity_information)
-add_subdirectory(entity_management)
-add_subdirectory(logistics)
-add_subdirectory(minefield)
-add_subdirectory(radio_communications)
-add_subdirectory(simulation_management)
-add_subdirectory(simulation_management_reliable)
-add_subdirectory(synthetic_environment)
-add_subdirectory(warfare)
+
+# Create list of all source files
+set(protocol_srcs
+  Warfare.cpp
+)
+
+target_sources(${PROJECT_NAME} PRIVATE ${protocol_srcs})
+
+set_target_properties(${PROJECT_NAME}
+    PROPERTIES
+    VERSION ${PROJECT_VERSION}
+    SOVERSION ${PROJECT_VERSION_MAJOR}
+)

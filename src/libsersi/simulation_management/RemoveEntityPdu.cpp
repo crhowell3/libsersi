@@ -1,4 +1,4 @@
-#include "libsersi/simulation_management/RemoveEntityPdu.h"
+#include simulation_management/RemoveEntityPdu.h"
 
 namespace dis {
 RemoveEntityPdu::RemoveEntityPdu() : request_id_(0) { SetPduType(12); }
@@ -7,14 +7,14 @@ uint32_t RemoveEntityPdu::GetRequestId() const { return request_id_; }
 
 void RemoveEntityPdu::SetRequestId(uint32_t value) { request_id_ = value; }
 
-void RemoveEntityPdu::Marshal(DataStream& data_stream) const {
-  SimulationManagementFamilyPdu::Marshal(data_stream);
-  data_stream << request_id_;
+void RemoveEntityPdu::Marshal(ByteBuffer& byte_buffer) const {
+  SimulationManagementFamilyPdu::Marshal(byte_buffer);
+  byte_buffer << request_id_;
 }
 
-void RemoveEntityPdu::Unmarshal(DataStream& data_stream) {
-  SimulationManagementFamilyPdu::Unmarshal(data_stream);
-  data_stream >> request_id_;
+void RemoveEntityPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  SimulationManagementFamilyPdu::Unmarshal(byte_buffer);
+  byte_buffer >> request_id_;
 }
 
 bool RemoveEntityPdu::operator==(const RemoveEntityPdu& rhs) const {

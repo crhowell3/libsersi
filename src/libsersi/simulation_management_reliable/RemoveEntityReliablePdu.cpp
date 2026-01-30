@@ -1,4 +1,4 @@
-#include "libsersi/simulation_management_reliable/RemoveEntityReliablePdu.h"
+#include simulation_management_reliable/RemoveEntityReliablePdu.h"
 
 namespace dis {
 RemoveEntityReliablePdu::RemoveEntityReliablePdu()
@@ -28,20 +28,20 @@ void RemoveEntityReliablePdu::SetRequestId(uint32_t value) {
   request_id_ = value;
 }
 
-void RemoveEntityReliablePdu::Marshal(DataStream& data_stream) const {
-  SimulationManagementWithReliabilityFamilyPdu::Marshal(data_stream);
-  data_stream << required_reliability_service_;
-  data_stream << pad1_;
-  data_stream << pad2_;
-  data_stream << request_id_;
+void RemoveEntityReliablePdu::Marshal(ByteBuffer& byte_buffer) const {
+  SimulationManagementWithReliabilityFamilyPdu::Marshal(byte_buffer);
+  byte_buffer << required_reliability_service_;
+  byte_buffer << pad1_;
+  byte_buffer << pad2_;
+  byte_buffer << request_id_;
 }
 
-void RemoveEntityReliablePdu::Unmarshal(DataStream& data_stream) {
-  SimulationManagementWithReliabilityFamilyPdu::Unmarshal(data_stream);
-  data_stream >> required_reliability_service_;
-  data_stream >> pad1_;
-  data_stream >> pad2_;
-  data_stream >> request_id_;
+void RemoveEntityReliablePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  SimulationManagementWithReliabilityFamilyPdu::Unmarshal(byte_buffer);
+  byte_buffer >> required_reliability_service_;
+  byte_buffer >> pad1_;
+  byte_buffer >> pad2_;
+  byte_buffer >> request_id_;
 }
 
 bool RemoveEntityReliablePdu::operator==(

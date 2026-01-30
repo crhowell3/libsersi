@@ -3,11 +3,11 @@
 #include <cstddef>
 #include <vector>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/distributed_emissions/DistributedEmissionsFamilyPdu.h"
-#include "libsersi/distributed_emissions/PropulsionSystemData.h"
-#include "libsersi/distributed_emissions/VectoringNozzleSystemData.h"
-#include "libsersi/utils/DataStream.h"
+#include common/EntityID.h"
+#include distributed_emissions/DistributedEmissionsFamilyPdu.h"
+#include distributed_emissions/PropulsionSystemData.h"
+#include distributed_emissions/VectoringNozzleSystemData.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.7.5. SEES PDU, supplemental emissions entity state information.
@@ -43,8 +43,8 @@ class SeesPdu final : public DistributedEmissionsFamilyPdu {
   SeesPdu();
   ~SeesPdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetOriginatingEntityId();
   [[nodiscard]] const EntityID& GetOriginatingEntityId() const;

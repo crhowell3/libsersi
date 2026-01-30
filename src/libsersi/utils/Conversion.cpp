@@ -1,6 +1,6 @@
-#include "libsersi/utils/Conversion.h"
+#include utils/Conversion.h"
 
-#include "libsersi/utils/Masks.h"
+#include utils/Masks.h"
 
 namespace dis {
 

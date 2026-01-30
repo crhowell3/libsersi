@@ -1,4 +1,4 @@
-#include "libsersi/common/EntityID.h"
+#include common/EntityID.h"
 
 namespace dis {
 EntityID::EntityID() : site_(0), application_(0), entity_(0) {}
@@ -17,16 +17,20 @@ uint16_t EntityID::GetEntity() const { return entity_; }
 
 void EntityID::SetEntity(uint16_t value) { entity_ = value; }
 
-void EntityID::Marshal(DataStream& data_stream) const {
-  data_stream << site_;
-  data_stream << application_;
-  data_stream << entity_;
+Result<void, std::string> EntityID::Marshal(ByteBuffer& byte_buffer) const {
+  byte_buffer << site_;
+  byte_buffer << application_;
+  byte_buffer << entity_;
+
+  return Result<void, std::string>::Ok();
 }
 
-void EntityID::Unmarshal(DataStream& data_stream) {
-  data_stream >> site_;
-  data_stream >> application_;
-  data_stream >> entity_;
+Result<void, std::string> EntityID::Unmarshal(ByteBuffer& byte_buffer) {
+  byte_buffer >> site_;
+  byte_buffer >> application_;
+  byte_buffer >> entity_;
+
+  return Result<void, std::string>::Ok();
 }
 
 bool EntityID::operator==(const EntityID& rhs) const {
@@ -55,4 +59,3 @@ int EntityID::GetMarshalledSize() const {
 }
 
 }  // namespace dis
-

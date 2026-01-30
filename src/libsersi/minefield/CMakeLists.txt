@@ -16,7 +16,7 @@ set(minefield_hdr
   Point.h
 )
 
-target_sources(sersi PRIVATE ${minefield_src})
+target_sources(${PROJECT_NAME} PRIVATE ${minefield_src})
 
 install(FILES ${minefield_hdr}
   DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libsersi/minefield

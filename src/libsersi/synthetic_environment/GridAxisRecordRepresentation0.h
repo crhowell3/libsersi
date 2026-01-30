@@ -3,8 +3,8 @@
 #include <cstdint>
 #include <vector>
 
-#include "libsersi/synthetic_environment/GridAxisRecord.h"
-#include "libsersi/utils/DataStream.h"
+#include synthetic_environment/GridAxisRecord.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // 5.2.44: Grid data record, representation 0
@@ -22,8 +22,8 @@ class GridAxisRecordRepresentation0 : public GridAxisRecord {
   GridAxisRecordRepresentation0();
   ~GridAxisRecordRepresentation0() override;
 
-  void Marshal(dis::DataStream& data_stream) const override;
-  void Unmarshal(dis::DataStream& data_stream) override;
+  Result<void, std::string> Marshal(dis::ByteBuffer& byte_buffer) const override;
+  Result<void, std::string> Unmarshal(dis::ByteBuffer& byte_buffer) override;
 
   [[nodiscard]] uint16_t GetNumberOfBytes() const;
 

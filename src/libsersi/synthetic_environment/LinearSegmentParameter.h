@@ -1,8 +1,8 @@
 #pragma once
 
-#include "libsersi/common/Orientation.h"
-#include "libsersi/common/Vector3Double.h"
-#include "libsersi/utils/DataStream.h"
+#include common/Orientation.h"
+#include common/Vector3Double.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // 5.2.48: Linear segment parameters
@@ -43,8 +43,8 @@ class LinearSegmentParameter {
   LinearSegmentParameter();
   ~LinearSegmentParameter() = default;
 
-  void Marshal(DataStream& data_stream) const;
-  void Unmarshal(DataStream& data_stream);
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer);
 
   [[nodiscard]] uint8_t GetSegmentNumber() const;
   void SetSegmentNumber(uint8_t value);

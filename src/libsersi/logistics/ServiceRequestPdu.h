@@ -3,10 +3,10 @@
 #include <cstddef>
 #include <vector>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/logistics/LogisticsFamilyPdu.h"
-#include "libsersi/logistics/SupplyQuantity.h"
-#include "libsersi/utils/DataStream.h"
+#include common/EntityID.h"
+#include logistics/LogisticsFamilyPdu.h"
+#include logistics/SupplyQuantity.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.5.1. Information about a request for supplies. COMPLETE
@@ -34,8 +34,8 @@ class ServiceRequestPdu final : public LogisticsFamilyPdu {
   ServiceRequestPdu();
   ~ServiceRequestPdu() final;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   EntityID& GetRequestingEntityId();
   [[nodiscard]] const EntityID& GetRequestingEntityId() const;

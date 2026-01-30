@@ -1,4 +1,4 @@
-#include "libsersi/simulation_management/CreateEntityPdu.h"
+#include simulation_management/CreateEntityPdu.h"
 
 #include <cstddef>
 
@@ -9,14 +9,14 @@ uint32_t CreateEntityPdu::GetRequestId() const { return request_id_; }
 
 void CreateEntityPdu::SetRequestId(uint32_t value) { request_id_ = value; }
 
-void CreateEntityPdu::Marshal(DataStream& data_stream) const {
-  SimulationManagementFamilyPdu::Marshal(data_stream);
-  data_stream << request_id_;
+void CreateEntityPdu::Marshal(ByteBuffer& byte_buffer) const {
+  SimulationManagementFamilyPdu::Marshal(byte_buffer);
+  byte_buffer << request_id_;
 }
 
-void CreateEntityPdu::Unmarshal(DataStream& data_stream) {
-  SimulationManagementFamilyPdu::Unmarshal(data_stream);
-  data_stream >> request_id_;
+void CreateEntityPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  SimulationManagementFamilyPdu::Unmarshal(byte_buffer);
+  byte_buffer >> request_id_;
 }
 
 bool CreateEntityPdu::operator==(const CreateEntityPdu& rhs) const {

@@ -1,16 +1,13 @@
-#include "libsersi/entity_information/EntityInformationFamilyPdu.h"
+#include entity_information/EntityInformationFamilyPdu.h"
 
 namespace dis {
-EntityInformationFamilyPdu::EntityInformationFamilyPdu() {
-  SetProtocolFamily(1);
+
+void EntityInformationFamilyPdu::Marshal(ByteBuffer& byte_buffer) const {
+  Pdu::Marshal(byte_buffer);  // Marshal information in superclass first
 }
 
-void EntityInformationFamilyPdu::Marshal(DataStream& data_stream) const {
-  Pdu::Marshal(data_stream);  // Marshal information in superclass first
-}
-
-void EntityInformationFamilyPdu::Unmarshal(DataStream& data_stream) {
-  Pdu::Unmarshal(data_stream);  // unmarshal information in superclass first
+void EntityInformationFamilyPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  Pdu::Unmarshal(byte_buffer);  // unmarshal information in superclass first
 }
 
 bool EntityInformationFamilyPdu::operator==(

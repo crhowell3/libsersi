@@ -1,10 +1,6 @@
-#include "libsersi/radio_communications/RadioCommunicationsFamilyPdu.h"
+#include radio_communications/RadioCommunicationsFamilyPdu.h"
 
 namespace dis {
-RadioCommunicationsFamilyPdu::RadioCommunicationsFamilyPdu() : radio_id_(0) {
-  SetProtocolFamily(4);
-}
-
 EntityID& RadioCommunicationsFamilyPdu::GetEntityId() { return entity_id_; }
 
 const EntityID& RadioCommunicationsFamilyPdu::GetEntityId() const {
@@ -21,16 +17,16 @@ void RadioCommunicationsFamilyPdu::SetRadioId(uint16_t value) {
   radio_id_ = value;
 }
 
-void RadioCommunicationsFamilyPdu::Marshal(DataStream& data_stream) const {
-  Pdu::Marshal(data_stream);
-  entity_id_.Marshal(data_stream);
-  data_stream << radio_id_;
+void RadioCommunicationsFamilyPdu::Marshal(ByteBuffer& byte_buffer) const {
+  Pdu::Marshal(byte_buffer);
+  entity_id_.Marshal(byte_buffer);
+  byte_buffer << radio_id_;
 }
 
-void RadioCommunicationsFamilyPdu::Unmarshal(DataStream& data_stream) {
-  Pdu::Unmarshal(data_stream);
-  entity_id_.Unmarshal(data_stream);
-  data_stream >> radio_id_;
+void RadioCommunicationsFamilyPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  Pdu::Unmarshal(byte_buffer);
+  entity_id_.Unmarshal(byte_buffer);
+  byte_buffer >> radio_id_;
 }
 
 bool RadioCommunicationsFamilyPdu::operator==(

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "libsersi/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
-#include "libsersi/utils/DataStream.h"
+#include simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.12.1: creation of an entity , reliable. COMPLETE
@@ -25,8 +25,8 @@ class CreateEntityReliablePdu final
   CreateEntityReliablePdu();
   ~CreateEntityReliablePdu() final = default;
 
-  void Marshal(DataStream& data_stream) const final;
-  void Unmarshal(DataStream& data_stream) final;
+  Result<void, std::string> Marshal(ByteBuffer& byte_buffer) const final;
+  Result<void, std::string> Unmarshal(ByteBuffer& byte_buffer) final;
 
   [[nodiscard]] uint8_t GetRequiredReliabilityService() const;
   void SetRequiredReliabilityService(uint8_t value);
