@@ -1,4 +1,4 @@
-#include "libsersi/radio_communications/ReceiverPdu.h"
+#include radio_communications/ReceiverPdu.h"
 
 namespace dis {
 ReceiverPdu::ReceiverPdu()

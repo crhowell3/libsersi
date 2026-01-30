@@ -1,4 +1,4 @@
-#include "libsersi/logistics/LogisticsFamilyPdu.h"
+#include logistics/LogisticsFamilyPdu.h"
 
 namespace dis {
 void LogisticsFamilyPdu::Marshal(ByteBuffer& byte_buffer) const {

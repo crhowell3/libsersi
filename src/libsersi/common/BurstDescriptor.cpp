@@ -1,4 +1,4 @@
-#include "libsersi/common/BurstDescriptor.h"
+#include "common/BurstDescriptor.h"
 
 namespace dis {
 BurstDescriptor::BurstDescriptor() : warhead_(0), fuse_(0), quantity_(0), rate_(0) {}

@@ -1,4 +1,4 @@
-#include "libsersi/synthetic_environment/PointObjectStatePdu.h"
+#include synthetic_environment/PointObjectStatePdu.h"
 
 namespace dis {
 PointObjectStatePdu::PointObjectStatePdu()

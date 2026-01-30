@@ -2,7 +2,7 @@
 
 #include <cstddef>
 
-#include "libsersi/utils/ByteBuffer.hpp"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // 5.2.46.  Intercom communcations parameters

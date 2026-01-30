@@ -2,12 +2,12 @@
 
 #include <vector>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/SimulationAddress.h"
-#include "libsersi/synthetic_environment/LinearSegmentParameter.h"
-#include "libsersi/synthetic_environment/ObjectType.h"
-#include "libsersi/synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/EntityID.h"
+#include common/SimulationAddress.h"
+#include synthetic_environment/LinearSegmentParameter.h"
+#include synthetic_environment/ObjectType.h"
+#include synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.11.4: Information abut the addition or modification of a

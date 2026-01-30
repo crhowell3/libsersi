@@ -1,4 +1,4 @@
-#include "libsersi/entity_management/AggregateMarking.h"
+#include entity_management/AggregateMarking.h"
 
 namespace dis {
 AggregateMarking::AggregateMarking() : character_set_(0) {

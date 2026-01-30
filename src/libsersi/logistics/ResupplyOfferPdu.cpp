@@ -1,4 +1,4 @@
-#include "libsersi/logistics/ResupplyOfferPdu.h"
+#include logistics/ResupplyOfferPdu.h"
 
 namespace dis {
 ResupplyOfferPdu::ResupplyOfferPdu()

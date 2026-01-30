@@ -1,8 +1,8 @@
 #pragma once
 
-#include "libsersi/common/Orientation.h"
-#include "libsersi/common/Vector3Double.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/Orientation.h"
+#include common/Vector3Double.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // 5.2.48: Linear segment parameters

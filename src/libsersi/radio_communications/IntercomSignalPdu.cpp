@@ -1,4 +1,4 @@
-#include "libsersi/radio_communications/IntercomSignalPdu.h"
+#include radio_communications/IntercomSignalPdu.h"
 
 namespace dis {
 IntercomSignalPdu::IntercomSignalPdu()

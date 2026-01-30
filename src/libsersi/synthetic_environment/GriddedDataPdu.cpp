@@ -1,4 +1,4 @@
-#include "libsersi/synthetic_environment/GriddedDataPdu.h"
+#include synthetic_environment/GriddedDataPdu.h"
 
 namespace dis {
 GriddedDataPdu::GriddedDataPdu()

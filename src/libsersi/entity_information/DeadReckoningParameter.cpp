@@ -1,4 +1,4 @@
-#include "libsersi/entity_information/DeadReckoningParameter.h"
+#include entity_information/DeadReckoningParameter.h"
 
 namespace dis {
 DeadReckoningParameter::DeadReckoningParameter()

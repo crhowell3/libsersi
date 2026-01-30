@@ -1,4 +1,4 @@
-#include "libsersi/synthetic_environment/GridAxisRecordRepresentation2.h"
+#include synthetic_environment/GridAxisRecordRepresentation2.h"
 
 namespace dis {
 GridAxisRecordRepresentation2::GridAxisRecordRepresentation2()

@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-#include "libsersi/utils/ByteBuffer.hpp"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Identifies type of object. This is a int16_ter version of EntityType that

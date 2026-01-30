@@ -1,4 +1,4 @@
-#include "libsersi/entity_management/AggregateStatePdu.h"
+#include entity_management/AggregateStatePdu.h"
 
 namespace dis {
 AggregateStatePdu::AggregateStatePdu()

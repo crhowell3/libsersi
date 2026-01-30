@@ -1,4 +1,4 @@
-#include "libsersi/minefield/MinefieldStatePdu.h"
+#include minefield/MinefieldStatePdu.h"
 
 namespace dis {
 MinefieldStatePdu::MinefieldStatePdu()

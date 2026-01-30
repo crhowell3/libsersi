@@ -1,4 +1,4 @@
-#include "libsersi/simulation_management_reliable/RemoveEntityReliablePdu.h"
+#include simulation_management_reliable/RemoveEntityReliablePdu.h"
 
 namespace dis {
 RemoveEntityReliablePdu::RemoveEntityReliablePdu()

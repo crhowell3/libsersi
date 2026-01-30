@@ -3,8 +3,8 @@
 #include <array>
 #include <cstddef>
 
-#include "libsersi/common/Vector3Float.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/Vector3Float.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 constexpr auto kArraySize = 15;

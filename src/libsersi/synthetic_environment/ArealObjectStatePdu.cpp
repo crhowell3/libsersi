@@ -1,4 +1,4 @@
-#include "libsersi/synthetic_environment/ArealObjectStatePdu.h"
+#include synthetic_environment/ArealObjectStatePdu.h"
 
 #include <cstdint>
 

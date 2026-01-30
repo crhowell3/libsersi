@@ -1,9 +1,9 @@
-#include "libsersi/utils/IncomingMessage.h"
+#include utils/IncomingMessage.h"
 
-#include "libsersi/common/Pdu.hpp"
-#include "libsersi/utils/ByteBuffer.hpp"
-#include "libsersi/utils/IPacketProcessor.h"
-#include "libsersi/utils/PduBank.h"
+#include common/Pdu.hpp"
+#include utils/ByteBuffer.hpp"
+#include utils/IPacketProcessor.h"
+#include utils/PduBank.h"
 
 namespace dis {
 // the DIS specification says the type is known for all PDUs at the 3rd byte of

@@ -1,4 +1,4 @@
-#include "libsersi/entity_management/AggregateType.h"
+#include entity_management/AggregateType.h"
 
 namespace dis {
 AggregateType::AggregateType()

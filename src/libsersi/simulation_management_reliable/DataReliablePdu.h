@@ -3,10 +3,10 @@
 #include <cstddef>
 #include <vector>
 
-#include "libsersi/common/FixedDatum.h"
-#include "libsersi/common/VariableDatum.h"
-#include "libsersi/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/FixedDatum.h"
+#include common/VariableDatum.h"
+#include simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.12.10: issued in response to a data query R or set dataR pdu.

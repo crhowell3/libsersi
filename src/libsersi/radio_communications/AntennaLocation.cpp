@@ -1,4 +1,4 @@
-#include "libsersi/radio_communications/AntennaLocation.h"
+#include radio_communications/AntennaLocation.h"
 
 namespace dis {
 AntennaLocation::AntennaLocation() = default;

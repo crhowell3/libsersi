@@ -2,10 +2,10 @@
 
 #include <vector>
 
-#include "libsersi/common/FixedDatum.h"
-#include "libsersi/common/VariableDatum.h"
-#include "libsersi/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/FixedDatum.h"
+#include common/VariableDatum.h"
+#include simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.12.11: reports the occurance of a significatnt event to the

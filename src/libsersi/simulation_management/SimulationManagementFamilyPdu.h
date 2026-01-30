@@ -2,9 +2,9 @@
 
 #include <cstddef>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/Pdu.hpp"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/EntityID.h"
+#include common/Pdu.hpp"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.6. Abstract superclass for PDUs relating to the simulation

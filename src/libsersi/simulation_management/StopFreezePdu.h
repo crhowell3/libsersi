@@ -1,8 +1,8 @@
 #pragma once
 
-#include "libsersi/common/ClockTime.h"
-#include "libsersi/simulation_management/SimulationManagementFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/ClockTime.h"
+#include simulation_management/SimulationManagementFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.3.4. Stop or freeze an exercise. COMPLETE

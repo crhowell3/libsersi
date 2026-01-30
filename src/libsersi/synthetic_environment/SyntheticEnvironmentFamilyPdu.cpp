@@ -1,4 +1,4 @@
-#include "libsersi/synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
+#include synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
 
 namespace dis {
 void SyntheticEnvironmentFamilyPdu::Marshal(ByteBuffer& byte_buffer) const {

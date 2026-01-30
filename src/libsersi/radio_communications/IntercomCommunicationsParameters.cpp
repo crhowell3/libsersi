@@ -1,4 +1,4 @@
-#include "libsersi/radio_communications/IntercomCommunicationsParameters.h"
+#include radio_communications/IntercomCommunicationsParameters.h"
 
 namespace dis {
 IntercomCommunicationsParameters::IntercomCommunicationsParameters()

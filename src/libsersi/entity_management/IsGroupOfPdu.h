@@ -3,10 +3,10 @@
 #include <cstddef>
 #include <vector>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/VariableDatum.h"
-#include "libsersi/entity_management/EntityManagementFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/EntityID.h"
+#include common/VariableDatum.h"
+#include entity_management/EntityManagementFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.9.2 Information about a particular group of entities grouped

@@ -2,12 +2,12 @@
 
 #include <vector>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/EntityType.h"
-#include "libsersi/common/Orientation.h"
-#include "libsersi/synthetic_environment/GridAxisRecord.h"
-#include "libsersi/synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/EntityID.h"
+#include common/EntityType.h"
+#include common/Orientation.h"
+#include synthetic_environment/GridAxisRecord.h"
+#include synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.11.2: Information about globat, spatially varying enviornmental

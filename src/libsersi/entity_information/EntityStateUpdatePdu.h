@@ -2,13 +2,13 @@
 
 #include <vector>
 
-#include "libsersi/common/ArticulationParameter.h"
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/Orientation.h"
-#include "libsersi/common/Vector3Double.h"
-#include "libsersi/common/Vector3Float.h"
-#include "libsersi/entity_information/EntityInformationFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/ArticulationParameter.h"
+#include common/EntityID.h"
+#include common/Orientation.h"
+#include common/Vector3Double.h"
+#include common/Vector3Float.h"
+#include entity_information/EntityInformationFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // 5.3.3.4. Nonstatic information about a particular entity may be communicated

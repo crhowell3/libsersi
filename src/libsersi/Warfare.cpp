@@ -1,6 +1,6 @@
 #include "Warfare.hpp"
 
-#include "libsersi/common/Result.hpp"
+#include common/Result.hpp"
 
 namespace dis {
 Result<void, std::string> FirePdu::Marshal(ByteBuffer& byte_buffer) const {
@@ -38,8 +38,7 @@ std::size_t FirePdu::GetMarshalledSize() const {
   return size;
 }
 
-Result<void, std::string> DetonationPdu::Marshal(
-    ByteBuffer& byte_buffer) const {
+Result<void, std::string> DetonationPdu::Marshal(ByteBuffer& byte_buffer) const {
   if (number_of_articulation_parameters_ != articulation_parameters_.size()) {
     return Result<void, std::string>::Err(
         "number_of_articulation_parameters_ != "
@@ -66,8 +65,7 @@ Result<void, std::string> DetonationPdu::Marshal(
   return Result<void, std::string>::Ok();
 }
 
-Result<void, std::string> DetonationPdu::Unmarshal(
-    ByteBuffer& byte_buffer) {
+Result<void, std::string> DetonationPdu::Unmarshal(ByteBuffer& byte_buffer) {
   TRY(header_.Unmarshal(byte_buffer));
   TRY(firing_entity_id_.Unmarshal(byte_buffer));
   TRY(target_entity_id_.Unmarshal(byte_buffer));
@@ -93,6 +91,104 @@ Result<void, std::string> DetonationPdu::Unmarshal(
 }
 
 std::size_t DetonationPdu::GetMarshalledSize() const {
+  std::size_t size = 0;
+  return size;
+}
+
+Result<void, std::string> DirectedEnergyFirePdu::Marshal(ByteBuffer& byte_buffer) const {
+  TRY(header_.Marshal(byte_buffer));
+  TRY(firing_entity_id_.Marshal(byte_buffer));
+  TRY(event_id_.Marshal(byte_buffer));
+  TRY(munition_type_.Marshal(byte_buffer));
+  TRY(shot_start_time_.Marshal(byte_buffer));
+  byte_buffer << cumulative_shot_time_;
+  TRY(aperture_emitter_location_.Marshal(byte_buffer));
+  byte_buffer << aperture_diameter_;
+  byte_buffer << wavelength_;
+  byte_buffer << padding_;
+  byte_buffer << pulse_repetition_frequency_;
+  byte_buffer << pulse_width_;
+  byte_buffer << flags_;
+  TRY(pulse_shape_.Marshal(byte_buffer));
+  byte_buffer << padding2_;
+  byte_buffer << padding3_;
+  byte_buffer << padding4_;
+  byte_buffer << number_of_de_records_;
+  for (const auto x : damage_descriptions_) {
+    TRY(x.Marshal(byte_buffer));
+  }
+
+  return Result<void, std::string>::Ok();
+}
+
+Result<void, std::string> DirectedEnergyFirePdu::Unmarshal(ByteBuffer& byte_buffer) {
+  TRY(header_.Unmarshal(byte_buffer));
+  TRY(firing_entity_id_.Unmarshal(byte_buffer));
+  TRY(event_id_.Unmarshal(byte_buffer));
+  TRY(munition_type_.Unmarshal(byte_buffer));
+  TRY(shot_start_time_.Unmarshal(byte_buffer));
+  byte_buffer >> cumulative_shot_time_;
+  TRY(aperture_emitter_location_.Unmarshal(byte_buffer));
+  byte_buffer >> aperture_diameter_;
+  byte_buffer >> wavelength_;
+  byte_buffer >> padding_;
+  byte_buffer >> pulse_repetition_frequency_;
+  byte_buffer >> pulse_width_;
+  byte_buffer >> flags_;
+  TRY(pulse_shape_.Unmarshal(byte_buffer));
+  byte_buffer >> padding2_;
+  byte_buffer >> padding3_;
+  byte_buffer >> padding4_;
+  byte_buffer >> number_of_de_records_;
+
+  damage_descriptions_.clear();
+
+  for (std::size_t idx = 0; idx < number_of_de_records_; idx++) {
+    ArticulationParameter x;
+    TRY(x.Unmarshal(byte_buffer));
+    damage_descriptions_.push_back(x);
+  }
+
+  return Result<void, std::string>::Ok();
+}
+
+std::size_t DirectedEnergyFirePdu::GetMarshalledSize() const {
+  std::size_t size = 0;
+  return size;
+}
+
+Result<void, std::string> EntityDamageStatusPdu::Marshal(ByteBuffer& byte_buffer) const {
+  TRY(header_.Marshal(byte_buffer));
+  TRY(damaged_entity_id_.Marshal(byte_buffer));
+  byte_buffer << padding_;
+  byte_buffer << padding2_;
+  byte_buffer << number_of_damage_descriptions_;
+  for (const auto x : damage_descriptions_) {
+    TRY(x.Marshal(byte_buffer));
+  }
+
+  return Result<void, std::string>::Ok();
+}
+
+Result<void, std::string> EntityDamageStatusPdu::Unmarshal(ByteBuffer& byte_buffer) {
+  TRY(header_.Unmarshal(byte_buffer));
+  TRY(damaged_entity_id_.Marshal(byte_buffer));
+  byte_buffer << padding_;
+  byte_buffer << padding2_;
+  byte_buffer << number_of_damage_descriptions_;
+
+  damage_descriptions_.clear();
+
+  for (std::size_t idx = 0; idx < number_of_damage_descriptions_; idx++) {
+    ArticulationParameter x;
+    TRY(x.Unmarshal(byte_buffer));
+    damage_descriptions_.push_back(x);
+  }
+
+  return Result<void, std::string>::Ok();
+}
+
+std::size_t EntityDamageStatusPdu::GetMarshalledSize() const {
   std::size_t size = 0;
   return size;
 }

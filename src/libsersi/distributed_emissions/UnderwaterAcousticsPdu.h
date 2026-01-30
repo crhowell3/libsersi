@@ -3,13 +3,13 @@
 #include <cstddef>
 #include <vector>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/EventID.h"
-#include "libsersi/distributed_emissions/AcousticEmitterSystemData.h"
-#include "libsersi/distributed_emissions/ApaData.h"
-#include "libsersi/distributed_emissions/DistributedEmissionsFamilyPdu.h"
-#include "libsersi/distributed_emissions/ShaftRPMs.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/EntityID.h"
+#include common/EventID.h"
+#include distributed_emissions/AcousticEmitterSystemData.h"
+#include distributed_emissions/ApaData.h"
+#include distributed_emissions/DistributedEmissionsFamilyPdu.h"
+#include distributed_emissions/ShaftRPMs.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.7.3. Information about underwater acoustic emmissions. This

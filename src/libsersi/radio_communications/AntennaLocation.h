@@ -2,9 +2,9 @@
 
 #include <cstddef>
 
-#include "libsersi/common/Vector3Double.h"
-#include "libsersi/common/Vector3Float.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/Vector3Double.h"
+#include common/Vector3Float.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // 5.2.3: location of the radiating portion of the antenna, specified in world

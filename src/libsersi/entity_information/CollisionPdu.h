@@ -1,10 +1,10 @@
 #pragma once
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/EventID.h"
-#include "libsersi/common/Vector3Float.h"
-#include "libsersi/entity_information/EntityInformationFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/EntityID.h"
+#include common/EventID.h"
+#include common/Vector3Float.h"
+#include entity_information/EntityInformationFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.3.2. Information about a collision. COMPLETE

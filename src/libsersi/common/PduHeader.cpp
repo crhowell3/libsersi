@@ -1,4 +1,4 @@
-#include "libsersi/common/PduHeader.hpp"
+#include common/PduHeader.hpp"
 
 namespace dis {
 uint32_t PduHeader::CalculateDISTimestamp() {

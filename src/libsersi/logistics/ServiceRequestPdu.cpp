@@ -1,4 +1,4 @@
-#include "libsersi/logistics/ServiceRequestPdu.h"
+#include logistics/ServiceRequestPdu.h"
 
 namespace dis {
 ServiceRequestPdu::ServiceRequestPdu()

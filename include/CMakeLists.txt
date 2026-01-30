@@ -1,6 +1,7 @@
 # Create list of all headers
-set(protocol_hdrs
-  Warfare.hpp
+file(GLOB_RECURSE protocol_hdrs
+  RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
+  *.hpp
 )
 
 install(FILES ${protocol_hdrs}

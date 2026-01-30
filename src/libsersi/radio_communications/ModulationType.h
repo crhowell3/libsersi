@@ -1,6 +1,6 @@
 #pragma once
 
-#include "libsersi/utils/ByteBuffer.hpp"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Radio modulation

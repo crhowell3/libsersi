@@ -2,10 +2,10 @@
 
 #include <vector>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/RecordSet.h"
-#include "libsersi/entity_management/EntityManagementFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/EntityID.h"
+#include common/RecordSet.h"
+#include entity_management/EntityManagementFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.9.3 Information initiating the dyanic allocation and control of

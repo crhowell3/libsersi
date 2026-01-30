@@ -2,8 +2,8 @@
 
 #include <cstddef>
 
-#include "libsersi/common/Pdu.hpp"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/Pdu.hpp"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.10.1 Abstract superclass for PDUs relating to minefields

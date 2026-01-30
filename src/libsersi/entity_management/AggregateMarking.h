@@ -3,7 +3,7 @@
 #include <array>
 #include <cstddef>
 
-#include "libsersi/utils/ByteBuffer.hpp"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.37. Specifies the character set used inthe first byte, followed

@@ -2,8 +2,8 @@
 
 #include <cstddef>
 
-#include "libsersi/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.12.2: Removal of an entity , reliable. COMPLETE

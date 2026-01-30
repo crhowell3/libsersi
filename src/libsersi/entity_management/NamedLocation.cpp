@@ -1,4 +1,4 @@
-#include "libsersi/entity_management/NamedLocation.h"
+#include entity_management/NamedLocation.h"
 
 namespace dis {
 NamedLocation::NamedLocation() : station_name_(0), station_number_(0) {}

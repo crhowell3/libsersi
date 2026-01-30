@@ -2,12 +2,12 @@
 
 #include <vector>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/EntityType.h"
-#include "libsersi/common/SimulationAddress.h"
-#include "libsersi/common/Vector3Double.h"
-#include "libsersi/synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/EntityID.h"
+#include common/EntityType.h"
+#include common/SimulationAddress.h"
+#include common/Vector3Double.h"
+#include synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.11.5: Information about the addition/modification of an oobject

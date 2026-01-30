@@ -1,4 +1,4 @@
-#include "libsersi/common/SimulationAddress.h"
+#include "common/SimulationAddress.hpp"
 
 namespace dis {
 SimulationAddress::SimulationAddress() : site_(0), application_(0) {}

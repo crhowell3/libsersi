@@ -3,15 +3,15 @@
 #include <cstddef>
 #include <vector>
 
-#include "libsersi/common/ArticulationParameter.h"
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/EntityType.h"
-#include "libsersi/common/Orientation.h"
-#include "libsersi/common/Vector3Double.h"
-#include "libsersi/common/Vector3Float.h"
-#include "libsersi/entity_information/DeadReckoningParameter.h"
-#include "libsersi/common/Pdu.hpp"
-#include "libsersi/entity_information/Marking.h"
+#include common/ArticulationParameter.h"
+#include common/EntityID.h"
+#include common/EntityType.h"
+#include common/Orientation.h"
+#include common/Vector3Double.h"
+#include common/Vector3Float.h"
+#include entity_information/DeadReckoningParameter.h"
+#include common/Pdu.hpp"
+#include entity_information/Marking.h"
 
 namespace dis {
 // Section 5.3.3.1. Represents the postion and state of one entity in the world.

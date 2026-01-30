@@ -3,8 +3,8 @@
 #include <cstdint>
 #include <vector>
 
-#include "libsersi/synthetic_environment/GridAxisRecord.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include synthetic_environment/GridAxisRecord.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // 5.2.44: Grid data record, representation 0

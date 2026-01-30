@@ -1,7 +1,7 @@
 #pragma once
 
-#include "libsersi/common/EntityType.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/EntityType.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.30. A supply, and the amount of that supply. Similar to an entity

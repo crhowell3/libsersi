@@ -1,4 +1,4 @@
-#include "libsersi/synthetic_environment/GridAxisRecord.h"
+#include synthetic_environment/GridAxisRecord.h"
 
 namespace dis {
 GridAxisRecord::GridAxisRecord() : sample_type_(0), data_representation_(0) {}

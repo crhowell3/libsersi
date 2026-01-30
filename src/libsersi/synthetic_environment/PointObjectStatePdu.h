@@ -1,12 +1,12 @@
 #pragma once
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/Orientation.h"
-#include "libsersi/common/SimulationAddress.h"
-#include "libsersi/common/Vector3Double.h"
-#include "libsersi/synthetic_environment/ObjectType.h"
-#include "libsersi/synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/EntityID.h"
+#include common/Orientation.h"
+#include common/SimulationAddress.h"
+#include common/Vector3Double.h"
+#include synthetic_environment/ObjectType.h"
+#include synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.11.3: Inormation abut the addition or modification of a synthecic

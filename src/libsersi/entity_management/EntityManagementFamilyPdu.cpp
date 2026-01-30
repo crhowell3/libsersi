@@ -1,4 +1,4 @@
-#include "libsersi/entity_management/EntityManagementFamilyPdu.h"
+#include entity_management/EntityManagementFamilyPdu.h"
 
 namespace dis {
 void EntityManagementFamilyPdu::Marshal(ByteBuffer& byte_buffer) const {

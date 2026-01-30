@@ -3,8 +3,8 @@
 #include <cstddef>
 #include <cstdint>
 
-#include "libsersi/simulation_management/SimulationManagementFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include simulation_management/SimulationManagementFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.6.5. Acknowledge the receiptof a start/resume, stop/freeze, or

@@ -1,4 +1,4 @@
-#include "libsersi/common/EntityID.h"
+#include common/EntityID.h"
 
 namespace dis {
 EntityID::EntityID() : site_(0), application_(0), entity_(0) {}

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "libsersi/utils/ByteBuffer.hpp"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.40. Information about a geometry, a state associated with a

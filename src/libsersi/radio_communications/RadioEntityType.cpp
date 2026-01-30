@@ -1,4 +1,4 @@
-#include "libsersi/radio_communications/RadioEntityType.h"
+#include radio_communications/RadioEntityType.h"
 
 namespace dis {
 RadioEntityType::RadioEntityType()

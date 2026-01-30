@@ -1,8 +1,8 @@
 #pragma once
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/logistics/LogisticsFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/EntityID.h"
+#include logistics/LogisticsFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.5.6. Sent after repair complete PDU. COMPLETE

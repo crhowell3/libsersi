@@ -1,6 +1,6 @@
 #pragma once
 
-#include "libsersi/utils/ByteBuffer.hpp"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.36. Each agregate in a given simulation app is given an aggregate

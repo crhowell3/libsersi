@@ -1,8 +1,8 @@
 #pragma once
 
-#include "libsersi/common/ClockTime.h"
-#include "libsersi/simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/ClockTime.h"
+#include simulation_management_reliable/SimulationManagementWithReliabilityFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.12.4: Stop freeze simulation, reliable. COMPLETE

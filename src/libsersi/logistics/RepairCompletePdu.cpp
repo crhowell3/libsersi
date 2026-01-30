@@ -1,4 +1,4 @@
-#include "libsersi/logistics/RepairCompletePdu.h"
+#include logistics/RepairCompletePdu.h"
 
 namespace dis {
 RepairCompletePdu::RepairCompletePdu() : repair_(0), padding2_(0) {

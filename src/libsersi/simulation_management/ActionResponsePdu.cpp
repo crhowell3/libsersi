@@ -1,4 +1,4 @@
-#include "libsersi/simulation_management/ActionResponsePdu.h"
+#include simulation_management/ActionResponsePdu.h"
 
 namespace dis {
 ActionResponsePdu::ActionResponsePdu()

@@ -3,13 +3,13 @@
 #include <cstddef>
 #include <vector>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/EntityType.h"
-#include "libsersi/common/Orientation.h"
-#include "libsersi/common/Vector3Double.h"
-#include "libsersi/minefield/MinefieldFamilyPdu.h"
-#include "libsersi/minefield/Point.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/EntityID.h"
+#include common/EntityType.h"
+#include common/Orientation.h"
+#include common/Vector3Double.h"
+#include minefield/MinefieldFamilyPdu.h"
+#include minefield/Point.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.10.1 Abstract superclass for PDUs relating to minefields.

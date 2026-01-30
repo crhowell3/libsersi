@@ -1,9 +1,9 @@
 #pragma once
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/EventID.h"
-#include "libsersi/common/Pdu.hpp"
-#include "libsersi/common/Vector3Float.h"
+#include common/EntityID.h"
+#include common/EventID.h"
+#include common/Pdu.hpp"
+#include common/Vector3Float.h"
 
 namespace dis {
 class CollisionElasticPdu final : public Pdu {

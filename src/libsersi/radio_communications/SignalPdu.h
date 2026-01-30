@@ -3,8 +3,8 @@
 #include <cstdint>
 #include <vector>
 
-#include "libsersi/radio_communications/RadioCommunicationsFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include radio_communications/RadioCommunicationsFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.8.2. Detailed information about a radio transmitter. This PDU

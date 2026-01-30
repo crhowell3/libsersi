@@ -1,4 +1,4 @@
-#include "libsersi/entity_management/IsGroupOfPdu.h"
+#include entity_management/IsGroupOfPdu.h"
 
 namespace dis {
 IsGroupOfPdu::IsGroupOfPdu()

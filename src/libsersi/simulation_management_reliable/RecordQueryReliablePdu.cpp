@@ -1,4 +1,4 @@
-#include "libsersi/simulation_management_reliable/RecordQueryReliablePdu.h"
+#include simulation_management_reliable/RecordQueryReliablePdu.h"
 
 namespace dis {
 RecordQueryReliablePdu::RecordQueryReliablePdu()

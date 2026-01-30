@@ -1,4 +1,4 @@
-#include "libsersi/entity_information/EntityInformationFamilyPdu.h"
+#include entity_information/EntityInformationFamilyPdu.h"
 
 namespace dis {
 

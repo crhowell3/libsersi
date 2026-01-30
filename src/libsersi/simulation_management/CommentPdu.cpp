@@ -1,4 +1,4 @@
-#include "libsersi/simulation_management/CommentPdu.h"
+#include simulation_management/CommentPdu.h"
 
 namespace dis {
 CommentPdu::CommentPdu()

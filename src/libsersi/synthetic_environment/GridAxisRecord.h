@@ -1,6 +1,6 @@
 #pragma once
 
-#include "libsersi/utils/ByteBuffer.hpp"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // 5.2.44: Grid data record, a common abstract superclass for several subtypes

@@ -1,4 +1,4 @@
-#include "libsersi/common/ArticulationParameter.h"
+#include "common/ArticulationParameter.h"
 
 namespace dis {
 

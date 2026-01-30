@@ -2,16 +2,16 @@
 
 #include <vector>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/EntityType.h"
-#include "libsersi/common/Orientation.h"
-#include "libsersi/common/VariableDatum.h"
-#include "libsersi/common/Vector3Double.h"
-#include "libsersi/common/Vector3Float.h"
-#include "libsersi/entity_management/AggregateID.h"
-#include "libsersi/entity_management/AggregateMarking.h"
-#include "libsersi/entity_management/EntityManagementFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/EntityID.h"
+#include common/EntityType.h"
+#include common/Orientation.h"
+#include common/VariableDatum.h"
+#include common/Vector3Double.h"
+#include common/Vector3Float.h"
+#include entity_management/AggregateID.h"
+#include entity_management/AggregateMarking.h"
+#include entity_management/EntityManagementFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.9.1 informationa bout aggregating entities anc communicating

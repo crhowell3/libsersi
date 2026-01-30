@@ -1,4 +1,4 @@
-#include "libsersi/common/EntityType.h"
+#include common/EntityType.h"
 
 namespace dis {
 EntityType::EntityType()

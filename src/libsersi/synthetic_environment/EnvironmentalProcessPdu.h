@@ -2,11 +2,11 @@
 
 #include <vector>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/EntityType.h"
-#include "libsersi/synthetic_environment/Environment.h"
-#include "libsersi/synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/EntityID.h"
+#include common/EntityType.h"
+#include synthetic_environment/Environment.h"
+#include synthetic_environment/SyntheticEnvironmentFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.11.1: Information about environmental effects and processes. This

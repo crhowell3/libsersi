@@ -2,13 +2,13 @@
 
 #include <cstddef>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/common/EntityType.h"
-#include "libsersi/common/Vector3Float.h"
-#include "libsersi/entity_management/EntityManagementFamilyPdu.h"
-#include "libsersi/entity_management/NamedLocation.h"
-#include "libsersi/entity_management/Relationship.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/EntityID.h"
+#include common/EntityType.h"
+#include common/Vector3Float.h"
+#include entity_management/EntityManagementFamilyPdu.h"
+#include entity_management/NamedLocation.h"
+#include entity_management/Relationship.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.9.4 The joining of two or more simulation entities is

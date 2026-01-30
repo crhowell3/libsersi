@@ -2,10 +2,10 @@
 
 #include <vector>
 
-#include "libsersi/common/FixedDatum.h"
-#include "libsersi/common/VariableDatum.h"
-#include "libsersi/simulation_management/SimulationManagementFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/FixedDatum.h"
+#include common/VariableDatum.h"
+#include simulation_management/SimulationManagementFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.6.10. Information issued in response to a data query pdu or a set

@@ -1,4 +1,4 @@
-#include "libsersi/simulation_management/AcknowledgePdu.h"
+#include simulation_management/AcknowledgePdu.h"
 
 namespace dis {
 AcknowledgePdu::AcknowledgePdu()

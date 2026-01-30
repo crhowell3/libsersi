@@ -1,4 +1,4 @@
-#include "libsersi/entity_information/EntityStatePdu.h"
+#include entity_information/EntityStatePdu.h"
 
 namespace dis {
 EntityStatePdu::EntityStatePdu()

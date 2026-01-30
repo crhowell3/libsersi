@@ -1,4 +1,4 @@
-#include "libsersi/logistics/SupplyQuantity.h"
+#include logistics/SupplyQuantity.h"
 
 namespace dis {
 SupplyQuantity::SupplyQuantity() : quantity_(0) {}

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "libsersi/utils/ByteBuffer.hpp"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.2.38. Identifies the type of aggregate including kind of entity,

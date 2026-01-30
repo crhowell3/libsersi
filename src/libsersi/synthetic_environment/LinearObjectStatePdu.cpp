@@ -1,4 +1,4 @@
-#include "libsersi/synthetic_environment/LinearObjectStatePdu.h"
+#include synthetic_environment/LinearObjectStatePdu.h"
 
 namespace dis {
 LinearObjectStatePdu::LinearObjectStatePdu()

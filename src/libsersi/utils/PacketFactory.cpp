@@ -1,8 +1,8 @@
-#include "libsersi/utils/PacketFactory.h"
+#include utils/PacketFactory.h"
 
 #include <cstdlib>
 
-#include "libsersi/common/Pdu.hpp"
+#include common/Pdu.hpp"
 
 namespace dis {
 Pdu* PacketFactory::CreatePacket(uint8_t id) {

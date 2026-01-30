@@ -1,4 +1,4 @@
-#include "libsersi/synthetic_environment/EnvironmentalProcessPdu.h"
+#include synthetic_environment/EnvironmentalProcessPdu.h"
 
 namespace dis {
 EnvironmentalProcessPdu::EnvironmentalProcessPdu()

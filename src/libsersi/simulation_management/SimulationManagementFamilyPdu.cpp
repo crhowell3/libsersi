@@ -1,4 +1,4 @@
-#include "libsersi/simulation_management/SimulationManagementFamilyPdu.h"
+#include simulation_management/SimulationManagementFamilyPdu.h"
 
 namespace dis {
 EntityID& SimulationManagementFamilyPdu::GetOriginatingEntityId() {

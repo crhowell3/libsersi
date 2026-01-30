@@ -1,4 +1,4 @@
-#include "libsersi/logistics/ResupplyReceivedPdu.h"
+#include logistics/ResupplyReceivedPdu.h"
 
 #include <cstddef>
 

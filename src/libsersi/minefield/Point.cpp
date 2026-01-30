@@ -1,4 +1,4 @@
-#include "libsersi/minefield/Point.h"
+#include minefield/Point.h"
 
 #include <cstddef>
 

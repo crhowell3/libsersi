@@ -1,4 +1,4 @@
-#include "libsersi/simulation_management_reliable/DataQueryReliablePdu.h"
+#include simulation_management_reliable/DataQueryReliablePdu.h"
 
 namespace dis {
 DataQueryReliablePdu::DataQueryReliablePdu()

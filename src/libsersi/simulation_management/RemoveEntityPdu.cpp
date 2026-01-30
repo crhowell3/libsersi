@@ -1,4 +1,4 @@
-#include "libsersi/simulation_management/RemoveEntityPdu.h"
+#include simulation_management/RemoveEntityPdu.h"
 
 namespace dis {
 RemoveEntityPdu::RemoveEntityPdu() : request_id_(0) { SetPduType(12); }

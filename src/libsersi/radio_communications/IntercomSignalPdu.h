@@ -3,9 +3,9 @@
 #include <cstdint>
 #include <vector>
 
-#include "libsersi/common/EntityID.h"
-#include "libsersi/radio_communications/RadioCommunicationsFamilyPdu.h"
-#include "libsersi/utils/ByteBuffer.hpp"
+#include common/EntityID.h"
+#include radio_communications/RadioCommunicationsFamilyPdu.h"
+#include utils/ByteBuffer.hpp"
 
 namespace dis {
 // Section 5.3.8.4. Actual transmission of intercome voice data. COMPLETE

@@ -1,4 +1,4 @@
-#include "libsersi/radio_communications/RadioCommunicationsFamilyPdu.h"
+#include radio_communications/RadioCommunicationsFamilyPdu.h"
 
 namespace dis {
 EntityID& RadioCommunicationsFamilyPdu::GetEntityId() { return entity_id_; }
